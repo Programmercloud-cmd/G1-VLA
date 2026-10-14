@@ -1,0 +1,882 @@
+{
+  "schema_version": 1,
+  "run": "pilot-fit-no-state-dropout-v1",
+  "status": "completed_and_archived",
+  "implementation_commit": "7256f2f7a930ce73bbd3aeaf5d597ab491ef7437",
+  "assessment": {
+    "training_reload_evaluation_passed": true,
+    "comparison_integrity_passed": true,
+    "acceptance_passed": false,
+    "all_window_checks_passed": 8,
+    "all_window_checks_total": 8,
+    "changing_target_checks_passed": 0,
+    "changing_target_checks_total": 8,
+    "all_groups_improved_checkpoint_512": true,
+    "beats_persistence": false,
+    "deployment_candidate": false,
+    "held_out_evaluation_performed": false,
+    "robot_trial_performed": false
+  },
+  "dataset": {
+    "episodes": [
+      "0037",
+      "0040",
+      "0042",
+      "0046",
+      "0047"
+    ],
+    "frames": 2116,
+    "camera_count": 1,
+    "action_dimension": 26,
+    "horizon": 16,
+    "snapshot_manifest_sha256": "4fefddb84a73f7c1167b1f2a1dc58c076426012a9b90411e353071c320457144",
+    "converted_files_sha256": {
+      "data/chunk-000/episode_000000.parquet": "7258f240f76bff7343093c58dee517cf92b15776238d68bcc0f4e02243121a03",
+      "data/chunk-000/episode_000001.parquet": "bce386664802cf721533b04d2cc58be43bb41a6fb0b84248da56bc9f9a8d9a84",
+      "data/chunk-000/episode_000002.parquet": "fa9a6903f167e0f1fa05cfa985a1a83ec85f9cdcdd85fb38c4a4b23044d1f6a8",
+      "data/chunk-000/episode_000003.parquet": "1f6282c767be95f54fc88ae8644e0018e631cb57f462aeaeffa8d20ffb37344a",
+      "data/chunk-000/episode_000004.parquet": "988abde73b0528e5c3628076f73faee91147e35dff38598c818eae5799ce7326",
+      "meta/episodes.jsonl": "c1634a809b76b3e38ca4201a07656fabecf75de18435ef8dd481a6d2703e611a",
+      "meta/episodes_stats.jsonl": "ce38d52adc0572b26b92c0b91a560d874cb87c8377c7994c1e930d2ee88235e3",
+      "meta/info.json": "ffb76a43e2263670a1f175b92110e24b142cce1893e9b4e489b6755fc991c894",
+      "meta/modality.json": "be9aae54df97c467072d0158272db450dc3afed9cb9a301a71f40b9b68a13eef",
+      "meta/relative_stats.json": "228ff2cc8502634fa384a6df5afdc2c5927c1c34d655bc32a08c2fede8e6e4ac",
+      "meta/stats.json": "32e25d0dae9924a57f10bd82f1fd7eacfe3398f7f3f60b79e3bdd86e2dd16070",
+      "meta/tasks.jsonl": "22f05d8b64f62ef28c2c28dd620fde0990fb7e85e98698702eace8604d84d821",
+      "videos/chunk-000/observation.images.cam_left_high/episode_000000.mp4": "e28d496fd7e62eb40deb108ddab8120075395edffc548159d952a723837d7d64",
+      "videos/chunk-000/observation.images.cam_left_high/episode_000001.mp4": "5897a32423ba17f8870cd37a19ace22b4b38866e0ac1a490fa1182e846bd111a",
+      "videos/chunk-000/observation.images.cam_left_high/episode_000002.mp4": "d2234cc5572d66d06c42c7fb9afe5a21e67910d563778aa491b9d2bb1ff71e7f",
+      "videos/chunk-000/observation.images.cam_left_high/episode_000003.mp4": "2a0e2cbca72990f8bf8c70e00da139e17276caf697156a52f966be3d2925b551",
+      "videos/chunk-000/observation.images.cam_left_high/episode_000004.mp4": "a6b225f8c78e72e48dfbc92c7d21083d38f0f3c6400be667ba8a46172ae14af7"
+    }
+  },
+  "recipe": {
+    "seed": 42,
+    "microbatch": 1,
+    "accumulation": 8,
+    "max_steps": 1024,
+    "expected_training_examples": 8192,
+    "timeout_seconds": 21600,
+    "learning_rate": 0.0001,
+    "warmup_ratio": 0.05,
+    "state_dropout_prob": 0.0,
+    "dataloader_workers": 0,
+    "shard_size": 256,
+    "episode_sampling_rate": 1.0,
+    "num_shards_per_epoch": 5,
+    "tune_llm": false,
+    "tune_visual": false,
+    "tune_projector": true,
+    "tune_diffusion_model": true,
+    "tune_vlln": true,
+    "tune_vlln_meaning": "Action-head feature LayerNorm; vision/language backbones remain frozen.",
+    "save_only_model": true,
+    "initialization": {
+      "ref": "archive:checkpoints/pilot-fit-v1/checkpoint-512",
+      "checkpoint_files_sha256": {
+        "config.json": "6e9b72bc2372383af27599811e944b7aa72d0537bf06764aff32f7c5a0d53e4a",
+        "embodiment_id.json": "5e8611697dc90b7b7a92cf2a8da926275c16f5966c5eb109e0216c3c51af15a1",
+        "experiment_cfg/conf.yaml": "f42c015c6d236b638de8994cdad6d9f7e5d2ffaf7124115c54c84ae79223b731",
+        "experiment_cfg/config.yaml": "2c728c42bc0c0e3af1a3ea764d190909e6901e9e97c715a4d2cbd763ed97d0b2",
+        "experiment_cfg/dataset_statistics.json": "49ab79be164795a08f27c8e4c17efdad4a690331a70abe6e39a7889825efd254",
+        "experiment_cfg/final_model_config.json": "ee01ded3e8d98c1cfc8e37f227afe21dfbca11d8aaa56cffef4ae0ad51dea217",
+        "experiment_cfg/final_processor_config.json": "24a6fdbaa6515934345ee7191e41b5ae6518689ce129b4b81c7ab5cbb2988d7b",
+        "model-00001-of-00003.safetensors": "cbcaea5ee88f1e0f1465043920a2647c67e7de17d24adfd1c477742a6168edec",
+        "model-00002-of-00003.safetensors": "666372cc60be0139ec25a39188e732dd28cb0c0cbb5c6b3590f8ebe9564d19bf",
+        "model-00003-of-00003.safetensors": "a9e3539c4d1b89a021e22631f65e6d7a7a3f8a107d71fc0f8c4026ee46a7cc77",
+        "model.safetensors.index.json": "12117379d91d029c5979a585d07ba794001730c9516d6de5512e3dedfee30730",
+        "processor_config.json": "45540ae3b4f8950442dc241e905f1310607fca9849f58343d5fb3942e90f5776",
+        "statistics.json": "3dd8e49347dea635d91dc1179ca3545a8b0e152cf8442b601a8c72b51e249e81",
+        "trainer_state.json": "0303a545f1e8791c1bf299c39884acfda2324b286d4770bdaed6417e9317345c",
+        "training_args.bin": "88aec1573d5c4e56787c34db124b0df37d49ea2a5370fbec1e166354e995ac00",
+        "wandb_config.json": "7356397751d7c78f08077050555093bff9fd115f7319216b93b220ddd5c39df0"
+      },
+      "archive_binding": {
+        "path": "experiments/pilot-fit-v1/artifacts.json",
+        "sha256": "98ec40ab108219c0c39d4ab0180a10735d10ab0d3eca1806a620834bb2af66dd"
+      }
+    },
+    "source_updates": 512,
+    "additional_updates": 1024,
+    "cumulative_updates": 1536,
+    "optimizer_state": "fresh",
+    "scheduler_state": "fresh"
+  },
+  "training": {
+    "elapsed_seconds": 1678.3383466140003,
+    "sampled_peak_gpu_mib": 38762,
+    "min_available_host_gib": 71.23991775512695,
+    "min_output_free_gib": 16.00661849975586,
+    "finite_audit": {
+      "passed": true,
+      "micro_losses_observed": 8192,
+      "gradient_updates_observed": 1024,
+      "optimizer_updates_observed": 1024,
+      "first_window_mean_loss": 0.9833456102758646,
+      "last_window_mean_loss": 0.5688776493072509,
+      "loss_window_microbatches": 160,
+      "last_step": 1024
+    },
+    "checkpoint_bytes": 12583367834,
+    "total_output_bytes": 25166720840,
+    "warm_start_checks": {
+      "passed": true,
+      "events": {
+        "initial_checkpoint_verified": [
+          {
+            "event": "initial_checkpoint_verified",
+            "passed": true,
+            "files": 16
+          }
+        ],
+        "warm_start_runtime": [
+          {
+            "event": "warm_start_runtime",
+            "passed": true,
+            "state_dropout_prob": {
+              "training_config": 0.0,
+              "model_config": 0.0,
+              "action_head": 0.0,
+              "processor": 0.0
+            },
+            "seed": 42,
+            "resume_from_checkpoint": false,
+            "additional_updates": 1024,
+            "cumulative_updates": 1536
+          }
+        ],
+        "warm_start_optimizer": [
+          {
+            "event": "warm_start_optimizer",
+            "passed": true,
+            "initial_step": 0,
+            "optimizer_state_entries": 0,
+            "initial_scheduler_epoch": 0,
+            "elapsed_seconds": 13.483858079998754
+          }
+        ]
+      },
+      "source_updates": 512,
+      "additional_updates": 1024,
+      "cumulative_updates": 1536
+    }
+  },
+  "reload": {
+    "checkpoint_global_step": 1024,
+    "source_sha256": "b28bfa8bfdd84e7c5476f7ac24f6404c6c3310b2d9a73008ace8282504bcb7ea",
+    "fresh_process": true,
+    "offline": true,
+    "action_shape": [
+      16,
+      26
+    ],
+    "dtype": "float32",
+    "finite": true,
+    "output_semantics": "absolute, decoded by the saved GR00T processor",
+    "loading_seconds": 9.493814674999157,
+    "first_inference_seconds": 0.5682852459976857,
+    "statistics_sha256": "3dd8e49347dea635d91dc1179ca3545a8b0e152cf8442b601a8c72b51e249e81"
+  },
+  "evaluation": {
+    "sample_count": 100,
+    "inferences": 300,
+    "seeds": [
+      42,
+      43,
+      44
+    ],
+    "horizon": 16,
+    "denoising_steps": 4,
+    "training_set_only": true,
+    "elapsed_seconds": 57.29999481499908,
+    "sample_manifest_sha256": "04cf0414ce4c4f21ceb263dfc7797b1dd23ffd7a88129dcfb98c1005d8e1f232",
+    "processor_semantics_sha256": "5b3a1c6cec51bbd112fa9080c09243bed291c4868be935ec847a69bc00c973c1",
+    "model_config_semantics_sha256": "72c4778c2f9a3a3b4f0265835079cabc75b01b709a8d7365c74f3ddd38b541d5",
+    "statistics_sha256": "3dd8e49347dea635d91dc1179ca3545a8b0e152cf8442b601a8c72b51e249e81",
+    "normalized_error_definition": "2*(decoded absolute prediction-absolute target)/(saved action max-min), without additional clipping. np.isclose(max,min) dimensions excluded only from normalized metrics; retained in native-unit errors.",
+    "groups": {
+      "left_arm": {
+        "unit": "radians",
+        "all": {
+          "sample_count": 100,
+          "two_step": {
+            "mae": 0.20080897212028503,
+            "normalized_mae": 0.7187734118420254
+          },
+          "checkpoint_512": {
+            "mae": 0.1781967133283615,
+            "normalized_mae": 0.6288598080914685
+          },
+          "candidate": {
+            "mae": 0.14876559376716614,
+            "normalized_mae": 0.5294757444897745
+          },
+          "persistence": {
+            "mae": 0.07687907665967941,
+            "normalized_mae": 0.2836402249801964
+          },
+          "improvement_vs_checkpoint_512_percent": {
+            "mae": 16.516084394308052,
+            "normalized_mae": 15.803850448530875
+          }
+        },
+        "changing_target": {
+          "sample_count": 75,
+          "two_step": {
+            "mae": 0.20248451828956604,
+            "normalized_mae": 0.7224111688026355
+          },
+          "checkpoint_512": {
+            "mae": 0.17821285128593445,
+            "normalized_mae": 0.6292897032558324
+          },
+          "candidate": {
+            "mae": 0.14851561188697815,
+            "normalized_mae": 0.5289510444475348
+          },
+          "persistence": {
+            "mae": 0.08367772400379181,
+            "normalized_mae": 0.303388962427075
+          },
+          "improvement_vs_checkpoint_512_percent": {
+            "mae": 16.663915752803046,
+            "normalized_mae": 15.944748227908915
+          }
+        },
+        "small_target_change": {
+          "sample_count": 25,
+          "two_step": {
+            "mae": 0.19578240811824799,
+            "normalized_mae": 0.707860140960195
+          },
+          "checkpoint_512": {
+            "mae": 0.17814823985099792,
+            "normalized_mae": 0.6275701225983763
+          },
+          "candidate": {
+            "mae": 0.1495155245065689,
+            "normalized_mae": 0.5310498446164937
+          },
+          "persistence": {
+            "mae": 0.056483130902051926,
+            "normalized_mae": 0.22439401263956057
+          },
+          "improvement_vs_checkpoint_512_percent": {
+            "mae": 16.07240990333513,
+            "normalized_mae": 15.379998904704438
+          }
+        }
+      },
+      "right_arm": {
+        "unit": "radians",
+        "all": {
+          "sample_count": 100,
+          "two_step": {
+            "mae": 0.1823980063199997,
+            "normalized_mae": 0.6983822867279105
+          },
+          "checkpoint_512": {
+            "mae": 0.15281297266483307,
+            "normalized_mae": 0.5837927276267624
+          },
+          "candidate": {
+            "mae": 0.13054759800434113,
+            "normalized_mae": 0.5043895117173102
+          },
+          "persistence": {
+            "mae": 0.07877963781356812,
+            "normalized_mae": 0.3177848467501883
+          },
+          "improvement_vs_checkpoint_512_percent": {
+            "mae": 14.570343258308911,
+            "normalized_mae": 13.601268421455442
+          }
+        },
+        "changing_target": {
+          "sample_count": 88,
+          "two_step": {
+            "mae": 0.18331989645957947,
+            "normalized_mae": 0.7010816070520008
+          },
+          "checkpoint_512": {
+            "mae": 0.1520323008298874,
+            "normalized_mae": 0.5809727050709433
+          },
+          "candidate": {
+            "mae": 0.12984682619571686,
+            "normalized_mae": 0.5014586134700405
+          },
+          "persistence": {
+            "mae": 0.07779587060213089,
+            "normalized_mae": 0.3102738794164931
+          },
+          "improvement_vs_checkpoint_512_percent": {
+            "mae": 14.592605987719935,
+            "normalized_mae": 13.68637302697263
+          }
+        },
+        "small_target_change": {
+          "sample_count": 12,
+          "two_step": {
+            "mae": 0.175637349486351,
+            "normalized_mae": 0.6785872710179153
+          },
+          "checkpoint_512": {
+            "mae": 0.1585380584001541,
+            "normalized_mae": 0.6044728930361031
+          },
+          "candidate": {
+            "mae": 0.13568657636642456,
+            "normalized_mae": 0.5258827655306204
+          },
+          "persistence": {
+            "mae": 0.0859939306974411,
+            "normalized_mae": 0.3728652738639526
+          },
+          "improvement_vs_checkpoint_512_percent": {
+            "mae": 14.413877818568857,
+            "normalized_mae": 13.001431232217183
+          }
+        }
+      },
+      "left_hand": {
+        "unit": "normalized hand command",
+        "all": {
+          "sample_count": 100,
+          "two_step": {
+            "mae": 0.10675789415836334,
+            "normalized_mae": 0.9031459326339284
+          },
+          "checkpoint_512": {
+            "mae": 0.058580800890922546,
+            "normalized_mae": 0.4804453277870292
+          },
+          "candidate": {
+            "mae": 0.04875446483492851,
+            "normalized_mae": 0.39453445649054186
+          },
+          "persistence": {
+            "mae": 0.011148561723530293,
+            "normalized_mae": 0.09782443280226441
+          },
+          "improvement_vs_checkpoint_512_percent": {
+            "mae": 16.773987222009257,
+            "normalized_mae": 17.881508327326213
+          }
+        },
+        "changing_target": {
+          "sample_count": 67,
+          "two_step": {
+            "mae": 0.10660761594772339,
+            "normalized_mae": 0.8983712043219827
+          },
+          "checkpoint_512": {
+            "mae": 0.05901220440864563,
+            "normalized_mae": 0.4817586729813188
+          },
+          "candidate": {
+            "mae": 0.0492960549890995,
+            "normalized_mae": 0.4000682800610021
+          },
+          "persistence": {
+            "mae": 0.01422841101884842,
+            "normalized_mae": 0.12518164758334252
+          },
+          "improvement_vs_checkpoint_512_percent": {
+            "mae": 16.464644079831483,
+            "normalized_mae": 16.9567041553779
+          }
+        },
+        "small_target_change": {
+          "sample_count": 33,
+          "two_step": {
+            "mae": 0.10706298798322678,
+            "normalized_mae": 0.912840077994546
+          },
+          "checkpoint_512": {
+            "mae": 0.05770491808652878,
+            "normalized_mae": 0.47777883905922885
+          },
+          "candidate": {
+            "mae": 0.047654878348112106,
+            "normalized_mae": 0.3832991177262742
+          },
+          "persistence": {
+            "mae": 0.004895535763353109,
+            "normalized_mae": 0.04228099673159071
+          },
+          "improvement_vs_checkpoint_512_percent": {
+            "mae": 17.416262030467824,
+            "normalized_mae": 19.774781469809362
+          }
+        }
+      },
+      "right_hand": {
+        "unit": "normalized hand command",
+        "all": {
+          "sample_count": 100,
+          "two_step": {
+            "mae": 0.12253166735172272,
+            "normalized_mae": 0.7603526416345421
+          },
+          "checkpoint_512": {
+            "mae": 0.08434949070215225,
+            "normalized_mae": 0.5582499707658737
+          },
+          "candidate": {
+            "mae": 0.07246250659227371,
+            "normalized_mae": 0.47776733975844127
+          },
+          "persistence": {
+            "mae": 0.011908993124961853,
+            "normalized_mae": 0.08845290105430277
+          },
+          "improvement_vs_checkpoint_512_percent": {
+            "mae": 14.092538094690871,
+            "normalized_mae": 14.416952122185833
+          }
+        },
+        "changing_target": {
+          "sample_count": 70,
+          "two_step": {
+            "mae": 0.12265107780694962,
+            "normalized_mae": 0.7610534197574103
+          },
+          "checkpoint_512": {
+            "mae": 0.08463732898235321,
+            "normalized_mae": 0.5591444409547378
+          },
+          "candidate": {
+            "mae": 0.07263536006212234,
+            "normalized_mae": 0.47793401925905665
+          },
+          "persistence": {
+            "mae": 0.014904525130987167,
+            "normalized_mae": 0.10959792888646669
+          },
+          "improvement_vs_checkpoint_512_percent": {
+            "mae": 14.180467489390246,
+            "normalized_mae": 14.52405062938917
+          }
+        },
+        "small_target_change": {
+          "sample_count": 30,
+          "two_step": {
+            "mae": 0.12225305289030075,
+            "normalized_mae": 0.7587174926811829
+          },
+          "checkpoint_512": {
+            "mae": 0.08367785811424255,
+            "normalized_mae": 0.5561628736585239
+          },
+          "candidate": {
+            "mae": 0.07205915451049805,
+            "normalized_mae": 0.47737842092367205
+          },
+          "persistence": {
+            "mae": 0.004919418133795261,
+            "normalized_mae": 0.03911450277925364
+          },
+          "improvement_vs_checkpoint_512_percent": {
+            "mae": 13.885039442431573,
+            "normalized_mae": 14.165715919977856
+          }
+        }
+      }
+    },
+    "subset_method": "For each joint, peak-to-peak absolute ground-truth target within the 16-frame horizon divided by the maximum saved action normalization span over that horizon; take the maximum across nonconstant joints within each group and select scores > 0.05. This measures changing target commands, not state-action offset or semantic task phase.",
+    "subset_threshold": 0.05,
+    "acceptance": {
+      "passed": false,
+      "rules": {
+        "groups": [
+          "left_arm",
+          "right_arm",
+          "left_hand",
+          "right_hand"
+        ],
+        "metrics": [
+          "mae",
+          "normalized_mae"
+        ],
+        "changing_target": {
+          "reference": "persistence",
+          "minimum_relative_improvement": 0.1,
+          "comparison": "candidate <= 0.9 * persistence"
+        },
+        "all_windows": {
+          "reference": "checkpoint_512",
+          "comparison": "candidate <= checkpoint_512",
+          "aggregation": "Each group averaged over all 100 windows, three seeds, horizon and group joints"
+        },
+        "combination": "All eight changing-target and all eight all-window checks must pass",
+        "invalid_or_empty_subset": "fail; no missing, nonfinite or zero persistence denominator is accepted"
+      },
+      "checks": [
+        {
+          "group": "left_arm",
+          "subset": "changing_target",
+          "metric": "mae",
+          "reference": "persistence",
+          "candidate": 0.14851561188697815,
+          "reference_value": 0.08367772400379181,
+          "maximum_candidate_value": 0.07530995160341263,
+          "passed": false
+        },
+        {
+          "group": "left_arm",
+          "subset": "all",
+          "metric": "mae",
+          "reference": "checkpoint_512",
+          "candidate": 0.14876559376716614,
+          "reference_value": 0.1781967133283615,
+          "maximum_candidate_value": 0.1781967133283615,
+          "passed": true
+        },
+        {
+          "group": "left_arm",
+          "subset": "changing_target",
+          "metric": "normalized_mae",
+          "reference": "persistence",
+          "candidate": 0.5289510444475348,
+          "reference_value": 0.303388962427075,
+          "maximum_candidate_value": 0.27305006618436756,
+          "passed": false
+        },
+        {
+          "group": "left_arm",
+          "subset": "all",
+          "metric": "normalized_mae",
+          "reference": "checkpoint_512",
+          "candidate": 0.5294757444897745,
+          "reference_value": 0.6288598080914685,
+          "maximum_candidate_value": 0.6288598080914685,
+          "passed": true
+        },
+        {
+          "group": "right_arm",
+          "subset": "changing_target",
+          "metric": "mae",
+          "reference": "persistence",
+          "candidate": 0.12984682619571686,
+          "reference_value": 0.07779587060213089,
+          "maximum_candidate_value": 0.0700162835419178,
+          "passed": false
+        },
+        {
+          "group": "right_arm",
+          "subset": "all",
+          "metric": "mae",
+          "reference": "checkpoint_512",
+          "candidate": 0.13054759800434113,
+          "reference_value": 0.15281297266483307,
+          "maximum_candidate_value": 0.15281297266483307,
+          "passed": true
+        },
+        {
+          "group": "right_arm",
+          "subset": "changing_target",
+          "metric": "normalized_mae",
+          "reference": "persistence",
+          "candidate": 0.5014586134700405,
+          "reference_value": 0.3102738794164931,
+          "maximum_candidate_value": 0.2792464914748438,
+          "passed": false
+        },
+        {
+          "group": "right_arm",
+          "subset": "all",
+          "metric": "normalized_mae",
+          "reference": "checkpoint_512",
+          "candidate": 0.5043895117173102,
+          "reference_value": 0.5837927276267624,
+          "maximum_candidate_value": 0.5837927276267624,
+          "passed": true
+        },
+        {
+          "group": "left_hand",
+          "subset": "changing_target",
+          "metric": "mae",
+          "reference": "persistence",
+          "candidate": 0.0492960549890995,
+          "reference_value": 0.01422841101884842,
+          "maximum_candidate_value": 0.012805569916963577,
+          "passed": false
+        },
+        {
+          "group": "left_hand",
+          "subset": "all",
+          "metric": "mae",
+          "reference": "checkpoint_512",
+          "candidate": 0.04875446483492851,
+          "reference_value": 0.058580800890922546,
+          "maximum_candidate_value": 0.058580800890922546,
+          "passed": true
+        },
+        {
+          "group": "left_hand",
+          "subset": "changing_target",
+          "metric": "normalized_mae",
+          "reference": "persistence",
+          "candidate": 0.4000682800610021,
+          "reference_value": 0.12518164758334252,
+          "maximum_candidate_value": 0.11266348282500827,
+          "passed": false
+        },
+        {
+          "group": "left_hand",
+          "subset": "all",
+          "metric": "normalized_mae",
+          "reference": "checkpoint_512",
+          "candidate": 0.39453445649054186,
+          "reference_value": 0.4804453277870292,
+          "maximum_candidate_value": 0.4804453277870292,
+          "passed": true
+        },
+        {
+          "group": "right_hand",
+          "subset": "changing_target",
+          "metric": "mae",
+          "reference": "persistence",
+          "candidate": 0.07263536006212234,
+          "reference_value": 0.014904525130987167,
+          "maximum_candidate_value": 0.013414072617888451,
+          "passed": false
+        },
+        {
+          "group": "right_hand",
+          "subset": "all",
+          "metric": "mae",
+          "reference": "checkpoint_512",
+          "candidate": 0.07246250659227371,
+          "reference_value": 0.08434949070215225,
+          "maximum_candidate_value": 0.08434949070215225,
+          "passed": true
+        },
+        {
+          "group": "right_hand",
+          "subset": "changing_target",
+          "metric": "normalized_mae",
+          "reference": "persistence",
+          "candidate": 0.47793401925905665,
+          "reference_value": 0.10959792888646669,
+          "maximum_candidate_value": 0.09863813599782002,
+          "passed": false
+        },
+        {
+          "group": "right_hand",
+          "subset": "all",
+          "metric": "normalized_mae",
+          "reference": "checkpoint_512",
+          "candidate": 0.47776733975844127,
+          "reference_value": 0.5582499707658737,
+          "maximum_candidate_value": 0.5582499707658737,
+          "passed": true
+        }
+      ],
+      "failed_checks": [
+        "left_arm/changing_target/mae",
+        "left_arm/changing_target/normalized_mae",
+        "right_arm/changing_target/mae",
+        "right_arm/changing_target/normalized_mae",
+        "left_hand/changing_target/mae",
+        "left_hand/changing_target/normalized_mae",
+        "right_hand/changing_target/mae",
+        "right_hand/changing_target/normalized_mae"
+      ]
+    }
+  },
+  "provenance": {
+    "model_revisions": {
+      "nvidia/GR00T-N1.7-3B": "2fc962b973bccdd5d8ce4f67cc63b264d6886495",
+      "nvidia/Cosmos-Reason2-2B": "9ce19a195e423419c349abfc86fd07178b230561"
+    },
+    "source_lock_sha256": "df5e2c183582c79d219482e6b2095f2428195ff321f847c6fa4d778d3d77bbc8",
+    "model_lock_sha256": "48a2fc87bdb9bdb3ede682c9bc647743121ca7457bc6b1a3e111a56bf7c781fc",
+    "training_script_sha256": {
+      "scripts/run_gr00t_pilot.py": "0061c1cea0944b6ea292fe51f17b1305ee64aeb9dc324c2c70b61ca08faa39b0",
+      "scripts/evaluate_gr00t_pilot.py": "caef58473a88f17b3424e75ff3cffdad440b19c2be6081d143fa224226a8f0ab",
+      "scripts/run_gr00t_smoke.py": "84342cc4a7a090060f019e54b2c1873c9af1d4c7a322a0f10aee107f8de65bab",
+      "scripts/convert_single_camera.py": "1427f3551d38477e6d63456bebd8241265a91a2ed19957b20184de4c2bc6e2a8",
+      "scripts/project_config.py": "407df6bb25c7a96a17b03ad2b97756f51189d7d1f4bdf6befb7ec94f3ec4f418",
+      "configs/g1_inspire_config.py": "39f1311a6640420d2f1285d9c1c242ff66413d40c8fd64e518a854e36ca9c0b5",
+      "configs/modality.json": "be9aae54df97c467072d0158272db450dc3afed9cb9a301a71f40b9b68a13eef"
+    },
+    "upstream_source_sha256": {
+      "vendor/Isaac-GR00T/gr00t/experiment/launch_finetune.py": "5f259a9453957fb08d21e7a0ec5febd29c986cdb7e031ee2a4573628bfc30852",
+      "vendor/Isaac-GR00T/gr00t/experiment/experiment.py": "d57c43642cd3ea366b53c5e2904562466ce640d553b77df14c75bbd2a273a99c",
+      "vendor/Isaac-GR00T/gr00t/model/gr00t_n1d7/setup.py": "5212755cf18c1147206408e7250576b27504a6bd3af6402d9cd7f011b2cfd31a",
+      "vendor/Isaac-GR00T/gr00t/model/gr00t_n1d7/gr00t_n1d7.py": "6bd66ef768f1484ac5a7889c40358a599f1862b1d554d47d357e113f2f96501c",
+      "vendor/Isaac-GR00T/gr00t/model/gr00t_n1d7/processing_gr00t_n1d7.py": "77fd0e1f6972cdcf0334f18f2e84724629f6746612721b6b27135ccb23f00b3f"
+    },
+    "evaluation_script_sha256": {
+      "scripts/evaluate_gr00t_pilot.py": "caef58473a88f17b3424e75ff3cffdad440b19c2be6081d143fa224226a8f0ab",
+      "scripts/project_config.py": "407df6bb25c7a96a17b03ad2b97756f51189d7d1f4bdf6befb7ec94f3ec4f418",
+      "scripts/convert_single_camera.py": "1427f3551d38477e6d63456bebd8241265a91a2ed19957b20184de4c2bc6e2a8",
+      "scripts/run_gr00t_smoke.py": "84342cc4a7a090060f019e54b2c1873c9af1d4c7a322a0f10aee107f8de65bab"
+    },
+    "comparison_script_sha256": {
+      "scripts/compare_pilot_temporal_change.py": "8df5ab45285eaeaba5e7fc072028a3d3e42ee9acd46e6a92100754b3c8114abd",
+      "scripts/evaluate_gr00t_pilot.py": "caef58473a88f17b3424e75ff3cffdad440b19c2be6081d143fa224226a8f0ab",
+      "scripts/project_config.py": "407df6bb25c7a96a17b03ad2b97756f51189d7d1f4bdf6befb7ec94f3ec4f418"
+    },
+    "evaluation_protocol": {
+      "path": "experiments/pilot-fit-no-state-dropout-v1/evaluation-protocol.json",
+      "sha256": "fd5fec3f0db608ad18dc43fc95501a6fdf39a0f006bac6db05fb2f5a8d0b8cc3"
+    },
+    "frozen_input_bindings": {
+      "baseline_report": {
+        "path": "reports/pilot-fit-v1-baseline.json",
+        "sha256": "3bbf9c6b3fb626bf6eb3479e00eb52d4c606a4a84e5b95d6da7cce1a480f2891"
+      },
+      "baseline_arrays": {
+        "path": "reports/pilot-fit-v1-baseline.npz",
+        "sha256": "06a4b6580928d45bfd0dca3819a5497305a7a9abe21cea996b23f824a6081c69"
+      },
+      "previous_report": {
+        "path": "reports/pilot-fit-v1-evaluation.json",
+        "sha256": "bd9d5c0bfa078c5a18cac7b9c46de7bdcdf51eac2c628c344cfb6eb0c410b652"
+      },
+      "previous_arrays": {
+        "path": "reports/pilot-fit-v1-evaluation.npz",
+        "sha256": "c767535faff2c78c33fa4b092854424d842e6af1b4866c458badc3bfb961e211"
+      },
+      "sample_manifest": {
+        "path": "reports/pilot-fit-v1-samples.json",
+        "sha256": "04cf0414ce4c4f21ceb263dfc7797b1dd23ffd7a88129dcfb98c1005d8e1f232"
+      },
+      "pilot_manifest": {
+        "path": "derived/pilot-v1/manifest.json",
+        "sha256": "4fefddb84a73f7c1167b1f2a1dc58c076426012a9b90411e353071c320457144"
+      },
+      "temporal_declaration": {
+        "path": "reports/pilot-fit-v1-temporal-declaration.json",
+        "sha256": "cd8cd85ae3b18e2d258a7baafce62bcbc4e188f9d8d36a64364cbec9dff004d3"
+      },
+      "initial_checkpoint_archive": {
+        "path": "experiments/pilot-fit-v1/artifacts.json",
+        "sha256": "98ec40ab108219c0c39d4ab0180a10735d10ab0d3eca1806a620834bb2af66dd"
+      },
+      "initial_checkpoint_config": {
+        "ref": "archive:checkpoints/pilot-fit-v1/checkpoint-512/config.json",
+        "sha256": "6e9b72bc2372383af27599811e944b7aa72d0537bf06764aff32f7c5a0d53e4a"
+      }
+    },
+    "private_evidence": [
+      {
+        "path": "reports/pilot-fit-no-state-dropout-v1-run.json",
+        "sha256": "598472d6c372a7198f6e35dce755f4525b6d6496a4771e0a38b8a068ccd81239"
+      },
+      {
+        "path": "reports/pilot-fit-no-state-dropout-v1-train.json",
+        "sha256": "ff12712399a12ae6116620bb95b8a123ad044e52554780a7712658bfb3298d16"
+      },
+      {
+        "path": "reports/pilot-fit-no-state-dropout-v1-finite.jsonl",
+        "sha256": "0763c6c144b17260cc9809b085be75630f6a2b194c4e5a18b53c1490431b8d91"
+      },
+      {
+        "path": "reports/pilot-fit-no-state-dropout-v1-reload.json",
+        "sha256": "5f5b4d8daf7ac83ef8d93da3355fe7bd072344243918ee700c0398100450155f"
+      },
+      {
+        "path": "reports/pilot-fit-no-state-dropout-v1-reload.npz",
+        "sha256": "8444593800110fca5ba80291e628b5a388e9f5b0aecad6d560cda609cd89c519"
+      },
+      {
+        "path": "reports/pilot-fit-no-state-dropout-v1-evaluation.json",
+        "sha256": "137e7f1646db737f50706d006fbb8e97ec26cd4d66a1cbbfa6124715bd8ffd66"
+      },
+      {
+        "path": "reports/pilot-fit-no-state-dropout-v1-evaluation.npz",
+        "sha256": "3bf6cb0db1b8bb37d69e956f3f481b2c8dc17a7c56b4d8280ef7a086e2a52be3"
+      },
+      {
+        "path": "reports/pilot-fit-no-state-dropout-v1-evaluation.png",
+        "sha256": "c613b53d49acaa5818b2514d2e359c200aefaf9016b73e3da8be9894927ab600"
+      },
+      {
+        "path": "reports/pilot-fit-no-state-dropout-v1-temporal-comparison.json",
+        "sha256": "7b620abe5fdd3c00d5400d9f3f2ada40eb21028f96d14793b9b779d07868099a"
+      },
+      {
+        "path": "reports/pilot-fit-no-state-dropout-readiness.json",
+        "sha256": "20d6fc9a0c6f475176d417c6fde56f401397ee81d5e2219f667903c93a584a94"
+      },
+      {
+        "path": "reports/pilot-fit-no-state-dropout-storage-dedup.json",
+        "sha256": "eb4f23a18b997a2dcd960e8bd7de84f0403a03d997590ee2f10e243a75f284d9"
+      },
+      {
+        "path": "reports/pilot-fit-no-state-dropout-tests.log",
+        "sha256": "c8354053a1906e2e6e2e32ad7fab9734471915252368b0aa8916fcc72f334dee"
+      },
+      {
+        "path": "reports/pilot-fit-no-state-dropout-archive-tests.log",
+        "sha256": "0bb10e70745f3696716c7f33882eb6ee6665fb1294e7cc2e0a7f4b66b2817893"
+      }
+    ],
+    "evaluation_repository_commit": "9aee50a54d5b47ba9a5a8b43cdb17c727abb2e71",
+    "comparison_repository_commit": "9aee50a54d5b47ba9a5a8b43cdb17c727abb2e71"
+  },
+  "validation": {
+    "prelaunch": {
+      "tests_passed": 96,
+      "tests_skipped": 0,
+      "test_seconds": 13.656,
+      "log": {
+        "path": "reports/pilot-fit-no-state-dropout-tests.log",
+        "sha256": "c8354053a1906e2e6e2e32ad7fab9734471915252368b0aa8916fcc72f334dee"
+      }
+    },
+    "archive_support": {
+      "tests_passed": 22,
+      "tests_skipped": 0,
+      "test_seconds": 0.063,
+      "log": {
+        "path": "reports/pilot-fit-no-state-dropout-archive-tests.log",
+        "sha256": "0bb10e70745f3696716c7f33882eb6ee6665fb1294e7cc2e0a7f4b66b2817893"
+      }
+    },
+    "frozen_protocol_path_bindings_verified": 8,
+    "dataset_hash_map_matches_original_pilot": true,
+    "frozen_protocol_path_bindings_preserved": true
+  },
+  "storage": {
+    "operation": "Six verified byte-identical root model shards hardlinked to their respective immutable saved checkpoint shards.",
+    "completed_runs": [
+      "pilot-smoke-v2",
+      "pilot-fit-v1"
+    ],
+    "checkpoint_files_verified_before_linking": 32,
+    "root_shards_verified_before_linking": 6,
+    "paths_and_content_preserved": true,
+    "bytes_reclaimed": 25152413696,
+    "audit": {
+      "path": "reports/pilot-fit-no-state-dropout-storage-dedup.json",
+      "sha256": "eb4f23a18b997a2dcd960e8bd7de84f0403a03d997590ee2f10e243a75f284d9"
+    }
+  },
+  "archive": {
+    "status": "verified",
+    "artifact_ref": "archive:checkpoints/pilot-fit-no-state-dropout-v1/checkpoint-1024",
+    "checkpoint_count": 1,
+    "files_verified": 62,
+    "all_source_remote_sha256_match": true,
+    "per_file_fsync_completed": true,
+    "source_preserved": true,
+    "verified_at_utc": "2026-10-14T23:00:50.633384+00:00",
+    "manifest_sha256": "e9d36f60cd3c2a4b541a56eeaff1677d2849152430c3aaddf4cfa750ac3fe50f",
+    "verification_sha256": "7c606b7a0b3cf0aab9b9efa74afe370556a8343274b405a9d279aa3a2027bc30",
+    "compressed_transfer_bytes": 8679506868
+  },
+  "limitations": [
+    "Five-episode training-set fitting only; no held-out or robot success evidence.",
+    "All groups remain worse than current-state persistence in both native and normalized MAE, including changing-target subsets.",
+    "The combined continuation and dropout change does not isolate the causal effect of either change.",
+    "Training loss is masked flow-matching velocity MSE, not native action MAE.",
+    "Same target box at varied positions; instruction-dependent target selection is untested.",
+    "Model-only checkpoints cannot exactly resume optimizer/scheduler state.",
+    "No dataset expansion, relabeling, statistics recomputation, or automatic training extension was performed."
+  ]
+}

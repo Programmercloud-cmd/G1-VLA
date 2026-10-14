@@ -1,0 +1,372 @@
+{
+  "schema_version": 1,
+  "artifact_ref_scheme": "archive: paths are relative to the machine-configured archive root; no credentials or machine address is stored here.",
+  "status": "verified",
+  "checkpoint": {
+    "ref": "archive:checkpoints/pilot-fit-no-state-dropout-v1/checkpoint-1024",
+    "bytes": 12583367834,
+    "files": [
+      {
+        "path": "config.json",
+        "size": 2146,
+        "sha256": "83dee2a2e6c6da3efd880b8f2bab2a0183a0bc2910781cad45c3384972898b77"
+      },
+      {
+        "path": "embodiment_id.json",
+        "size": 2226,
+        "sha256": "5e8611697dc90b7b7a92cf2a8da926275c16f5966c5eb109e0216c3c51af15a1"
+      },
+      {
+        "path": "experiment_cfg/conf.yaml",
+        "size": 5366,
+        "sha256": "5d97fdf2bf0f43697aad5cdbbf2891c2b12c58eeb636a6d077be16266f6af864"
+      },
+      {
+        "path": "experiment_cfg/config.yaml",
+        "size": 5333,
+        "sha256": "465288327ef54a301a244329340ffb3585d6d1546b9da73fa904ad1f2967e3e8"
+      },
+      {
+        "path": "experiment_cfg/dataset_statistics.json",
+        "size": 60284,
+        "sha256": "49ab79be164795a08f27c8e4c17efdad4a690331a70abe6e39a7889825efd254"
+      },
+      {
+        "path": "experiment_cfg/final_model_config.json",
+        "size": 1512,
+        "sha256": "f085524f6f28cbeede9531c6428d2ae6c8234640a7941159cdec239e5c3749bf"
+      },
+      {
+        "path": "experiment_cfg/final_processor_config.json",
+        "size": 2584022,
+        "sha256": "ebed03069f5a376b4eb6b101e1b7f0135991f0e4846c4f79f9907a5d93b80128"
+      },
+      {
+        "path": "model-00001-of-00003.safetensors",
+        "size": 4986649584,
+        "sha256": "cbcaea5ee88f1e0f1465043920a2647c67e7de17d24adfd1c477742a6168edec"
+      },
+      {
+        "path": "model-00002-of-00003.safetensors",
+        "size": 4970792616,
+        "sha256": "567565ed4c408781c0d81d22224e5183ba2d2ee20bc8059f705e8157caf5a795"
+      },
+      {
+        "path": "model-00003-of-00003.safetensors",
+        "size": 2618758696,
+        "sha256": "b464c9375ecf37994ae4e739c06c4365322dd04b910541f2f407950a001ad29e"
+      },
+      {
+        "path": "model.safetensors.index.json",
+        "size": 104913,
+        "sha256": "12117379d91d029c5979a585d07ba794001730c9516d6de5512e3dedfee30730"
+      },
+      {
+        "path": "processor_config.json",
+        "size": 26949,
+        "sha256": "033aeac07e3227b523703d152dca8ac2d277a40168f1d2698b536e6d2417c228"
+      },
+      {
+        "path": "statistics.json",
+        "size": 4353377,
+        "sha256": "3dd8e49347dea635d91dc1179ca3545a8b0e152cf8442b601a8c72b51e249e81"
+      },
+      {
+        "path": "trainer_state.json",
+        "size": 14828,
+        "sha256": "fd21a9cab17bcf65bc7bcad2607effd7109e2175687cc2b15189e242aa85f028"
+      },
+      {
+        "path": "training_args.bin",
+        "size": 5905,
+        "sha256": "300cb24c212348dc5dc2ac66717d67030df2211ab9d28448177af74ccc59d5db"
+      },
+      {
+        "path": "wandb_config.json",
+        "size": 77,
+        "sha256": "3c73c1dbe49656a69bd99fe536895b0b31b8df298cb793ee070ea6e766660007"
+      }
+    ]
+  },
+  "verification": {
+    "ref": "archive:checkpoints/pilot-fit-no-state-dropout-v1/archive_verification.json",
+    "sha256": "7c606b7a0b3cf0aab9b9efa74afe370556a8343274b405a9d279aa3a2027bc30",
+    "source_manifest_sha256": "e9d36f60cd3c2a4b541a56eeaff1677d2849152430c3aaddf4cfa750ac3fe50f",
+    "verified_at_utc": "2026-10-14T23:00:50.633384+00:00",
+    "file_count": 62,
+    "all_sha256_match": true,
+    "per_file_fsync_completed": true
+  },
+  "evidence": [
+    {
+      "ref": "archive:checkpoints/pilot-fit-no-state-dropout-v1/reports/evaluation.json",
+      "size": 137992,
+      "sha256": "137e7f1646db737f50706d006fbb8e97ec26cd4d66a1cbbfa6124715bd8ffd66"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-no-state-dropout-v1/reports/run-config.json",
+      "size": 11734,
+      "sha256": "598472d6c372a7198f6e35dce755f4525b6d6496a4771e0a38b8a068ccd81239"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-no-state-dropout-v1/dataset/snapshot-manifest.json",
+      "size": 236913,
+      "sha256": "4fefddb84a73f7c1167b1f2a1dc58c076426012a9b90411e353071c320457144"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-no-state-dropout-v1/reports/baseline.json",
+      "size": 132333,
+      "sha256": "3bbf9c6b3fb626bf6eb3479e00eb52d4c606a4a84e5b95d6da7cce1a480f2891"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-no-state-dropout-v1/reports/sample-manifest.json",
+      "size": 13747,
+      "sha256": "04cf0414ce4c4f21ceb263dfc7797b1dd23ffd7a88129dcfb98c1005d8e1f232"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-no-state-dropout-v1/reports/evaluation.npz",
+      "size": 521704,
+      "sha256": "3bf6cb0db1b8bb37d69e956f3f481b2c8dc17a7c56b4d8280ef7a086e2a52be3"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-no-state-dropout-v1/reports/evaluation.log",
+      "size": 15373,
+      "sha256": "8a441f789726e42c4a3bad03fdf1f41bd9b69d6cfb440d4df0a42e614a56a1f2"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-no-state-dropout-v1/reports/evaluation.png",
+      "size": 882633,
+      "sha256": "c613b53d49acaa5818b2514d2e359c200aefaf9016b73e3da8be9894927ab600"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-no-state-dropout-v1/reports/baseline.npz",
+      "size": 443976,
+      "sha256": "06a4b6580928d45bfd0dca3819a5497305a7a9abe21cea996b23f824a6081c69"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-no-state-dropout-v1/reports/baseline.log",
+      "size": 12612,
+      "sha256": "5ccf6645ab63e93d7359e87cfdbfbed2d3dd974ad07e0760878437a41a2249d2"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-no-state-dropout-v1/reports/baseline.png",
+      "size": 702880,
+      "sha256": "90ec4a9d862ae83e56854c071a5e55579d1e4bc5bfe1418535111b9f3f097e53"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-no-state-dropout-v1/reports/temporal-declaration.json",
+      "size": 20227,
+      "sha256": "cd8cd85ae3b18e2d258a7baafce62bcbc4e188f9d8d36a64364cbec9dff004d3"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-no-state-dropout-v1/reports/temporal-comparison.json",
+      "size": 42997,
+      "sha256": "7b620abe5fdd3c00d5400d9f3f2ada40eb21028f96d14793b9b779d07868099a"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-no-state-dropout-v1/scripts/compare_pilot_temporal_change.py",
+      "size": 14050,
+      "sha256": "8df5ab45285eaeaba5e7fc072028a3d3e42ee9acd46e6a92100754b3c8114abd"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-no-state-dropout-v1/reports/evaluation-protocol.json",
+      "size": 10837,
+      "sha256": "fd5fec3f0db608ad18dc43fc95501a6fdf39a0f006bac6db05fb2f5a8d0b8cc3"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-no-state-dropout-v1/reports/previous-evaluation.json",
+      "size": 135180,
+      "sha256": "bd9d5c0bfa078c5a18cac7b9c46de7bdcdf51eac2c628c344cfb6eb0c410b652"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-no-state-dropout-v1/reports/previous-evaluation.npz",
+      "size": 509009,
+      "sha256": "c767535faff2c78c33fa4b092854424d842e6af1b4866c458badc3bfb961e211"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-no-state-dropout-v1/vendor/Isaac-GR00T/gr00t/model/gr00t_n1d7/gr00t_n1d7.py",
+      "size": 26654,
+      "sha256": "6bd66ef768f1484ac5a7889c40358a599f1862b1d554d47d357e113f2f96501c"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-no-state-dropout-v1/vendor/Isaac-GR00T/gr00t/model/gr00t_n1d7/processing_gr00t_n1d7.py",
+      "size": 37356,
+      "sha256": "77fd0e1f6972cdcf0334f18f2e84724629f6746612721b6b27135ccb23f00b3f"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-no-state-dropout-v1/reports/training-audit.jsonl",
+      "size": 1442489,
+      "sha256": "0763c6c144b17260cc9809b085be75630f6a2b194c4e5a18b53c1490431b8d91"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-no-state-dropout-v1/reports/reload.json",
+      "size": 1698,
+      "sha256": "5f5b4d8daf7ac83ef8d93da3355fe7bd072344243918ee700c0398100450155f"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-no-state-dropout-v1/reports/reload.npz",
+      "size": 1674,
+      "sha256": "8444593800110fca5ba80291e628b5a388e9f5b0aecad6d560cda609cd89c519"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-no-state-dropout-v1/reports/reload.log",
+      "size": 4483,
+      "sha256": "1574070d24a87e56d75327eeaa1697b85bf6afa9ec9f1e9c29e4633e0e15ca2d"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-no-state-dropout-v1/reports/train.json",
+      "size": 16185,
+      "sha256": "ff12712399a12ae6116620bb95b8a123ad044e52554780a7712658bfb3298d16"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-no-state-dropout-v1/reports/train.log",
+      "size": 91491,
+      "sha256": "0baca1462c8f69314bbcc58c5c1fc31df5dfb2c809317604650f47e079ec3d9d"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-no-state-dropout-v1/README.md",
+      "size": 9786,
+      "sha256": "30d2002cb8cdc57d68ecde4c4436f53c737732b415007c2a1c2c5c65f6d601f6"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-no-state-dropout-v1/docs/execution-plan.md",
+      "size": 16518,
+      "sha256": "82603a56599b880015ec054c264724fa7230f8172b8acb002745eba157b10411"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-no-state-dropout-v1/configs/g1_inspire_config.py",
+      "size": 1305,
+      "sha256": "39f1311a6640420d2f1285d9c1c242ff66413d40c8fd64e518a854e36ca9c0b5"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-no-state-dropout-v1/configs/modality.json",
+      "size": 715,
+      "sha256": "be9aae54df97c467072d0158272db450dc3afed9cb9a301a71f40b9b68a13eef"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-no-state-dropout-v1/scripts/run_gr00t_smoke.py",
+      "size": 7943,
+      "sha256": "84342cc4a7a090060f019e54b2c1873c9af1d4c7a322a0f10aee107f8de65bab"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-no-state-dropout-v1/scripts/reload_gr00t_checkpoint.py",
+      "size": 4838,
+      "sha256": "b28bfa8bfdd84e7c5476f7ac24f6404c6c3310b2d9a73008ace8282504bcb7ea"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-no-state-dropout-v1/scripts/project_config.py",
+      "size": 7803,
+      "sha256": "407df6bb25c7a96a17b03ad2b97756f51189d7d1f4bdf6befb7ec94f3ec4f418"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-no-state-dropout-v1/scripts/archive_smoke_checkpoint.py",
+      "size": 30310,
+      "sha256": "7f9e205b2022c3173b1b182dcf7c08f1a13ad00b53db421e19deb6898cf658a4"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-no-state-dropout-v1/scripts/run_gr00t_pilot.py",
+      "size": 31581,
+      "sha256": "0061c1cea0944b6ea292fe51f17b1305ee64aeb9dc324c2c70b61ca08faa39b0"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-no-state-dropout-v1/scripts/evaluate_gr00t_pilot.py",
+      "size": 28992,
+      "sha256": "caef58473a88f17b3424e75ff3cffdad440b19c2be6081d143fa224226a8f0ab"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-no-state-dropout-v1/scripts/convert_single_camera.py",
+      "size": 8455,
+      "sha256": "1427f3551d38477e6d63456bebd8241265a91a2ed19957b20184de4c2bc6e2a8"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-no-state-dropout-v1/scripts/prepare_pilot.py",
+      "size": 23035,
+      "sha256": "944cb4e7b6594bd611d37b75f63a9cb1b8c1169b3a76fd1d8ad89f976b59f2bc"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-no-state-dropout-v1/locks/bootstrap-tools.json",
+      "size": 1155,
+      "sha256": "0c92769e8594a155ba293102198ad0b13572a966d853451b8e0208324a062a33"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-no-state-dropout-v1/locks/conversion-requirements.txt",
+      "size": 1618,
+      "sha256": "4ee9b08631dcc2c0c5ef51df5817d4bb85e456063527950645a9b36d7f5e208e"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-no-state-dropout-v1/locks/ffmpeg-packages.json",
+      "size": 5760,
+      "sha256": "d5704f70be538e2b22143018a575d77491ca2ea423481c60d53f31984f09ebc2"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-no-state-dropout-v1/locks/gr00t-requirements.txt",
+      "size": 2684,
+      "sha256": "93b4a80281e3591ac8337bcbbc93abba9a77fef69b65b490c976c62892cc7db1"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-no-state-dropout-v1/locks/model-assets.json",
+      "size": 3046,
+      "sha256": "be445c931fac431029f1af3edbd680e5e8be35cdd01f3b19707956baecc66115"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-no-state-dropout-v1/locks/model-sources.json",
+      "size": 3590,
+      "sha256": "48a2fc87bdb9bdb3ede682c9bc647743121ca7457bc6b1a3e111a56bf7c781fc"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-no-state-dropout-v1/locks/runtime-sources.json",
+      "size": 1249,
+      "sha256": "df5e2c183582c79d219482e6b2095f2428195ff321f847c6fa4d778d3d77bbc8"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-no-state-dropout-v1/locks/tools-requirements.txt",
+      "size": 332,
+      "sha256": "6deb8e8533a5102be23894f9ec235864aafd391a2ff1e81f9ab4638e098570e1"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-no-state-dropout-v1/locks/unitree-requirements.txt",
+      "size": 2217,
+      "sha256": "9fbabb19a547b1136abba64fab2fec48b0219d3735baedd8f79044e7a455eb85"
+    }
+  ],
+  "dataset": {
+    "ref": "archive:derived/lerobot/local/g1_inspire_pilot_v1",
+    "raw_snapshot_ref": "derived:pilot-v1",
+    "snapshot_manifest_sha256": "4fefddb84a73f7c1167b1f2a1dc58c076426012a9b90411e353071c320457144",
+    "content_manifest": {
+      "data/chunk-000/episode_000000.parquet": "7258f240f76bff7343093c58dee517cf92b15776238d68bcc0f4e02243121a03",
+      "data/chunk-000/episode_000001.parquet": "bce386664802cf721533b04d2cc58be43bb41a6fb0b84248da56bc9f9a8d9a84",
+      "data/chunk-000/episode_000002.parquet": "fa9a6903f167e0f1fa05cfa985a1a83ec85f9cdcdd85fb38c4a4b23044d1f6a8",
+      "data/chunk-000/episode_000003.parquet": "1f6282c767be95f54fc88ae8644e0018e631cb57f462aeaeffa8d20ffb37344a",
+      "data/chunk-000/episode_000004.parquet": "988abde73b0528e5c3628076f73faee91147e35dff38598c818eae5799ce7326",
+      "meta/episodes.jsonl": "c1634a809b76b3e38ca4201a07656fabecf75de18435ef8dd481a6d2703e611a",
+      "meta/episodes_stats.jsonl": "ce38d52adc0572b26b92c0b91a560d874cb87c8377c7994c1e930d2ee88235e3",
+      "meta/info.json": "ffb76a43e2263670a1f175b92110e24b142cce1893e9b4e489b6755fc991c894",
+      "meta/modality.json": "be9aae54df97c467072d0158272db450dc3afed9cb9a301a71f40b9b68a13eef",
+      "meta/relative_stats.json": "228ff2cc8502634fa384a6df5afdc2c5927c1c34d655bc32a08c2fede8e6e4ac",
+      "meta/stats.json": "32e25d0dae9924a57f10bd82f1fd7eacfe3398f7f3f60b79e3bdd86e2dd16070",
+      "meta/tasks.jsonl": "22f05d8b64f62ef28c2c28dd620fde0990fb7e85e98698702eace8604d84d821",
+      "videos/chunk-000/observation.images.cam_left_high/episode_000000.mp4": "e28d496fd7e62eb40deb108ddab8120075395edffc548159d952a723837d7d64",
+      "videos/chunk-000/observation.images.cam_left_high/episode_000001.mp4": "5897a32423ba17f8870cd37a19ace22b4b38866e0ac1a490fa1182e846bd111a",
+      "videos/chunk-000/observation.images.cam_left_high/episode_000002.mp4": "d2234cc5572d66d06c42c7fb9afe5a21e67910d563778aa491b9d2bb1ff71e7f",
+      "videos/chunk-000/observation.images.cam_left_high/episode_000003.mp4": "2a0e2cbca72990f8bf8c70e00da139e17276caf697156a52f966be3d2925b551",
+      "videos/chunk-000/observation.images.cam_left_high/episode_000004.mp4": "a6b225f8c78e72e48dfbc92c7d21083d38f0f3c6400be667ba8a46172ae14af7"
+    }
+  },
+  "dependencies": {
+    "model_revisions": {
+      "nvidia/GR00T-N1.7-3B": "2fc962b973bccdd5d8ce4f67cc63b264d6886495",
+      "nvidia/Cosmos-Reason2-2B": "9ce19a195e423419c349abfc86fd07178b230561"
+    },
+    "runtime_lock": "../../locks/runtime-sources.json",
+    "initial_checkpoint_ref": "archive:checkpoints/pilot-fit-v1/checkpoint-512",
+    "note": "Reload requires pinned Cosmos assets. Weights, datasets, caches and environments remain external to Git."
+  },
+  "archive_provenance": {
+    "commit": "9aee50a54d5b47ba9a5a8b43cdb17c727abb2e71",
+    "tree": "08d6275272cdcd1a0b5fd316ed1789822bad4313",
+    "tracked_changes_at_archive": [],
+    "file_hashes_record_exact_archived_content": true
+  },
+  "archive_documentation_note": "Archived README and execution plan are historical snapshots from before final result publication. The result summary and documentation in Git describe the completed run."
+}

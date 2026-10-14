@@ -2,9 +2,9 @@
 
 Fine-tune GR00T N1.7 on Unitree G1/Inspire recordings from XR teleoperation. The pipeline uses pinned Unitree and NVIDIA converters, one RGB camera, and 26 arm/hand state and action values.
 
-**Completed:** the 512-update pilot, fresh-process checkpoint reload, paired offline evaluation, and checksum-verified archival. Prediction MAE improved by 11–45% over the two-step reference, but every joint group remained worse than current-state persistence, including the predeclared changing-target subsets. The policy is not a deployment candidate. No held-out evaluation or robot trial has run.
+**Completed:** the zero-state-dropout follow-up ran 1,024 additional updates from checkpoint 512 in 28 minutes, then passed fresh-process reload, paired offline evaluation, and checksum-verified archival. Native MAE improved by 14.1–16.8% across joint groups versus checkpoint 512, but all eight persistence checks failed: only 8 of the 16 required acceptance checks passed. The policy is not a deployment candidate. No held-out evaluation or robot trial has run.
 
-See [pilot results and trajectories](experiments/pilot-fit-v1/README.md), [the frozen evaluation protocol](experiments/pilot-fit-v1/evaluation-protocol.json), and [the next proposed diagnostic](docs/execution-plan.md). The earlier [two-step smoke](experiments/pilot-smoke-v2/summary.json) remains preserved.
+See [follow-up results and trajectories](experiments/pilot-fit-no-state-dropout-v1/README.md), [the frozen evaluation protocol](experiments/pilot-fit-no-state-dropout-v1/evaluation-protocol.json), and [the execution plan](docs/execution-plan.md). All [62 checkpoint and evidence files](experiments/pilot-fit-no-state-dropout-v1/artifacts.json) were durably verified with source outputs preserved. The earlier [512-update pilot](experiments/pilot-fit-v1/README.md) and [two-step smoke](experiments/pilot-smoke-v2/summary.json) remain preserved.
 
 ## Clone and configure
 
