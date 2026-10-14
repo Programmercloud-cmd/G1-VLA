@@ -159,6 +159,73 @@ def temporal_evidence_sources(source, evaluation_report, baseline_report, sample
             (comparison_path, "reports/temporal-comparison.json"), (ROOT / helper, helper)]
 
 
+def followup_evidence_sources(source, evaluation_report=None, run_config=None, comparison_path=None,
+                             protocol_path=None, previous_report=None):
+    """Preserve the frozen warm-start protocol and checkpoint-512 replay inputs."""
+    if protocol_path is None and previous_report is None:
+        if run_config is not None and read_small_json(run_config, "Run config").get("evaluation_protocol_sha256"):
+            raise ValueError("Follow-up archival requires evaluation protocol and previous report")
+        return []
+    if any(path is None for path in [evaluation_report, run_config, comparison_path,
+                                    protocol_path, previous_report]):
+        raise ValueError("Follow-up archival requires protocol, previous report, and complete pilot/temporal evidence")
+    read_small_json(protocol_path, "Evaluation protocol")
+    from evaluate_gr00t_pilot import load_evaluation_protocol
+    protocol = load_evaluation_protocol(protocol_path)
+    recipe = read_small_json(run_config, "Run config")
+    evaluation = read_small_json(evaluation_report, "Evaluation report")
+    comparison = read_small_json(comparison_path, "Temporal comparison")
+    previous = read_small_json(previous_report, "Previous evaluation report")
+    if (source.name != "checkpoint-1024" or source.parent.name != protocol.get("experiment")
+            or recipe.get("run") != source.parent.name or recipe.get("max_steps") != 1024
+            or recipe.get("state_dropout_prob") != 0.0
+            or recipe.get("fresh_optimizer_and_scheduler") is not True):
+        raise ValueError("Follow-up run must match the declared 1024-update warm start")
+    for label, record, key in [("Run config", recipe, "checkpoint"),
+                               ("Evaluation", evaluation, "candidate_checkpoint"),
+                               ("Comparison", comparison, "candidate_checkpoint")]:
+        if not record.get(key) or resolve_path(record[key]) != source:
+            raise ValueError(label + " does not identify the archived follow-up checkpoint")
+    if (evaluation.get("passed") is not True or comparison.get("passed") is not True
+            or previous.get("passed") is not True or previous.get("checkpoint_global_step") != 512):
+        raise ValueError("Follow-up evidence must pass integrity checks and reference checkpoint 512")
+    protocol_sha = sha256(protocol_path)
+    if any(record.get("evaluation_protocol_sha256") != protocol_sha
+           for record in [recipe, evaluation, comparison]):
+        raise ValueError("Follow-up evaluation protocol hash mismatch")
+    arrays = previous_report.with_suffix(".npz")
+    if arrays.is_symlink() or not arrays.is_file() or arrays.stat().st_size > 32 * 1024**2:
+        raise ValueError("Previous predictions must be an ordinary NPZ file of at most 32 MiB")
+    previous_sha, arrays_sha = sha256(previous_report), sha256(arrays)
+    bindings = protocol.get("bindings", {})
+    for name, expected in [("previous_report", previous_sha), ("previous_arrays", arrays_sha)]:
+        if bindings.get(name, {}).get("sha256") != expected:
+            raise ValueError("Follow-up protocol binding mismatch: " + name)
+    if (comparison.get("previous_report_sha256") != previous_sha
+            or comparison.get("previous_npz_sha256") != arrays_sha
+            or previous.get("artifacts", {}).get(arrays.name) != arrays_sha):
+        raise ValueError("Previous prediction evidence hash mismatch")
+    for key, binding in [("baseline_report_sha256", "baseline_report"),
+                         ("sample_manifest_sha256", "sample_manifest")]:
+        if any(record.get(key) != bindings.get(binding, {}).get("sha256")
+               for record in [previous, evaluation, comparison]):
+            raise ValueError("Follow-up reference binding mismatch: " + binding)
+    if comparison.get("candidate_report_sha256") != sha256(evaluation_report):
+        raise ValueError("Follow-up comparison identifies different candidate evidence")
+    # These two exact upstream paths are allowlisted and hash-checked by the protocol loader.
+    implementation = [(ROOT / relative, relative)
+                      for relative in sorted(protocol["training_only_implementation_bindings"])]
+    for path, relative in implementation:
+        if path.is_symlink() or not path.is_file() or path.stat().st_size > 4 * 1024**2:
+            raise ValueError("Protocol implementation source must be an ordinary file of at most 4 MiB")
+        if sha256(path) != protocol["training_only_implementation_bindings"][relative]:
+            raise ValueError("Protocol implementation source changed: " + relative)
+    # A failed fitting gate remains a valid result: acceptance_passed is not an archival gate.
+    return [(protocol_path, "reports/evaluation-protocol.json"),
+            (previous_report, "reports/previous-evaluation.json"),
+            (arrays, "reports/previous-evaluation.npz"), *implementation]
+
+
 def repository_provenance():
     def git(*args):
         return subprocess.check_output(["git", "-C", str(ROOT), *args], text=True).strip()
@@ -280,6 +347,8 @@ def main():
     parser.add_argument("--training-audit", type=Path, help="Optional bounded per-step finite audit JSONL for pilot evidence")
     parser.add_argument("--temporal-declaration", type=Path, help="Frozen ground-truth-only target-change declaration JSON")
     parser.add_argument("--temporal-comparison", type=Path, help="Completed target-change comparison JSON")
+    parser.add_argument("--evaluation-protocol", type=Path, help="Frozen protocol for the zero-state-dropout warm start")
+    parser.add_argument("--previous-report", type=Path, help="Paired checkpoint-512 evaluation JSON and NPZ; requires protocol")
     parser.add_argument("--mode", choices=["local", "ssh"], default="local")
     parser.add_argument("--ssh-host", help="SSH host/alias; defaults to configured storage.host")
     args = parser.parse_args()
@@ -299,6 +368,13 @@ def main():
           [args.evaluation_report, args.baseline_report, args.sample_manifest,
            args.temporal_declaration, args.temporal_comparison]))
     sources.extend(temporal_sources)
+    followup_sources = followup_evidence_sources(source,
+        *(resolve_path(value) if value is not None else None for value in
+          [args.evaluation_report, args.run_config, args.temporal_comparison,
+           args.evaluation_protocol, args.previous_report]))
+    if followup_sources and (not pilot_sources or not temporal_sources):
+        raise ValueError("Follow-up archival requires complete pilot and temporal evidence")
+    sources.extend(followup_sources)
     if args.training_audit is not None:
         audit = resolve_path(args.training_audit)
         if (not pilot_sources or audit.suffix != ".jsonl" or audit.is_symlink()

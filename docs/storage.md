@@ -63,6 +63,30 @@ python3 scripts/archive_smoke_checkpoint.py \
 
 For compressed SSH transfer, use the same evidence arguments with `--mode ssh`, your configured host, and an absolute remote checkpoint parent as described above. Pilot JSON metadata is limited to 4 MiB per file; prediction, plot, log, and audit companions are bounded to 32 MiB each. Sources remain preserved after successful verification.
 
+## Archive the zero-state-dropout follow-up
+
+After `pilot-fit-no-state-dropout-v1` finishes, reload and validate its complete comparison evidence before archiving `checkpoint-1024`. The additional `--evaluation-protocol` and `--previous-report` arguments bind the frozen protocol and prior checkpoint-512 JSON/NPZ predictions to the run, new evaluation, and temporal comparison. A warm-start run cannot omit these inputs. The archive also preserves the two pinned upstream source files used to verify the training-only dropout semantics. It copies no initialization weights or duplicate final root model. `acceptance_passed: false` is a result to preserve, provided the evidence integrity checks pass.
+
+```bash
+python3 scripts/archive_smoke_checkpoint.py \
+  --source /dev/shm/vla-groot-smoke/pilot-fit-no-state-dropout-v1/checkpoint-1024 \
+  --destination storage/checkpoints --run pilot-fit-no-state-dropout-v1 \
+  --reload-report reports/pilot-fit-no-state-dropout-v1-reload.json \
+  --train-report reports/pilot-fit-no-state-dropout-v1-train.json \
+  --run-config reports/pilot-fit-no-state-dropout-v1-run.json \
+  --evaluation-report reports/pilot-fit-no-state-dropout-v1-evaluation.json \
+  --baseline-report reports/pilot-fit-v1-baseline.json \
+  --sample-manifest reports/pilot-fit-v1-samples.json \
+  --pilot-manifest derived/pilot-v1/manifest.json \
+  --training-audit reports/pilot-fit-no-state-dropout-v1-finite.jsonl \
+  --temporal-declaration reports/pilot-fit-v1-temporal-declaration.json \
+  --temporal-comparison reports/pilot-fit-no-state-dropout-v1-temporal-comparison.json \
+  --evaluation-protocol experiments/pilot-fit-no-state-dropout-v1/evaluation-protocol.json \
+  --previous-report reports/pilot-fit-v1-evaluation.json
+```
+
+The added archive files are `reports/evaluation-protocol.json`, `reports/previous-evaluation.json`, `reports/previous-evaluation.npz`, and the two source files at their original `vendor/Isaac-GR00T/` paths. For replay, restore report basenames expected by their embedded artifact hashes, including `pilot-fit-v1-evaluation.json` and `.npz` for the previous predictions, then use the comparison command in the [execution plan](execution-plan.md). Keep the saved two-step baseline, sample manifest, temporal declaration, and final prediction arrays with these inputs.
+
 ## Replay the archived pilot comparison
 
 The completed pilot's portable checkpoint reference is `archive:checkpoints/pilot-fit-v1/checkpoint-512`; [its manifest](../experiments/pilot-fit-v1/artifacts.json) records exact hashes. Archived source and documentation files are historical snapshots from before final publication; current results are in the repository's experiment summary.
