@@ -60,3 +60,31 @@ python3 scripts/archive_smoke_checkpoint.py \
 ```
 
 For compressed SSH transfer, use the same evidence arguments with `--mode ssh`, your configured host, and an absolute remote checkpoint parent as described above. Pilot JSON metadata is limited to 4 MiB per file; prediction, plot, log, and audit companions are bounded to 32 MiB each. Sources remain preserved after successful verification.
+
+## Replay the archived pilot comparison
+
+The completed pilot's portable checkpoint reference is `archive:checkpoints/pilot-fit-v1/checkpoint-512`; [its manifest](../experiments/pilot-fit-v1/artifacts.json) records exact hashes. Archived source and documentation files are historical snapshots from before final publication; current results are in the repository's experiment summary.
+
+The archive uses generic report filenames, while JSON artifact keys retain their original basenames. Restore the original names without rewriting JSON or copying weights. The example uses the default archive/reports directories; adjust them to your machine configuration and choose a fresh replay directory. Verify copied-file hashes against `archive_manifest.json` first.
+
+```bash
+mkdir -p reports/pilot-fit-v1-replay
+cp storage/checkpoints/pilot-fit-v1/reports/baseline.json \
+  reports/pilot-fit-v1-replay/pilot-fit-v1-baseline.json
+cp storage/checkpoints/pilot-fit-v1/reports/baseline.npz \
+  reports/pilot-fit-v1-replay/pilot-fit-v1-baseline.npz
+cp storage/checkpoints/pilot-fit-v1/reports/evaluation.json \
+  reports/pilot-fit-v1-replay/pilot-fit-v1-evaluation.json
+cp storage/checkpoints/pilot-fit-v1/reports/evaluation.npz \
+  reports/pilot-fit-v1-replay/pilot-fit-v1-evaluation.npz
+cp storage/checkpoints/pilot-fit-v1/reports/temporal-declaration.json \
+  reports/pilot-fit-v1-replay/pilot-fit-v1-temporal-declaration.json
+
+python3 -B scripts/compare_pilot_temporal_change.py \
+  --baseline reports/pilot-fit-v1-replay/pilot-fit-v1-baseline.json \
+  --declaration reports/pilot-fit-v1-replay/pilot-fit-v1-temporal-declaration.json \
+  --candidate reports/pilot-fit-v1-replay/pilot-fit-v1-evaluation.json \
+  --report reports/pilot-fit-v1-replay/replayed-comparison.json
+```
+
+Compare the replayed JSON with archived `reports/temporal-comparison.json`: `groups`, `method`, `threshold`, and all baseline/candidate report/array, declaration, and sample-manifest hashes must match exactly. Timestamps and repository HEAD may differ. This replay uses saved arrays on CPU and needs no checkpoint weights or new inference. The completed pilot archive was replayed with these checks successfully.

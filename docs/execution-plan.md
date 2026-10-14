@@ -1,4 +1,4 @@
-# Completed smoke and next bounded experiment
+# Completed smoke, pilot fitting results, and next proposal
 
 The first milestone is complete: five episodes, both reference conversions, raw-value and image checks, GR00T loading/statistics, two optimizer steps, fresh-process reload, and one checksum-verified durable checkpoint. See the [recorded results](../experiments/pilot-smoke-v2/summary.json), [pilot content identity](../experiments/pilot-smoke-v2/dataset_manifest.json), and [external artifact references](../experiments/pilot-smoke-v2/artifacts.json).
 
@@ -10,30 +10,31 @@ On the validation machine, batch 1 reached 38,608 MiB sampled GPU memory. The 12
 
 These checks do not establish pickup competence, closed-loop stability, or generalization. No robot commands have been sent.
 
-## Approved 512-step fitting probe — in progress
+## Completed 512-update fitting probe
 
-Run `pilot-fit-v1` is in progress with implementation commit `4685d0dd04611cce5f1dbfbab4ef2e40caf7f67d`. The paired baseline is complete. Final training, candidate evaluation, and durable archive results are pending:
+Run `pilot-fit-v1` completed with implementation commit `4685d0dd04611cce5f1dbfbab4ef2e40caf7f67d`. All 4,096 microbatch losses and 512 gradient checks were finite, and fresh-process reload plus paired evaluation passed. Training took 865.1 seconds and sampled peak GPU usage was 38,764 MiB. The complete checkpoint and comparison evidence were durably archived; original smoke and pilot outputs remain preserved.
 
-| Setting | Approved value |
+| Setting | Executed value |
 | --- | --- |
+| Initialization | Pinned pretrained GR00T model |
 | Microbatch | 1 |
 | Gradient accumulation | 8, giving effective batch 8 |
 | Loader workers | 0 |
-| Optimizer updates | At most 512 |
+| Optimizer updates | 512 |
 | Checkpoints | One model-only save at step 512 |
 | Shard size | 256 |
 | Episode sampling rate | 1.0 |
 | Shards per epoch | 5, covering the five whole-episode shards |
+| Learning rate / warmup | 1e-4 / 0.05 |
+| State dropout | 0.2 |
 
-The output is the configured run root plus `pilot-fit-v1/checkpoint-512`. The original two-step checkpoint and its duplicate final weights remain preserved. Capacity inspection found 39.46 GiB free shared memory; the new checkpoint and upstream final duplicate need about 23.44 GiB, leaving roughly 16 GiB. Only the complete `checkpoint-512` will be durably archived after fresh reload and paired evaluation.
+The run used the configured run root plus `pilot-fit-v1/checkpoint-512`. Its checkpoint and upstream duplicate occupy 23.44 GiB; minimum free output space was 16.02 GiB and minimum available host RAM was 69.24 GiB. Accumulation 8 is now validated for this recipe; larger microbatches remain untested. Setup and readiness checks do not start training.
 
-Accumulation 8 remains unvalidated. Measure memory during initial updates before continuing. Do not assume batch 4 fits. The completed smoke uses accumulation 1 and is implemented separately; no longer experiment is launched by setup or readiness verification.
+The candidate and two-step reference used the same 100 pilot starts, full 16-frame targets, three paired inference seeds, and four denoising steps. Candidate MAE improved by 11–45% across groups, but every group remained worse than current-state persistence. The gap also remains on the predeclared changing-target subsets below. These checks establish finite, comparable training-set execution, not task competence. See [the full results and trajectory plot](../experiments/pilot-fit-v1/README.md).
 
-Compare the two-step checkpoint and candidate on the same 100 pilot starts, full 16-frame targets, and paired inference seeds 42/43/44. Report arm and hand errors separately and compare against a current-state persistence baseline. Inspect approach, grasp, lift, and hold trajectories for collapsed constant predictions. This is a training-set fitting measurement, not held-out evaluation. Extend the run only when the learning trend justifies it.
+## Commands used for the completed run
 
-## Commands for the approved run
-
-These commands use the default paths. The baseline freezes 100 eligible starts across the five episodes, then evaluates all three inference seeds before training begins. The candidate reuses that exact manifest and baseline evidence.
+These commands use the default paths. Choose fresh run/report names to reproduce the experiment; existing outputs are preserved. The baseline freezes 100 eligible starts across the five episodes, then evaluates all three inference seeds before training begins. The candidate reuses that exact manifest and baseline evidence.
 
 ```bash
 python3 scripts/evaluate_gr00t_pilot.py \
@@ -81,6 +82,18 @@ python3 scripts/compare_pilot_temporal_change.py \
 ```
 
 The first command freezes or verifies the declaration; the second requires that exact declaration and compares saved prediction arrays without new model inference. It reports candidate, two-step reference, and current-state persistence errors for both changing-target and small-change subsets. Report hashes bind the declaration, frozen sample manifest, and both evaluation reports/NPZ files. Original evaluator reports and predictions remain unchanged.
+
+## Proposed next fitting diagnostic — not launched
+
+The next proposal is a bounded warm start from checkpoint 512 for 1,024 additional updates on the same five episodes, keeping microbatch 1, accumulation 8, seed 42, learning rate 1e-4, warmup 0.05, tuning flags, and augmentation unchanged, while setting state dropout to zero. Because the checkpoint is model-only, this would use a fresh optimizer and scheduler. Estimated training time is approximately 27 minutes.
+
+The proposed acceptance gate requires every group to beat persistence by at least 10% in both native and normalized MAE on the frozen changing-target subsets, with no group worse than checkpoint 512 across all 100 windows. Stop at the update cap regardless; a failed gate calls for diagnosis rather than automatic extension.
+
+Preparing this experiment requires a small runner update: the current runner enforces the 512-update bound and fixes dropout at 0.2. The comparator also needs a narrow allowance for the training-only dropout configuration difference while keeping normalization, joint ordering, horizon, and evaluation sampling identical. No follow-up training has been launched.
+
+Resolve output capacity before that run: only about 16 GiB remains in the current shared-memory filesystem, while another checkpoint and upstream duplicate require about 23.44 GiB and the runner requires 35 GiB free at startup. Configure sufficient output storage while preserving the existing checkpoints; no artifacts were removed for this pilot.
+
+Source inspection found state dropout applied independently during [processor state zeroing](https://github.com/NVIDIA/Isaac-GR00T/blob/d2b7e75b937e3ec9aa5dbc798f08b89692c49734/gr00t/model/gr00t_n1d7/processing_gr00t_n1d7.py#L648) and [action-head feature zeroing](https://github.com/NVIDIA/Isaac-GR00T/blob/d2b7e75b937e3ec9aa5dbc798f08b89692c49734/gr00t/model/gr00t_n1d7/gr00t_n1d7.py#L220), both training-only. At probability 0.2, approximately 36% of training samples lose state through at least one path. This is a diagnostic hypothesis, not a confirmed cause of the observed error; changing duration and regularization together does not isolate either factor causally. The training loss is masked flow-matching velocity MSE over the active 16×26 outputs, not action MAE. Inspection found no obvious action-order, padding-mask, or normalization mismatch.
 
 ## Dataset decisions before longer training
 

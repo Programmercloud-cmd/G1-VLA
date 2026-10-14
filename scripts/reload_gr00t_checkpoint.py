@@ -68,7 +68,11 @@ def main():
     assert joined.shape == (16, 26), joined.shape
     assert joined.dtype == np.float32 and np.isfinite(joined).all()
     np.savez_compressed(args.report.with_suffix(".npz"), absolute_actions=joined)
-    record = {"passed": True, "checkpoint": str(args.checkpoint.resolve()), "dataset": str(args.dataset.resolve()),
+    trainer_state_path = args.checkpoint / "trainer_state.json"
+    trainer_state = json.loads(trainer_state_path.read_text()) if trainer_state_path.is_file() else {}
+    record = {"passed": True, "checkpoint": str(args.checkpoint.resolve()),
+              "checkpoint_global_step": trainer_state.get("global_step"),
+              "source_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(), "dataset": str(args.dataset.resolve()),
               "fresh_process": True, "offline": True, "observation_episode": 0, "observation_frame": 0,
               "joint_order": keys, "action_shape": list(joined.shape), "dtype": str(joined.dtype), "finite": True,
               "output_semantics": "absolute, decoded by the saved GR00T processor", "instruction": step.text,
@@ -76,7 +80,7 @@ def main():
               "peak_cuda_allocated_bytes": torch.cuda.max_memory_allocated(),
               "groups": {k: {"shape":list(action[k].shape), "min":float(action[k].min()), "max":float(action[k].max())} for k in keys},
               "statistics_sha256": hashlib.sha256((args.checkpoint / "statistics.json").read_bytes()).hexdigest(),
-              "limitation": "Two-step plumbing smoke only; this does not establish task competence or robot safety."}
+              "limitation": "Offline checkpoint reload only; this does not establish task competence or robot safety."}
     with args.report.open("x") as stream:
         json.dump(record, stream, indent=2)
         stream.write("\n")

@@ -2,13 +2,13 @@
 
 Fine-tune GR00T N1.7 on Unitree G1/Inspire recordings from XR teleoperation. The pipeline uses pinned Unitree and NVIDIA converters, one RGB camera, and 26 arm/hand state and action values.
 
-**Completed:** a five-episode pilot was converted and validated, two optimizer steps ran on an RTX A6000, and a fresh process reloaded the saved checkpoint and produced finite absolute actions of shape `(16, 26)`. The complete checkpoint was archived with matching SHA-256 hashes. This establishes pipeline operation; task success, held-out generalization, and robot deployment have not been demonstrated.
+**Completed:** the 512-update pilot, fresh-process checkpoint reload, paired offline evaluation, and checksum-verified archival. Prediction MAE improved by 11–45% over the two-step reference, but every joint group remained worse than current-state persistence, including the predeclared changing-target subsets. The policy is not a deployment candidate. No held-out evaluation or robot trial has run.
 
-The approved 512-step fitting experiment has **not yet** run. See [the next experiment](docs/execution-plan.md) and the portable [smoke summary](experiments/pilot-smoke-v2/summary.json).
+See [pilot results and trajectories](experiments/pilot-fit-v1/README.md), [the frozen evaluation protocol](experiments/pilot-fit-v1/evaluation-protocol.json), and [the next proposed diagnostic](docs/execution-plan.md). The earlier [two-step smoke](experiments/pilot-smoke-v2/summary.json) remains preserved.
 
 ## Clone and configure
 
-The supported setup target is Ubuntu 22.04 on x86-64 Linux with a working NVIDIA driver and the build/FFmpeg prerequisites below. The validated training machine had an RTX A6000 with 48 GiB VRAM and 125 GiB host RAM. Batch 1 peaked at 37.7 GiB VRAM; larger batches are unvalidated.
+The supported setup target is Ubuntu 22.04 on x86-64 Linux with a working NVIDIA driver and the build/FFmpeg prerequisites below. The validated training machine had an RTX A6000 with 48 GiB VRAM and 125 GiB host RAM. The pilot used microbatch 1 with accumulation 8 and peaked at 37.9 GiB VRAM; larger microbatches are unvalidated.
 
 ```bash
 git clone --recurse-submodules git@github.com:Programmercloud-cmd/G1-VLA.git
@@ -94,7 +94,7 @@ See [storage and archival](docs/storage.md) for durable publication. Upstream al
 
 ## Evidence and repository scope
 
-The historical pilot used episodes 0037, 0040, 0042, 0046, and 0047: 2,116 frames. Its aggregate training loss was 1.4560; loss filtering means this does not prove every individual step loss was finite. Fresh reload took 10.84 s and the first prediction took 0.490 s on one observation, which is not a deployment benchmark.
+The historical two-step smoke used episodes 0037, 0040, 0042, 0046, and 0047: 2,116 frames. Its aggregate training loss was 1.4560; loss filtering means this does not prove every individual step loss was finite. Fresh reload took 10.84 s and the first prediction took 0.490 s on one observation, which is not a deployment benchmark.
 
 The [portability validation record](docs/reproducibility-validation.md) separates checks performed on this host from untested fresh-host installation. Small sanitized records are tracked in [experiments/pilot-smoke-v2](experiments/pilot-smoke-v2). Artifact references use `archive:` paths relative to the configured archive root; recordings and weights are not distributed in this repository. Original machine-local reports remain unchanged outside Git. Historical file hashes identify that experiment's files, including documentation at archival time; they are not checksums of today's repository files.
 

@@ -1,0 +1,784 @@
+{
+  "schema_version": 1,
+  "run": "pilot-fit-v1",
+  "status": "completed_and_archived",
+  "implementation_commit": "4685d0dd04611cce5f1dbfbab4ef2e40caf7f67d",
+  "protocol_commit": "8caaf9fbf88ee5e9da2bbe3012680b0b98578132",
+  "assessment": {
+    "training_reload_evaluation_passed": true,
+    "all_groups_improved_reference": true,
+    "beats_persistence": false,
+    "deployment_candidate": false,
+    "held_out_evaluation_performed": false,
+    "robot_trial_performed": false
+  },
+  "dataset": {
+    "episodes": [
+      "0037",
+      "0040",
+      "0042",
+      "0046",
+      "0047"
+    ],
+    "frames": 2116,
+    "camera_count": 1,
+    "action_dimension": 26,
+    "horizon": 16,
+    "snapshot_manifest_sha256": "4fefddb84a73f7c1167b1f2a1dc58c076426012a9b90411e353071c320457144",
+    "converted_files_sha256": {
+      "data/chunk-000/episode_000000.parquet": "7258f240f76bff7343093c58dee517cf92b15776238d68bcc0f4e02243121a03",
+      "data/chunk-000/episode_000001.parquet": "bce386664802cf721533b04d2cc58be43bb41a6fb0b84248da56bc9f9a8d9a84",
+      "data/chunk-000/episode_000002.parquet": "fa9a6903f167e0f1fa05cfa985a1a83ec85f9cdcdd85fb38c4a4b23044d1f6a8",
+      "data/chunk-000/episode_000003.parquet": "1f6282c767be95f54fc88ae8644e0018e631cb57f462aeaeffa8d20ffb37344a",
+      "data/chunk-000/episode_000004.parquet": "988abde73b0528e5c3628076f73faee91147e35dff38598c818eae5799ce7326",
+      "meta/episodes.jsonl": "c1634a809b76b3e38ca4201a07656fabecf75de18435ef8dd481a6d2703e611a",
+      "meta/episodes_stats.jsonl": "ce38d52adc0572b26b92c0b91a560d874cb87c8377c7994c1e930d2ee88235e3",
+      "meta/info.json": "ffb76a43e2263670a1f175b92110e24b142cce1893e9b4e489b6755fc991c894",
+      "meta/modality.json": "be9aae54df97c467072d0158272db450dc3afed9cb9a301a71f40b9b68a13eef",
+      "meta/relative_stats.json": "228ff2cc8502634fa384a6df5afdc2c5927c1c34d655bc32a08c2fede8e6e4ac",
+      "meta/stats.json": "32e25d0dae9924a57f10bd82f1fd7eacfe3398f7f3f60b79e3bdd86e2dd16070",
+      "meta/tasks.jsonl": "22f05d8b64f62ef28c2c28dd620fde0990fb7e85e98698702eace8604d84d821",
+      "videos/chunk-000/observation.images.cam_left_high/episode_000000.mp4": "e28d496fd7e62eb40deb108ddab8120075395edffc548159d952a723837d7d64",
+      "videos/chunk-000/observation.images.cam_left_high/episode_000001.mp4": "5897a32423ba17f8870cd37a19ace22b4b38866e0ac1a490fa1182e846bd111a",
+      "videos/chunk-000/observation.images.cam_left_high/episode_000002.mp4": "d2234cc5572d66d06c42c7fb9afe5a21e67910d563778aa491b9d2bb1ff71e7f",
+      "videos/chunk-000/observation.images.cam_left_high/episode_000003.mp4": "2a0e2cbca72990f8bf8c70e00da139e17276caf697156a52f966be3d2925b551",
+      "videos/chunk-000/observation.images.cam_left_high/episode_000004.mp4": "a6b225f8c78e72e48dfbc92c7d21083d38f0f3c6400be667ba8a46172ae14af7"
+    }
+  },
+  "recipe": {
+    "seed": 42,
+    "microbatch": 1,
+    "accumulation": 8,
+    "max_steps": 512,
+    "expected_training_examples": 4096,
+    "timeout_seconds": 21600,
+    "learning_rate": 0.0001,
+    "warmup_ratio": 0.05,
+    "state_dropout_prob": 0.2,
+    "dataloader_workers": 0,
+    "shard_size": 256,
+    "episode_sampling_rate": 1.0,
+    "num_shards_per_epoch": 5,
+    "tune_llm": false,
+    "tune_visual": false,
+    "tune_projector": true,
+    "tune_diffusion_model": true,
+    "tune_vlln": true,
+    "tune_vlln_meaning": "Action-head feature LayerNorm; vision/language backbones remain frozen.",
+    "save_only_model": true,
+    "initialization": "Pinned pretrained GR00T snapshot; not resumed from the two-step reference."
+  },
+  "training": {
+    "elapsed_seconds": 865.1042657380003,
+    "sampled_peak_gpu_mib": 38764,
+    "min_available_host_gib": 69.23602294921875,
+    "min_output_free_gib": 16.020000457763672,
+    "finite_audit": {
+      "passed": true,
+      "micro_losses_observed": 4096,
+      "gradient_updates_observed": 512,
+      "optimizer_updates_observed": 512,
+      "first_window_mean_loss": 1.1922755416482687,
+      "last_window_mean_loss": 0.992676941305399,
+      "loss_window_microbatches": 160,
+      "last_step": 512
+    },
+    "checkpoint_bytes": 12583325249,
+    "total_output_bytes": 25166642722
+  },
+  "reload": {
+    "checkpoint_global_step": 512,
+    "source_sha256": "b28bfa8bfdd84e7c5476f7ac24f6404c6c3310b2d9a73008ace8282504bcb7ea",
+    "fresh_process": true,
+    "offline": true,
+    "action_shape": [
+      16,
+      26
+    ],
+    "dtype": "float32",
+    "finite": true,
+    "output_semantics": "absolute, decoded by the saved GR00T processor",
+    "loading_seconds": 10.89114354600133,
+    "first_inference_seconds": 0.5204438649998337,
+    "statistics_sha256": "3dd8e49347dea635d91dc1179ca3545a8b0e152cf8442b601a8c72b51e249e81"
+  },
+  "evaluation": {
+    "sample_count": 100,
+    "inferences_per_checkpoint": 300,
+    "seeds": [
+      42,
+      43,
+      44
+    ],
+    "horizon": 16,
+    "denoising_steps": 4,
+    "training_set_only": true,
+    "groups": {
+      "left_arm": {
+        "unit": "radians",
+        "reference": {
+          "sample_count": 100,
+          "mae": 0.20080897212028503,
+          "rmse": 0.24635691940784454,
+          "normalized_mae": 0.7187734118420254,
+          "normalized_rmse": 0.8357115560809564,
+          "per_seed_mae": [
+            0.20523333549499512,
+            0.20891453325748444,
+            0.1882791370153427
+          ]
+        },
+        "candidate": {
+          "sample_count": 100,
+          "mae": 0.1781967133283615,
+          "rmse": 0.2230236530303955,
+          "normalized_mae": 0.6288598080914685,
+          "normalized_rmse": 0.7420560031480619,
+          "per_seed_mae": [
+            0.18074387311935425,
+            0.1856968104839325,
+            0.1681494414806366
+          ]
+        },
+        "persistence": {
+          "sample_count": 100,
+          "mae": 0.07687907665967941,
+          "rmse": 0.11178216338157654,
+          "normalized_mae": 0.2836402249801964,
+          "normalized_rmse": 0.4004396027436141,
+          "per_seed_mae": [
+            0.07687907665967941,
+            0.07687907665967941,
+            0.07687907665967941
+          ]
+        },
+        "comparison": {
+          "reference_mae": 0.20080897212028503,
+          "candidate_mae": 0.1781967133283615,
+          "mae_change": -0.022612258791923523,
+          "relative_mae_change_percent": -11.260581911837448
+        }
+      },
+      "right_arm": {
+        "unit": "radians",
+        "reference": {
+          "sample_count": 100,
+          "mae": 0.1823980063199997,
+          "rmse": 0.23340991139411926,
+          "normalized_mae": 0.6983822867279105,
+          "normalized_rmse": 0.8319760187005498,
+          "per_seed_mae": [
+            0.1799222230911255,
+            0.1878061145544052,
+            0.1794656664133072
+          ]
+        },
+        "candidate": {
+          "sample_count": 100,
+          "mae": 0.15281297266483307,
+          "rmse": 0.1998748481273651,
+          "normalized_mae": 0.5837927276267624,
+          "normalized_rmse": 0.7095233247105538,
+          "per_seed_mae": [
+            0.1506715565919876,
+            0.15211719274520874,
+            0.15565019845962524
+          ]
+        },
+        "persistence": {
+          "sample_count": 100,
+          "mae": 0.07877963781356812,
+          "rmse": 0.11456351727247238,
+          "normalized_mae": 0.3177848467501883,
+          "normalized_rmse": 0.4498842225822259,
+          "per_seed_mae": [
+            0.07877963781356812,
+            0.07877963781356812,
+            0.07877963781356812
+          ]
+        },
+        "comparison": {
+          "reference_mae": 0.1823980063199997,
+          "candidate_mae": 0.15281297266483307,
+          "mae_change": -0.029585033655166626,
+          "relative_mae_change_percent": -16.220042231855615
+        }
+      },
+      "left_hand": {
+        "unit": "normalized hand command",
+        "reference": {
+          "sample_count": 100,
+          "mae": 0.10675789415836334,
+          "rmse": 0.13762317597866058,
+          "normalized_mae": 0.9031459326339284,
+          "normalized_rmse": 1.1101587116877734,
+          "per_seed_mae": [
+            0.1055421382188797,
+            0.10557103157043457,
+            0.10916051268577576
+          ]
+        },
+        "candidate": {
+          "sample_count": 100,
+          "mae": 0.058580800890922546,
+          "rmse": 0.09221845120191574,
+          "normalized_mae": 0.4804453277870292,
+          "normalized_rmse": 0.7135126278922669,
+          "per_seed_mae": [
+            0.056471385061740875,
+            0.057372309267520905,
+            0.06189870834350586
+          ]
+        },
+        "persistence": {
+          "sample_count": 100,
+          "mae": 0.011148561723530293,
+          "rmse": 0.024237407371401787,
+          "normalized_mae": 0.09782443280226441,
+          "normalized_rmse": 0.2050047004339931,
+          "per_seed_mae": [
+            0.011148562654852867,
+            0.011148562654852867,
+            0.011148562654852867
+          ]
+        },
+        "comparison": {
+          "reference_mae": 0.10675789415836334,
+          "candidate_mae": 0.058580800890922546,
+          "mae_change": -0.048177093267440796,
+          "relative_mae_change_percent": -45.127429355224535
+        }
+      },
+      "right_hand": {
+        "unit": "normalized hand command",
+        "reference": {
+          "sample_count": 100,
+          "mae": 0.12253166735172272,
+          "rmse": 0.1756770759820938,
+          "normalized_mae": 0.7603526416345421,
+          "normalized_rmse": 0.9590700349553423,
+          "per_seed_mae": [
+            0.12397535890340805,
+            0.13086584210395813,
+            0.11275379359722137
+          ]
+        },
+        "candidate": {
+          "sample_count": 100,
+          "mae": 0.08434949070215225,
+          "rmse": 0.12722311913967133,
+          "normalized_mae": 0.5582499707658737,
+          "normalized_rmse": 0.757612989017973,
+          "per_seed_mae": [
+            0.08097057044506073,
+            0.09589094668626785,
+            0.07618695497512817
+          ]
+        },
+        "persistence": {
+          "sample_count": 100,
+          "mae": 0.011908993124961853,
+          "rmse": 0.022590478882193565,
+          "normalized_mae": 0.08845290105430277,
+          "normalized_rmse": 0.16026818453819883,
+          "per_seed_mae": [
+            0.011908993124961853,
+            0.011908993124961853,
+            0.011908993124961853
+          ]
+        },
+        "comparison": {
+          "reference_mae": 0.12253166735172272,
+          "candidate_mae": 0.08434949070215225,
+          "mae_change": -0.038182176649570465,
+          "relative_mae_change_percent": -31.161068379139827
+        }
+      }
+    },
+    "elapsed_seconds": 55.8581048319993,
+    "sample_manifest_sha256": "04cf0414ce4c4f21ceb263dfc7797b1dd23ffd7a88129dcfb98c1005d8e1f232",
+    "processor_semantics_sha256": "92e587355afa02195da457da3af6c7c665dfdbc352d6023db08bb574acdcfac4",
+    "normalized_error_definition": "2*(decoded absolute prediction-absolute target)/(saved action max-min), without additional clipping. np.isclose(max,min) dimensions excluded only from normalized metrics; retained in native-unit errors."
+  },
+  "temporal_comparison": {
+    "method": "For each joint, peak-to-peak absolute ground-truth target within the 16-frame horizon divided by the maximum saved action normalization span over that horizon; take the maximum across nonconstant joints within each group and select scores > 0.05. This measures changing target commands, not state-action offset or semantic task phase.",
+    "threshold": 0.05,
+    "groups": {
+      "left_arm": {
+        "unit": "radians",
+        "changing_target": {
+          "sample_count": 75,
+          "reference": {
+            "sample_count": 75,
+            "mae": 0.20248451828956604,
+            "rmse": 0.2501026690006256,
+            "normalized_mae": 0.7224111688026355,
+            "normalized_rmse": 0.8424762882439872,
+            "per_seed_mae": [
+              0.20641300082206726,
+              0.21069248020648956,
+              0.1903480589389801
+            ]
+          },
+          "candidate": {
+            "sample_count": 75,
+            "mae": 0.17821285128593445,
+            "rmse": 0.22438082098960876,
+            "normalized_mae": 0.6292897032558324,
+            "normalized_rmse": 0.74548838952778,
+            "per_seed_mae": [
+              0.1805122345685959,
+              0.18539662659168243,
+              0.16872969269752502
+            ]
+          },
+          "persistence": {
+            "sample_count": 75,
+            "mae": 0.08367772400379181,
+            "rmse": 0.119206003844738,
+            "normalized_mae": 0.303388962427075,
+            "normalized_rmse": 0.41283539526628743,
+            "per_seed_mae": [
+              0.08367772400379181,
+              0.08367772400379181,
+              0.08367772400379181
+            ]
+          },
+          "mae_change": -0.024271667003631592,
+          "relative_mae_change_percent": -11.98692483191309
+        },
+        "small_target_change": {
+          "sample_count": 25,
+          "reference": {
+            "sample_count": 25,
+            "mae": 0.19578240811824799,
+            "rmse": 0.2347613424062729,
+            "normalized_mae": 0.707860140960195,
+            "normalized_rmse": 0.8150805672502055,
+            "per_seed_mae": [
+              0.20169426500797272,
+              0.20358063280582428,
+              0.18207235634326935
+            ]
+          },
+          "candidate": {
+            "sample_count": 25,
+            "mae": 0.17814823985099792,
+            "rmse": 0.21890166401863098,
+            "normalized_mae": 0.6275701225983763,
+            "normalized_rmse": 0.7316622379692259,
+            "per_seed_mae": [
+              0.18143877387046814,
+              0.1865973323583603,
+              0.16640859842300415
+            ]
+          },
+          "persistence": {
+            "sample_count": 25,
+            "mae": 0.056483130902051926,
+            "rmse": 0.08573678135871887,
+            "normalized_mae": 0.22439401263956057,
+            "normalized_rmse": 0.3607052966451127,
+            "per_seed_mae": [
+              0.05648312717676163,
+              0.05648312717676163,
+              0.05648312717676163
+            ]
+          },
+          "mae_change": -0.01763416826725006,
+          "relative_mae_change_percent": -9.007023887763928
+        }
+      },
+      "right_arm": {
+        "unit": "radians",
+        "changing_target": {
+          "sample_count": 88,
+          "reference": {
+            "sample_count": 88,
+            "mae": 0.18331989645957947,
+            "rmse": 0.23542030155658722,
+            "normalized_mae": 0.7010816070520008,
+            "normalized_rmse": 0.8361798726974561,
+            "per_seed_mae": [
+              0.18094828724861145,
+              0.18871568143367767,
+              0.18029576539993286
+            ]
+          },
+          "candidate": {
+            "sample_count": 88,
+            "mae": 0.1520323008298874,
+            "rmse": 0.19953709840774536,
+            "normalized_mae": 0.5809727050709433,
+            "normalized_rmse": 0.7076404263316256,
+            "per_seed_mae": [
+              0.1498919129371643,
+              0.15142232179641724,
+              0.15478265285491943
+            ]
+          },
+          "persistence": {
+            "sample_count": 88,
+            "mae": 0.07779587060213089,
+            "rmse": 0.11461716890335083,
+            "normalized_mae": 0.3102738794164931,
+            "normalized_rmse": 0.4387723826845196,
+            "per_seed_mae": [
+              0.07779587060213089,
+              0.07779587060213089,
+              0.07779587060213089
+            ]
+          },
+          "mae_change": -0.03128759562969208,
+          "relative_mae_change_percent": -17.0672121433315
+        },
+        "small_target_change": {
+          "sample_count": 12,
+          "reference": {
+            "sample_count": 12,
+            "mae": 0.175637349486351,
+            "rmse": 0.218101367354393,
+            "normalized_mae": 0.6785872710179153,
+            "normalized_rmse": 0.8004734522404219,
+            "per_seed_mae": [
+              0.17239779233932495,
+              0.18113598227500916,
+              0.1733783334493637
+            ]
+          },
+          "candidate": {
+            "sample_count": 12,
+            "mae": 0.1585380584001541,
+            "rmse": 0.20233458280563354,
+            "normalized_mae": 0.6044728930361031,
+            "normalized_rmse": 0.7231814668933938,
+            "per_seed_mae": [
+              0.15638911724090576,
+              0.15721295773983002,
+              0.16201210021972656
+            ]
+          },
+          "persistence": {
+            "sample_count": 12,
+            "mae": 0.0859939306974411,
+            "rmse": 0.11416926980018616,
+            "normalized_mae": 0.3728652738639526,
+            "normalized_rmse": 0.5242228722798581,
+            "per_seed_mae": [
+              0.0859939381480217,
+              0.0859939381480217,
+              0.0859939381480217
+            ]
+          },
+          "mae_change": -0.0170992910861969,
+          "relative_mae_change_percent": -9.735566572943362
+        }
+      },
+      "left_hand": {
+        "unit": "normalized hand command",
+        "changing_target": {
+          "sample_count": 67,
+          "reference": {
+            "sample_count": 67,
+            "mae": 0.10660761594772339,
+            "rmse": 0.13759303092956543,
+            "normalized_mae": 0.8983712043219827,
+            "normalized_rmse": 1.1045526734599838,
+            "per_seed_mae": [
+              0.10549639910459518,
+              0.10549653321504593,
+              0.10882993787527084
+            ]
+          },
+          "candidate": {
+            "sample_count": 67,
+            "mae": 0.05901220440864563,
+            "rmse": 0.09277259558439255,
+            "normalized_mae": 0.4817586729813188,
+            "normalized_rmse": 0.7133247536521625,
+            "per_seed_mae": [
+              0.05704578012228012,
+              0.05792319029569626,
+              0.06206765025854111
+            ]
+          },
+          "persistence": {
+            "sample_count": 67,
+            "mae": 0.01422841101884842,
+            "rmse": 0.02919909916818142,
+            "normalized_mae": 0.12518164758334252,
+            "normalized_rmse": 0.2469961853418875,
+            "per_seed_mae": [
+              0.014228411950170994,
+              0.014228411950170994,
+              0.014228411950170994
+            ]
+          },
+          "mae_change": -0.04759541153907776,
+          "relative_mae_change_percent": -44.6454140409789
+        },
+        "small_target_change": {
+          "sample_count": 33,
+          "reference": {
+            "sample_count": 33,
+            "mae": 0.10706298798322678,
+            "rmse": 0.13768436014652252,
+            "normalized_mae": 0.912840077994546,
+            "normalized_rmse": 1.1214544634378818,
+            "per_seed_mae": [
+              0.10563501715660095,
+              0.10572227090597153,
+              0.10983170568943024
+            ]
+          },
+          "candidate": {
+            "sample_count": 33,
+            "mae": 0.05770491808652878,
+            "rmse": 0.09108299016952515,
+            "normalized_mae": 0.47777883905922885,
+            "normalized_rmse": 0.7138939174353083,
+            "per_seed_mae": [
+              0.05530519783496857,
+              0.056253861635923386,
+              0.061555709689855576
+            ]
+          },
+          "persistence": {
+            "sample_count": 33,
+            "mae": 0.004895535763353109,
+            "rmse": 0.007010465953499079,
+            "normalized_mae": 0.04228099673159071,
+            "normalized_rmse": 0.05908801257250879,
+            "per_seed_mae": [
+              0.004895535763353109,
+              0.004895535763353109,
+              0.004895535763353109
+            ]
+          },
+          "mae_change": -0.049358069896698,
+          "relative_mae_change_percent": -46.10189835578919
+        }
+      },
+      "right_hand": {
+        "unit": "normalized hand command",
+        "changing_target": {
+          "sample_count": 70,
+          "reference": {
+            "sample_count": 70,
+            "mae": 0.12265107780694962,
+            "rmse": 0.17586198449134827,
+            "normalized_mae": 0.7610534197574103,
+            "normalized_rmse": 0.9601487307700939,
+            "per_seed_mae": [
+              0.12409163266420364,
+              0.130870059132576,
+              0.11299153417348862
+            ]
+          },
+          "candidate": {
+            "sample_count": 70,
+            "mae": 0.08463732898235321,
+            "rmse": 0.12777946889400482,
+            "normalized_mae": 0.5591444409547378,
+            "normalized_rmse": 0.7588389650427236,
+            "per_seed_mae": [
+              0.0813075453042984,
+              0.09609190374612808,
+              0.07651254534721375
+            ]
+          },
+          "persistence": {
+            "sample_count": 70,
+            "mae": 0.014904525130987167,
+            "rmse": 0.026593878865242004,
+            "normalized_mae": 0.10959792888646669,
+            "normalized_rmse": 0.18766128563252257,
+            "per_seed_mae": [
+              0.014904526062309742,
+              0.014904526062309742,
+              0.014904526062309742
+            ]
+          },
+          "mae_change": -0.038013748824596405,
+          "relative_mae_change_percent": -30.99340788870139
+        },
+        "small_target_change": {
+          "sample_count": 30,
+          "reference": {
+            "sample_count": 30,
+            "mae": 0.12225305289030075,
+            "rmse": 0.17524488270282745,
+            "normalized_mae": 0.7587174926811829,
+            "normalized_rmse": 0.9565483474619321,
+            "per_seed_mae": [
+              0.12370406091213226,
+              0.13085605204105377,
+              0.11219903826713562
+            ]
+          },
+          "candidate": {
+            "sample_count": 30,
+            "mae": 0.08367785811424255,
+            "rmse": 0.12591542303562164,
+            "normalized_mae": 0.5561628736585239,
+            "normalized_rmse": 0.7547446339033466,
+            "per_seed_mae": [
+              0.08018427342176437,
+              0.09542206674814224,
+              0.07542723417282104
+            ]
+          },
+          "persistence": {
+            "sample_count": 30,
+            "mae": 0.004919418133795261,
+            "rmse": 0.007133398205041885,
+            "normalized_mae": 0.03911450277925364,
+            "normalized_rmse": 0.05871286876242989,
+            "per_seed_mae": [
+              0.004919418133795261,
+              0.004919418133795261,
+              0.004919418133795261
+            ]
+          },
+          "mae_change": -0.0385751947760582,
+          "relative_mae_change_percent": -31.553563583129673
+        }
+      }
+    },
+    "declaration_sha256": "cd8cd85ae3b18e2d258a7baafce62bcbc4e188f9d8d36a64364cbec9dff004d3"
+  },
+  "provenance": {
+    "model_revisions": {
+      "nvidia/GR00T-N1.7-3B": "2fc962b973bccdd5d8ce4f67cc63b264d6886495",
+      "nvidia/Cosmos-Reason2-2B": "9ce19a195e423419c349abfc86fd07178b230561"
+    },
+    "source_lock_sha256": "df5e2c183582c79d219482e6b2095f2428195ff321f847c6fa4d778d3d77bbc8",
+    "model_lock_sha256": "48a2fc87bdb9bdb3ede682c9bc647743121ca7457bc6b1a3e111a56bf7c781fc",
+    "training_script_sha256": {
+      "scripts/run_gr00t_pilot.py": "fbb078218c4bffcf4aee6f47b9b6d3522207a0a1adf39949c209e958b4edc311",
+      "scripts/evaluate_gr00t_pilot.py": "e51787ea1e739642fdf53bc3b5881c8605e6eab747afd8a390c2b01b80b8c878",
+      "scripts/run_gr00t_smoke.py": "84342cc4a7a090060f019e54b2c1873c9af1d4c7a322a0f10aee107f8de65bab",
+      "scripts/convert_single_camera.py": "1427f3551d38477e6d63456bebd8241265a91a2ed19957b20184de4c2bc6e2a8",
+      "scripts/project_config.py": "407df6bb25c7a96a17b03ad2b97756f51189d7d1f4bdf6befb7ec94f3ec4f418",
+      "configs/g1_inspire_config.py": "39f1311a6640420d2f1285d9c1c242ff66413d40c8fd64e518a854e36ca9c0b5",
+      "configs/modality.json": "be9aae54df97c467072d0158272db450dc3afed9cb9a301a71f40b9b68a13eef"
+    },
+    "baseline_recorded_head": "3d8ba060bf0623aeaa8f7385fa943a3e2be8ef7c",
+    "baseline_script_sha256": {
+      "scripts/evaluate_gr00t_pilot.py": "e51787ea1e739642fdf53bc3b5881c8605e6eab747afd8a390c2b01b80b8c878",
+      "scripts/project_config.py": "407df6bb25c7a96a17b03ad2b97756f51189d7d1f4bdf6befb7ec94f3ec4f418",
+      "scripts/convert_single_camera.py": "1427f3551d38477e6d63456bebd8241265a91a2ed19957b20184de4c2bc6e2a8",
+      "scripts/run_gr00t_smoke.py": "84342cc4a7a090060f019e54b2c1873c9af1d4c7a322a0f10aee107f8de65bab"
+    },
+    "baseline_scripts_match_implementation_commit": true,
+    "baseline_commit_explanation": "Baseline ran before the implementation commit; all four recorded helper hashes exactly match that commit.",
+    "private_evidence_sha256": {
+      "reports/pilot-fit-v1-baseline.json": "3bbf9c6b3fb626bf6eb3479e00eb52d4c606a4a84e5b95d6da7cce1a480f2891",
+      "reports/pilot-fit-v1-baseline.log": "5ccf6645ab63e93d7359e87cfdbfbed2d3dd974ad07e0760878437a41a2249d2",
+      "reports/pilot-fit-v1-baseline.npz": "06a4b6580928d45bfd0dca3819a5497305a7a9abe21cea996b23f824a6081c69",
+      "reports/pilot-fit-v1-baseline.png": "90ec4a9d862ae83e56854c071a5e55579d1e4bc5bfe1418535111b9f3f097e53",
+      "reports/pilot-fit-v1-evaluation.json": "bd9d5c0bfa078c5a18cac7b9c46de7bdcdf51eac2c628c344cfb6eb0c410b652",
+      "reports/pilot-fit-v1-evaluation.log": "e3fbbe47050bdb389dbed8feb15319836ad39c5804d107d7a6ce6b467f3efe76",
+      "reports/pilot-fit-v1-evaluation.npz": "c767535faff2c78c33fa4b092854424d842e6af1b4866c458badc3bfb961e211",
+      "reports/pilot-fit-v1-evaluation.png": "4c431937a582308fa3266a99e34f9b8031cc67d74d0d6bdc7ffd2dc6f2cfa6ed",
+      "reports/pilot-fit-v1-final-tests.json": "80137b5bd421a88f6c8a903d822e194cf46041d84605d08d7425cad5abf9c6b1",
+      "reports/pilot-fit-v1-final-tests.log": "899b3227bb62ace60dc42303149dc240ca462ad03d1ebea436680ce50704d005",
+      "reports/pilot-fit-v1-finite.jsonl": "7fbde544ec0cc82b877a3f2de1c10ec066969f102ad99a8664fba2f444428498",
+      "reports/pilot-fit-v1-reload.json": "478897736cebc8cfa0de8109224e90c901f04f4481e067a6ca4bc825fae0eca6",
+      "reports/pilot-fit-v1-reload.npz": "5eba80936dd569b160f677288e2688ea4f7a39b8f627d3609ff8bd97f5e9f773",
+      "reports/pilot-fit-v1-run.json": "468333be6731925ca2965a1e3b2de00bf17dd4c4f4564be95c86fa45603ff024",
+      "reports/pilot-fit-v1-samples.json": "04cf0414ce4c4f21ceb263dfc7797b1dd23ffd7a88129dcfb98c1005d8e1f232",
+      "reports/pilot-fit-v1-temporal-comparison.json": "d7bdcc8eaeb1d3b044eb31629bb63b225fb826ced9c37596d647b0f0aa57588a",
+      "reports/pilot-fit-v1-temporal-declaration.json": "cd8cd85ae3b18e2d258a7baafce62bcbc4e188f9d8d36a64364cbec9dff004d3",
+      "reports/pilot-fit-v1-train.json": "b86f4005deb1276af09283cea44c1d9db1583014e525da226e7d45352af5feed",
+      "reports/pilot-fit-v1-train.log": "4c19db54ecd4415e0e1c813481fff4e03ffef6bffdb211479dee13d5c8b7dd98",
+      "reports/pilot-fit-v1-archive.json": "b9b2419f4f64b8dea551443c59115347a43bfd5661615fe768e7bd2745ef3508",
+      "reports/pilot-fit-v1-archive-manifest.json": "b885e14dfb2c0176455c2fb92e012de449646019ed6f2fc76566a6224e000af9",
+      "reports/pilot-fit-v1-archive-replay.json": "7865550d61126e1e8d78cfd192ce0cb06cab900ab6f5b3dc12b7512c443c51c6"
+    }
+  },
+  "validation": {
+    "tests_passed": 65,
+    "tests_skipped": 0,
+    "test_seconds": 12.386,
+    "test_command": "CUDA_VISIBLE_DEVICES='' vendor/Isaac-GR00T/.venv/bin/python -B -m unittest discover -s tests -v > reports/pilot-fit-v1-final-tests.log 2>&1",
+    "test_log_sha256": "899b3227bb62ace60dc42303149dc240ca462ad03d1ebea436680ce50704d005",
+    "test_source_sha256": {
+      "configs/g1_inspire_config.py": "39f1311a6640420d2f1285d9c1c242ff66413d40c8fd64e518a854e36ca9c0b5",
+      "configs/modality.json": "be9aae54df97c467072d0158272db450dc3afed9cb9a301a71f40b9b68a13eef",
+      "locks/bootstrap-tools.json": "0c92769e8594a155ba293102198ad0b13572a966d853451b8e0208324a062a33",
+      "locks/conversion-requirements.txt": "4ee9b08631dcc2c0c5ef51df5817d4bb85e456063527950645a9b36d7f5e208e",
+      "locks/ffmpeg-packages.json": "d5704f70be538e2b22143018a575d77491ca2ea423481c60d53f31984f09ebc2",
+      "locks/gr00t-requirements.txt": "93b4a80281e3591ac8337bcbbc93abba9a77fef69b65b490c976c62892cc7db1",
+      "locks/model-assets.json": "be445c931fac431029f1af3edbd680e5e8be35cdd01f3b19707956baecc66115",
+      "locks/model-sources.json": "48a2fc87bdb9bdb3ede682c9bc647743121ca7457bc6b1a3e111a56bf7c781fc",
+      "locks/runtime-sources.json": "df5e2c183582c79d219482e6b2095f2428195ff321f847c6fa4d778d3d77bbc8",
+      "locks/tools-requirements.txt": "6deb8e8533a5102be23894f9ec235864aafd391a2ff1e81f9ab4638e098570e1",
+      "locks/unitree-requirements.txt": "9fbabb19a547b1136abba64fab2fec48b0219d3735baedd8f79044e7a455eb85",
+      "scripts/archive_smoke_checkpoint.py": "75bfd067c8eb9dc01e6c7fe1f13551a540df98cf0eecfd1b42bd529ae283ed7b",
+      "scripts/check_gr00t_loader.py": "f1e3e8c2e2e1d456c9ec76c5013d32abd597ff567d2610899a5f80cb15b9f3d3",
+      "scripts/compare_pilot_temporal_change.py": "0dc99ddcac82ecaa2e3964f472fdf6fe646885d68f9177af2c577207ad4604eb",
+      "scripts/convert_single_camera.py": "1427f3551d38477e6d63456bebd8241265a91a2ed19957b20184de4c2bc6e2a8",
+      "scripts/evaluate_gr00t_pilot.py": "e51787ea1e739642fdf53bc3b5881c8605e6eab747afd8a390c2b01b80b8c878",
+      "scripts/prepare_gr00t_dataset.py": "cb712d1df21ea26962ed6ae19d00c30bbe29a42466dc35160d52e1b8481ed5d2",
+      "scripts/prepare_pilot.py": "91fb9eb067f1f0f54c53abdc8d18f4d21ae2eb2437d2e063d5f3b25f96c7cc48",
+      "scripts/project_config.py": "407df6bb25c7a96a17b03ad2b97756f51189d7d1f4bdf6befb7ec94f3ec4f418",
+      "scripts/project_storage.py": "dedd40247855f4d487f6cc602c641c7c1950649c658e3339179264e0bd0afad7",
+      "scripts/record_versions.py": "045383a8273aaecb8010f6781cbeffe3500580b1f0228256e761c7b99906e9ac",
+      "scripts/reload_gr00t_checkpoint.py": "b28bfa8bfdd84e7c5476f7ac24f6404c6c3310b2d9a73008ace8282504bcb7ea",
+      "scripts/run_gr00t_pilot.py": "fbb078218c4bffcf4aee6f47b9b6d3522207a0a1adf39949c209e958b4edc311",
+      "scripts/run_gr00t_smoke.py": "84342cc4a7a090060f019e54b2c1873c9af1d4c7a322a0f10aee107f8de65bab",
+      "scripts/setup_pipeline.py": "7515d49a2fc856ef51519f0dc7f7aed6b5c1c000954ce216468ed4364fad610e",
+      "scripts/verify_pipeline.py": "b42f39672f03bcacebc280a487674c35c8dc743885dbd1ae803ada9333de96fe",
+      "tests/test_bootstrap.py": "ca8f58d847e51f723b252a4e91a73f0cd1c4ad8d0876a0c1d1f317dd4d558a24",
+      "tests/test_pilot_archive.py": "d7199de8cfcfe8c9b905fa0812d8e47c3442700ffe0f8a4d1792edff5b7b8adf",
+      "tests/test_pilot_evaluation.py": "5ac10f7d8b3ec74e099cf55453152c7c7283e496d118523c0a7a11a8d6fb3c5a",
+      "tests/test_pilot_temporal_change.py": "c0cd2456ec1d6c7b7f607d1459fafd8ef294a7261f225631d32a57fd21a0db41",
+      "tests/test_pilot_training.py": "d809a02b65f87aac0760de0157dbe0a303033515cf3b592bfdf58b2c6f7f8321",
+      "tests/test_preparation.py": "acbfdbf69b4b7551889777b1da05e6cfb1c89ff65e70db5761a4f5b241e0a6a7"
+    },
+    "test_source_snapshot_timing": "after_test_run; no pre-run source hash comparison was collected",
+    "archive_replay": {
+      "passed": true,
+      "verified_at_utc": "2026-10-14T21:36:26.925849+00:00",
+      "archive_ref": "archive:checkpoints/pilot-fit-v1",
+      "input_copies_verified_against_archive_manifest": 5,
+      "equal_fields": [
+        "groups",
+        "method",
+        "threshold",
+        "baseline_report_sha256",
+        "candidate_report_sha256",
+        "baseline_npz_sha256",
+        "candidate_npz_sha256",
+        "declaration_sha256",
+        "sample_manifest_sha256"
+      ],
+      "archived_comparison_sha256": "d7bdcc8eaeb1d3b044eb31629bb63b225fb826ced9c37596d647b0f0aa57588a",
+      "replayed_comparison_sha256": "66c5c311656a55314b13ef4b38c0eaea66662d9e8a748e0b3f81886df42feb44",
+      "new_inference": false,
+      "scope": "Recomputed metrics on CPU from archived JSON and NPZ files restored with original basenames; no weights copied."
+    }
+  },
+  "archive": {
+    "status": "verified",
+    "artifact_ref": "archive:checkpoints/pilot-fit-v1/checkpoint-512",
+    "checkpoint_count": 1,
+    "files_verified": 56,
+    "all_source_remote_sha256_match": true,
+    "per_file_fsync_completed": true,
+    "source_preserved": true,
+    "verified_at_utc": "2026-10-14T21:35:38.591948+00:00",
+    "manifest_sha256": "b885e14dfb2c0176455c2fb92e012de449646019ed6f2fc76566a6224e000af9",
+    "verification_sha256": "b9b2419f4f64b8dea551443c59115347a43bfd5661615fe768e7bd2745ef3508",
+    "compressed_transfer_bytes": 8678647092
+  },
+  "limitations": [
+    "Five-episode training-set fitting only; no held-out or robot success evidence.",
+    "All groups remain worse than current-state persistence, including changing-target subsets.",
+    "Training loss is masked flow-matching velocity MSE, not native action MAE.",
+    "Same target box at varied positions; instruction-dependent target selection is untested.",
+    "Model-only checkpoint cannot exactly resume optimizer/scheduler state.",
+    "Fresh-host and uncached installation limitations from the repository portability record still apply."
+  ]
+}

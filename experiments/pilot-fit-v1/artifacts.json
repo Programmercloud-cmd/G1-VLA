@@ -1,0 +1,324 @@
+{
+  "schema_version": 1,
+  "artifact_ref_scheme": "archive: paths are relative to the machine-configured archive root; no credentials or machine address is stored here.",
+  "checkpoint": {
+    "ref": "archive:checkpoints/pilot-fit-v1/checkpoint-512",
+    "bytes": 12583325249,
+    "files": [
+      {
+        "size": 2146,
+        "sha256": "6e9b72bc2372383af27599811e944b7aa72d0537bf06764aff32f7c5a0d53e4a",
+        "path": "config.json"
+      },
+      {
+        "size": 2226,
+        "sha256": "5e8611697dc90b7b7a92cf2a8da926275c16f5966c5eb109e0216c3c51af15a1",
+        "path": "embodiment_id.json"
+      },
+      {
+        "size": 5416,
+        "sha256": "f42c015c6d236b638de8994cdad6d9f7e5d2ffaf7124115c54c84ae79223b731",
+        "path": "experiment_cfg/conf.yaml"
+      },
+      {
+        "size": 5385,
+        "sha256": "2c728c42bc0c0e3af1a3ea764d190909e6901e9e97c715a4d2cbd763ed97d0b2",
+        "path": "experiment_cfg/config.yaml"
+      },
+      {
+        "size": 60284,
+        "sha256": "49ab79be164795a08f27c8e4c17efdad4a690331a70abe6e39a7889825efd254",
+        "path": "experiment_cfg/dataset_statistics.json"
+      },
+      {
+        "size": 1512,
+        "sha256": "ee01ded3e8d98c1cfc8e37f227afe21dfbca11d8aaa56cffef4ae0ad51dea217",
+        "path": "experiment_cfg/final_model_config.json"
+      },
+      {
+        "size": 2548468,
+        "sha256": "24a6fdbaa6515934345ee7191e41b5ae6518689ce129b4b81c7ab5cbb2988d7b",
+        "path": "experiment_cfg/final_processor_config.json"
+      },
+      {
+        "size": 4986649584,
+        "sha256": "cbcaea5ee88f1e0f1465043920a2647c67e7de17d24adfd1c477742a6168edec",
+        "path": "model-00001-of-00003.safetensors"
+      },
+      {
+        "size": 4970792616,
+        "sha256": "666372cc60be0139ec25a39188e732dd28cb0c0cbb5c6b3590f8ebe9564d19bf",
+        "path": "model-00002-of-00003.safetensors"
+      },
+      {
+        "size": 2618758696,
+        "sha256": "a9e3539c4d1b89a021e22631f65e6d7a7a3f8a107d71fc0f8c4026ee46a7cc77",
+        "path": "model-00003-of-00003.safetensors"
+      },
+      {
+        "size": 104913,
+        "sha256": "12117379d91d029c5979a585d07ba794001730c9516d6de5512e3dedfee30730",
+        "path": "model.safetensors.index.json"
+      },
+      {
+        "size": 26949,
+        "sha256": "45540ae3b4f8950442dc241e905f1310607fca9849f58343d5fb3942e90f5776",
+        "path": "processor_config.json"
+      },
+      {
+        "size": 4353377,
+        "sha256": "3dd8e49347dea635d91dc1179ca3545a8b0e152cf8442b601a8c72b51e249e81",
+        "path": "statistics.json"
+      },
+      {
+        "size": 7776,
+        "sha256": "0303a545f1e8791c1bf299c39884acfda2324b286d4770bdaed6417e9317345c",
+        "path": "trainer_state.json"
+      },
+      {
+        "size": 5841,
+        "sha256": "88aec1573d5c4e56787c34db124b0df37d49ea2a5370fbec1e166354e995ac00",
+        "path": "training_args.bin"
+      },
+      {
+        "size": 60,
+        "sha256": "7356397751d7c78f08077050555093bff9fd115f7319216b93b220ddd5c39df0",
+        "path": "wandb_config.json"
+      }
+    ]
+  },
+  "verification": {
+    "ref": "archive:checkpoints/pilot-fit-v1/archive_verification.json",
+    "sha256": "b9b2419f4f64b8dea551443c59115347a43bfd5661615fe768e7bd2745ef3508",
+    "source_manifest_sha256": "b885e14dfb2c0176455c2fb92e012de449646019ed6f2fc76566a6224e000af9",
+    "verified_at_utc": "2026-10-14T21:35:38.591948+00:00",
+    "file_count": 56,
+    "all_sha256_match": true,
+    "per_file_fsync_completed": true
+  },
+  "evidence": [
+    {
+      "ref": "archive:checkpoints/pilot-fit-v1/reports/evaluation.json",
+      "size": 135180,
+      "sha256": "bd9d5c0bfa078c5a18cac7b9c46de7bdcdf51eac2c628c344cfb6eb0c410b652"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-v1/reports/run-config.json",
+      "size": 5489,
+      "sha256": "468333be6731925ca2965a1e3b2de00bf17dd4c4f4564be95c86fa45603ff024"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-v1/dataset/snapshot-manifest.json",
+      "size": 236913,
+      "sha256": "4fefddb84a73f7c1167b1f2a1dc58c076426012a9b90411e353071c320457144"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-v1/reports/baseline.json",
+      "size": 132333,
+      "sha256": "3bbf9c6b3fb626bf6eb3479e00eb52d4c606a4a84e5b95d6da7cce1a480f2891"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-v1/reports/sample-manifest.json",
+      "size": 13747,
+      "sha256": "04cf0414ce4c4f21ceb263dfc7797b1dd23ffd7a88129dcfb98c1005d8e1f232"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-v1/reports/evaluation.npz",
+      "size": 509009,
+      "sha256": "c767535faff2c78c33fa4b092854424d842e6af1b4866c458badc3bfb961e211"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-v1/reports/evaluation.log",
+      "size": 15351,
+      "sha256": "e3fbbe47050bdb389dbed8feb15319836ad39c5804d107d7a6ce6b467f3efe76"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-v1/reports/evaluation.png",
+      "size": 828466,
+      "sha256": "4c431937a582308fa3266a99e34f9b8031cc67d74d0d6bdc7ffd2dc6f2cfa6ed"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-v1/reports/baseline.npz",
+      "size": 443976,
+      "sha256": "06a4b6580928d45bfd0dca3819a5497305a7a9abe21cea996b23f824a6081c69"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-v1/reports/baseline.log",
+      "size": 12612,
+      "sha256": "5ccf6645ab63e93d7359e87cfdbfbed2d3dd974ad07e0760878437a41a2249d2"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-v1/reports/baseline.png",
+      "size": 702880,
+      "sha256": "90ec4a9d862ae83e56854c071a5e55579d1e4bc5bfe1418535111b9f3f097e53"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-v1/reports/temporal-declaration.json",
+      "size": 20227,
+      "sha256": "cd8cd85ae3b18e2d258a7baafce62bcbc4e188f9d8d36a64364cbec9dff004d3"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-v1/reports/temporal-comparison.json",
+      "size": 12349,
+      "sha256": "d7bdcc8eaeb1d3b044eb31629bb63b225fb826ced9c37596d647b0f0aa57588a"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-v1/scripts/compare_pilot_temporal_change.py",
+      "size": 8745,
+      "sha256": "0dc99ddcac82ecaa2e3964f472fdf6fe646885d68f9177af2c577207ad4604eb"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-v1/reports/training-audit.jsonl",
+      "size": 718620,
+      "sha256": "7fbde544ec0cc82b877a3f2de1c10ec066969f102ad99a8664fba2f444428498"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-v1/reports/reload.json",
+      "size": 1680,
+      "sha256": "478897736cebc8cfa0de8109224e90c901f04f4481e067a6ca4bc825fae0eca6"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-v1/reports/reload.npz",
+      "size": 1654,
+      "sha256": "5eba80936dd569b160f677288e2688ea4f7a39b8f627d3609ff8bd97f5e9f773"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-v1/reports/train.json",
+      "size": 8039,
+      "sha256": "b86f4005deb1276af09283cea44c1d9db1583014e525da226e7d45352af5feed"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-v1/reports/train.log",
+      "size": 47901,
+      "sha256": "4c19db54ecd4415e0e1c813481fff4e03ffef6bffdb211479dee13d5c8b7dd98"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-v1/README.md",
+      "size": 8548,
+      "sha256": "443c312cdf39a73f53f5f081e91c922809dc4a81eee8a454e605d7d50bcb311a"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-v1/docs/execution-plan.md",
+      "size": 9440,
+      "sha256": "008869035a193af91ca63d2ab361e8ccae28af4c61377ef9ba0d18d4b720cf79"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-v1/configs/g1_inspire_config.py",
+      "size": 1305,
+      "sha256": "39f1311a6640420d2f1285d9c1c242ff66413d40c8fd64e518a854e36ca9c0b5"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-v1/configs/modality.json",
+      "size": 715,
+      "sha256": "be9aae54df97c467072d0158272db450dc3afed9cb9a301a71f40b9b68a13eef"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-v1/scripts/run_gr00t_smoke.py",
+      "size": 7943,
+      "sha256": "84342cc4a7a090060f019e54b2c1873c9af1d4c7a322a0f10aee107f8de65bab"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-v1/scripts/reload_gr00t_checkpoint.py",
+      "size": 4838,
+      "sha256": "b28bfa8bfdd84e7c5476f7ac24f6404c6c3310b2d9a73008ace8282504bcb7ea"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-v1/scripts/project_config.py",
+      "size": 7803,
+      "sha256": "407df6bb25c7a96a17b03ad2b97756f51189d7d1f4bdf6befb7ec94f3ec4f418"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-v1/scripts/archive_smoke_checkpoint.py",
+      "size": 24626,
+      "sha256": "75bfd067c8eb9dc01e6c7fe1f13551a540df98cf0eecfd1b42bd529ae283ed7b"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-v1/scripts/run_gr00t_pilot.py",
+      "size": 18322,
+      "sha256": "fbb078218c4bffcf4aee6f47b9b6d3522207a0a1adf39949c209e958b4edc311"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-v1/scripts/evaluate_gr00t_pilot.py",
+      "size": 19647,
+      "sha256": "e51787ea1e739642fdf53bc3b5881c8605e6eab747afd8a390c2b01b80b8c878"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-v1/scripts/convert_single_camera.py",
+      "size": 8455,
+      "sha256": "1427f3551d38477e6d63456bebd8241265a91a2ed19957b20184de4c2bc6e2a8"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-v1/scripts/prepare_pilot.py",
+      "size": 13215,
+      "sha256": "91fb9eb067f1f0f54c53abdc8d18f4d21ae2eb2437d2e063d5f3b25f96c7cc48"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-v1/locks/bootstrap-tools.json",
+      "size": 1155,
+      "sha256": "0c92769e8594a155ba293102198ad0b13572a966d853451b8e0208324a062a33"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-v1/locks/conversion-requirements.txt",
+      "size": 1618,
+      "sha256": "4ee9b08631dcc2c0c5ef51df5817d4bb85e456063527950645a9b36d7f5e208e"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-v1/locks/ffmpeg-packages.json",
+      "size": 5760,
+      "sha256": "d5704f70be538e2b22143018a575d77491ca2ea423481c60d53f31984f09ebc2"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-v1/locks/gr00t-requirements.txt",
+      "size": 2684,
+      "sha256": "93b4a80281e3591ac8337bcbbc93abba9a77fef69b65b490c976c62892cc7db1"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-v1/locks/model-assets.json",
+      "size": 3046,
+      "sha256": "be445c931fac431029f1af3edbd680e5e8be35cdd01f3b19707956baecc66115"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-v1/locks/model-sources.json",
+      "size": 3590,
+      "sha256": "48a2fc87bdb9bdb3ede682c9bc647743121ca7457bc6b1a3e111a56bf7c781fc"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-v1/locks/runtime-sources.json",
+      "size": 1249,
+      "sha256": "df5e2c183582c79d219482e6b2095f2428195ff321f847c6fa4d778d3d77bbc8"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-v1/locks/tools-requirements.txt",
+      "size": 332,
+      "sha256": "6deb8e8533a5102be23894f9ec235864aafd391a2ff1e81f9ab4638e098570e1"
+    },
+    {
+      "ref": "archive:checkpoints/pilot-fit-v1/locks/unitree-requirements.txt",
+      "size": 2217,
+      "sha256": "9fbabb19a547b1136abba64fab2fec48b0219d3735baedd8f79044e7a455eb85"
+    }
+  ],
+  "dataset": {
+    "ref": "archive:derived/lerobot/local/g1_inspire_pilot_v1",
+    "raw_snapshot_ref": "derived:pilot-v1",
+    "snapshot_manifest_sha256": "4fefddb84a73f7c1167b1f2a1dc58c076426012a9b90411e353071c320457144",
+    "content_manifest": "evaluation-samples.json"
+  },
+  "dependencies": {
+    "model_revisions": {
+      "nvidia/GR00T-N1.7-3B": "2fc962b973bccdd5d8ce4f67cc63b264d6886495",
+      "nvidia/Cosmos-Reason2-2B": "9ce19a195e423419c349abfc86fd07178b230561"
+    },
+    "runtime_lock": "../../locks/runtime-sources.json",
+    "note": "Reload also requires pinned Cosmos assets. Weights, datasets, caches and environments are external to Git."
+  },
+  "archive_provenance": {
+    "commit": "8caaf9fbf88ee5e9da2bbe3012680b0b98578132",
+    "tree": "14d6113bf946fc82d38b8f6ee6647726283ca352",
+    "tracked_changes_at_archive": [
+      "scripts/reload_gr00t_checkpoint.py"
+    ],
+    "file_hashes_record_exact_archived_content": true
+  },
+  "archive_documentation_note": "Archived docs are historical prepublication snapshots. The reload metadata change was uncommitted at archive time and is identified by its exact archived file hash; it is included in the final results commit."
+}

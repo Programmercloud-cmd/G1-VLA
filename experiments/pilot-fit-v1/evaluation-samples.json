@@ -1,0 +1,637 @@
+{
+  "dataset_files_sha256": {
+    "data/chunk-000/episode_000000.parquet": "7258f240f76bff7343093c58dee517cf92b15776238d68bcc0f4e02243121a03",
+    "data/chunk-000/episode_000001.parquet": "bce386664802cf721533b04d2cc58be43bb41a6fb0b84248da56bc9f9a8d9a84",
+    "data/chunk-000/episode_000002.parquet": "fa9a6903f167e0f1fa05cfa985a1a83ec85f9cdcdd85fb38c4a4b23044d1f6a8",
+    "data/chunk-000/episode_000003.parquet": "1f6282c767be95f54fc88ae8644e0018e631cb57f462aeaeffa8d20ffb37344a",
+    "data/chunk-000/episode_000004.parquet": "988abde73b0528e5c3628076f73faee91147e35dff38598c818eae5799ce7326",
+    "meta/episodes.jsonl": "c1634a809b76b3e38ca4201a07656fabecf75de18435ef8dd481a6d2703e611a",
+    "meta/episodes_stats.jsonl": "ce38d52adc0572b26b92c0b91a560d874cb87c8377c7994c1e930d2ee88235e3",
+    "meta/info.json": "ffb76a43e2263670a1f175b92110e24b142cce1893e9b4e489b6755fc991c894",
+    "meta/modality.json": "be9aae54df97c467072d0158272db450dc3afed9cb9a301a71f40b9b68a13eef",
+    "meta/relative_stats.json": "228ff2cc8502634fa384a6df5afdc2c5927c1c34d655bc32a08c2fede8e6e4ac",
+    "meta/stats.json": "32e25d0dae9924a57f10bd82f1fd7eacfe3398f7f3f60b79e3bdd86e2dd16070",
+    "meta/tasks.jsonl": "22f05d8b64f62ef28c2c28dd620fde0990fb7e85e98698702eace8604d84d821",
+    "videos/chunk-000/observation.images.cam_left_high/episode_000000.mp4": "e28d496fd7e62eb40deb108ddab8120075395edffc548159d952a723837d7d64",
+    "videos/chunk-000/observation.images.cam_left_high/episode_000001.mp4": "5897a32423ba17f8870cd37a19ace22b4b38866e0ac1a490fa1182e846bd111a",
+    "videos/chunk-000/observation.images.cam_left_high/episode_000002.mp4": "d2234cc5572d66d06c42c7fb9afe5a21e67910d563778aa491b9d2bb1ff71e7f",
+    "videos/chunk-000/observation.images.cam_left_high/episode_000003.mp4": "2a0e2cbca72990f8bf8c70e00da139e17276caf697156a52f966be3d2925b551",
+    "videos/chunk-000/observation.images.cam_left_high/episode_000004.mp4": "a6b225f8c78e72e48dfbc92c7d21083d38f0f3c6400be667ba8a46172ae14af7"
+  },
+  "pilot_manifest_sha256": "4fefddb84a73f7c1167b1f2a1dc58c076426012a9b90411e353071c320457144",
+  "samples": [
+    {
+      "episode_index": 0,
+      "start": 0,
+      "length": 400,
+      "progress": 0.0
+    },
+    {
+      "episode_index": 0,
+      "start": 20,
+      "length": 400,
+      "progress": 0.052083333333333336
+    },
+    {
+      "episode_index": 0,
+      "start": 40,
+      "length": 400,
+      "progress": 0.10416666666666667
+    },
+    {
+      "episode_index": 0,
+      "start": 60,
+      "length": 400,
+      "progress": 0.15625
+    },
+    {
+      "episode_index": 0,
+      "start": 80,
+      "length": 400,
+      "progress": 0.20833333333333334
+    },
+    {
+      "episode_index": 0,
+      "start": 101,
+      "length": 400,
+      "progress": 0.2630208333333333
+    },
+    {
+      "episode_index": 0,
+      "start": 121,
+      "length": 400,
+      "progress": 0.3151041666666667
+    },
+    {
+      "episode_index": 0,
+      "start": 141,
+      "length": 400,
+      "progress": 0.3671875
+    },
+    {
+      "episode_index": 0,
+      "start": 161,
+      "length": 400,
+      "progress": 0.4192708333333333
+    },
+    {
+      "episode_index": 0,
+      "start": 181,
+      "length": 400,
+      "progress": 0.4713541666666667
+    },
+    {
+      "episode_index": 0,
+      "start": 202,
+      "length": 400,
+      "progress": 0.5260416666666666
+    },
+    {
+      "episode_index": 0,
+      "start": 222,
+      "length": 400,
+      "progress": 0.578125
+    },
+    {
+      "episode_index": 0,
+      "start": 242,
+      "length": 400,
+      "progress": 0.6302083333333334
+    },
+    {
+      "episode_index": 0,
+      "start": 262,
+      "length": 400,
+      "progress": 0.6822916666666666
+    },
+    {
+      "episode_index": 0,
+      "start": 282,
+      "length": 400,
+      "progress": 0.734375
+    },
+    {
+      "episode_index": 0,
+      "start": 303,
+      "length": 400,
+      "progress": 0.7890625
+    },
+    {
+      "episode_index": 0,
+      "start": 323,
+      "length": 400,
+      "progress": 0.8411458333333334
+    },
+    {
+      "episode_index": 0,
+      "start": 343,
+      "length": 400,
+      "progress": 0.8932291666666666
+    },
+    {
+      "episode_index": 0,
+      "start": 363,
+      "length": 400,
+      "progress": 0.9453125
+    },
+    {
+      "episode_index": 0,
+      "start": 384,
+      "length": 400,
+      "progress": 1.0
+    },
+    {
+      "episode_index": 1,
+      "start": 0,
+      "length": 490,
+      "progress": 0.0
+    },
+    {
+      "episode_index": 1,
+      "start": 24,
+      "length": 490,
+      "progress": 0.05063291139240506
+    },
+    {
+      "episode_index": 1,
+      "start": 49,
+      "length": 490,
+      "progress": 0.10337552742616034
+    },
+    {
+      "episode_index": 1,
+      "start": 74,
+      "length": 490,
+      "progress": 0.15611814345991562
+    },
+    {
+      "episode_index": 1,
+      "start": 99,
+      "length": 490,
+      "progress": 0.2088607594936709
+    },
+    {
+      "episode_index": 1,
+      "start": 124,
+      "length": 490,
+      "progress": 0.2616033755274262
+    },
+    {
+      "episode_index": 1,
+      "start": 149,
+      "length": 490,
+      "progress": 0.3143459915611814
+    },
+    {
+      "episode_index": 1,
+      "start": 174,
+      "length": 490,
+      "progress": 0.3670886075949367
+    },
+    {
+      "episode_index": 1,
+      "start": 199,
+      "length": 490,
+      "progress": 0.41983122362869196
+    },
+    {
+      "episode_index": 1,
+      "start": 224,
+      "length": 490,
+      "progress": 0.47257383966244726
+    },
+    {
+      "episode_index": 1,
+      "start": 249,
+      "length": 490,
+      "progress": 0.5253164556962026
+    },
+    {
+      "episode_index": 1,
+      "start": 274,
+      "length": 490,
+      "progress": 0.5780590717299579
+    },
+    {
+      "episode_index": 1,
+      "start": 299,
+      "length": 490,
+      "progress": 0.630801687763713
+    },
+    {
+      "episode_index": 1,
+      "start": 324,
+      "length": 490,
+      "progress": 0.6835443037974683
+    },
+    {
+      "episode_index": 1,
+      "start": 349,
+      "length": 490,
+      "progress": 0.7362869198312236
+    },
+    {
+      "episode_index": 1,
+      "start": 374,
+      "length": 490,
+      "progress": 0.7890295358649789
+    },
+    {
+      "episode_index": 1,
+      "start": 399,
+      "length": 490,
+      "progress": 0.8417721518987342
+    },
+    {
+      "episode_index": 1,
+      "start": 424,
+      "length": 490,
+      "progress": 0.8945147679324894
+    },
+    {
+      "episode_index": 1,
+      "start": 449,
+      "length": 490,
+      "progress": 0.9472573839662447
+    },
+    {
+      "episode_index": 1,
+      "start": 474,
+      "length": 490,
+      "progress": 1.0
+    },
+    {
+      "episode_index": 2,
+      "start": 0,
+      "length": 497,
+      "progress": 0.0
+    },
+    {
+      "episode_index": 2,
+      "start": 25,
+      "length": 497,
+      "progress": 0.05197505197505198
+    },
+    {
+      "episode_index": 2,
+      "start": 50,
+      "length": 497,
+      "progress": 0.10395010395010396
+    },
+    {
+      "episode_index": 2,
+      "start": 75,
+      "length": 497,
+      "progress": 0.15592515592515593
+    },
+    {
+      "episode_index": 2,
+      "start": 101,
+      "length": 497,
+      "progress": 0.20997920997921
+    },
+    {
+      "episode_index": 2,
+      "start": 126,
+      "length": 497,
+      "progress": 0.26195426195426197
+    },
+    {
+      "episode_index": 2,
+      "start": 151,
+      "length": 497,
+      "progress": 0.31392931392931395
+    },
+    {
+      "episode_index": 2,
+      "start": 177,
+      "length": 497,
+      "progress": 0.367983367983368
+    },
+    {
+      "episode_index": 2,
+      "start": 202,
+      "length": 497,
+      "progress": 0.41995841995842
+    },
+    {
+      "episode_index": 2,
+      "start": 227,
+      "length": 497,
+      "progress": 0.47193347193347196
+    },
+    {
+      "episode_index": 2,
+      "start": 253,
+      "length": 497,
+      "progress": 0.525987525987526
+    },
+    {
+      "episode_index": 2,
+      "start": 278,
+      "length": 497,
+      "progress": 0.577962577962578
+    },
+    {
+      "episode_index": 2,
+      "start": 303,
+      "length": 497,
+      "progress": 0.6299376299376299
+    },
+    {
+      "episode_index": 2,
+      "start": 329,
+      "length": 497,
+      "progress": 0.683991683991684
+    },
+    {
+      "episode_index": 2,
+      "start": 354,
+      "length": 497,
+      "progress": 0.735966735966736
+    },
+    {
+      "episode_index": 2,
+      "start": 379,
+      "length": 497,
+      "progress": 0.7879417879417879
+    },
+    {
+      "episode_index": 2,
+      "start": 405,
+      "length": 497,
+      "progress": 0.841995841995842
+    },
+    {
+      "episode_index": 2,
+      "start": 430,
+      "length": 497,
+      "progress": 0.893970893970894
+    },
+    {
+      "episode_index": 2,
+      "start": 455,
+      "length": 497,
+      "progress": 0.9459459459459459
+    },
+    {
+      "episode_index": 2,
+      "start": 481,
+      "length": 497,
+      "progress": 1.0
+    },
+    {
+      "episode_index": 3,
+      "start": 0,
+      "length": 345,
+      "progress": 0.0
+    },
+    {
+      "episode_index": 3,
+      "start": 17,
+      "length": 345,
+      "progress": 0.05167173252279635
+    },
+    {
+      "episode_index": 3,
+      "start": 34,
+      "length": 345,
+      "progress": 0.1033434650455927
+    },
+    {
+      "episode_index": 3,
+      "start": 51,
+      "length": 345,
+      "progress": 0.15501519756838905
+    },
+    {
+      "episode_index": 3,
+      "start": 69,
+      "length": 345,
+      "progress": 0.20972644376899696
+    },
+    {
+      "episode_index": 3,
+      "start": 86,
+      "length": 345,
+      "progress": 0.2613981762917933
+    },
+    {
+      "episode_index": 3,
+      "start": 103,
+      "length": 345,
+      "progress": 0.3130699088145897
+    },
+    {
+      "episode_index": 3,
+      "start": 121,
+      "length": 345,
+      "progress": 0.3677811550151976
+    },
+    {
+      "episode_index": 3,
+      "start": 138,
+      "length": 345,
+      "progress": 0.4194528875379939
+    },
+    {
+      "episode_index": 3,
+      "start": 155,
+      "length": 345,
+      "progress": 0.47112462006079026
+    },
+    {
+      "episode_index": 3,
+      "start": 173,
+      "length": 345,
+      "progress": 0.5258358662613982
+    },
+    {
+      "episode_index": 3,
+      "start": 190,
+      "length": 345,
+      "progress": 0.5775075987841946
+    },
+    {
+      "episode_index": 3,
+      "start": 207,
+      "length": 345,
+      "progress": 0.6291793313069909
+    },
+    {
+      "episode_index": 3,
+      "start": 225,
+      "length": 345,
+      "progress": 0.6838905775075987
+    },
+    {
+      "episode_index": 3,
+      "start": 242,
+      "length": 345,
+      "progress": 0.7355623100303952
+    },
+    {
+      "episode_index": 3,
+      "start": 259,
+      "length": 345,
+      "progress": 0.7872340425531915
+    },
+    {
+      "episode_index": 3,
+      "start": 277,
+      "length": 345,
+      "progress": 0.8419452887537994
+    },
+    {
+      "episode_index": 3,
+      "start": 294,
+      "length": 345,
+      "progress": 0.8936170212765957
+    },
+    {
+      "episode_index": 3,
+      "start": 311,
+      "length": 345,
+      "progress": 0.9452887537993921
+    },
+    {
+      "episode_index": 3,
+      "start": 329,
+      "length": 345,
+      "progress": 1.0
+    },
+    {
+      "episode_index": 4,
+      "start": 0,
+      "length": 384,
+      "progress": 0.0
+    },
+    {
+      "episode_index": 4,
+      "start": 19,
+      "length": 384,
+      "progress": 0.051630434782608696
+    },
+    {
+      "episode_index": 4,
+      "start": 38,
+      "length": 384,
+      "progress": 0.10326086956521739
+    },
+    {
+      "episode_index": 4,
+      "start": 58,
+      "length": 384,
+      "progress": 0.15760869565217392
+    },
+    {
+      "episode_index": 4,
+      "start": 77,
+      "length": 384,
+      "progress": 0.20923913043478262
+    },
+    {
+      "episode_index": 4,
+      "start": 96,
+      "length": 384,
+      "progress": 0.2608695652173913
+    },
+    {
+      "episode_index": 4,
+      "start": 116,
+      "length": 384,
+      "progress": 0.31521739130434784
+    },
+    {
+      "episode_index": 4,
+      "start": 135,
+      "length": 384,
+      "progress": 0.36684782608695654
+    },
+    {
+      "episode_index": 4,
+      "start": 154,
+      "length": 384,
+      "progress": 0.41847826086956524
+    },
+    {
+      "episode_index": 4,
+      "start": 174,
+      "length": 384,
+      "progress": 0.47282608695652173
+    },
+    {
+      "episode_index": 4,
+      "start": 193,
+      "length": 384,
+      "progress": 0.5244565217391305
+    },
+    {
+      "episode_index": 4,
+      "start": 213,
+      "length": 384,
+      "progress": 0.5788043478260869
+    },
+    {
+      "episode_index": 4,
+      "start": 232,
+      "length": 384,
+      "progress": 0.6304347826086957
+    },
+    {
+      "episode_index": 4,
+      "start": 251,
+      "length": 384,
+      "progress": 0.6820652173913043
+    },
+    {
+      "episode_index": 4,
+      "start": 271,
+      "length": 384,
+      "progress": 0.7364130434782609
+    },
+    {
+      "episode_index": 4,
+      "start": 290,
+      "length": 384,
+      "progress": 0.7880434782608695
+    },
+    {
+      "episode_index": 4,
+      "start": 309,
+      "length": 384,
+      "progress": 0.8396739130434783
+    },
+    {
+      "episode_index": 4,
+      "start": 329,
+      "length": 384,
+      "progress": 0.8940217391304348
+    },
+    {
+      "episode_index": 4,
+      "start": 348,
+      "length": 384,
+      "progress": 0.9456521739130435
+    },
+    {
+      "episode_index": 4,
+      "start": 368,
+      "length": 384,
+      "progress": 1.0
+    }
+  ],
+  "horizon": 16,
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "joint_order": [
+    "left_arm",
+    "right_arm",
+    "left_hand",
+    "right_hand"
+  ],
+  "denoising_steps": 4
+}
