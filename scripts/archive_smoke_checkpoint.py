@@ -123,6 +123,42 @@ def pilot_evidence_sources(source, evaluation_report=None, run_config=None, pilo
     return result
 
 
+
+def temporal_evidence_sources(source, evaluation_report, baseline_report, sample_manifest,
+                              declaration_path=None, comparison_path=None):
+    """Bind optional target-change analysis to the already archived paired arrays."""
+    if declaration_path is None and comparison_path is None:
+        return []
+    if any(path is None for path in [evaluation_report, baseline_report, sample_manifest,
+                                    declaration_path, comparison_path]):
+        raise ValueError("Temporal archival requires both reports and complete paired pilot evidence")
+    declaration = read_small_json(declaration_path, "Temporal declaration")
+    comparison = read_small_json(comparison_path, "Temporal comparison")
+    if (comparison.get("passed") is not True or not comparison.get("candidate_checkpoint")
+            or resolve_path(comparison["candidate_checkpoint"]) != source):
+        raise ValueError("Temporal comparison must pass and identify the archived checkpoint")
+    baseline = read_small_json(baseline_report, "Baseline report")
+    shared = {"baseline_report_sha256": sha256(baseline_report),
+              "baseline_npz_sha256": sha256(baseline_report.with_suffix(".npz")),
+              "sample_manifest_sha256": sha256(sample_manifest)}
+    for key, expected in shared.items():
+        if declaration.get(key) != expected or comparison.get(key) != expected:
+            raise ValueError("Temporal evidence input hash mismatch: " + key)
+    final = {"candidate_report_sha256": sha256(evaluation_report),
+             "candidate_npz_sha256": sha256(evaluation_report.with_suffix(".npz")),
+             "declaration_sha256": sha256(declaration_path)}
+    if any(comparison.get(key) != expected for key, expected in final.items()):
+        raise ValueError("Temporal comparison must bind exact candidate and declaration hashes")
+    if (declaration.get("processor_semantics_sha256") != baseline.get("processor_semantics_sha256")
+            or any(declaration.get(key) != comparison.get(key) for key in ["method", "threshold"])):
+        raise ValueError("Temporal comparison method or processor semantics differ from declaration")
+    helper = "scripts/compare_pilot_temporal_change.py"
+    if comparison.get("script_sha256", {}).get(helper) != sha256(ROOT / helper):
+        raise ValueError("Temporal comparison helper changed after analysis")
+    return [(declaration_path, "reports/temporal-declaration.json"),
+            (comparison_path, "reports/temporal-comparison.json"), (ROOT / helper, helper)]
+
+
 def repository_provenance():
     def git(*args):
         return subprocess.check_output(["git", "-C", str(ROOT), *args], text=True).strip()
@@ -242,6 +278,8 @@ def main():
     parser.add_argument("--baseline-report", type=Path, help="Successful paired baseline evaluation JSON and NPZ")
     parser.add_argument("--sample-manifest", type=Path, help="Frozen paired evaluation sample manifest JSON")
     parser.add_argument("--training-audit", type=Path, help="Optional bounded per-step finite audit JSONL for pilot evidence")
+    parser.add_argument("--temporal-declaration", type=Path, help="Frozen ground-truth-only target-change declaration JSON")
+    parser.add_argument("--temporal-comparison", type=Path, help="Completed target-change comparison JSON")
     parser.add_argument("--mode", choices=["local", "ssh"], default="local")
     parser.add_argument("--ssh-host", help="SSH host/alias; defaults to configured storage.host")
     args = parser.parse_args()
@@ -256,6 +294,11 @@ def main():
         *(resolve_path(value) if value is not None else None for value in
           [args.evaluation_report, args.run_config, args.pilot_manifest, args.baseline_report, args.sample_manifest]))
     sources.extend(pilot_sources)
+    temporal_sources = temporal_evidence_sources(source,
+        *(resolve_path(value) if value is not None else None for value in
+          [args.evaluation_report, args.baseline_report, args.sample_manifest,
+           args.temporal_declaration, args.temporal_comparison]))
+    sources.extend(temporal_sources)
     if args.training_audit is not None:
         audit = resolve_path(args.training_audit)
         if (not pilot_sources or audit.suffix != ".jsonl" or audit.is_symlink()
@@ -331,6 +374,7 @@ def main():
         print(json.dumps({"phase": "hashed", "path": relative, "bytes": before[0]}), flush=True)
     manifest = {"created_at_utc": now(), "checkpoint_source": str(source),
                 "repository": repository_provenance(), "pilot_evidence_included": bool(pilot_sources),
+                "temporal_evidence_included": bool(temporal_sources),
                 "checkpoint_directory": source.name, "destination": str(final), "destination_host": host,
                 "mode": args.mode, "checkpoint_count": 1, "source_checkpoint_preserved": True,
                 "files": records, "total_bytes": sum(record["size"] for record in records),

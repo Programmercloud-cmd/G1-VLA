@@ -101,5 +101,47 @@ class PilotArchiveTests(unittest.TestCase):
             self.collect()
 
 
+    def temporal_fixture(self):
+        declaration = self.root / "temporal-declaration.json"
+        comparison = self.root / "temporal-comparison.json"
+        common = {"baseline_report_sha256": archive.sha256(self.baseline),
+                  "baseline_npz_sha256": archive.sha256(self.baseline.with_suffix(".npz")),
+                  "sample_manifest_sha256": archive.sha256(self.samples),
+                  "method": "fixed target-only fixture", "threshold": 0.05}
+        declaration.write_text(json.dumps({**common, "processor_semantics_sha256": None}))
+        helper = "scripts/compare_pilot_temporal_change.py"
+        comparison.write_text(json.dumps({**common, "passed": True,
+            "candidate_checkpoint": str(self.source), "candidate_report_sha256": archive.sha256(self.evaluation),
+            "candidate_npz_sha256": archive.sha256(self.evaluation.with_suffix(".npz")),
+            "declaration_sha256": archive.sha256(declaration),
+            "script_sha256": {helper: archive.sha256(archive.ROOT / helper)}}))
+        return declaration, comparison
+
+    def collect_temporal(self, declaration, comparison):
+        return archive.temporal_evidence_sources(self.source, self.evaluation, self.baseline,
+                                                self.samples, declaration, comparison)
+
+    def test_temporal_evidence_archives_declaration_comparison_and_source(self):
+        declaration, comparison = self.temporal_fixture()
+        result = self.collect_temporal(declaration, comparison)
+        self.assertEqual([relative for _, relative in result], ["reports/temporal-declaration.json",
+            "reports/temporal-comparison.json", "scripts/compare_pilot_temporal_change.py"])
+
+    def test_temporal_evidence_requires_both_frozen_reports(self):
+        declaration, comparison = self.temporal_fixture()
+        with self.assertRaisesRegex(ValueError, "both reports"):
+            self.collect_temporal(declaration, None)
+        declaration.write_text(declaration.read_text() + " ")
+        with self.assertRaisesRegex(ValueError, "candidate and declaration hashes"):
+            self.collect_temporal(declaration, comparison)
+
+    def test_temporal_evidence_cannot_bind_different_candidate_predictions(self):
+        declaration, comparison = self.temporal_fixture()
+        self.evaluation.with_suffix(".npz").write_bytes(b"changed candidate predictions")
+        with self.assertRaisesRegex(ValueError, "candidate and declaration hashes"):
+            self.collect_temporal(declaration, comparison)
+
+
+
 if __name__ == "__main__":
     unittest.main()

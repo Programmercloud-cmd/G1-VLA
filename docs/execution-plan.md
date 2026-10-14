@@ -10,9 +10,9 @@ On the validation machine, batch 1 reached 38,608 MiB sampled GPU memory. The 12
 
 These checks do not establish pickup competence, closed-loop stability, or generalization. No robot commands have been sent.
 
-## Approved 512-step fitting probe — not yet executed
+## Approved 512-step fitting probe — in progress
 
-The portable repository is published and the 512-step run is authorized. Run `pilot-fit-v1` will fit the same five pilot episodes with the settings below; implementation and baseline evaluation precede launch. No optimizer updates for this experiment have run yet:
+Run `pilot-fit-v1` is in progress with implementation commit `4685d0dd04611cce5f1dbfbab4ef2e40caf7f67d`. The paired baseline is complete. Final training, candidate evaluation, and durable archive results are pending:
 
 | Setting | Approved value |
 | --- | --- |
@@ -62,6 +62,25 @@ python3 scripts/evaluate_gr00t_pilot.py \
 ```
 
 The runner writes an immutable configuration with the implementation commit, source/config/model/data hashes, exact upstream arguments, and bounded run settings. It audits every microbatch loss and every post-clip gradient norm before the optimizer update, aborting on nonfinite values, reserve violations, or the six-hour limit. Evaluation `passed` means finite, complete, comparable evidence; fitting improvement is reported separately. The saved arrays and trajectory plots support inspection of all 100 starts and three paired seeds. [Archive the final checkpoint and comparison evidence](storage.md) after reload and evaluation pass.
+
+## Predeclared changing-target analysis
+
+The original evaluator's `commanded_motion` mask measures target-to-observed-state offset. That offset can remain large while targets are nearly constant, so it is retained with its original meaning. A separate target-change protocol was frozen during training, before candidate predictions or metrics existed. The exact portable declaration is tracked as [evaluation-protocol.json](../experiments/pilot-fit-v1/evaluation-protocol.json); its bytes and SHA-256 match the frozen machine-local declaration.
+
+For each joint, take peak-to-peak ground-truth target variation within the 16-frame horizon and divide by the maximum saved action-normalization span across that horizon. Exclude constant normalization dimensions. A group is selected when its largest joint ratio exceeds 0.05. This ground-truth-only rule selects 75 left-arm, 88 right-arm, 67 left-hand, and 70 right-hand windows out of the same 100 starts. These are changing target commands, not inferred task phases or physical-motion labels. The threshold and selection mask are fixed before candidate comparison.
+
+```bash
+python3 scripts/compare_pilot_temporal_change.py \
+  --baseline reports/pilot-fit-v1-baseline.json \
+  --declaration reports/pilot-fit-v1-temporal-declaration.json
+python3 scripts/compare_pilot_temporal_change.py \
+  --baseline reports/pilot-fit-v1-baseline.json \
+  --declaration reports/pilot-fit-v1-temporal-declaration.json \
+  --candidate reports/pilot-fit-v1-evaluation.json \
+  --report reports/pilot-fit-v1-temporal-comparison.json
+```
+
+The first command freezes or verifies the declaration; the second requires that exact declaration and compares saved prediction arrays without new model inference. It reports candidate, two-step reference, and current-state persistence errors for both changing-target and small-change subsets. Report hashes bind the declaration, frozen sample manifest, and both evaluation reports/NPZ files. Original evaluator reports and predictions remain unchanged.
 
 ## Dataset decisions before longer training
 

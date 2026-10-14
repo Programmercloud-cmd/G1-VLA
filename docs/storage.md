@@ -41,7 +41,7 @@ A model checkpoint is not a standalone Python installation. Keep the pinned sour
 
 ## Archive the 512-step pilot
 
-Pilot archival additionally binds the run configuration to the exact checkpoint, checks the frozen snapshot/sample/baseline hashes, and preserves both baseline and candidate predictions. It includes the finite-value audit, trajectory plots, and executed runner/evaluator source files. No baseline weights or duplicate root model are copied. `passed` in evaluation means evidence is complete and finite; an unimproved result can still be preserved.
+Pilot archival additionally binds the run configuration to the exact checkpoint, checks the frozen snapshot/sample/baseline hashes, and preserves both baseline and candidate predictions. It includes the finite-value audit, trajectory plots, executed runner/evaluator source files, and the separately predeclared target-change analysis. The latter is bound to the exact declaration, baseline/candidate reports and arrays, sample manifest, and comparison helper source. No baseline weights or duplicate root model are copied. `passed` in evaluation means evidence is complete and finite; an unimproved result can still be preserved.
 
 ```bash
 python3 scripts/archive_smoke_checkpoint.py \
@@ -54,7 +54,9 @@ python3 scripts/archive_smoke_checkpoint.py \
   --baseline-report reports/pilot-fit-v1-baseline.json \
   --sample-manifest reports/pilot-fit-v1-samples.json \
   --pilot-manifest derived/pilot-v1/manifest.json \
-  --training-audit reports/pilot-fit-v1-finite.jsonl
+  --training-audit reports/pilot-fit-v1-finite.jsonl \
+  --temporal-declaration reports/pilot-fit-v1-temporal-declaration.json \
+  --temporal-comparison reports/pilot-fit-v1-temporal-comparison.json
 ```
 
 For compressed SSH transfer, use the same evidence arguments with `--mode ssh`, your configured host, and an absolute remote checkpoint parent as described above. Pilot JSON metadata is limited to 4 MiB per file; prediction, plot, log, and audit companions are bounded to 32 MiB each. Sources remain preserved after successful verification.
