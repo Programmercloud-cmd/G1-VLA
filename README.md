@@ -6,6 +6,8 @@ Fine-tune GR00T N1.7 on Unitree G1/Inspire recordings from XR teleoperation. The
 
 See [follow-up results and trajectories](experiments/pilot-fit-no-state-dropout-v1/README.md), [the frozen evaluation protocol](experiments/pilot-fit-no-state-dropout-v1/evaluation-protocol.json), and [the execution plan](docs/execution-plan.md). All [62 checkpoint and evidence files](experiments/pilot-fit-no-state-dropout-v1/artifacts.json) were durably verified with source outputs preserved. The earlier [512-update pilot](experiments/pilot-fit-v1/README.md) and [two-step smoke](experiments/pilot-smoke-v2/summary.json) remain preserved.
 
+**In preparation:** the approved [larger-dataset experiment](experiments/larger-dataset-v1/README.md) freezes 98 training and 24 validation episodes for an 8,192-update learning curve. The bounded interval review found no actionable recording defect in its inspected windows. The previous persistence threshold remains a historical pilot result; the new experiment uses persistence descriptively and selects checkpoints by held-out episode error. Training and evaluation results for the new experiment are pending.
+
 ## Clone and configure
 
 The supported setup target is Ubuntu 22.04 on x86-64 Linux with a working NVIDIA driver and the build/FFmpeg prerequisites below. The validated training machine had an RTX A6000 with 48 GiB VRAM and 125 GiB host RAM. The pilot used microbatch 1 with accumulation 8 and peaked at 37.9 GiB VRAM; larger microbatches are unvalidated.

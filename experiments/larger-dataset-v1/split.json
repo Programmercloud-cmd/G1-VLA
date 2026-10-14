@@ -1,0 +1,2278 @@
+{
+  "artifact_type": "frozen_dataset_split",
+  "copy_completion": {
+    "additional_evidence": null,
+    "assessment": "Reviewed local JSONs and all accepted referenced images verified; original remote inventory and physical copy completion are not independently established by this scan."
+  },
+  "created_at": "2026-10-14T23:47:32.805910+00:00",
+  "episodes": [
+    {
+      "derived_episode_index": 0,
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0036",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 439,
+      "source_bytes": 37970545,
+      "source_content_sha256": "a5dff4ab21c481399f7d05a5768ea36cf3400b1c0196ebf109bae1bfd6399123",
+      "source_data_json_sha256": "53cf9aa481bbfca3e6651d388888f78924d51b13a07789049b15cf261b837ff8",
+      "source_idx_end": 438,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the left at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 1,
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0037",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 400,
+      "source_bytes": 34693756,
+      "source_content_sha256": "ac2f6a8d4896cbd8ad911e7503193672a7653b1fadf23faf25ae1e8268b02108",
+      "source_data_json_sha256": "81712f9d4d84c7cb89bc1b42f45dd7aef3335f4a6a4af5456c51098db314b3ab",
+      "source_idx_end": 399,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the left at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 2,
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0038",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 471,
+      "source_bytes": 40853386,
+      "source_content_sha256": "a732e7b701515606d229e41c736beb7aa0193d80623600e47a9e5a0a8c4723a6",
+      "source_data_json_sha256": "1f40f01c0c78944ea07c7ce4d1e34d37fcaa228836722b5b5f11f67bac982fb6",
+      "source_idx_end": 470,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the left at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 3,
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0039",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 468,
+      "source_bytes": 40962208,
+      "source_content_sha256": "f398f0d8def717ccc02ee095c413109b53d4ca0fb9e4b7be20cae667e0253f00",
+      "source_data_json_sha256": "016edd081d3f50624a56688f89851c068476b4ce9f831cc60d2689e90aa1621d",
+      "source_idx_end": 467,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the left at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 4,
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0040",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 490,
+      "source_bytes": 42438395,
+      "source_content_sha256": "f6bab95c6e05f3c1dbc8c9bce6d219cbd557f99ad581bb6ed2f08d8dfe5ec061",
+      "source_data_json_sha256": "dae6515912a488ca83f556cabcb031f7c2b61426d5c7b600adf0184c79e0ac3b",
+      "source_idx_end": 489,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the left at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 5,
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0041",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 521,
+      "source_bytes": 45490486,
+      "source_content_sha256": "46e24cd16017b666ac64cf3f3993db99fc2e15efeb482a81c0dd4d7be4a1816e",
+      "source_data_json_sha256": "fdb9d9eeded538e6983ef7b7a7f0b7fe4eaee83cd2934c961798203ef6ed2731",
+      "source_idx_end": 520,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the left at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 6,
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0042",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 497,
+      "source_bytes": 43451099,
+      "source_content_sha256": "9856ede4bb2370a9d024a909d91581b4660e20afcc02523896f609639d4ec268",
+      "source_data_json_sha256": "2eb72856d34778c2a9e5a9c04230aef6358db412ae8d8d7a787e73f7d8470058",
+      "source_idx_end": 496,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the left at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 7,
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0045",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 449,
+      "source_bytes": 39427812,
+      "source_content_sha256": "8833bc445d296921d466fae948f651a8082dbb3fb9801b3aa5b72165dce4acad",
+      "source_data_json_sha256": "858972f1ca1576c7b32c4497fb1a7f2097f39ace1c1f02b5804d4459efadaa6c",
+      "source_idx_end": 448,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the left at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 8,
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0046",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 345,
+      "source_bytes": 29837948,
+      "source_content_sha256": "825c0361d7d3f47be48ecaa7800131b84aabc533bad14d17928f8127619691b7",
+      "source_data_json_sha256": "570e8407d601fab14283aa215ca0d8ccaaefd2282797c9159d52ede047d37071",
+      "source_idx_end": 344,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the left at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 9,
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0047",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 384,
+      "source_bytes": 33268706,
+      "source_content_sha256": "e1e8ea08f3c3d7b1a2d08f319eb63152935ee3a570fa772fc40322bccefa8669",
+      "source_data_json_sha256": "b23cb6a8a4aae23886ae683237b096ff58f3e0cb28306d82b7198cb31efb0a23",
+      "source_idx_end": 383,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the left at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 10,
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0048",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 420,
+      "source_bytes": 36980174,
+      "source_content_sha256": "5630cc02adc4d8d3abc135d8993b5ae4d2fdfaaca156c7e61c6e53501e5af9bf",
+      "source_data_json_sha256": "36353eef6170d78d926e4de7fb73cd62f83889a82637f0ef42a187392ecfe457",
+      "source_idx_end": 419,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the left at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 11,
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0050",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 403,
+      "source_bytes": 34804558,
+      "source_content_sha256": "0bd2fc35590ed96e9ecb272e99665de7221ad910db407bf76a51a94a051ab9d5",
+      "source_data_json_sha256": "f8b2fa763fbdbfb63d17d64c2ed17788335b3f7f8f5b0d1a7d86bb46be1a7ab7",
+      "source_idx_end": 402,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the left at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 12,
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0051",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 378,
+      "source_bytes": 33202662,
+      "source_content_sha256": "4d7abe4dc2275538152bb5d4cbb556a3da4fe1a4e5fd3a6a6f5a866774b44e8f",
+      "source_data_json_sha256": "457fb5310571f452e36ec4c9b34ef7516918884b2d20fb9bebf1d4387a761fc5",
+      "source_idx_end": 377,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the left at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 13,
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0052",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 422,
+      "source_bytes": 36931658,
+      "source_content_sha256": "c4e7bb0abde052db5b0cc3cf5b4435351bb0383fc0585d0251e5ac93de281d3e",
+      "source_data_json_sha256": "13282072bd39a6d7dc15d6c0b48548228ba4b5c9f99a46b107d2d1b81528f128",
+      "source_idx_end": 421,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the left at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 14,
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0054",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 366,
+      "source_bytes": 31814375,
+      "source_content_sha256": "294cd07bc9136f478a22f586e3d696961f36f623c91723fc01b0468b54f65626",
+      "source_data_json_sha256": "91cc3ec83ece21b2becb8af9d41fd8f683c2c5444ea25079978b46d277bea87d",
+      "source_idx_end": 365,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the left at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 15,
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0055",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 516,
+      "source_bytes": 45416417,
+      "source_content_sha256": "698cb52d964311ed54cf824737e57cd364c8267407a607e865bbc3f213893781",
+      "source_data_json_sha256": "84b35962abe3485dadff8f2857e4cf6ae83ea8b5064cf7f6d0ea2f0ad0cb8025",
+      "source_idx_end": 515,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the left at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 16,
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0057",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 411,
+      "source_bytes": 36966311,
+      "source_content_sha256": "663560671aabb27716b218e05be75f9e9e2740ea7fd7981e4e1d8b91c5eef2aa",
+      "source_data_json_sha256": "90d0f7517320a143e0c2647c361e49ff60a417e686b39be642a05d10e668ec34",
+      "source_idx_end": 410,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the left at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 17,
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0058",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 457,
+      "source_bytes": 40594028,
+      "source_content_sha256": "5a39279f5f90eb8a80ade369569bead299d0d4866895488a03bd9775ad459858",
+      "source_data_json_sha256": "704b2ce1650f1b201ce3996826fcf723b8962f36dcc9d14b35e585c17fd6012d",
+      "source_idx_end": 456,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the left at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 18,
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0061",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 497,
+      "source_bytes": 43252125,
+      "source_content_sha256": "275251626893e36d9f0c833dfdc84b8e4c9d59cfc23ba503b4b12554bd3fe42b",
+      "source_data_json_sha256": "b7a5ebf844f0cc7af3e832f52117c8acea626ef107c1d3c9a3f3f92cc71e0ae8",
+      "source_idx_end": 496,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the left at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 19,
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0063",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 419,
+      "source_bytes": 36469466,
+      "source_content_sha256": "f7b0e8aef214fcc5ebf845306620a076bc656a7a1f7dc46dc4ce16e0995cec36",
+      "source_data_json_sha256": "d3e89df66e928e8ff0bc741303567e312c3c3dff18caa80b794d568536954cfc",
+      "source_idx_end": 418,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the left at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 20,
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0065",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 340,
+      "source_bytes": 31054854,
+      "source_content_sha256": "2ef299500f579d21df013f24ccc8428c29b54ca5dcb585a28ec2efaa60d84482",
+      "source_data_json_sha256": "000806a92c870ce41b840bcf3b501d936af92a538cbf8ef07b6cbf565950d093",
+      "source_idx_end": 339,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the left at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 21,
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0066",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 354,
+      "source_bytes": 32014922,
+      "source_content_sha256": "51aaaa92922fb4247d8bc76cab7fbee4f67b5b18bbbf140c6d1aa1196aac867b",
+      "source_data_json_sha256": "494d1d15c6c4de44c6c9f4bb51301c6036d2512fdf90d7d93c82d14f8d9d2976",
+      "source_idx_end": 353,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the left at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 22,
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0067",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 411,
+      "source_bytes": 37331026,
+      "source_content_sha256": "3aa2b91b4f0567181e3044458b419673664259a084b361b434c1317e2f5b1e2f",
+      "source_data_json_sha256": "cef65a495e6d524d4a5000354bc624e56c596010f82e81c81f93db8b152bc04a",
+      "source_idx_end": 410,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the left at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 23,
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0068",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 390,
+      "source_bytes": 35160549,
+      "source_content_sha256": "83b441fd96bbdf00c20e78f378d62f384025620b50eb4524525eea3d2c686c68",
+      "source_data_json_sha256": "06834b62b6cda318d496cffeb9c712f9f2707435fc041491af8e43c233e62dc6",
+      "source_idx_end": 389,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the left at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 24,
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0069",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 469,
+      "source_bytes": 42602285,
+      "source_content_sha256": "be464bb561554f96514362de3cfa9e7ee3b6d1e8fa89808f2e8897b1f0a84d53",
+      "source_data_json_sha256": "b2378b42a58d7f54a354b91f587ce252297c9e184a5ef2d56004fdae5b52f928",
+      "source_idx_end": 468,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the left at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 25,
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0070",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 337,
+      "source_bytes": 30421003,
+      "source_content_sha256": "381a8625584a3dbe5efe50e24c0c727198892769450f0033e8f79f690e099ae3",
+      "source_data_json_sha256": "66d85a7d7e407a926cbaf85320e9b008abbe6dbac3aef78b41c602e247880427",
+      "source_idx_end": 336,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the left at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 26,
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0071",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 376,
+      "source_bytes": 34478876,
+      "source_content_sha256": "1de1b713f1c0a8b6c34adfae94cf8b1f0be7ad9f4e5ab2a0de8026ba50e0ab3c",
+      "source_data_json_sha256": "b2a0896b4e755b30084ad56db216312741703224464ec3e55679deba85350acd",
+      "source_idx_end": 375,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the left at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 27,
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0072",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 417,
+      "source_bytes": 37066766,
+      "source_content_sha256": "45dba3bea8d0a80eb2d2950304f69db8cab971234f3393c30ec510dd7d5cfa29",
+      "source_data_json_sha256": "9669b844976c3d631499ba4b0992961cea75a539474c46cc3ed4188231b2d931",
+      "source_idx_end": 416,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the left at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 28,
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0073",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 427,
+      "source_bytes": 38685925,
+      "source_content_sha256": "ab2799d934bf5b27542cbdd93a1274265ded41d17becd93caa78242b8f874f47",
+      "source_data_json_sha256": "5f708ff592ab67d347042270988da860ceeed1fe97ba998cc996c427960d6f5a",
+      "source_idx_end": 426,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the left at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 29,
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0075",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 358,
+      "source_bytes": 32706906,
+      "source_content_sha256": "b0d4bf3230ef2b8c8a1ce4ac53cbabbea71f87c4ff4b0533bda8f02af648ec34",
+      "source_data_json_sha256": "6ba33982adb22bb4c77f3d2157195f57210889c1295e36bb309c2ed9a252298e",
+      "source_idx_end": 357,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the left at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 30,
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0076",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 325,
+      "source_bytes": 29327976,
+      "source_content_sha256": "fd1982fae375064377c7fc4700d0fc263c430161c7b94473d5cdcdf5ee48829f",
+      "source_data_json_sha256": "135a32be97bff5426419d7d68b878be8ff8a8756085cb42ce15589a4b945a9bb",
+      "source_idx_end": 324,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the left at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 31,
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0078",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 266,
+      "source_bytes": 24502183,
+      "source_content_sha256": "794b4adb76360c4dcccec133df0cf28376e238072b060f6d4717904046717a51",
+      "source_data_json_sha256": "88bdcfb0cc95e4619119dba535908bbc819a3ffc2567d5a4bbd3d10072d3277a",
+      "source_idx_end": 265,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the left at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 32,
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0079",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 327,
+      "source_bytes": 27643229,
+      "source_content_sha256": "2a7df63a54011b51faae89bc174d7feb5619f725b2b619a964370fee2d9dd498",
+      "source_data_json_sha256": "2a0af7cb8d147651317cd4029b5c01e8a25bcac1f796a32bea79dc948d92c71d",
+      "source_idx_end": 326,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the left at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 33,
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0081",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 319,
+      "source_bytes": 26834796,
+      "source_content_sha256": "f3916662a3d1220931650b9e18dee39e7a36c149a00fba58e6c04da59cc6a80d",
+      "source_data_json_sha256": "289fdd816bc03f36f69a1f4ff21d1270e340c58867a8eadca454f892b6319c8a",
+      "source_idx_end": 318,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the left at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 34,
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0082",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 302,
+      "source_bytes": 25523358,
+      "source_content_sha256": "089653e9feebc32133dff4790d0fec41211da28cdcb49057a0c28dd5d80ba7fd",
+      "source_data_json_sha256": "b55b2fed6efbb8197caa0acf66c384c0892e97e37cee908763807e83fd4b8a95",
+      "source_idx_end": 301,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the left at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 35,
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0083",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 362,
+      "source_bytes": 30531263,
+      "source_content_sha256": "0bfb8e0803308f2343e2bb42f1e7a1d2a45dd6a3a528bce4cdef405f9efc8e60",
+      "source_data_json_sha256": "0d96b0a4bdbced26dbceff4d4759f06223c4b52c06e9ad83c6b639f088fb6912",
+      "source_idx_end": 361,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the left at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 36,
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0084",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 321,
+      "source_bytes": 27476553,
+      "source_content_sha256": "6181501048f983a501950203604758a64639fd83e38dc30315a221afafabb6c5",
+      "source_data_json_sha256": "fd7b2db2f7b655c00c16481cf4b6f57a790221f8da1974fcbac0176ec4c90246",
+      "source_idx_end": 320,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the left at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 37,
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0085",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 372,
+      "source_bytes": 31431001,
+      "source_content_sha256": "eb9d34ee280d9faf4d3f25e2f0ab6c21f1a8b143626f8d9bb10d64cbf026a171",
+      "source_data_json_sha256": "4d5c8864e4bc2e0b20fcd6a92daef1c9fb970b7e87633527c00607fadde0754b",
+      "source_idx_end": 371,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the left at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 38,
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0094",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 483,
+      "source_bytes": 40797218,
+      "source_content_sha256": "79f3af7f39fc2fd595a5414d4a7531fe885a3a89d1426c81242d28e86198518f",
+      "source_data_json_sha256": "fd7e6b3cc8c58b7852dd77fc794e1916498b3abb41c644a21dafe60348fb463b",
+      "source_idx_end": 482,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the left at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 39,
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0095",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 371,
+      "source_bytes": 30858475,
+      "source_content_sha256": "56901a165549711a4eee8255801d00d8e6e4c2dfcb10fc02a362beb9f3196c74",
+      "source_data_json_sha256": "b4549c8cdff22eb67549dfbbbbd3c2f8298f237e2c4cc985993d9859cc8bce89",
+      "source_idx_end": 370,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the left at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 40,
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0097",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 568,
+      "source_bytes": 47854559,
+      "source_content_sha256": "2611072729af41074ce314433d78ed361d3f2bec3e72d2b6d4ce63415edd732f",
+      "source_data_json_sha256": "0f05f237cab6a138dabe8629b700225aeae0f3fa072f596ab6f963da4e20e8ae",
+      "source_idx_end": 567,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the left at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 41,
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0100",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 447,
+      "source_bytes": 37358210,
+      "source_content_sha256": "c47ae66827e5bf5c233c1f1947ea50b3f47bc2061900824d0bea63eed4b413da",
+      "source_data_json_sha256": "1c4afca55fb744c6f2bb0e3f154f866d33f4909cd7c998bfed5d6d967b2fec4f",
+      "source_idx_end": 446,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the left at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 42,
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0101",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 386,
+      "source_bytes": 32457788,
+      "source_content_sha256": "eac544e8237a1550e6c1145f7c8e2edf76e381d461e49c9b07907cd4d8f273d6",
+      "source_data_json_sha256": "6598bd2c2d8f3e04a556e36b823a12878c00030b7d0785f96f8ddf68079c689b",
+      "source_idx_end": 385,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the left at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 43,
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0103",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 477,
+      "source_bytes": 40153510,
+      "source_content_sha256": "9350d03db5b8fb65244c4981219e70a15a9a4d9ddf2cb9660f7007cc2a551793",
+      "source_data_json_sha256": "854d10091675cd27c39e96ba4dccb54580d4478cda8ec89a6e257c51eda3ee45",
+      "source_idx_end": 476,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the left at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 44,
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0104",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 455,
+      "source_bytes": 38000954,
+      "source_content_sha256": "a2fe2735c31213a8e7c08777820ebbc609a692c986b276921f27c68c16a33397",
+      "source_data_json_sha256": "b6acb2fed26437bbf78c6b2ca5d7cd6d141e6efd74a801d59584406fc596a732",
+      "source_idx_end": 454,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the left at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 45,
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0106",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 476,
+      "source_bytes": 40545895,
+      "source_content_sha256": "f91d4b75897570d5981cf3ec66115e2224a9c0719bea0cdd3f2760586d3c2045",
+      "source_data_json_sha256": "1a6db610308fa29849fb4c64df4373ab993504bcfb9642353ddf671d53923b7d",
+      "source_idx_end": 475,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the left at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 46,
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0107",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 466,
+      "source_bytes": 39058207,
+      "source_content_sha256": "4eff84fb241e4c6fe1523a522e9ee1fcb3f0a0cf6c777ab60ae86fbba24bd831",
+      "source_data_json_sha256": "11b33500d6be56a0b47306a6d30e7af7c428aeb1ab0ac41b81f3e03fab1843f9",
+      "source_idx_end": 465,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the left at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 47,
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0108",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 354,
+      "source_bytes": 29533648,
+      "source_content_sha256": "657cd8b7fdc64554bb9a72a303eacb2567b26e8622b2325eb7870937344a9aee",
+      "source_data_json_sha256": "6f1ad13ad3be397557153d30e9b73d4950b69d221db48312210c1da842a50afa",
+      "source_idx_end": 353,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the left at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 48,
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0109",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 370,
+      "source_bytes": 31057680,
+      "source_content_sha256": "50145a4483e22af082e16aa7e44b49b8a1386c891fca6c81b9bfeec7f5359a7e",
+      "source_data_json_sha256": "5a61766ee5503fa98882f3f3256e17cef29691783750a2b06a4214482c865d2b",
+      "source_idx_end": 369,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the left at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 49,
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0110",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 502,
+      "source_bytes": 41514433,
+      "source_content_sha256": "4b0d480bfe1c9b0c5a609c92fcd0267261a32da3f9187e45b0d1be8c7fed99cb",
+      "source_data_json_sha256": "e139411ab325fc93837cbbc1a718e0f2c614427e8c956a06db64122373422ad9",
+      "source_idx_end": 501,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the left at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 50,
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0111",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 471,
+      "source_bytes": 40438153,
+      "source_content_sha256": "679ded97a561a232abbfa869029bb72e442d3a39f677210f45f2c555bfd43cf0",
+      "source_data_json_sha256": "dea0d500bdac2261b6cee83ab7f1907823c13a67f7563687cb71b653400f0219",
+      "source_idx_end": 470,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the left at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 51,
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0112",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 360,
+      "source_bytes": 29952434,
+      "source_content_sha256": "48a4cf4d270bb35fa1eb17da90006ce1f41e552f71ec1f08ad45241684573bcb",
+      "source_data_json_sha256": "5665798e7e7177b55f36f3d9ad5a3abe47331305fbb7235f2e904ce4dfc1c569",
+      "source_idx_end": 359,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the left at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 52,
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0113",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 377,
+      "source_bytes": 31505961,
+      "source_content_sha256": "f10340a476494f05ae6acb9f6d2f0f7133cc6f2761d0a8cd8b8ea06531da9ee4",
+      "source_data_json_sha256": "bece543f5eeff58aa81f9aecf85c248dc3967377717c617af324b94e40db005e",
+      "source_idx_end": 376,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the left at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 53,
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0114",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 422,
+      "source_bytes": 35541890,
+      "source_content_sha256": "db87236b0c174397188c6d04dc310cf343cbef1414b3aa37ff2ad23ff9df34de",
+      "source_data_json_sha256": "a27f549ea33d767f441ffc57aeceec029736f865310a90dde39325bd889d4ac4",
+      "source_idx_end": 421,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the left at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 54,
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0115",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 348,
+      "source_bytes": 29262346,
+      "source_content_sha256": "7e741ae6294e1698cd798851476c5d4b84a1550c79228552783ec1003603972b",
+      "source_data_json_sha256": "354d25de45df490575eff8436790410ffc375f2e708271f45f23bd243e175900",
+      "source_idx_end": 347,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the left at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 55,
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0116",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 443,
+      "source_bytes": 37541095,
+      "source_content_sha256": "351937af5a087c4f227f1349037e36ea3804592821fc55e1c8b920470439f8f0",
+      "source_data_json_sha256": "3c53c65cec593c1c5c818ba30f0e391a6388f6f346d367e6b750eea27e6df6c6",
+      "source_idx_end": 442,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the left at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 56,
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0117",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 388,
+      "source_bytes": 33093786,
+      "source_content_sha256": "268bb27a4710590557948374db419d7b3abc7b3428ac872ff441101e4c9ca874",
+      "source_data_json_sha256": "8a6aa48fb23b81ea5a05780875c58ca71b94c90d343626522b27f739cefc94b5",
+      "source_idx_end": 387,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the left at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 57,
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0118",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 345,
+      "source_bytes": 28584823,
+      "source_content_sha256": "a82dc2b113a0020b7fa07219df6d04f203e1be49440fcd0b65333fa8113fa0d9",
+      "source_data_json_sha256": "305e1ab1b1256a93c64702cbae961ef5ad8cd1267d4577eeb6aeb952399e380e",
+      "source_idx_end": 344,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the left at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 58,
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0119",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 411,
+      "source_bytes": 35410839,
+      "source_content_sha256": "caf6a4dadbf35b8c8478387fd72d51aae2fdd77b415228fde7796e7d11435955",
+      "source_data_json_sha256": "971b368babeeb638f881b1ab0e4dbf196a6464e1fa08fdacd3a3fee74493b669",
+      "source_idx_end": 410,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the left at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 59,
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0120",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 403,
+      "source_bytes": 34370397,
+      "source_content_sha256": "54f820d43b89ac1357e8e2a354b58754ffa8de3fd74724b1cc0314f291801bba",
+      "source_data_json_sha256": "5f11f001ce2b793a21794c9797b920341f0ae2aed5d71e95b21458be695c7e89",
+      "source_idx_end": 402,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the left at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 60,
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0121",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 368,
+      "source_bytes": 30559522,
+      "source_content_sha256": "8b3aa6564ed4ef27ea721a256bb8814f034b32f160de6c75ca8b4f4a2f6aa529",
+      "source_data_json_sha256": "2655d73d2bdd1778b71db7eb7eaff3db4dcaac926fbe885824d1c428328897b9",
+      "source_idx_end": 367,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the left at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 61,
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0123",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 320,
+      "source_bytes": 26854582,
+      "source_content_sha256": "a4cee39c1ef40d304216b54247b42b569fa637cb9afc7b9763dd3c108d5c306d",
+      "source_data_json_sha256": "642b4af0725f6c000b042fd21797cba7a8d3995f7ce96be67e6d9e50d9f5fc42",
+      "source_idx_end": 319,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the right at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 62,
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0124",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 435,
+      "source_bytes": 36983724,
+      "source_content_sha256": "cdae5bae1c9a5bf65bd897a4b453fb0d695c3cfddb77237574f9a24cc4fc18ed",
+      "source_data_json_sha256": "239d22d7ff738e0fe5d4185857b8aa9524997e20b8be981b523a36dfeb7170ed",
+      "source_idx_end": 434,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the right at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 63,
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0125",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 433,
+      "source_bytes": 37283160,
+      "source_content_sha256": "1121e1de5bec0e463cbf9ff6ea6cfd185e50d336b2b201956369bd62ffc27ceb",
+      "source_data_json_sha256": "1c360864503c527876e3abd0b559d96644b4805a6cfae5c3de8d1ecabe8733ef",
+      "source_idx_end": 432,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the right at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 64,
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0126",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 379,
+      "source_bytes": 32246044,
+      "source_content_sha256": "b10b57f2a22f6168be461d25cdeb1ffcd9cabd33eb15284b309d67f2f952bbb1",
+      "source_data_json_sha256": "954276c8abfe77f5ec443d228cd2532e78c09216994ae3521ea79a56572f3590",
+      "source_idx_end": 378,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the right at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 65,
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0128",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 586,
+      "source_bytes": 49369530,
+      "source_content_sha256": "0b41692eb8df5a0b617b31866117c6a67964d49e15bbaacc147716b9f010f4b2",
+      "source_data_json_sha256": "8c40f75a91ee45fd745674d71edac419f2c10717165f10d4f508c961f934d8f8",
+      "source_idx_end": 585,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the right at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 66,
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0129",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 451,
+      "source_bytes": 37843529,
+      "source_content_sha256": "9537a6e214b5e37031ad83080f5f55c1e851686bc2bca38aebd6c9cd3ffa2f82",
+      "source_data_json_sha256": "020763db0638d81aeac444fcc10e74e24156c3ab90241753422fce851964e4fd",
+      "source_idx_end": 450,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the right at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 67,
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0130",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 374,
+      "source_bytes": 30354675,
+      "source_content_sha256": "fc0d298572715f1f62824b781c716f50b30f8b598d49e63d549a709d24b18459",
+      "source_data_json_sha256": "1bb9c10b4a82646e013eb20ccbe275972f55ec15edf0912507344a2f6d83e505",
+      "source_idx_end": 373,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the right at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 68,
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0132",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 371,
+      "source_bytes": 31304562,
+      "source_content_sha256": "a8ddf86b005a9bd5ec9698780af01818080afae746f9b791fedeb92d9680d53b",
+      "source_data_json_sha256": "1499f304ff00818c2d968e159eb9b98fb836d9eccbc2291f901004302bf9c8d1",
+      "source_idx_end": 370,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the right at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 69,
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0134",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 338,
+      "source_bytes": 28177832,
+      "source_content_sha256": "04ec5bc294269cfe8740ad74fbe7c8b03405910c8f45cd67c5fb04cc6a9f054a",
+      "source_data_json_sha256": "56c6fac56cf2bb21222f15354ada2fb8bf8ba59a1ec9d52d4c0729b13a1ebfca",
+      "source_idx_end": 337,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the right at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 70,
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0135",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 340,
+      "source_bytes": 28453110,
+      "source_content_sha256": "59d3690b634e9cf4f2e3868b072c5376107db0218c9ea0a4304f20942ea2dc5f",
+      "source_data_json_sha256": "76365107503396dae2b0cf0d1019623edc3484e399734c7684c2f308b4d2cf2c",
+      "source_idx_end": 339,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the right at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 71,
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0138",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 219,
+      "source_bytes": 17762582,
+      "source_content_sha256": "44082ca3efc7aa947c81ae7afb2e57b6fe007fce8127a27807323fecceec4f8a",
+      "source_data_json_sha256": "cf50d5d82394b73e9622bb7134b4e149e6e49a7fd6c1ad376acc0c642f8927bc",
+      "source_idx_end": 363,
+      "source_idx_start": 145,
+      "spatial_phrase": "on the right at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 72,
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0139",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 378,
+      "source_bytes": 31333543,
+      "source_content_sha256": "693be63b42cd812762ca1c3fc73edf1c2443c7e1550b940d7b6931116f13a01a",
+      "source_data_json_sha256": "42d3e5e5d885b4d7c221a441b7bbc6d2040a9ac3292d154dde059649c63b0e2c",
+      "source_idx_end": 377,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the right at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 73,
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0140",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 486,
+      "source_bytes": 40164015,
+      "source_content_sha256": "2a08f3223fbcc6e5a4309c9a5f685ac8feae118f8acc5c71d68c7cdb048d1b56",
+      "source_data_json_sha256": "52566467ef2bd4aa8c4c602149fc0ea70f8ea83c38b72700719dc718e0083ddf",
+      "source_idx_end": 485,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the right at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 74,
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0142",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 308,
+      "source_bytes": 25450067,
+      "source_content_sha256": "deb58b0d94e183de677f1f5e51e153c33373e31602775fcaba6ac7207a91eccb",
+      "source_data_json_sha256": "28f6682774b5d812b4e64843d83322dcef7eb21d8afe7c276e5bf9828b861985",
+      "source_idx_end": 307,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the right at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 75,
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0143",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 321,
+      "source_bytes": 26614209,
+      "source_content_sha256": "9511c8eef6dcd319a65422b955d0f45622905c7eaa20cc180fec99a592bdb1c5",
+      "source_data_json_sha256": "f536341e08e7b4c73ce2ae4f9fe15ea72690243a1136b025b000950335b20e35",
+      "source_idx_end": 320,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the right at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 76,
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0145",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 406,
+      "source_bytes": 35122278,
+      "source_content_sha256": "b3ab5fd63bb36c46c5650704eeb6b9b48bc2b924c1902877e961dd03d958fa57",
+      "source_data_json_sha256": "93aa6eb00fec4d24a051b4549021631b95c93bd75304ce0d7684d919778333ee",
+      "source_idx_end": 405,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the right at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 77,
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0146",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 348,
+      "source_bytes": 29775315,
+      "source_content_sha256": "6b20a5b4b27eb3b48f4043bb8e7ee0ebc678f6450c97b3b204ff98baf615fb11",
+      "source_data_json_sha256": "92234aefa6b646c3e42bc8b7fd22d8470e36f8bf9a075ea7c72fdf9971b13a50",
+      "source_idx_end": 347,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the right at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 78,
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0147",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 361,
+      "source_bytes": 31913785,
+      "source_content_sha256": "14a815ab925d36257a1b5bcdaff24fcb093595c163f7dc0c46ec8acf48262a6b",
+      "source_data_json_sha256": "7af351cfd39a0d31448858be8ddb531f603f63683d69f6bb8c735755e21c0349",
+      "source_idx_end": 360,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the right at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 79,
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0148",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 339,
+      "source_bytes": 29013708,
+      "source_content_sha256": "a5378826c18cffbff0574b4eb1fbcbaa64b1b6d1947df7de5739ef755e094a64",
+      "source_data_json_sha256": "c02fdd54c63b40f75e411f598daaed31ecbd20a240de7b31221965325b9be4b9",
+      "source_idx_end": 338,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the right at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 80,
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0150",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 335,
+      "source_bytes": 29000570,
+      "source_content_sha256": "5328cd63d0d946786f9947910ec57e17e522ef3c557c0de2ff6a24309ce31de1",
+      "source_data_json_sha256": "079afb6efe79c2fb3c6706fd0fd5d66ee15c607f7325abd10df8d9a9d24d6cb6",
+      "source_idx_end": 334,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the right at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 81,
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0151",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 331,
+      "source_bytes": 28981735,
+      "source_content_sha256": "bcef29f07e369bd7e1b1598cc8bae4b424da685bbe87bc2412d4dbbc9dc06167",
+      "source_data_json_sha256": "bdd43fde4d1797117d88a59bd35c7ee169c4e65515bc49cebc73eba8f3f23c13",
+      "source_idx_end": 330,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the right at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 82,
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0152",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 363,
+      "source_bytes": 31494779,
+      "source_content_sha256": "094e28943d317531b3a509f0ecd2fd10ad1c38b55a1b753ca94dcb584141f594",
+      "source_data_json_sha256": "e6ee5fb99bf307d771733b2f06b91867a37f5a7a9729cc40c38b5fb6cdb3af97",
+      "source_idx_end": 362,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the right at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 83,
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0153",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 311,
+      "source_bytes": 26749764,
+      "source_content_sha256": "a91adf115a736538d6ff679c1add54d36de87cafd7b9d6d62bba2f6d24ca29fe",
+      "source_data_json_sha256": "cac0b6ed9461a57aef698b89cb6562e391bc0a21d17ac407954a72ba64aae3bf",
+      "source_idx_end": 310,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the right at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 84,
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0154",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 280,
+      "source_bytes": 23516505,
+      "source_content_sha256": "b8f8e6fde84012716c27feb09a3c95032c7a3940965d95e637b7feaa8cbc515b",
+      "source_data_json_sha256": "d6f9e6ca90f5381ae82a02d73558034fe4419e3dabfce8275808e0f36aacdb0f",
+      "source_idx_end": 279,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the right at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 85,
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0155",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 377,
+      "source_bytes": 32492848,
+      "source_content_sha256": "23ff3b862d09a647dd9f8272fbd71bc49b6b0a950f162159b27508ad61efef09",
+      "source_data_json_sha256": "d1df269d3562f1281132b30c17a62b0f318a326cd75ff9f97187b7c5abb820e5",
+      "source_idx_end": 376,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the right at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 86,
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0156",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 380,
+      "source_bytes": 33262563,
+      "source_content_sha256": "3fefb5c41b017a3a04544aef7556ecb9f86763ab42981e660588a92b5de3919e",
+      "source_data_json_sha256": "ad1768aa18814c40f9f0b8e0621c8f8ba6f7fc624cd33ed4dc21813631365c7f",
+      "source_idx_end": 379,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the right at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 87,
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0157",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 473,
+      "source_bytes": 38393195,
+      "source_content_sha256": "ebf466b5e81be8d42b78b8aa4d46c3d58193b72d69d7c3f496a74d24bb871dbe",
+      "source_data_json_sha256": "320263341b39c4e06244460e323be1ff5af53925d437cb1489c5271ab0975f4a",
+      "source_idx_end": 472,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the right at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 88,
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0158",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 347,
+      "source_bytes": 28548872,
+      "source_content_sha256": "449b4049e60857fadb95c5bbc19ba27044d3f7ec7360b39dd65723a386c9ef02",
+      "source_data_json_sha256": "36574b367a2f6dac3fa9f50c745cf1283ffa7c37e60476658e762fe180594c1a",
+      "source_idx_end": 346,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the right at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 89,
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0159",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 370,
+      "source_bytes": 30439810,
+      "source_content_sha256": "8c2ef049152b83ad02e8590654971d2bb3a0a1443acae32c82f3f28ccaaefe01",
+      "source_data_json_sha256": "590e62b944c1e65d71eee1cb240a10b2832ea6bf88c6a7b150a8d789a6f6b20a",
+      "source_idx_end": 369,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the right at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 90,
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0160",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 371,
+      "source_bytes": 30424461,
+      "source_content_sha256": "12a75555b564ea6f72b6ba11720591ed1d3e8daaf5b80529a56e17e8b0154049",
+      "source_data_json_sha256": "2660e66946eebc2c4ac3bd6907084a7b74bb078639d442497a6e9eab8fc81cca",
+      "source_idx_end": 370,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the right at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 91,
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0161",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 386,
+      "source_bytes": 31478262,
+      "source_content_sha256": "06e2eb5034d3dabffc312976f33e8db0c08c3a9463589b2f99561dc060df9d19",
+      "source_data_json_sha256": "82883c426bebef593f8e2040fabeec42d3b645f6daedb018ab43b6b896025e92",
+      "source_idx_end": 385,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the right at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 92,
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0163",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 290,
+      "source_bytes": 23050959,
+      "source_content_sha256": "90a56b8ef5251eeaaaeffd50664916e98dcf71156e691ef7d2f65c07e2f03f8b",
+      "source_data_json_sha256": "7e00ab150c74d8dbacdf72733a6c276a3b731476988ce7d46bedc1e0bf2427eb",
+      "source_idx_end": 289,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the right at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 93,
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0164",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 408,
+      "source_bytes": 33654347,
+      "source_content_sha256": "425437f79263b51fa6f1a1a280cd122c7da05e700e32f7016501454ba7a9c754",
+      "source_data_json_sha256": "ed328a95b38faa894fdd942772d1a9441a434c179edc5162ea4ae6f4604486e2",
+      "source_idx_end": 407,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the right at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 94,
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0166",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 373,
+      "source_bytes": 31611471,
+      "source_content_sha256": "e09cb9198ea5d26da6bd8749e5bf3da68c1c531d74c627606ad549b71cc66443",
+      "source_data_json_sha256": "4e241affcb8ac9642a5b85c5f1292bebbeb5f86a09e11a33c8d9a2c12aed9e23",
+      "source_idx_end": 372,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the right at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 95,
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0167",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 409,
+      "source_bytes": 34340214,
+      "source_content_sha256": "c5942a56d4561c28a69549311bbff19c362947840f1d223fa497bc9388ca7261",
+      "source_data_json_sha256": "33ebc33666cf0f5112c2224b1d21e9757ff67c7d4b61d4ba8d40cc266e4a61e1",
+      "source_idx_end": 408,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the right at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 96,
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0168",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 322,
+      "source_bytes": 26808006,
+      "source_content_sha256": "9c8386a299107477ea1d4521da5dd66997058e630343613a9eed637c5b91515b",
+      "source_data_json_sha256": "714606a7d11385c10b4c3f66ee8dabc734347c89510fb755447a1fce9fcb1b9d",
+      "source_idx_end": 321,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the right at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 97,
+      "effective_goal": "Pick up the black box at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0169",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 515,
+      "source_bytes": 41488072,
+      "source_content_sha256": "ea89e63ee4a56fd6fc0907f430ffae8b65bf862e459eeda4ba54e1e22cc901d1",
+      "source_data_json_sha256": "29a7a80ce4c77eb0dbdc417901a668c4ee7a5d3c4028ce72928cd24cce010f3a",
+      "source_idx_end": 514,
+      "source_idx_start": 0,
+      "spatial_phrase": "at the front",
+      "split": "train"
+    },
+    {
+      "derived_episode_index": 0,
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0044",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 318,
+      "source_bytes": 27532313,
+      "source_content_sha256": "cbe492d20aae5a96ef011d962d9bcb161e35eb36a73a1e859f8bb18f16a4d59c",
+      "source_data_json_sha256": "a1f1f76aaf1892768205cae2e1727a32b32403a6bac0c911d43d72f43870de9c",
+      "source_idx_end": 317,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the left at the front",
+      "split": "validation"
+    },
+    {
+      "derived_episode_index": 1,
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0049",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 369,
+      "source_bytes": 32252286,
+      "source_content_sha256": "b3777510811422b350d3887f62e418486dead59ecea313f1f56cd8c1e1942b60",
+      "source_data_json_sha256": "ad54635746797f90c94c66736024c0d794c39d20562c7bad82172930176e3c19",
+      "source_idx_end": 368,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the left at the front",
+      "split": "validation"
+    },
+    {
+      "derived_episode_index": 2,
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0059",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 434,
+      "source_bytes": 38999675,
+      "source_content_sha256": "d4392dcb38605d2ecaa2b157473f83e47ac6ecdcadd81cc5c239ce1ad35fc5b9",
+      "source_data_json_sha256": "7c03ad70bb8cc517842fe911b6680cb46c4242969e6351da17e0e6cc09295a0e",
+      "source_idx_end": 433,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the left at the front",
+      "split": "validation"
+    },
+    {
+      "derived_episode_index": 3,
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0060",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 401,
+      "source_bytes": 35599208,
+      "source_content_sha256": "a1f3b2bd8a07f7a0e747d39cdad08e38a863ae7f071679d130f1fc20264b88da",
+      "source_data_json_sha256": "a5f552356c5839997b16f63a3a0beaca72cef986af974246d572ada1ab2f3e77",
+      "source_idx_end": 400,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the left at the front",
+      "split": "validation"
+    },
+    {
+      "derived_episode_index": 4,
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0062",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 419,
+      "source_bytes": 37372317,
+      "source_content_sha256": "e9ddea9acfedae1a05285dd53e6086bd7649bd9866fffe6a3c60bf2abbb4e177",
+      "source_data_json_sha256": "fddef73892c73f4fba4d9d8a052d682460840843a80401e8dc02e8d1630f1eb2",
+      "source_idx_end": 418,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the left at the front",
+      "split": "validation"
+    },
+    {
+      "derived_episode_index": 5,
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0064",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 364,
+      "source_bytes": 33239916,
+      "source_content_sha256": "f054caed90a14cdeb89cdbfbbbab2e027eae3eca22bb1aa97fa733a1a440a7f8",
+      "source_data_json_sha256": "e2c5c5fd6d5198aadf22c330d8bbbd8128afe63b19346efd28d8f82a05c2442a",
+      "source_idx_end": 363,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the left at the front",
+      "split": "validation"
+    },
+    {
+      "derived_episode_index": 6,
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0074",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 406,
+      "source_bytes": 37317642,
+      "source_content_sha256": "917624e29b7bdcefb66dde87d9a11c7d544a9dbc3bb7a41329afcd222284119d",
+      "source_data_json_sha256": "3b8f6ca53d924faea0c51bfaf954c2cddc5457a8bb205590b401cc55f161d1ea",
+      "source_idx_end": 405,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the left at the front",
+      "split": "validation"
+    },
+    {
+      "derived_episode_index": 7,
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0077",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 369,
+      "source_bytes": 34032671,
+      "source_content_sha256": "427b43b1568e6b7be24a7532421f52d8f9b7eb7bb3c53af70e265820039e5b70",
+      "source_data_json_sha256": "50a5febdc59ec35dbe8f949e107148babe986d52cce79b6a547a2e084ba10984",
+      "source_idx_end": 368,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the left at the front",
+      "split": "validation"
+    },
+    {
+      "derived_episode_index": 8,
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0080",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 313,
+      "source_bytes": 26451049,
+      "source_content_sha256": "87f0854cbcae69deb0ce58dd448b83a712f03e412b40ce75a96ae7d0224ca5a2",
+      "source_data_json_sha256": "3a01dcb3ca068908ef3e65a53d719492cfd64d8e86eac7c42113be45e02e3ba0",
+      "source_idx_end": 312,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the left at the front",
+      "split": "validation"
+    },
+    {
+      "derived_episode_index": 9,
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0090",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 356,
+      "source_bytes": 29231981,
+      "source_content_sha256": "38725325f3835f2ce881ffaabec74c44ca548cf1f55bab0e5aa7feb2e2e48ac7",
+      "source_data_json_sha256": "1f04b8d2d9767d37dcbc3cfb95edf60665a725d61290944797a8fbb94d7a0560",
+      "source_idx_end": 355,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the left at the front",
+      "split": "validation"
+    },
+    {
+      "derived_episode_index": 10,
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0093",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 344,
+      "source_bytes": 28513679,
+      "source_content_sha256": "59f4a29bb125d7973c08f3424e5dad870f98b113b6757484f4cbe02bf7ce5a1f",
+      "source_data_json_sha256": "faad0548b357628e098ed6c499c8450e0a1772ae0982f553d586cb4c8abf13e5",
+      "source_idx_end": 343,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the left at the front",
+      "split": "validation"
+    },
+    {
+      "derived_episode_index": 11,
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0096",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 376,
+      "source_bytes": 31401824,
+      "source_content_sha256": "5ffe917c9ea5480bed8c201916a64f2bc6363618a42eb2d5c33d680514a71ad7",
+      "source_data_json_sha256": "c3a73d948618f76dd4767eb28aed5ef16935343a5b8173baff626e9bc2371bb8",
+      "source_idx_end": 375,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the left at the front",
+      "split": "validation"
+    },
+    {
+      "derived_episode_index": 12,
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0098",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 412,
+      "source_bytes": 34080375,
+      "source_content_sha256": "bba6248555f8f9c8b6914e200e344211f0c62809b186dd3c1233fc1039d4a4d8",
+      "source_data_json_sha256": "6a6bcf8204f6f1d7a9767532a3ee92be736070b0355993fe5b5e32f0e23ebd7a",
+      "source_idx_end": 411,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the left at the front",
+      "split": "validation"
+    },
+    {
+      "derived_episode_index": 13,
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0099",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 426,
+      "source_bytes": 35781823,
+      "source_content_sha256": "63e894e1c197e5493b01c9dad6677452c2cb44702d9bff7bd753fe3595965961",
+      "source_data_json_sha256": "1626dc91ce11a04b51c305d8739d58aae0525691b3bc78fe20714667dcd0bb93",
+      "source_idx_end": 425,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the left at the front",
+      "split": "validation"
+    },
+    {
+      "derived_episode_index": 14,
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0102",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 439,
+      "source_bytes": 36866159,
+      "source_content_sha256": "94867a07f2d8b0565fadf74be64f8c5c27e96a28940333db2da07974761e7eee",
+      "source_data_json_sha256": "dfcbb79057d856c8af035aacf93397b62193e492500fbdd3bf3f7cac7a945397",
+      "source_idx_end": 438,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the left at the front",
+      "split": "validation"
+    },
+    {
+      "derived_episode_index": 15,
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0122",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 296,
+      "source_bytes": 25042882,
+      "source_content_sha256": "44669af0fd06a133aba931a484b870fbb4f29b8c2fca0d4df6811d01532f7ef7",
+      "source_data_json_sha256": "7af8d685e6701b0bc29fb4fe49468bb14de4ebfa3ec2f26bbfd8a59b500ab650",
+      "source_idx_end": 295,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the right at the front",
+      "split": "validation"
+    },
+    {
+      "derived_episode_index": 16,
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0127",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 448,
+      "source_bytes": 38990914,
+      "source_content_sha256": "2748eb7b24167814704e27472c71555fd5417f5727408785c1f3ea067a1036f5",
+      "source_data_json_sha256": "7ba2b61eb2ee566fb88561114ce8dbe7d467f55ab9a2302036f4d7e1e7537649",
+      "source_idx_end": 447,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the right at the front",
+      "split": "validation"
+    },
+    {
+      "derived_episode_index": 17,
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0131",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 332,
+      "source_bytes": 27742777,
+      "source_content_sha256": "16e2348c0f23a59bfc8d771e21303115808b56a08193d7254ffee49f8448e2ee",
+      "source_data_json_sha256": "a50c7b29225484560bf30b38998880224d8ab094959aac65e863ccaef63e26ed",
+      "source_idx_end": 331,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the right at the front",
+      "split": "validation"
+    },
+    {
+      "derived_episode_index": 18,
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0133",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 317,
+      "source_bytes": 26472100,
+      "source_content_sha256": "b3bf3ad6163c69c58ec3fd1627137c545ffca691026e11251bb89e3f101cbf85",
+      "source_data_json_sha256": "7eff9d4801ee2cd36ca407f558029a046a58a78b192f2185361872fb417b84b9",
+      "source_idx_end": 316,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the right at the front",
+      "split": "validation"
+    },
+    {
+      "derived_episode_index": 19,
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0137",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 418,
+      "source_bytes": 35007342,
+      "source_content_sha256": "5b4afba0c580810326efbb31787a3527b4dbe560f89089e02ce86448d21e164a",
+      "source_data_json_sha256": "59692e2b68c2b69b8b5103b6ce5fd7f54aef97726c18f1f1927cd967278932cc",
+      "source_idx_end": 417,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the right at the front",
+      "split": "validation"
+    },
+    {
+      "derived_episode_index": 20,
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0141",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 268,
+      "source_bytes": 21943299,
+      "source_content_sha256": "cbd7c12a8fece95133f42dc2f14b0c9c31f86524b4c5c3900a38a0a09f1d67fd",
+      "source_data_json_sha256": "c9e3bad55ab644ba794eb0f5b0538e7e9681654060fb43fb2097d1b497b1dec1",
+      "source_idx_end": 267,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the right at the front",
+      "split": "validation"
+    },
+    {
+      "derived_episode_index": 21,
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0149",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 357,
+      "source_bytes": 30484772,
+      "source_content_sha256": "2d45cdd4a83c34d5a1ae9124132f362826e3ef5e7321d394b089071da081a2af",
+      "source_data_json_sha256": "284ddef79b8ff320310d3a3fb2c718b74f805df71dee54098bfc73aeb736f924",
+      "source_idx_end": 356,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the right at the front",
+      "split": "validation"
+    },
+    {
+      "derived_episode_index": 22,
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0162",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 338,
+      "source_bytes": 27274030,
+      "source_content_sha256": "6530baf6afeaec3ec1eaf95e4c1b0ab89f0811859521f343889cec8872187d31",
+      "source_data_json_sha256": "ea9ce3cce3c1088c0f6e25316556a273058fdc23ede1d2def846bbae233c983d",
+      "source_idx_end": 337,
+      "source_idx_start": 0,
+      "spatial_phrase": "on the right at the front",
+      "split": "validation"
+    },
+    {
+      "derived_episode_index": 23,
+      "effective_goal": "Pick up the black box at the front using both hands and bring it to the centered carry position.",
+      "episode": "episode_0170",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "rows": 291,
+      "source_bytes": 23048197,
+      "source_content_sha256": "b7070c78cd0b3a635cb1a02f384b03117f25b098e5830f6aa53d41a3e808ca82",
+      "source_data_json_sha256": "6ec161539ae901930d994516791bbcdfeed6d765a80f7b15167355b255177b7d",
+      "source_idx_end": 290,
+      "source_idx_start": 0,
+      "spatial_phrase": "at the front",
+      "split": "validation"
+    }
+  ],
+  "grouping": {
+    "actual_validation_count": 24,
+    "basis": "episode_only_no_genuine_group_metadata",
+    "forced_training_episodes": [
+      "episode_0037",
+      "episode_0040",
+      "episode_0042",
+      "episode_0046",
+      "episode_0047"
+    ],
+    "groups": [
+      [
+        "episode_0036"
+      ],
+      [
+        "episode_0037"
+      ],
+      [
+        "episode_0038"
+      ],
+      [
+        "episode_0039"
+      ],
+      [
+        "episode_0040"
+      ],
+      [
+        "episode_0041"
+      ],
+      [
+        "episode_0042"
+      ],
+      [
+        "episode_0044"
+      ],
+      [
+        "episode_0045"
+      ],
+      [
+        "episode_0046"
+      ],
+      [
+        "episode_0047"
+      ],
+      [
+        "episode_0048"
+      ],
+      [
+        "episode_0049"
+      ],
+      [
+        "episode_0050"
+      ],
+      [
+        "episode_0051"
+      ],
+      [
+        "episode_0052"
+      ],
+      [
+        "episode_0054"
+      ],
+      [
+        "episode_0055"
+      ],
+      [
+        "episode_0057"
+      ],
+      [
+        "episode_0058"
+      ],
+      [
+        "episode_0059"
+      ],
+      [
+        "episode_0060"
+      ],
+      [
+        "episode_0061"
+      ],
+      [
+        "episode_0062"
+      ],
+      [
+        "episode_0063"
+      ],
+      [
+        "episode_0064"
+      ],
+      [
+        "episode_0065"
+      ],
+      [
+        "episode_0066"
+      ],
+      [
+        "episode_0067"
+      ],
+      [
+        "episode_0068"
+      ],
+      [
+        "episode_0069"
+      ],
+      [
+        "episode_0070"
+      ],
+      [
+        "episode_0071"
+      ],
+      [
+        "episode_0072"
+      ],
+      [
+        "episode_0073"
+      ],
+      [
+        "episode_0074"
+      ],
+      [
+        "episode_0075"
+      ],
+      [
+        "episode_0076"
+      ],
+      [
+        "episode_0077"
+      ],
+      [
+        "episode_0078"
+      ],
+      [
+        "episode_0079"
+      ],
+      [
+        "episode_0080"
+      ],
+      [
+        "episode_0081"
+      ],
+      [
+        "episode_0082"
+      ],
+      [
+        "episode_0083"
+      ],
+      [
+        "episode_0084"
+      ],
+      [
+        "episode_0085"
+      ],
+      [
+        "episode_0090"
+      ],
+      [
+        "episode_0093"
+      ],
+      [
+        "episode_0094"
+      ],
+      [
+        "episode_0095"
+      ],
+      [
+        "episode_0096"
+      ],
+      [
+        "episode_0097"
+      ],
+      [
+        "episode_0098"
+      ],
+      [
+        "episode_0099"
+      ],
+      [
+        "episode_0100"
+      ],
+      [
+        "episode_0101"
+      ],
+      [
+        "episode_0102"
+      ],
+      [
+        "episode_0103"
+      ],
+      [
+        "episode_0104"
+      ],
+      [
+        "episode_0106"
+      ],
+      [
+        "episode_0107"
+      ],
+      [
+        "episode_0108"
+      ],
+      [
+        "episode_0109"
+      ],
+      [
+        "episode_0110"
+      ],
+      [
+        "episode_0111"
+      ],
+      [
+        "episode_0112"
+      ],
+      [
+        "episode_0113"
+      ],
+      [
+        "episode_0114"
+      ],
+      [
+        "episode_0115"
+      ],
+      [
+        "episode_0116"
+      ],
+      [
+        "episode_0117"
+      ],
+      [
+        "episode_0118"
+      ],
+      [
+        "episode_0119"
+      ],
+      [
+        "episode_0120"
+      ],
+      [
+        "episode_0121"
+      ],
+      [
+        "episode_0122"
+      ],
+      [
+        "episode_0123"
+      ],
+      [
+        "episode_0124"
+      ],
+      [
+        "episode_0125"
+      ],
+      [
+        "episode_0126"
+      ],
+      [
+        "episode_0127"
+      ],
+      [
+        "episode_0128"
+      ],
+      [
+        "episode_0129"
+      ],
+      [
+        "episode_0130"
+      ],
+      [
+        "episode_0131"
+      ],
+      [
+        "episode_0132"
+      ],
+      [
+        "episode_0133"
+      ],
+      [
+        "episode_0134"
+      ],
+      [
+        "episode_0135"
+      ],
+      [
+        "episode_0137"
+      ],
+      [
+        "episode_0138"
+      ],
+      [
+        "episode_0139"
+      ],
+      [
+        "episode_0140"
+      ],
+      [
+        "episode_0141"
+      ],
+      [
+        "episode_0142"
+      ],
+      [
+        "episode_0143"
+      ],
+      [
+        "episode_0145"
+      ],
+      [
+        "episode_0146"
+      ],
+      [
+        "episode_0147"
+      ],
+      [
+        "episode_0148"
+      ],
+      [
+        "episode_0149"
+      ],
+      [
+        "episode_0150"
+      ],
+      [
+        "episode_0151"
+      ],
+      [
+        "episode_0152"
+      ],
+      [
+        "episode_0153"
+      ],
+      [
+        "episode_0154"
+      ],
+      [
+        "episode_0155"
+      ],
+      [
+        "episode_0156"
+      ],
+      [
+        "episode_0157"
+      ],
+      [
+        "episode_0158"
+      ],
+      [
+        "episode_0159"
+      ],
+      [
+        "episode_0160"
+      ],
+      [
+        "episode_0161"
+      ],
+      [
+        "episode_0162"
+      ],
+      [
+        "episode_0163"
+      ],
+      [
+        "episode_0164"
+      ],
+      [
+        "episode_0166"
+      ],
+      [
+        "episode_0167"
+      ],
+      [
+        "episode_0168"
+      ],
+      [
+        "episode_0169"
+      ],
+      [
+        "episode_0170"
+      ]
+    ],
+    "limitation": "An episode-only split does not establish generalization to new collection sessions or layouts.",
+    "method": "Seeded per-stratum shuffle for singleton episodes; deterministic whole-group greedy target-distance selection otherwise; groups are never split.",
+    "target_stratum_counts": {
+      "at the front": 1,
+      "on the left at the front": 15,
+      "on the right at the front": 8
+    },
+    "target_validation_count": 24
+  },
+  "held_episodes": [
+    "episode_0092",
+    "episode_0136",
+    "episode_0165"
+  ],
+  "label_overrides": {
+    "dataset_name": "g1_inspire_pick_up_black_box_clean",
+    "path": "annotations/goal-overrides-workspace-v1.json",
+    "reference_frame": "Initial target position within the visible table/workspace from the recorded robot-camera view. Front is the near side closest to the robot/camera. Left/right follow the visible workspace layout, not the other box and not a hard split at the image center.",
+    "sha256": "16f1fa5baf0e835c5112dcfd7bd9bb778027d0ea33017561d7ae8a8f23d902bc"
+  },
+  "pilot_episodes": [
+    "episode_0037",
+    "episode_0040",
+    "episode_0042",
+    "episode_0046",
+    "episode_0047"
+  ],
+  "schema_version": 1,
+  "seed": 42,
+  "source_inventory": {
+    "path": "reports/larger-dataset-v1-inventory.json",
+    "sha256": "305451a347498aed1e9b10d33e9236d035533aca2323b9efa0e398835b21f6f8"
+  },
+  "splits": {
+    "train": [
+      "episode_0036",
+      "episode_0037",
+      "episode_0038",
+      "episode_0039",
+      "episode_0040",
+      "episode_0041",
+      "episode_0042",
+      "episode_0045",
+      "episode_0046",
+      "episode_0047",
+      "episode_0048",
+      "episode_0050",
+      "episode_0051",
+      "episode_0052",
+      "episode_0054",
+      "episode_0055",
+      "episode_0057",
+      "episode_0058",
+      "episode_0061",
+      "episode_0063",
+      "episode_0065",
+      "episode_0066",
+      "episode_0067",
+      "episode_0068",
+      "episode_0069",
+      "episode_0070",
+      "episode_0071",
+      "episode_0072",
+      "episode_0073",
+      "episode_0075",
+      "episode_0076",
+      "episode_0078",
+      "episode_0079",
+      "episode_0081",
+      "episode_0082",
+      "episode_0083",
+      "episode_0084",
+      "episode_0085",
+      "episode_0094",
+      "episode_0095",
+      "episode_0097",
+      "episode_0100",
+      "episode_0101",
+      "episode_0103",
+      "episode_0104",
+      "episode_0106",
+      "episode_0107",
+      "episode_0108",
+      "episode_0109",
+      "episode_0110",
+      "episode_0111",
+      "episode_0112",
+      "episode_0113",
+      "episode_0114",
+      "episode_0115",
+      "episode_0116",
+      "episode_0117",
+      "episode_0118",
+      "episode_0119",
+      "episode_0120",
+      "episode_0121",
+      "episode_0123",
+      "episode_0124",
+      "episode_0125",
+      "episode_0126",
+      "episode_0128",
+      "episode_0129",
+      "episode_0130",
+      "episode_0132",
+      "episode_0134",
+      "episode_0135",
+      "episode_0138",
+      "episode_0139",
+      "episode_0140",
+      "episode_0142",
+      "episode_0143",
+      "episode_0145",
+      "episode_0146",
+      "episode_0147",
+      "episode_0148",
+      "episode_0150",
+      "episode_0151",
+      "episode_0152",
+      "episode_0153",
+      "episode_0154",
+      "episode_0155",
+      "episode_0156",
+      "episode_0157",
+      "episode_0158",
+      "episode_0159",
+      "episode_0160",
+      "episode_0161",
+      "episode_0163",
+      "episode_0164",
+      "episode_0166",
+      "episode_0167",
+      "episode_0168",
+      "episode_0169"
+    ],
+    "validation": [
+      "episode_0044",
+      "episode_0049",
+      "episode_0059",
+      "episode_0060",
+      "episode_0062",
+      "episode_0064",
+      "episode_0074",
+      "episode_0077",
+      "episode_0080",
+      "episode_0090",
+      "episode_0093",
+      "episode_0096",
+      "episode_0098",
+      "episode_0099",
+      "episode_0102",
+      "episode_0122",
+      "episode_0127",
+      "episode_0131",
+      "episode_0133",
+      "episode_0137",
+      "episode_0141",
+      "episode_0149",
+      "episode_0162",
+      "episode_0170"
+    ]
+  },
+  "status": "frozen_before_conversion_and_statistics",
+  "summary": {
+    "train": {
+      "episodes": 98,
+      "rows": 38751,
+      "spatial_counts": {
+        "at the front": 1,
+        "on the left at the front": 61,
+        "on the right at the front": 36
+      }
+    },
+    "validation": {
+      "episodes": 24,
+      "rows": 8811,
+      "spatial_counts": {
+        "at the front": 1,
+        "on the left at the front": 15,
+        "on the right at the front": 8
+      }
+    }
+  }
+}

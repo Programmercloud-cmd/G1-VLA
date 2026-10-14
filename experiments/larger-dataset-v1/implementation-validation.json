@@ -1,0 +1,175 @@
+{
+  "schema_version": 1,
+  "artifact_type": "larger_dataset_implementation_validation",
+  "recorded_at_utc": "2026-10-14T23:56:30.061091+00:00",
+  "passed": true,
+  "source_bindings": [
+    {
+      "path": "scripts/run_gr00t_dataset.py",
+      "sha256": "eb7e14c56e3be3ff2a3ab8b1c0788d003e56a64620cdc19e69191a2266da9089"
+    },
+    {
+      "path": "scripts/archive_gr00t_dataset.py",
+      "sha256": "51ffa1f3e0b7cfb88cc2ddd99a5270edc65e0677c7f61e8f62905e7e3edeee0b"
+    },
+    {
+      "path": "tests/test_larger_training.py",
+      "sha256": "3bdb5f623cc5f45123b20d6ffe2764d64264d4fffae6c55476c649a0ca3355c9"
+    },
+    {
+      "path": "tests/test_larger_archive.py",
+      "sha256": "3be6c616b35c941ca4a5e70ca4511fcf45676accaee9e3a02cc3bb0a5349d834"
+    }
+  ],
+  "tests": {
+    "command": "NO_ALBUMENTATIONS_UPDATE=1 HF_HUB_OFFLINE=1 vendor/Isaac-GR00T/.venv/bin/python -B -m unittest discover -s tests -p 'test_larger*.py' -v",
+    "tests_run": 36,
+    "tests_passed": 35,
+    "tests_skipped": 1,
+    "elapsed_seconds": 13.056,
+    "exit_code": 0,
+    "owned_test_counts": {
+      "test_larger_training.py": 10,
+      "test_larger_archive.py": 8
+    },
+    "skip": "Opt-in local cached-processor bootstrap equivalence check; this record does not claim to execute it.",
+    "coverage": [
+      "Fixed 8192-update recipe, four retained saves and 80 GiB output precondition",
+      "Training/validation isolation and frozen step-zero/statistics bindings",
+      "Consumed-sample coverage excludes preload and collator lookahead",
+      "Actual pinned Trainer CPU audit: finite losses/gradients, fresh optimizer, callback ordering and nonfinite aborts",
+      "Complete checkpoint inventory, SHA256/fsync, strict reload proof and immutable-source checks",
+      "Distinct remote full-precision and SSHFS-mounted signatures; subsecond remote mutation detection",
+      "Peer evaluator tests: one policy load, identity-bound reuse and inventory path without network weight hashing"
+    ],
+    "scope_note": "Combined run preceded the evaluator conversion-manifest binding addition. The root performs the final full suite after all helpers freeze."
+  },
+  "host_sshfs_fixture": {
+    "path": "reports/larger-dataset-v1-remote-inventory-test.json",
+    "sha256": "544b36973f3a7ef99e986560674477ae56292fe96b80c16b512abf40ea71307f",
+    "command": "python3 -B reports/check_larger_remote_inventory.py",
+    "executor": "root agent on host; not the masked sandbox",
+    "helper": {
+      "path": "reports/check_larger_remote_inventory.py",
+      "sha256": "6ebb2a253f2fd2ee694bf1d997aa956a8a83e3ac7bfed50befd656c8e147d3a2"
+    },
+    "passed": true,
+    "fixture_files": 7,
+    "remote_mtime_ns": 1700000000123456700,
+    "mounted_mtime_ns": 1700000000000000000,
+    "subsecond_precision_differs": true,
+    "complete_remote_and_mounted_signatures_verified": true,
+    "all_file_sha256_and_fsync_verified": true,
+    "own_fixture_removed": true
+  },
+  "limits": [
+    "CPU-only implementation tests and a seven-file tiny storage fixture; no GPU training, real-model reload or evaluation is claimed by this record.",
+    "Full dataset/model protocol preparation, resource checks and launch belong to the root workflow.",
+    "The storage fixture establishes metadata precision and supported hash/fsync behavior, not large-checkpoint throughput or six-hour completion.",
+    "No original recordings, completed pilot checkpoints or archived weights were changed."
+  ],
+  "final_full_suite": {
+    "command": "VLA_TEST_PROCESSOR_INTEGRATION=1 vendor/Isaac-GR00T/.venv/bin/python -B -m unittest discover -s tests -v",
+    "tests_run": 159,
+    "tests_passed": 159,
+    "tests_skipped": 0,
+    "elapsed_seconds": 21.033,
+    "exit_code": 0,
+    "log": {
+      "path": "reports/larger-dataset-v1-full-tests.log",
+      "sha256": "4aae5d78e746c8d6547557a8f2c84a4056eb09f3b812d47b118777495f3d2da8"
+    },
+    "source_bindings": [
+      {
+        "path": "scripts/archive_gr00t_dataset.py",
+        "sha256": "51ffa1f3e0b7cfb88cc2ddd99a5270edc65e0677c7f61e8f62905e7e3edeee0b"
+      },
+      {
+        "path": "scripts/evaluate_gr00t_dataset.py",
+        "sha256": "6e1e5d3e53beb83d4a257928b65b26871e54aca814b7ae25b848aac59b6161a2"
+      },
+      {
+        "path": "scripts/prepare_dataset_split.py",
+        "sha256": "ab1282d67d8bdb230d0b895b0503afcb193bbaddad5feba36953b11d2cea8fd3"
+      },
+      {
+        "path": "scripts/run_gr00t_dataset.py",
+        "sha256": "eb7e14c56e3be3ff2a3ab8b1c0788d003e56a64620cdc19e69191a2266da9089"
+      },
+      {
+        "path": "tests/test_bootstrap.py",
+        "sha256": "ca8f58d847e51f723b252a4e91a73f0cd1c4ad8d0876a0c1d1f317dd4d558a24"
+      },
+      {
+        "path": "tests/test_dataset_split.py",
+        "sha256": "21c53362f49ebe46cfdae0a4e313641f33ddc4aea01570b3de2ee21de93adcf6"
+      },
+      {
+        "path": "tests/test_followup_archive.py",
+        "sha256": "124736baacca168e16a59025b9050ea7e7be117356a1e7643d58993bdd8d11dc"
+      },
+      {
+        "path": "tests/test_goal_overrides.py",
+        "sha256": "f4055b548fe5c2b2273f52ae58efc5d4270aca20e88e19bdc63583adbaa1a0c9"
+      },
+      {
+        "path": "tests/test_larger_archive.py",
+        "sha256": "3be6c616b35c941ca4a5e70ca4511fcf45676accaee9e3a02cc3bb0a5349d834"
+      },
+      {
+        "path": "tests/test_larger_evaluation.py",
+        "sha256": "98c674e29066bfad744ef5b349fc846d9f591d3387040546f4b850b9f2821247"
+      },
+      {
+        "path": "tests/test_larger_training.py",
+        "sha256": "3bdb5f623cc5f45123b20d6ffe2764d64264d4fffae6c55476c649a0ca3355c9"
+      },
+      {
+        "path": "tests/test_no_state_dropout_evaluation.py",
+        "sha256": "c966ad1aa3b5d4545e7df4325e08d3490563d476c1308ba1de9d41c1f605b788"
+      },
+      {
+        "path": "tests/test_pilot_archive.py",
+        "sha256": "d7199de8cfcfe8c9b905fa0812d8e47c3442700ffe0f8a4d1792edff5b7b8adf"
+      },
+      {
+        "path": "tests/test_pilot_evaluation.py",
+        "sha256": "5ac10f7d8b3ec74e099cf55453152c7c7283e496d118523c0a7a11a8d6fb3c5a"
+      },
+      {
+        "path": "tests/test_pilot_temporal_change.py",
+        "sha256": "c0cd2456ec1d6c7b7f607d1459fafd8ef294a7261f225631d32a57fd21a0db41"
+      },
+      {
+        "path": "tests/test_pilot_training.py",
+        "sha256": "d809a02b65f87aac0760de0157dbe0a303033515cf3b592bfdf58b2c6f7f8321"
+      },
+      {
+        "path": "tests/test_pilot_warm_start.py",
+        "sha256": "89c4c46cd183081a20e19ed2e2e461abca8b268e87ed0e479fc948fb7ebd0655"
+      },
+      {
+        "path": "tests/test_preparation.py",
+        "sha256": "acbfdbf69b4b7551889777b1da05e6cfb1c89ff65e70db5761a4f5b241e0a6a7"
+      }
+    ],
+    "scope": "Includes opt-in actual CPU processor equivalence and all historical lightweight regression tests. No model weight inference or training."
+  },
+  "host_readiness": [
+    {
+      "path": "reports/larger-dataset-v1-runtime-readiness.json",
+      "sha256": "7c954f89c50d835a5cb21d403a361a628e2a436b6ea59dfe2551ffad59b7c80d",
+      "passed": true
+    },
+    {
+      "path": "reports/larger-dataset-v1-model-integrity.json",
+      "sha256": "4f70a6302dd5aaeb14c6fe8529efa91a86436998278f0e6c4b4100cd54ac9aab",
+      "passed": true
+    },
+    {
+      "path": "reports/larger-dataset-v1-receiver-fixture.json",
+      "sha256": "bf59f787ffb4dd5a4d2325391e2e33dfb33ae021ea1318f14c0af97199be75c1",
+      "passed": true
+    }
+  ]
+}

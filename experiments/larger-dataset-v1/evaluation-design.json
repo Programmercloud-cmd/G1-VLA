@@ -1,0 +1,54 @@
+{
+  "artifact_type": "larger_dataset_evaluation_design",
+  "artifacts": "prepare creates immutable hash-bound evaluation-protocol.json, train/validation sample JSON and target NPZ arrays, and a saved bootstrap processor before any inference. Full processor semantics remain in a hash-bound derived file. No images or model weights belong in Git.",
+  "checkpoint_selection": "Evaluate all four scheduled checkpoints on both fixed splits after training exits, sequentially. Choose lowest validation mean of four all-window normalized group MAEs; exact ties choose earliest step. Expose group/episode regressions. Persistence and step-zero comparisons are descriptive without mandatory improvement thresholds.",
+  "conversion_handoff": "Before processor creation, preparation requires the completed conversion manifest and matches its split, both snapshot paths/hashes, full converted file inventories, and train-owned absolute/relative statistics. The protocol binds that manifest SHA and rechecks these links when loaded.",
+  "empty_subsets": "Report null metrics and count0; not a failed improvement gate. Missing/nonfinite/inconsistent evidence invalidates evaluation.",
+  "paired_evaluation": "Each checkpoint is loaded once in a fresh evaluator process; train and validation use separate reports and references while sharing the loaded model. Candidate weights are SHA256/fsync verified on their storage host once, with full file inventory,size,mtime and small-file digests checked before and after both split evaluations. No network reread of weight shards for hashing.",
+  "recipe": {
+    "checkpoint_steps": [
+      2048,
+      4096,
+      6144,
+      8192
+    ],
+    "checkpoint_tie_rule": "lowest_optimizer_step",
+    "denoising_steps": 4,
+    "horizon": 16,
+    "inference_seeds": [
+      42,
+      43,
+      44
+    ],
+    "joint_groups": [
+      "left_arm",
+      "right_arm",
+      "left_hand",
+      "right_hand"
+    ],
+    "mandatory_improvement_threshold": null,
+    "normalization_owner": "train",
+    "persistence": "descriptive_only",
+    "reference": "pretrained_step_zero_with_training_processor",
+    "samples_per_split": 100,
+    "selection_metric": "validation/all/group_balanced_normalized_mae",
+    "selection_seed": 42,
+    "state_dropout_prob": 0.0
+  },
+  "sampling": {
+    "allocation": "At least one window per eligible episode when episode count <=100. Allocate remaining slots round-robin over a seed-42 permutation, respecting available distinct full windows.",
+    "examples": "Five episodes at evenly spaced positions in the sorted episode list; first selected window in each; per-group joint with largest target peak-to-peak divided by maximum training normalization span, earliest joint breaks ties.",
+    "order": "Sort final samples by episode index then start. Train and validation each use a fresh seed42 RNG.",
+    "starts": "For each episode, divide its valid start range into allocated equal index bins and draw one start uniformly per bin using numpy PCG64 seeded42. No predictions, errors, or visual labels enter selection.",
+    "validity": "Exactly16 targets, finite state/actions, no episode-boundary padding. Insufficient eligible episodes/windows fail preparation."
+  },
+  "schema_version": 1,
+  "scope": "Train/validation offline action-error learning curve. Validation is for checkpoint selection, not a final untouched test; no hardware-success claim.",
+  "statistics_policy": "Train absolute and16-step relative statistics only; validation always uses saved training processor. CPU bootstrap must byte-match all3processor files produced by actual pinned training pipeline. Pretrained weights with this processor define a new step-zero reference. Pilot statistics and gates remain unchanged.",
+  "status": "predeclared_before_data_preparation_and_step_zero",
+  "step_zero_dependency": "CPU bootstrap registers NEW_EMBODIMENT and merges only training statistics via pinned upstream code. Strict CPU equivalence test checks saved processor bytes against the actual training pipeline before any GPU work. Step zero loads pinned pretrained weights with exact training configuration overrides and the frozen processor.",
+  "target_change": {
+    "method": "For each joint, peak-to-peak absolute ground-truth target within the 16-frame horizon divided by the maximum saved action normalization span over that horizon; take the maximum across nonconstant joints within each group and select scores > 0.05. This measures changing target commands, not state-action offset or semantic task phase.",
+    "threshold": 0.05
+  }
+}

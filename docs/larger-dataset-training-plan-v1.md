@@ -1,5 +1,7 @@
 # Larger-dataset training proposal v1
 
+**Execution status:** the user subsequently approved this scope. Implementation and dataset preparation are underway; approval does not mean that training or evaluation has completed. The frozen episode allocation is recorded in [split.json](../experiments/larger-dataset-v1/split.json). The original proposal below is retained as the decision record.
+
 This is a proposed next experiment, not an executed configuration or authorization to train. The completed [zero-state-dropout follow-up](../experiments/pilot-fit-no-state-dropout-v1/README.md) improved over checkpoint 512 but failed every persistence gate. The bounded [interval review](pilot-interval-review-v1.md) and [timing record](../experiments/pilot-interval-review-v1/timing-summary.json) support preserving the inspected data: source and converted rows agree, and the low-motion tails show carry/holding context. They provide no defensible action shift or automatic trim boundary. Source files contain row indices and nominal 30 Hz, but no camera, state, or command acquisition clocks from which to establish physical lag.
 
 ## Freeze the eligible data and split first
