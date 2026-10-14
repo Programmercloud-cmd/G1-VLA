@@ -6,6 +6,7 @@ import hashlib
 import json
 import math
 from pathlib import Path
+import re
 import shutil
 import sys
 
@@ -58,6 +59,87 @@ def vector(row, field):
 def combined_digest(files):
     canonical = json.dumps(files, sort_keys=True, separators=(",", ":")).encode()
     return hashlib.sha256(canonical).hexdigest()
+
+
+def parse_label_overrides(content, dataset_name=None):
+    """Validate the complete overlay before considering any source episode."""
+    manifest = json.loads(content)
+    if not isinstance(manifest, dict) or type(manifest.get("schema_version")) is not int or manifest["schema_version"] != 1:
+        raise ValueError("Label overrides require schema_version=1")
+    for field in ("dataset_name", "reference_frame"):
+        if not isinstance(manifest.get(field), str) or not manifest[field].strip():
+            raise ValueError(f"Label overrides require a nonempty {field}")
+    if dataset_name is not None and manifest["dataset_name"] != dataset_name:
+        raise ValueError("Label override dataset_name differs from source directory")
+    if not isinstance(manifest.get("episodes"), list):
+        raise ValueError("Label overrides require an episodes list")
+    entries = {}
+    for entry in manifest["episodes"]:
+        if not isinstance(entry, dict):
+            raise ValueError("Invalid label override episode entry")
+        name = entry.get("episode")
+        if not isinstance(name, str) or not re.fullmatch(r"episode_[0-9]{4}", name):
+            raise ValueError(f"Invalid label override episode path: {name!r}")
+        if name in entries:
+            raise ValueError(f"Duplicate label override episode: {name}")
+        sha = entry.get("source_data_json_sha256")
+        if not isinstance(sha, str) or not re.fullmatch(r"[0-9a-fA-F]{64}", sha):
+            raise ValueError(f"Invalid source data.json SHA256: {name}")
+        if entry.get("status") not in ("accepted", "needs_review"):
+            raise ValueError(f"Invalid label review status: {name}")
+        fields = ("original_goal", "goal") if entry["status"] == "accepted" else ("original_goal",)
+        for field in fields:
+            if not isinstance(entry.get(field), str) or not entry[field].strip():
+                raise ValueError(f"Invalid {field} in label override: {name}")
+        entries[name] = entry
+    return manifest, entries
+
+
+def checked_source_json(raw, name, entry):
+    path = contained_file(raw, f"{name}/data.json")
+    content = path.read_bytes()
+    expected = entry["source_data_json_sha256"].lower()
+    if hashlib.sha256(content).hexdigest() != expected or digest(path) != expected:
+        raise ValueError(f"Label override source hash mismatch: {name}")
+    if json.loads(content).get("text", {}).get("goal") != entry["original_goal"]:
+        raise ValueError(f"Label override original-goal mismatch: {name}")
+    return content
+
+
+def overridden_json(content, goal):
+    payload = json.loads(content)
+    if payload["text"]["goal"] == goal:
+        return content
+    payload["text"]["goal"] = goal
+    return (json.dumps(payload, indent=2) + "\n").encode()
+
+
+def validate_label_provenance(root, record, inspected, entry, manifest_sha):
+    name = record["episode"]
+    expected_sha = entry["source_data_json_sha256"].lower()
+    if (entry["status"] != "accepted" or record.get("goal_status") != "accepted"
+            or record.get("label_manifest_sha256") != manifest_sha
+            or record.get("source_data_json_sha256") != expected_sha
+            or record.get("original_goal") != entry["original_goal"]
+            or record.get("effective_goal") != entry["goal"]
+            or record["goal"] != entry["goal"] or inspected["goal"] != entry["goal"]):
+        raise ValueError(f"Label provenance mismatch: {name}")
+    original = contained_file(root, f"provenance/{name}.data.json")
+    source_files = record["source_files_sha256"]
+    if (digest(original) != expected_sha or source_files.get("data.json") != expected_sha
+            or combined_digest(source_files) != record["source_content_sha256"]):
+        raise ValueError(f"Original source provenance hash mismatch: {name}")
+    snapshot_files = inspected["files_sha256"]
+    if (set(source_files) != set(snapshot_files)
+            or any(source_files[key] != snapshot_files[key] for key in source_files if key != "data.json")):
+        raise ValueError(f"Snapshot images differ from source provenance: {name}")
+    original_payload = json.loads(original.read_bytes())
+    if original_payload["text"]["goal"] != entry["original_goal"]:
+        raise ValueError(f"Original goal differs from label provenance: {name}")
+    original_payload["text"]["goal"] = entry["goal"]
+    copied_payload = json.loads((root / "raw/pick_up_black_box" / name / "data.json").read_bytes())
+    if original_payload != copied_payload:
+        raise ValueError(f"Snapshot changed fields other than text.goal: {name}")
 
 
 def inspect_episode(episode):
@@ -161,6 +243,15 @@ def validate_snapshot(root):
     records = manifest["episodes"]
     if not records:
         raise ValueError("No episodes in manifest")
+    overlay = manifest.get("label_overrides")
+    entries = {}
+    if overlay is not None:
+        label_path = contained_file(root, "label-overrides.json")
+        if digest(label_path) != overlay["sha256"]:
+            raise ValueError("Label override manifest hash mismatch")
+        labels, entries = parse_label_overrides(label_path.read_bytes(), overlay["dataset_name"])
+        if labels["reference_frame"] != overlay["reference_frame"]:
+            raise ValueError("Label override reference frame mismatch")
     task = root / "raw" / "pick_up_black_box"
     expected_names = {record["episode"] for record in records}
     if {path.name for path in task.iterdir()} != expected_names:
@@ -172,10 +263,14 @@ def validate_snapshot(root):
             raise ValueError(f"Snapshot hash mismatch: {episode.name}")
         if combined_digest(record["files_sha256"]) != record["content_sha256"]:
             raise ValueError(f"Invalid manifest digest: {episode.name}")
+        if overlay is not None:
+            if record["episode"] not in entries:
+                raise ValueError(f"Episode missing from label overrides: {episode.name}")
+            validate_label_provenance(root, record, inspected, entries[record["episode"]], overlay["sha256"])
     return manifest
 
 
-def prepare(count, run, max_mib, config=None, raw_root=None):
+def prepare(count, run, max_mib, config=None, raw_root=None, label_overrides=None):
     config = config or load_config()
     raw = resolve_path(raw_root or config["paths"]["raw_data"])
     if count < 1 or count > 10 or max_mib < 1:
@@ -188,11 +283,28 @@ def prepare(count, run, max_mib, config=None, raw_root=None):
         raise ValueError("Snapshot destination must not overlap source recordings")
     if output.exists() or output.is_symlink():
         raise FileExistsError(f"Refusing existing output: {output}")
+    label_content, label_manifest, entries, source_json, replacements = b"", None, {}, {}, {}
+    if label_overrides is not None:
+        label_path = resolve_path(label_overrides)
+        label_content = label_path.read_bytes()
+        label_sha = hashlib.sha256(label_content).hexdigest()
+        if digest(label_path) != label_sha:
+            raise ValueError("Label overrides changed while reading")
+        label_manifest, entries = parse_label_overrides(label_content, raw.name)
+        # Fail on every stale accepted binding, including entries beyond the requested count.
+        for name, entry in entries.items():
+            if entry["status"] == "accepted":
+                source_json[name] = checked_source_json(raw, name, entry)
+                replacements[name] = overridden_json(source_json[name], entry["goal"])
     candidates = sorted(raw.glob("episode_*"))
     selected, considered = [], []
-    total_bytes = 0
+    total_bytes, provenance_bytes = 0, 0
     for episode in candidates:
         if not episode.is_dir():
+            continue
+        if label_manifest is not None and (episode.name not in entries or entries[episode.name]["status"] != "accepted"):
+            considered.append({"episode": episode.name, "status": "excluded",
+                               "reason": "No accepted label override"})
             continue
         if episode.name in EXCLUDED:
             considered.append({"episode": episode.name, "status": "excluded",
@@ -200,10 +312,31 @@ def prepare(count, run, max_mib, config=None, raw_root=None):
             continue
         try:
             record = inspect_episode(episode)
-            if total_bytes + record["bytes"] > max_mib * 1024**2:
+        except (OSError, ValueError, KeyError, TypeError, IndexError) as error:
+            if label_manifest is not None:
+                checked_source_json(raw, episode.name, entries[episode.name])
+            considered.append({"episode": episode.name, "status": "not_selected",
+                               "reason": str(error)})
+            continue
+        # Keep label binding failures outside the recoverable inspection/size-cap path.
+        if label_manifest is not None:
+            entry = entries[episode.name]
+            checked_source_json(raw, episode.name, entry)
+            if record["files_sha256"]["data.json"] != entry["source_data_json_sha256"].lower() or record["goal"] != entry["original_goal"]:
+                raise ValueError(f"Label override source changed during inspection: {episode.name}")
+            record.update(source_data_json_sha256=record["files_sha256"]["data.json"],
+                          source_files_sha256=record["files_sha256"].copy(),
+                          source_content_sha256=record["content_sha256"], source_bytes=record["bytes"],
+                          original_goal=record["goal"], effective_goal=entry["goal"],
+                          label_manifest_sha256=label_sha, goal_status="accepted")
+            record["bytes"] += len(replacements[episode.name]) - len(source_json[episode.name])
+        extra_provenance = len(source_json.get(episode.name, b""))
+        try:
+            if total_bytes + record["bytes"] + provenance_bytes + extra_provenance + len(label_content) > max_mib * 1024**2:
                 raise ValueError("Pilot size cap would be exceeded")
             selected.append(record)
             total_bytes += record["bytes"]
+            provenance_bytes += extra_provenance
             considered.append({"episode": episode.name, "status": "selected"})
             print(f"Selected {episode.name}: {record['rows']} rows", flush=True)
         except (OSError, ValueError, KeyError, TypeError, IndexError) as error:
@@ -216,10 +349,18 @@ def prepare(count, run, max_mib, config=None, raw_root=None):
     ancestor = output.parent
     while not ancestor.exists():
         ancestor = ancestor.parent
-    if shutil.disk_usage(ancestor).free < total_bytes + 2 * 1024**3:
-        raise ValueError("Insufficient space for pilot plus 2 GiB reserve")
+    reserve = max(8, config.get("reserve_gib", 8)) * 1024**3
+    # Allow for provenance plus both metadata reports, beyond the episode byte count.
+    planned_bytes = total_bytes + provenance_bytes + len(label_content) + 4 * len(json.dumps(selected).encode()) + 1024**2
+    project_extra = planned_bytes if ancestor.stat().st_dev == PROJECT.stat().st_dev else 0
+    if (shutil.disk_usage(ancestor).free < planned_bytes + reserve
+            or shutil.disk_usage(PROJECT).free < project_extra + reserve):
+        raise ValueError("Insufficient space for pilot plus configured 8 GiB minimum reserve")
     output.mkdir(parents=True)
     (output / "INCOMPLETE").write_text("Remove only after validation succeeds.\n")
+    if label_manifest is not None:
+        (output / "label-overrides.json").write_bytes(label_content)
+        (output / "provenance").mkdir()
     for episode_index, record in enumerate(selected):
         source = Path(record["source_path"])
         destination = output / "raw" / "pick_up_black_box" / record["episode"]
@@ -232,6 +373,13 @@ def prepare(count, run, max_mib, config=None, raw_root=None):
             shutil.copy2(original, target)
             if digest(target) != expected or digest(original) != expected:
                 raise ValueError(f"Copy or source verification failed: {original}")
+        if label_manifest is not None:
+            name = record["episode"]
+            (output / "provenance" / f"{name}.data.json").write_bytes(source_json[name])
+            (destination / "data.json").write_bytes(replacements[name])
+            record["goal"] = record["effective_goal"]
+            record["files_sha256"]["data.json"] = digest(destination / "data.json")
+            record["content_sha256"] = combined_digest(record["files_sha256"])
         record["derived_episode_index"] = episode_index
     manifest = {
         "schema_version": 1, "created_at": now(), "source_inventory_provisional": True,
@@ -240,12 +388,19 @@ def prepare(count, run, max_mib, config=None, raw_root=None):
         "excluded": EXCLUDED, "candidate_checks": considered, "episodes": selected,
         "split_status": "pilot for plumbing only; no final train/validation split established",
     }
+    if label_manifest is not None:
+        manifest["label_overrides"] = {"source_path": str(label_path), "sha256": label_sha,
+                                       "dataset_name": label_manifest["dataset_name"],
+                                       "reference_frame": label_manifest["reference_frame"]}
+        manifest["provenance_bytes"] = provenance_bytes + len(label_content)
     (output / "manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")
     # Verify again before clearing the incomplete marker.
     for record in selected:
         copied = inspect_episode(output / "raw" / "pick_up_black_box" / record["episode"])
         if copied["files_sha256"] != record["files_sha256"]:
             raise ValueError(f"Final snapshot mismatch: {record['episode']}")
+        if label_manifest is not None:
+            validate_label_provenance(output, record, copied, entries[record["episode"]], label_sha)
     (output / "INCOMPLETE").unlink()
     validate_snapshot(output)
     report = {key: manifest[key] for key in [
@@ -266,6 +421,7 @@ def main():
     parser.add_argument("--count", type=int, default=5)
     parser.add_argument("--run", default="pilot-v1")
     parser.add_argument("--max-mib", type=int, default=512)
+    parser.add_argument("--label-overrides", type=Path, help="Reviewed, source-hash-bound goal overlay for a new snapshot")
     parser.add_argument("--verify", type=Path, help="Verify an existing pilot without writing")
     args = parser.parse_args()
     config = load_config(args.config)
@@ -275,7 +431,7 @@ def main():
         manifest = validate_snapshot(resolve_path(args.verify))
         print(json.dumps({"verified": str(args.verify), "episodes": len(manifest["episodes"])}))
     else:
-        prepare(args.count, args.run, args.max_mib, config, args.raw_root)
+        prepare(args.count, args.run, args.max_mib, config, args.raw_root, args.label_overrides)
 
 
 if __name__ == "__main__":

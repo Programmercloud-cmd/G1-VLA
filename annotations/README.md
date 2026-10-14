@@ -1,0 +1,13 @@
+# Spatial goal annotations
+
+[spatial-goal-review-v1.json](spatial-goal-review-v1.json) preserves the visual review of all 125 episodes. The user's choice between **object-relative** positions and **table/workspace-relative** positions is pending. Both interpretations remain candidates, including proposals that match the original wording; this review accepts no overrides.
+
+**Do not pass this review file to `--label-overrides`.** Its `artifact_type: spatial_goal_review`, `review_version`, and `reviews` fields deliberately differ from the accepted overlay contract. A selected convention and adjudicated decisions belong in a separate, versioned overlay.
+
+[goal-overrides-0141-v1.json](goal-overrides-0141-v1.json) is a separate, partial accepted overlay for episode 0141 only. Its right/front position is supported under both conventions and agrees with the user's observation. Episodes absent from that overlay cannot be selected through it. Its narrow acceptance does not resolve the convention for the full review.
+
+[label-validation-v1.json](label-validation-v1.json) records the completed episode 0141 integration and binds its review, overlay, snapshot, conversion report, test log, and converted metadata/data with repository-relative paths and SHA-256 values. All 268 converted rows retained exact float32 states/actions and corrected task text; all 268 video frames decoded, with three sampled image-error measurements recorded. The 75 tests passed in 12.247 seconds. All 125 original source JSON hashes and goals still match the review. The real-data integration ran no separate statistics command, model execution, or training. See [dataset-labels.md](../docs/dataset-labels.md) for the overlay contract and reproduction commands.
+
+The review records exact original goals and metadata SHA-256 values, plus 337 inspected original image references with SHA-256 values. Source and image paths are relative to the dataset root, `g1_inspire_pick_up_black_box_clean`; provenance report paths are repository-relative. No images, credentials, or machine-specific paths are embedded. `data_row_offset`, `source_idx`, and image filename numbers are separate fields, including the trimmed recordings 0092 and 0138.
+
+Episodes 0092 (missing precontact setup), 0136 (existing frozen-image concern), and 0165 (images unavailable locally) remain `needs_review`. An apparent spatial phrase does not clear a recording-quality hold. All 125 original metadata hashes matched the frozen inventory when this review was assembled. The inventory remains provisional; this is not a full recording-quality or completeness audit.

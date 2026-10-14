@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "dataset_name": "g1_inspire_pick_up_black_box_clean",
+  "reference_frame": "Robot-camera view at episode start: target is front-right within the workspace and right/front of the other visible box; this episode is unambiguous under both conventions.",
+  "scope": "Partial reviewed overlay for episode_0141 only. Other episodes are not selected by this overlay. Full-dataset reference convention remains pending.",
+  "reviewed_at_utc": "2026-10-14T21:50:11.832799+00:00",
+  "episodes": [
+    {
+      "episode": "episode_0141",
+      "source_data_json_sha256": "c9e3bad55ab644ba794eb0f5b0538e7e9681654060fb43fb2097d1b497b1dec1",
+      "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "status": "accepted",
+      "goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "review_basis": "User reported right/front; independent visual reviews confirmed original target location and two-hand grasp/lift.",
+      "evidence": [
+        {
+          "source_index": 0,
+          "image": "colors/000000_color_0.jpg",
+          "sha256": "b699d5f66e4dd58748b9cb1291c73b3a41a134c60ceeee7bd6ae7bf545619217"
+        },
+        {
+          "source_index": 134,
+          "image": "colors/000134_color_0.jpg",
+          "sha256": "e53591af4adb89182d3a7c38270afce913792bc5b43e9ccf9dfaffcea4741747"
+        },
+        {
+          "source_index": 267,
+          "image": "colors/000267_color_0.jpg",
+          "sha256": "4877cc84f6b5dd22a3ef2ca29a0edeb7b2661abfdf813a4bdabfc9f0f44d90dd"
+        }
+      ]
+    }
+  ]
+}

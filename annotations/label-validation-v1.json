@@ -1,0 +1,131 @@
+{
+  "artifact_type": "label_overlay_validation",
+  "summary_version": 1,
+  "created_at_utc": "2026-10-14T21:55:41.689656+00:00",
+  "status": "passed",
+  "scope": {
+    "accepted_episodes": [
+      "episode_0141"
+    ],
+    "global_reference_convention": "pending",
+    "acceptance_note": "Episode 0141 right/front is supported under both pending conventions. This validation accepts no other episode.",
+    "source_inventory_is_provisional": true
+  },
+  "integration": {
+    "snapshot": "derived/label-check-0141-v1",
+    "converted_dataset": "derived/lerobot/local/g1_goal_label_check_0141_v1",
+    "conversion_formats": [
+      "LeRobot v3",
+      "LeRobot v2.1"
+    ],
+    "metadata_applied": true,
+    "rows": 268,
+    "state_action_float32_exact": true,
+    "corrected_task_text_exact": true,
+    "decoded_video_frames": 268,
+    "sampled_raw_video_comparison": [
+      {
+        "row": 0,
+        "rgb_mae_0_255": 2.066955327987671
+      },
+      {
+        "row": 134,
+        "rgb_mae_0_255": 2.0695834159851074
+      },
+      {
+        "row": 267,
+        "rgb_mae_0_255": 2.5542197227478027
+      }
+    ],
+    "video_comparison_note": "Lossy video encoding; image errors are informational, visually inspect alignment.",
+    "separate_statistics_command_run": false,
+    "model_execution_run": false,
+    "training_run": false,
+    "execution_scope_note": "These operation flags cover the real-data episode 0141 integration, not synthetic test fixtures. Converter-generated metadata is retained."
+  },
+  "episode_label": {
+    "episode": "episode_0141",
+    "original_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+    "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+    "original_raw_goal_unchanged": true,
+    "original_raw_json_sha256_unchanged": true,
+    "only_snapshot_text_goal_changed": true,
+    "source_content_sha256": "cbd7c12a8fece95133f42dc2f14b0c9c31f86524b4c5c3900a38a0a09f1d67fd",
+    "snapshot_content_sha256": "8ca11c221242b94164e2a74f6ea798463859cc41281eac7b45ec44481632851f",
+    "content_digest_definition": "SHA-256 of canonical sorted JSON mapping episode-relative filenames to file SHA-256 values."
+  },
+  "source_integrity": {
+    "source_root": "data/g1_inspire_pick_up_black_box_clean",
+    "verified_source_json_count": 125,
+    "all_json_hashes_match_review": true,
+    "all_original_goals_match_review": true,
+    "current_json_inventory_matches_review": true,
+    "missing_or_mismatched_source_json_count": 0,
+    "verification_scope": "Exact source data.json bytes and original goals for all 125 review entries; not a new audit of all source images."
+  },
+  "tests": {
+    "passed": true,
+    "count": 75,
+    "duration_seconds": 12.247,
+    "evidence": "reports/goal-label-tests.log"
+  },
+  "original_pilot_integrity": {
+    "verified_by": "coordinating reviewer",
+    "dataset_files_sha256_matched": 17,
+    "small_videos_included": 5,
+    "missing_files": 0,
+    "pilot_manifest_sha256_matched": true,
+    "evidence": "reports/pilot-fit-v1-run.json",
+    "note": "Original pilot dataset and manifest remain unchanged. No weights or large videos were hashed for this summary."
+  },
+  "artifacts": {
+    "review": {
+      "repository_relative_path": "annotations/spatial-goal-review-v1.json",
+      "sha256": "45bc1d8efc33a7e9439b7cd184ec3b9a9fc4ab9dd0727e5f32281065b6f58eeb"
+    },
+    "accepted_overlay": {
+      "repository_relative_path": "annotations/goal-overrides-0141-v1.json",
+      "sha256": "70726ebd098be91c66d1fbe152ce9db330d4dd8a9b2a42c209906942fe0b1836"
+    },
+    "snapshot_manifest": {
+      "repository_relative_path": "derived/label-check-0141-v1/manifest.json",
+      "sha256": "063af1c11a2d0d81aa418e65b3e918a8c702f13f43767df4cfc045be7ce159b9"
+    },
+    "conversion_validation_report": {
+      "repository_relative_path": "derived/label-check-0141-validation.json",
+      "sha256": "ff6cc79d5d64e0c9ac16537353d805b54f4dbf84592260c5e616fd43a0ba5dc7"
+    },
+    "test_log": {
+      "repository_relative_path": "reports/goal-label-tests.log",
+      "sha256": "1858ccf8c9efbaf0e99ab56ef46a23c2a8f83b5e858205df684938d8478304cf"
+    },
+    "original_episode_json": {
+      "repository_relative_path": "data/g1_inspire_pick_up_black_box_clean/episode_0141/data.json",
+      "sha256": "c9e3bad55ab644ba794eb0f5b0538e7e9681654060fb43fb2097d1b497b1dec1"
+    },
+    "snapshot_episode_json": {
+      "repository_relative_path": "derived/label-check-0141-v1/raw/pick_up_black_box/episode_0141/data.json",
+      "sha256": "ef7d55538769cf15499ddcea1bb3f83c3df8cc1b3384ef71f3f9f53030f871dc"
+    },
+    "preserved_original_episode_json": {
+      "repository_relative_path": "derived/label-check-0141-v1/provenance/episode_0141.data.json",
+      "sha256": "c9e3bad55ab644ba794eb0f5b0538e7e9681654060fb43fb2097d1b497b1dec1"
+    },
+    "converted_tasks": {
+      "repository_relative_path": "derived/lerobot/local/g1_goal_label_check_0141_v1/meta/tasks.jsonl",
+      "sha256": "c2a387de8a3926e65df556cd50e40a372de435730449cb381bb6e3de7f95a4d7"
+    },
+    "converted_info": {
+      "repository_relative_path": "derived/lerobot/local/g1_goal_label_check_0141_v1/meta/info.json",
+      "sha256": "de1df0a7536b3a7876fbdfb5cfecf00662d66bd6208b0a54fbfde740c76b8e09"
+    },
+    "converted_parquet": {
+      "repository_relative_path": "derived/lerobot/local/g1_goal_label_check_0141_v1/data/chunk-000/episode_000000.parquet",
+      "sha256": "50c0b25c9ce0fdfe447ff90773d0996da332aaa63b634cb6f13d49412f46bab8"
+    },
+    "original_pilot_run_report": {
+      "repository_relative_path": "reports/pilot-fit-v1-run.json",
+      "sha256": "468333be6731925ca2965a1e3b2de00bf17dd4c4f4564be95c86fa45603ff024"
+    }
+  }
+}

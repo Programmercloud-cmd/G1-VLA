@@ -73,9 +73,9 @@ python3 scripts/verify_pipeline.py --level gpu --profile training \
 
 The training profile requires the dataset metadata, an actual GR00T loader sample, at least 40 GiB total and currently free VRAM on selected CUDA device 0, 60 GiB available host RAM, and 35 GiB free run-output space. It also checks the configured disk reserve. A passing check is a readiness snapshot, not a memory guarantee for larger batches.
 
-The examples use the default relative directories; adjust explicit artifact paths when changing `paths.derived`. The converter preserves original instructions and absolute joint targets. GR00T's processor makes arm targets relative to the observed state; hands remain absolute. Joint order is left arm 7, right arm 7, left hand 6, right hand 6. The one camera maps `color_0` to `cam_left_high`.
+The examples use the default relative directories; adjust explicit artifact paths when changing `paths.derived`. The converter preserves the snapshot's instructions and absolute joint targets. GR00T's processor makes arm targets relative to the observed state; hands remain absolute. Joint order is left arm 7, right arm 7, left hand 6, right hand 6. The one camera maps `color_0` to `cam_left_high`.
 
-The recorded task picks the same target box from varied positions. Selecting different boxes from changing instructions needs separate data/evaluation. Before longer training, review positional wording against the images and resolve the flagged frozen-image episode; see [the experiment plan](docs/execution-plan.md).
+The [task-label review and override workflow](docs/dataset-labels.md) covers a provisional 125 source JSON files with identical original goals and 337 image evidence references. One episode lacks local images; three remain on review hold (0092, 0136, 0165). Episode 0141's right/front correction was applied only in a new derived snapshot and passed snapshot and conversion validation. The global spatial reference remains pending; original recordings and the completed pilot are preserved. Accepted overrides require a new snapshot and conversion. The recorded task picks the same target box from varied positions; selecting different boxes from changing instructions still needs separate data/evaluation. See [the experiment plan](docs/execution-plan.md) for remaining dataset decisions.
 
 ## Run and reload the two-step smoke
 
