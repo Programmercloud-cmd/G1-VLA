@@ -4,7 +4,7 @@ Fine-tune GR00T N1.7 on Unitree G1/Inspire recordings from XR teleoperation. The
 
 **Completed:** a five-episode pilot was converted and validated, two optimizer steps ran on an RTX A6000, and a fresh process reloaded the saved checkpoint and produced finite absolute actions of shape `(16, 26)`. The complete checkpoint was archived with matching SHA-256 hashes. This establishes pipeline operation; task success, held-out generalization, and robot deployment have not been demonstrated.
 
-The proposed 512-step fitting experiment has **not** run. See [the next experiment](docs/execution-plan.md) and the portable [smoke summary](experiments/pilot-smoke-v2/summary.json).
+The approved 512-step fitting experiment has **not yet** run. See [the next experiment](docs/execution-plan.md) and the portable [smoke summary](experiments/pilot-smoke-v2/summary.json).
 
 ## Clone and configure
 

@@ -56,6 +56,81 @@ def validate_source(source, evidence):
             for path in paths if path.is_file()]
 
 
+
+def read_small_json(path, label):
+    if path.is_symlink() or not path.is_file() or path.suffix != ".json":
+        raise ValueError(f"{label} must be an ordinary JSON file")
+    if path.stat().st_size > 4 * 1024**2:
+        raise ValueError(f"{label} exceeds the 4 MiB metadata limit")
+    record = json.loads(path.read_text())
+    if not isinstance(record, dict):
+        raise ValueError(f"{label} must contain a JSON object")
+    return record
+
+
+def pilot_evidence_sources(source, evaluation_report=None, run_config=None, pilot_manifest=None,
+                           baseline_report=None, sample_manifest=None):
+    """Bind replayable pilot evidence to the one checkpoint being archived."""
+    supplied = [evaluation_report, run_config, pilot_manifest, baseline_report, sample_manifest]
+    if not any(path is not None for path in supplied):
+        return []
+    if any(path is None for path in supplied):
+        raise ValueError("Pilot archival requires evaluation, run config, snapshot, baseline, and sample manifests together")
+    evaluation = read_small_json(evaluation_report, "Evaluation report")
+    if (evaluation.get("passed") is not True or not evaluation.get("candidate_checkpoint")
+            or resolve_path(evaluation["candidate_checkpoint"]) != source):
+        raise ValueError("Pilot evaluation must pass and identify the checkpoint being archived")
+    recipe = read_small_json(run_config, "Run config")
+    if (not recipe.get("checkpoint") or resolve_path(recipe["checkpoint"]) != source
+            or recipe.get("run") != source.parent.name):
+        raise ValueError("Run config must identify the checkpoint and run being archived")
+    snapshot = read_small_json(pilot_manifest, "Pilot manifest")
+    if not isinstance(snapshot.get("episodes"), list) or not snapshot["episodes"]:
+        raise ValueError("Pilot manifest must identify the snapshot episodes")
+    samples = read_small_json(sample_manifest, "Sample manifest")
+    if not isinstance(samples.get("samples"), list) or not samples["samples"]:
+        raise ValueError("Sample manifest must identify the paired evaluation samples")
+    baseline = read_small_json(baseline_report, "Baseline report")
+    if baseline.get("passed") is not True or not baseline.get("candidate_checkpoint"):
+        raise ValueError("Baseline evaluation must have passed")
+    sample_hash = sha256(sample_manifest)
+    for key, path in [("pilot_manifest_sha256", pilot_manifest),
+                      ("evaluation_manifest_sha256", sample_manifest),
+                      ("baseline_report_sha256", baseline_report)]:
+        if recipe.get(key) != sha256(path):
+            raise ValueError("Run config input hash mismatch: " + key)
+    if any(record.get("sample_manifest_sha256") != sample_hash for record in [evaluation, baseline]):
+        raise ValueError("Both evaluations must identify the exact sample manifest")
+    if evaluation.get("baseline_report_sha256") != sha256(baseline_report):
+        raise ValueError("Candidate evaluation must identify the exact baseline report")
+    result = [(evaluation_report, "reports/evaluation.json"),
+              (run_config, "reports/run-config.json"),
+              (pilot_manifest, "dataset/snapshot-manifest.json"),
+              (baseline_report, "reports/baseline.json"),
+              (sample_manifest, "reports/sample-manifest.json")]
+    for report, stem, record in [(evaluation_report, "evaluation", evaluation),
+                                 (baseline_report, "baseline", baseline)]:
+        if not report.with_suffix(".npz").is_file():
+            raise ValueError("Both evaluations require saved NPZ predictions for replay")
+        for suffix in [".npz", ".log", ".png"]:
+            companion = report.with_suffix(suffix)
+            if companion.exists():
+                if companion.is_symlink() or not companion.is_file() or companion.stat().st_size > 32 * 1024**2:
+                    raise ValueError("Evaluation companions must be ordinary files of at most 32 MiB")
+                if suffix in {".npz", ".png"} and record.get("artifacts", {}).get(companion.name) != sha256(companion):
+                    raise ValueError("Saved evaluation artifact hash mismatch: " + companion.name)
+                result.append((companion, "reports/" + stem + suffix))
+    return result
+
+
+def repository_provenance():
+    def git(*args):
+        return subprocess.check_output(["git", "-C", str(ROOT), *args], text=True).strip()
+    return {"commit": git("rev-parse", "HEAD"), "tree": git("rev-parse", "HEAD^{tree}"),
+            "tracked_changes_at_archive": git("diff", "HEAD", "--name-only").splitlines(),
+            "file_hashes_record_exact_archived_content": True}
+
+
 def local_archive(stage, final, sources, signatures, manifest_path, manifest):
     """Copy once, verify every destination hash, fsync, then publish a fresh directory."""
     if final.exists() or final.is_symlink():
@@ -161,6 +236,12 @@ def main():
     parser.add_argument("--run", required=True)
     parser.add_argument("--reload-report", type=Path, required=True)
     parser.add_argument("--train-report", type=Path)
+    parser.add_argument("--evaluation-report", type=Path, help="Successful paired pilot evaluation JSON")
+    parser.add_argument("--run-config", type=Path, help="Exact pilot run configuration JSON")
+    parser.add_argument("--pilot-manifest", type=Path, help="Frozen snapshot manifest JSON; no raw files are copied")
+    parser.add_argument("--baseline-report", type=Path, help="Successful paired baseline evaluation JSON and NPZ")
+    parser.add_argument("--sample-manifest", type=Path, help="Frozen paired evaluation sample manifest JSON")
+    parser.add_argument("--training-audit", type=Path, help="Optional bounded per-step finite audit JSONL for pilot evidence")
     parser.add_argument("--mode", choices=["local", "ssh"], default="local")
     parser.add_argument("--ssh-host", help="SSH host/alias; defaults to configured storage.host")
     args = parser.parse_args()
@@ -171,6 +252,16 @@ def main():
     evidence_path = resolve_path(args.reload_report)
     evidence = json.loads(evidence_path.read_text())
     sources = validate_source(source, evidence)
+    pilot_sources = pilot_evidence_sources(source,
+        *(resolve_path(value) if value is not None else None for value in
+          [args.evaluation_report, args.run_config, args.pilot_manifest, args.baseline_report, args.sample_manifest]))
+    sources.extend(pilot_sources)
+    if args.training_audit is not None:
+        audit = resolve_path(args.training_audit)
+        if (not pilot_sources or audit.suffix != ".jsonl" or audit.is_symlink()
+                or not audit.is_file() or audit.stat().st_size > 32 * 1024**2):
+            raise ValueError("Training audit requires pilot evidence and an ordinary JSONL file of at most 32 MiB")
+        sources.append((audit, "reports/training-audit.jsonl"))
     report_path = guard_path(config["paths"]["reports"] / (args.run + "-archive.json"), config, "reports")
     manifest_path = guard_path(config["paths"]["reports"] / (args.run + "-archive-manifest.json"), config, "reports")
     if any(path.exists() or path.is_symlink() for path in [report_path, manifest_path]):
@@ -214,8 +305,15 @@ def main():
     # Explicit non-secret evidence allowlist; no environment files or arbitrary reports.
     for relative in ["README.md", "docs/execution-plan.md", "configs/g1_inspire_config.py",
                      "configs/modality.json", "scripts/run_gr00t_smoke.py",
-                     "scripts/reload_gr00t_checkpoint.py", "scripts/project_config.py"]:
+                     "scripts/reload_gr00t_checkpoint.py", "scripts/project_config.py",
+                     "scripts/archive_smoke_checkpoint.py"]:
         if (ROOT / relative).is_file():
+            sources.append((ROOT / relative, relative))
+    if pilot_sources:
+        for relative in ["scripts/run_gr00t_pilot.py", "scripts/evaluate_gr00t_pilot.py",
+                         "scripts/convert_single_camera.py", "scripts/prepare_pilot.py"]:
+            if not (ROOT / relative).is_file():
+                raise FileNotFoundError("Missing pilot source provenance: " + relative)
             sources.append((ROOT / relative, relative))
     for path in sorted((ROOT / "locks").iterdir()):
         if path.is_file() and path.suffix in {".json", ".txt"}:
@@ -232,6 +330,7 @@ def main():
         records.append({"path": relative, "source": str(path), "size": before[0], "sha256": digest})
         print(json.dumps({"phase": "hashed", "path": relative, "bytes": before[0]}), flush=True)
     manifest = {"created_at_utc": now(), "checkpoint_source": str(source),
+                "repository": repository_provenance(), "pilot_evidence_included": bool(pilot_sources),
                 "checkpoint_directory": source.name, "destination": str(final), "destination_host": host,
                 "mode": args.mode, "checkpoint_count": 1, "source_checkpoint_preserved": True,
                 "files": records, "total_bytes": sum(record["size"] for record in records),
