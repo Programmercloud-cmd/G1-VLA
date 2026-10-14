@@ -1,4 +1,4 @@
-# Completed smoke, pilot fitting results, and next proposal
+# Completed pilot results and authorized follow-up
 
 The first milestone is complete: five episodes, both reference conversions, raw-value and image checks, GR00T loading/statistics, two optimizer steps, fresh-process reload, and one checksum-verified durable checkpoint. See the [recorded results](../experiments/pilot-smoke-v2/summary.json), [pilot content identity](../experiments/pilot-smoke-v2/dataset_manifest.json), and [external artifact references](../experiments/pilot-smoke-v2/artifacts.json).
 
@@ -83,15 +83,50 @@ python3 scripts/compare_pilot_temporal_change.py \
 
 The first command freezes or verifies the declaration; the second requires that exact declaration and compares saved prediction arrays without new model inference. It reports candidate, two-step reference, and current-state persistence errors for both changing-target and small-change subsets. Report hashes bind the declaration, frozen sample manifest, and both evaluation reports/NPZ files. Original evaluator reports and predictions remain unchanged.
 
-## Proposed next fitting diagnostic — not launched
+## Authorized follow-up: 1,024 updates with state dropout zero
 
-The next proposal is a bounded warm start from checkpoint 512 for 1,024 additional updates on the same five episodes, keeping microbatch 1, accumulation 8, seed 42, learning rate 1e-4, warmup 0.05, tuning flags, and augmentation unchanged, while setting state dropout to zero. Because the checkpoint is model-only, this would use a fresh optimizer and scheduler. Estimated training time is approximately 27 minutes.
+Run `pilot-fit-no-state-dropout-v1` is authorized as a bounded warm start from the verified `pilot-fit-v1/checkpoint-512` weights for 1,024 additional optimizer updates on the same five episodes. It keeps microbatch 1, accumulation 8, seed 42, learning rate 1e-4, warmup 0.05, tuning flags, and augmentation unchanged, while setting both processor and action-head state dropout to zero. The optimizer and scheduler start fresh; the new `checkpoint-1024` represents 1,536 cumulative updates across the two runs. Estimated training time is approximately 27 minutes, within a six-hour hard limit. This section records the authorized recipe, not a completed result; see the [preliminary experiment record](../experiments/pilot-fit-no-state-dropout-v1/README.md).
 
-The proposed acceptance gate requires every group to beat persistence by at least 10% in both native and normalized MAE on the frozen changing-target subsets, with no group worse than checkpoint 512 across all 100 windows. Stop at the update cap regardless; a failed gate calls for diagnosis rather than automatic extension.
+The frozen [evaluation protocol](../experiments/pilot-fit-no-state-dropout-v1/evaluation-protocol.json) binds the existing 100 starts, seeds 42/43/44, 16-step horizon, four denoising steps, previous predictions, normalization, and changing-target masks. Every joint group must beat persistence by at least 10% in both native and normalized MAE on its changing-target subset, and no group may exceed checkpoint 512's corresponding MAE across all 100 windows. All 16 checks must pass. `passed` reports evidence integrity; `acceptance_passed` separately reports this gate. Stop after 1,024 updates regardless of the outcome; failure calls for diagnosis, not automatic extension.
 
-Preparing this experiment requires a small runner update: the current runner enforces the 512-update bound and fixes dropout at 0.2. The comparator also needs a narrow allowance for the training-only dropout configuration difference while keeping normalization, joint ordering, horizon, and evaluation sampling identical. No follow-up training has been launched.
+The runner verifies the initialization against its archived checksums, confirms fresh optimizer state, audits all 8,192 microbatch losses and 1,024 post-clip gradient norms, and checks that the zero-dropout override reaches both components. The evaluator allows only this declared training-only configuration difference; other processor/model semantics and all frozen comparison inputs must match. The original pilot labels already equal the accepted workspace labels, so this diagnostic uses its unchanged dataset and statistics.
 
-Resolve output capacity before that run: only about 16 GiB remains in the current shared-memory filesystem, while another checkpoint and upstream duplicate require about 23.44 GiB and the runner requires 35 GiB free at startup. Configure sufficient output storage while preserving the existing checkpoints; no artifacts were removed for this pilot.
+Storage preparation verified all 32 original checkpoint files and all six duplicate root weight shards before replacing those duplicate paths with hard links to their respective immutable checkpoint shards. Both original paths and contents remain preserved. The host then had 42,353,762,304 bytes (39.45 GiB) free in `/dev/shm`, 106,408,660,992 bytes (99.1 GiB) available RAM, and 9,537,552,384 bytes (8.88 GiB) free on the project filesystem. The new checkpoint plus upstream duplicate needs approximately 23.44 GiB. Recheck the 35 GiB output, 60 GiB RAM, and 8 GiB project startup reserves before launching. See [storage preservation](storage.md); the local audit is `reports/pilot-fit-no-state-dropout-storage-dedup.json`.
+
+The following commands use the existing verified host checkpoint and fresh run/report names. Adding `--dry-run` to the training command prints its bound configuration without launching or writing. Reload, evaluate, compare, and archive only after the training command completes successfully.
+
+```bash
+python3 scripts/run_gr00t_pilot.py \
+  --dataset derived/lerobot/local/g1_inspire_pilot_v1 \
+  --pilot-manifest derived/pilot-v1/manifest.json \
+  --evaluation-manifest reports/pilot-fit-v1-samples.json \
+  --baseline-report reports/pilot-fit-v1-baseline.json \
+  --initial-checkpoint /dev/shm/vla-groot-smoke/pilot-fit-v1/checkpoint-512 \
+  --state-dropout-prob 0.0 \
+  --evaluation-protocol experiments/pilot-fit-no-state-dropout-v1/evaluation-protocol.json \
+  --run pilot-fit-no-state-dropout-v1 --max-steps 1024 --accumulation 8 --timeout-seconds 21600
+python3 scripts/reload_gr00t_checkpoint.py \
+  --checkpoint /dev/shm/vla-groot-smoke/pilot-fit-no-state-dropout-v1/checkpoint-1024 \
+  --dataset derived/lerobot/local/g1_inspire_pilot_v1 \
+  --report reports/pilot-fit-no-state-dropout-v1-reload.json
+python3 scripts/evaluate_gr00t_pilot.py \
+  --checkpoint /dev/shm/vla-groot-smoke/pilot-fit-no-state-dropout-v1/checkpoint-1024 \
+  --dataset derived/lerobot/local/g1_inspire_pilot_v1 \
+  --pilot-manifest derived/pilot-v1/manifest.json \
+  --manifest reports/pilot-fit-v1-samples.json \
+  --reference reports/pilot-fit-v1-baseline.json \
+  --protocol experiments/pilot-fit-no-state-dropout-v1/evaluation-protocol.json \
+  --report reports/pilot-fit-no-state-dropout-v1-evaluation.json
+python3 scripts/compare_pilot_temporal_change.py \
+  --baseline reports/pilot-fit-v1-baseline.json \
+  --declaration reports/pilot-fit-v1-temporal-declaration.json \
+  --previous reports/pilot-fit-v1-evaluation.json \
+  --candidate reports/pilot-fit-no-state-dropout-v1-evaluation.json \
+  --protocol experiments/pilot-fit-no-state-dropout-v1/evaluation-protocol.json \
+  --report reports/pilot-fit-no-state-dropout-v1-temporal-comparison.json
+```
+
+Archive the one complete `checkpoint-1024` after successful reload and evidence validation, including the run configuration, finite audit, new predictions/comparison, original baseline/sample/temporal declaration, frozen follow-up protocol, and prior checkpoint-512 JSON/NPZ predictions. A failed fitting gate is still a result to preserve. Archive support for the additional protocol and prior predictions is being completed separately from launch preparation; do not omit those replay inputs.
 
 Source inspection found state dropout applied independently during [processor state zeroing](https://github.com/NVIDIA/Isaac-GR00T/blob/d2b7e75b937e3ec9aa5dbc798f08b89692c49734/gr00t/model/gr00t_n1d7/processing_gr00t_n1d7.py#L648) and [action-head feature zeroing](https://github.com/NVIDIA/Isaac-GR00T/blob/d2b7e75b937e3ec9aa5dbc798f08b89692c49734/gr00t/model/gr00t_n1d7/gr00t_n1d7.py#L220), both training-only. At probability 0.2, approximately 36% of training samples lose state through at least one path. This is a diagnostic hypothesis, not a confirmed cause of the observed error; changing duration and regularization together does not isolate either factor causally. The training loss is masked flow-matching velocity MSE over the active 16×26 outputs, not action MAE. Inspection found no obvious action-order, padding-mask, or normalization mismatch.
 

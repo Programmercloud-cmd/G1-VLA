@@ -6,9 +6,11 @@ import json
 from pathlib import Path
 import subprocess
 
-from project_config import PROJECT_ROOT, load_config, guard_path
+from project_config import PROJECT_ROOT, load_config, guard_path, resolve_path
 from convert_single_camera import ensure_python
-from evaluate_gr00t_pilot import GROUPS, SEEDS, HORIZON, digest, write_new_json, summarize
+from evaluate_gr00t_pilot import (GROUPS, SEEDS, HORIZON, digest, write_new_json, summarize,
+    assert_processor_compatible, load_evaluation_protocol, require_protocol_binding,
+    assert_protocol_evaluation, ACCEPTANCE_RULES)
 
 THRESHOLD = 0.05
 METHOD = ('For each joint, peak-to-peak absolute ground-truth target within the 16-frame horizon '
@@ -75,22 +77,27 @@ def freeze_declaration(path, declaration, allow_create):
         raise ValueError('Freeze the target-only declaration before candidate comparison')
 
 
-def assert_comparable(baseline_report,candidate_report,baseline,candidate):
+def assert_comparable(baseline_report,candidate_report,baseline,candidate,allow_state_dropout=False):
     import numpy as np
-    for key in ['sample_manifest_sha256','processor_semantics_sha256','seeds','horizon','joint_order']:
+    for key in ['sample_manifest_sha256','seeds','horizon','joint_order','denoising_steps',
+                'sample_count','inferences','statistics_sha256','absolute_decoded_actions','instructions']:
         if baseline_report.get(key)!=candidate_report.get(key):
             raise ValueError('Evaluation reports differ: '+key)
+    assert_processor_compatible(baseline_report,candidate_report,allow_state_dropout)
     for key in ['targets','states','seeds','episode_indices','starts','lower','upper']:
         if not np.array_equal(baseline[key],candidate[key]):
             raise ValueError('Paired evaluation arrays differ: '+key)
 
 
-def comparison_groups(baseline,candidate,mask):
+def comparison_groups(baseline,candidate,mask,include_all=False):
     import numpy as np
     result={}
     for i,(name,_,_,unit) in enumerate(GROUPS):
         result[name]={'unit':unit}
-        for subset,selection in [('changing_target',mask[:,i]),('small_target_change',~mask[:,i])]:
+        subsets=[('changing_target',mask[:,i]),('small_target_change',~mask[:,i])]
+        if include_all:
+            subsets.insert(0,('all',np.ones(len(mask),dtype=bool)))
+        for subset,selection in subsets:
             metrics=[]
             for arrays in (baseline,candidate):
                 groups,_,_=summarize(arrays['absolute_predictions'][selection],arrays['targets'][selection],
@@ -102,7 +109,36 @@ def comparison_groups(baseline,candidate,mask):
                 'candidate':after['model'],'persistence':before['persistence'],
                 'mae_change':last-first if first is not None else None,
                 'relative_mae_change_percent':100*(last-first)/first if first else None}
+            if include_all:
+                first,last=before['model']['normalized_mae'],after['model']['normalized_mae']
+                result[name][subset]['normalized_mae_change']=last-first if first is not None and last is not None else None
+                result[name][subset]['relative_normalized_mae_change_percent']=100*(last-first)/first if first else None
     return result
+
+
+def acceptance_decision(groups, rules=ACCEPTANCE_RULES):
+    """Fail closed on every group/metric; groups compare saved 512 to the new candidate."""
+    import math
+    if rules != ACCEPTANCE_RULES or set(groups) != set(rules['groups']):
+        raise ValueError('Acceptance rules or joint groups differ from the predeclared gate')
+    checks=[]
+    for name in rules['groups']:
+        for metric in rules['metrics']:
+            for subset,reference,factor in [('changing_target','persistence',0.9),('all','reference',1.0)]:
+                values=groups[name][subset]
+                candidate=values['candidate'][metric];before=values[reference][metric]
+                valid=(values['sample_count'] > 0 and candidate is not None and before is not None
+                       and math.isfinite(candidate) and math.isfinite(before) and candidate >= 0 and before >= 0
+                       and (reference != 'persistence' or before > 0))
+                if subset == 'all':
+                    valid=valid and values['sample_count']==100
+                checks.append({'group':name,'subset':subset,'metric':metric,
+                    'reference':'checkpoint_512' if reference=='reference' else reference,
+                    'candidate':candidate,'reference_value':before,
+                    'maximum_candidate_value':factor*before if before is not None and math.isfinite(before) else None,
+                    'passed':bool(valid and candidate <= factor*before)})
+    return {'passed':all(check['passed'] for check in checks),'rules':rules,'checks':checks,
+            'failed_checks':[f"{c['group']}/{c['subset']}/{c['metric']}" for c in checks if not c['passed']]}
 
 
 def main():
@@ -112,13 +148,24 @@ def main():
     parser.add_argument('--declaration',type=Path,required=True)
     parser.add_argument('--candidate',type=Path)
     parser.add_argument('--report',type=Path)
+    parser.add_argument('--protocol',type=Path,help='Frozen no-state-dropout acceptance protocol')
+    parser.add_argument('--previous',type=Path,help='Saved checkpoint-512 evaluation; required with --protocol')
     args=parser.parse_args();config=load_config(args.config)
     ensure_python(config,'gr00t')
     baseline_path=guard_path(args.baseline,config,'reports')
     declaration_path=guard_path(args.declaration,config,'reports')
+    protocol_path=resolve_path(args.protocol) if args.protocol else None
+    protocol=load_evaluation_protocol(protocol_path) if protocol_path else None
+    protocol_sha=digest(protocol_path) if protocol_path else None
+    if bool(args.previous) != bool(protocol) or (protocol and (not args.candidate or not args.report)):
+        parser.error('--protocol requires --previous, --candidate and --report; --previous requires --protocol')
+    if protocol:
+        for name,path in [('baseline_report',baseline_path),('baseline_arrays',baseline_path.with_suffix('.npz')),
+                          ('temporal_declaration',declaration_path)]:
+            require_protocol_binding(protocol,name,path)
     baseline_report,baseline=load_evidence(baseline_path)
     declaration=declaration_for(baseline_path,baseline_report,baseline)
-    freeze_declaration(declaration_path,declaration,allow_create=args.candidate is None)
+    freeze_declaration(declaration_path,declaration,allow_create=args.candidate is None and protocol is None)
     if args.candidate is None:
         if args.report:parser.error('--report requires --candidate')
         print(json.dumps({'declaration':str(declaration_path),'groups':declaration['groups']},indent=2));return
@@ -128,19 +175,42 @@ def main():
     candidate_report,candidate=load_evidence(candidate_path)
     if candidate_report.get('baseline_report_sha256')!=digest(baseline_path):
         raise ValueError('Candidate evaluation references a different baseline')
-    assert_comparable(baseline_report,candidate_report,baseline,candidate)
+    assert_comparable(baseline_report,candidate_report,baseline,candidate,allow_state_dropout=protocol is not None)
     import numpy as np
     frozen=json.loads(declaration_path.read_text())
     mask=np.array(frozen['changing_target_mask'],dtype=bool)
+    previous_path=None;previous_groups=None;decision=None
+    if protocol:
+        previous_path=guard_path(args.previous,config,'reports')
+        for name,path in [('previous_report',previous_path),('previous_arrays',previous_path.with_suffix('.npz'))]:
+            require_protocol_binding(protocol,name,path)
+        previous_report,previous=load_evidence(previous_path)
+        if previous_report.get('checkpoint_global_step') != 512 or previous_report.get('baseline_report_sha256') != digest(baseline_path):
+            raise ValueError('Previous evaluation must be the saved 512 candidate paired to this baseline')
+        for report in (baseline_report,previous_report):
+            assert_protocol_evaluation(report,protocol)
+        assert_protocol_evaluation(candidate_report,protocol,candidate=True)
+        if candidate_report.get('evaluation_protocol_sha256') != protocol_sha:
+            raise ValueError('Candidate inference did not bind this predeclared protocol')
+        assert_comparable(baseline_report,previous_report,baseline,previous)
+        assert_comparable(previous_report,candidate_report,previous,candidate,allow_state_dropout=True)
+        previous_groups=comparison_groups(previous,candidate,mask,include_all=True)
+        decision=acceptance_decision(previous_groups,protocol['acceptance'])
     result={'generated_at':datetime.now(timezone.utc).isoformat(),'passed':True,
         'candidate_checkpoint':candidate_report['candidate_checkpoint'],'baseline_report_sha256':digest(baseline_path),
         'candidate_report_sha256':digest(candidate_path),'declaration_sha256':digest(declaration_path),
         'baseline_npz_sha256':digest(baseline_path.with_suffix('.npz')),'candidate_npz_sha256':digest(candidate_path.with_suffix('.npz')),
         'sample_manifest_sha256':candidate_report['sample_manifest_sha256'],
-        'method':METHOD,'threshold':THRESHOLD,'groups':comparison_groups(baseline,candidate,mask),
+        'method':METHOD,'threshold':THRESHOLD,'groups':comparison_groups(baseline,candidate,mask,include_all=protocol is not None),
         'repository_commit':subprocess.check_output(['git','-C',str(PROJECT_ROOT),'rev-parse','HEAD'],text=True).strip(),
         'script_sha256':{name:digest(PROJECT_ROOT/name) for name in ['scripts/compare_pilot_temporal_change.py','scripts/evaluate_gr00t_pilot.py','scripts/project_config.py']},
         'scope':'Additional predeclared ground-truth-only subset analysis of saved predictions; no new inference, training, or task-phase labels. Passing means comparable finite evidence, not improvement.'}
+    if protocol:
+        if digest(protocol_path) != protocol_sha:
+            raise ValueError('Acceptance protocol changed during comparison')
+        result.update(evaluation_protocol_sha256=protocol_sha,previous_report_sha256=digest(previous_path),
+            previous_npz_sha256=digest(previous_path.with_suffix('.npz')),
+            comparison_to_checkpoint_512=previous_groups,acceptance=decision,acceptance_passed=decision['passed'])
     write_new_json(report_path,result);print(json.dumps(result,indent=2))
 
 

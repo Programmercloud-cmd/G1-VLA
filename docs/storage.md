@@ -4,6 +4,8 @@ Configure `paths.runs` for active training output and `paths.archive` for durabl
 
 The default run directory is Linux shared memory. Its contents disappear after reboot. The two-step smoke requires 35 GiB free in the output filesystem and 60 GiB available host RAM; project disk retains an 8 GiB reserve. Upstream writes both the complete step checkpoint and duplicate final weights at the run root, so budget both transient copies. Archive only the complete step checkpoint, including its processor, statistics, config, and model index files.
 
+Before the authorized `pilot-fit-no-state-dropout-v1` follow-up, all 32 files in the original smoke and 512-step checkpoints and all six duplicate root weight shards were checksum-verified. Those six root shard paths now hard-link to their respective saved checkpoint shards within `/dev/shm`; both names and exact contents are preserved, and durable archives are unchanged. The local record is `reports/pilot-fit-no-state-dropout-storage-dedup.json`. Afterward, output space was 39.45 GiB free, available RAM was 99.1 GiB, and project space was 8.88 GiB free. These are host measurements at preparation time; recheck capacity before launch. Treat both names of every linked shard as immutable: an in-place write through either name changes the shared file. Use a fresh run directory for new weights and archive only the new complete checkpoint. No mount or machine-configuration change was required.
+
 ## Optional SSHFS
 
 To use an SSH-backed mount, set `storage.enabled` to `true`, provide your SSH alias and absolute remote project path, and set `paths.archive` to the dedicated local mountpoint. Existing SSH authentication must work noninteractively. Install SSHFS through your operating system if it is unavailable.

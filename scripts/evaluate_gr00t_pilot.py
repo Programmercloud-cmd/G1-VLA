@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Evaluate fixed pilot windows in a fresh process; never send robot commands."""
 import argparse
+import copy
 import dataclasses
 from enum import Enum
 from datetime import datetime, timezone
@@ -21,6 +22,25 @@ GROUPS = [('left_arm', 0, 7, 'radians'), ('right_arm', 7, 14, 'radians'),
           ('left_hand', 14, 20, 'normalized hand command'), ('right_hand', 20, 26, 'normalized hand command')]
 SEEDS = [42, 43, 44]
 HORIZON = 16
+NO_STATE_DROPOUT_POLICY = {
+    'processor_path': ['processor_config', 'processor_kwargs', 'state_dropout_prob'],
+    'model_config_path': ['state_dropout_prob'],
+    'reference_value': 0.2, 'candidate_value': 0.0,
+    'scope': 'training_only; model and processor must remain in evaluation mode',
+}
+ACCEPTANCE_RULES = {
+    'groups': [name for name, _, _, _ in GROUPS],
+    'metrics': ['mae', 'normalized_mae'],
+    'changing_target': {'reference': 'persistence', 'minimum_relative_improvement': 0.10,
+                        'comparison': 'candidate <= 0.9 * persistence'},
+    'all_windows': {'reference': 'checkpoint_512', 'comparison': 'candidate <= checkpoint_512',
+                    'aggregation': 'Each group averaged over all 100 windows, three seeds, horizon and group joints'},
+    'combination': 'All eight changing-target and all eight all-window checks must pass',
+    'invalid_or_empty_subset': 'fail; no missing, nonfinite or zero persistence denominator is accepted',
+}
+EVALUATION_RECIPE = {'sample_count': 100, 'inferences': 300, 'seeds': SEEDS, 'horizon': HORIZON,
+                     'denoising_steps': 4, 'joint_order': [x[0] for x in GROUPS],
+                     'absolute_decoded_actions': True}
 
 
 def digest(path):
@@ -33,6 +53,88 @@ def digest(path):
 
 def semantic_digest(value):
     return hashlib.sha256(json.dumps(value, sort_keys=True, separators=(',', ':'), allow_nan=False).encode()).hexdigest()
+
+
+def load_evaluation_protocol(path):
+    protocol = json.loads(Path(path).read_text())
+    if (protocol.get('artifact_type') != 'pilot_no_state_dropout_evaluation_protocol'
+            or protocol.get('schema_version') != 1
+            or protocol.get('allowed_semantic_change') != NO_STATE_DROPOUT_POLICY
+            or protocol.get('evaluation_recipe') != EVALUATION_RECIPE
+            or protocol.get('acceptance') != ACCEPTANCE_RULES):
+        raise ValueError('Unsupported or changed no-state-dropout evaluation protocol')
+    recipe = protocol.get('training_recipe', {})
+    if (recipe.get('initial_checkpoint_global_step') != 512 or recipe.get('new_optimizer_updates') != 1024
+            or recipe.get('state_dropout_prob') != 0.0 or recipe.get('optimizer_state') != 'fresh'):
+        raise ValueError('Protocol must bind the authorized 1024-update warm start from 512')
+    reference_config = protocol.get('reference_model_config')
+    if (not isinstance(reference_config, dict) or reference_config.get('state_dropout_prob') != 0.2
+            or semantic_digest(reference_config) != protocol.get('reference_model_config_semantics_sha256')):
+        raise ValueError('Protocol reference model configuration is inconsistent')
+    source_bindings = protocol.get('training_only_implementation_bindings', {})
+    expected_sources = {'vendor/Isaac-GR00T/gr00t/model/gr00t_n1d7/processing_gr00t_n1d7.py',
+                        'vendor/Isaac-GR00T/gr00t/model/gr00t_n1d7/gr00t_n1d7.py'}
+    if set(source_bindings) != expected_sources or any(digest(PROJECT_ROOT/name) != sha for name,sha in source_bindings.items()):
+        raise ValueError('Training-only state-dropout implementation differs from the frozen protocol')
+    return protocol
+
+
+def require_protocol_binding(protocol, name, path):
+    if digest(path) != protocol['bindings'][name]['sha256']:
+        raise ValueError('Evaluation protocol binding differs: ' + name)
+
+
+def assert_processor_compatible(reference_report, candidate_report, allow_state_dropout=False):
+    """Compare everything; the opt-in permits one directed training-only leaf change."""
+    first_hash = reference_report.get('processor_semantics_sha256')
+    last_hash = candidate_report.get('processor_semantics_sha256')
+    for report in (reference_report, candidate_report):
+        if 'processor_semantics' in report and semantic_digest(report['processor_semantics']) != report.get('processor_semantics_sha256'):
+            raise ValueError('Saved processor semantic hash is inconsistent')
+    if not allow_state_dropout:
+        if not first_hash or first_hash != last_hash:
+            raise ValueError('Reference saved processor semantics differ')
+        return
+    first = reference_report.get('processor_semantics')
+    last = copy.deepcopy(candidate_report.get('processor_semantics'))
+    try:
+        before = first['processor_config']['processor_kwargs']['state_dropout_prob']
+        kwargs = last['processor_config']['processor_kwargs']
+        after = kwargs['state_dropout_prob']
+    except (KeyError, TypeError):
+        raise ValueError('Explicit saved processor state-dropout semantics are required') from None
+    if type(before) not in (int, float) or type(after) not in (int, float) or before != 0.2 or after != 0.0:
+        raise ValueError('Only processor state dropout 0.2 -> 0.0 is authorized')
+    kwargs['state_dropout_prob'] = before
+    if semantic_digest(first) != semantic_digest(last):
+        raise ValueError('Processor differs beyond the training-only state-dropout probability')
+
+
+def assert_no_dropout_model_config(candidate, reference):
+    restored = copy.deepcopy(candidate)
+    before, after = reference.get('state_dropout_prob'), restored.get('state_dropout_prob')
+    if type(before) not in (int, float) or type(after) not in (int, float) or before != 0.2 or after != 0.0:
+        raise ValueError('Only model state dropout 0.2 -> 0.0 is authorized')
+    restored['state_dropout_prob'] = before
+    if semantic_digest(restored) != semantic_digest(reference):
+        raise ValueError('Model configuration differs beyond state-dropout probability')
+
+
+def assert_protocol_evaluation(report, protocol, candidate=False):
+    for key, value in EVALUATION_RECIPE.items():
+        if report.get(key) != value:
+            raise ValueError('Evaluation recipe differs: ' + key)
+    if report.get('sample_manifest_sha256') != protocol['bindings']['sample_manifest']['sha256']:
+        raise ValueError('Evaluation used different frozen samples')
+    if report.get('statistics_sha256') != protocol['statistics_sha256']:
+        raise ValueError('Evaluation statistics differ')
+    if candidate:
+        if report.get('checkpoint_global_step') != 1024 or report.get('evaluation_mode') != {'model_training': False, 'processor_training': False}:
+            raise ValueError('Candidate must be the 1024-update checkpoint evaluated without training mode')
+        model_config = report.get('model_config')
+        if not isinstance(model_config, dict) or semantic_digest(model_config) != report.get('model_config_semantics_sha256'):
+            raise ValueError('Candidate model configuration evidence is missing or inconsistent')
+        assert_no_dropout_model_config(model_config, protocol['reference_model_config'])
 
 
 def write_new_json(path, value):
@@ -123,11 +225,16 @@ def summarize(prediction, target, state, lower, upper):
     return result, moving, active
 
 
-def verify_reference(reference, manifest_sha, semantics_sha, target, state, moving):
+def verify_reference(reference, manifest_sha, semantics_sha, target, state, moving,
+                     candidate_semantics=None, allow_state_dropout=False):
     import numpy as np
     report = json.loads(reference.read_text())
-    if not report.get('passed') or report.get('sample_manifest_sha256') != manifest_sha or report.get('processor_semantics_sha256') != semantics_sha:
+    if not report.get('passed') or report.get('sample_manifest_sha256') != manifest_sha:
         raise ValueError('Reference evaluation manifest or saved processor semantics differ')
+    candidate = {'processor_semantics_sha256': semantics_sha}
+    if candidate_semantics is not None:
+        candidate['processor_semantics'] = candidate_semantics
+    assert_processor_compatible(report, candidate, allow_state_dropout)
     array_path = reference.with_suffix('.npz')
     if report.get('artifacts', {}).get(array_path.name) != digest(array_path):
         raise ValueError('Reference prediction artifact hash differs')
@@ -176,11 +283,15 @@ def main():
     parser.add_argument('--pilot-manifest',type=Path)
     parser.add_argument('--report',type=Path,required=True)
     parser.add_argument('--reference',type=Path,help='Completed two-step evaluation JSON for paired candidate comparison')
+    parser.add_argument('--protocol',type=Path,help='Frozen no-state-dropout warm-start protocol; enables only its explicit semantic change')
     args=parser.parse_args();config=load_config(args.config)
     checkpoint=resolve_path(args.checkpoint);dataset=guard_derived(args.dataset,config)
     report_path=guard_path(args.report,config,'reports');manifest_path=guard_path(args.manifest,config,'reports')
     pilot_manifest=guard_derived(args.pilot_manifest or config['paths']['derived']/'pilot-v1/manifest.json',config)
     reference=guard_path(args.reference,config,'reports') if args.reference else None
+    protocol_path=resolve_path(args.protocol) if args.protocol else None
+    protocol=load_evaluation_protocol(protocol_path) if protocol_path else None
+    protocol_sha=digest(protocol_path) if protocol_path else None
     for output in [report_path,report_path.with_suffix('.npz'),report_path.with_suffix('.png')]:
         if output.exists() or output.is_symlink():raise FileExistsError(output)
     if not checkpoint.is_dir():raise FileNotFoundError(checkpoint)
@@ -188,6 +299,15 @@ def main():
     trainer_state=json.loads(trainer_state_path.read_text())
     if not reference and trainer_state.get('global_step')!=2:
         raise ValueError('Baseline must be the saved two-step reference checkpoint')
+    model_config=json.loads((checkpoint/'config.json').read_text())
+    if protocol:
+        if reference is None or trainer_state.get('global_step') != 1024:
+            raise ValueError('The warm-start protocol requires the two-step reference and final checkpoint-1024')
+        for name,path in [('baseline_report',reference),('baseline_arrays',reference.with_suffix('.npz')),
+                          ('sample_manifest',manifest_path),('pilot_manifest',pilot_manifest)]:
+            require_protocol_binding(protocol,name,path)
+        assert_no_dropout_model_config(model_config,protocol['reference_model_config'])
+        assert_protocol_evaluation(json.loads(reference.read_text()),protocol)
     source_files=['scripts/evaluate_gr00t_pilot.py','scripts/project_config.py','scripts/convert_single_camera.py','scripts/run_gr00t_smoke.py']
     source_hashes={name:digest(PROJECT_ROOT/name) for name in source_files}
     repository_commit=subprocess.check_output(['git','-C',str(PROJECT_ROOT),'rev-parse','HEAD'],text=True).strip()
@@ -209,6 +329,10 @@ def main():
     start=time.monotonic();torch.manual_seed(42)
     policy=Gr00tPolicy(embodiment_tag='NEW_EMBODIMENT',model_path=str(checkpoint),device='cuda:0')
     policy.model.eval();policy.processor.eval();policy.model.action_head.num_inference_timesteps=4
+    if policy.model.training or policy.processor.training:
+        raise ValueError('Evaluation requires both model and processor in evaluation mode')
+    if protocol and (policy.processor.state_dropout_prob != 0.0 or policy.model.action_head.state_dropout_prob != 0.0):
+        raise ValueError('Loaded candidate processor/action head must have state dropout zero')
     modalities=policy.modality_configs
     keys=[name for name,_,_,_ in GROUPS]
     if modalities['action'].modality_keys!=keys or modalities['state'].modality_keys!=keys or list(modalities['action'].delta_indices)!=list(range(HORIZON)):
@@ -230,6 +354,11 @@ def main():
         'use_relative_action':processor.use_relative_action,'use_percentiles':processor.use_percentiles,
         'clip_outliers':processor.clip_outliers,'apply_sincos_state_encoding':processor.apply_sincos_state_encoding,'lower':lower.tolist(),'upper':upper.tolist()}
     semantics_sha=semantic_digest(semantics)
+    if protocol:
+        if digest(processor_root/'statistics.json') != protocol['statistics_sha256']:
+            raise ValueError('Candidate saved statistics differ from frozen reference')
+        assert_processor_compatible(json.loads(reference.read_text()),
+            {'processor_semantics':semantics,'processor_semantics_sha256':semantics_sha},allow_state_dropout=True)
     loader=LeRobotEpisodeLoader(dataset_path=dataset,modality_configs=modalities)
     predictions=[];targets=[];states=[];instructions=[];cached_episode=None;trajectory=None
     for index,sample in enumerate(identity['samples']):
@@ -257,7 +386,8 @@ def main():
     groups,moving,active=summarize(prediction,target,state,lower,upper)
     reference_report=None;reference_prediction=None;comparison={}
     if reference:
-        reference_report,reference_prediction=verify_reference(reference,digest(manifest_path),semantics_sha,target,state,moving)
+        reference_report,reference_prediction=verify_reference(reference,digest(manifest_path),semantics_sha,target,state,moving,
+            candidate_semantics=semantics,allow_state_dropout=protocol is not None)
         reference_groups,_,_=summarize(reference_prediction,target,state,lower,upper)
         for name,_,_,_ in GROUPS:
             comparison[name]={}
@@ -268,6 +398,10 @@ def main():
                     'relative_mae_change_percent':100*(after-before)/before if before else None}
     if any(digest(PROJECT_ROOT/name)!=sha for name,sha in source_hashes.items()):
         raise ValueError('Evaluation helper source changed while the evaluation was running')
+    if protocol_path and digest(protocol_path) != protocol_sha:
+        raise ValueError('Predeclared evaluation protocol changed during inference')
+    if policy.model.training or policy.processor.training:
+        raise ValueError('Model or processor switched to training mode during evaluation')
     report_path.parent.mkdir(parents=True,exist_ok=True)
     np.savez_compressed(report_path.with_suffix('.npz'),absolute_predictions=prediction,targets=target,states=state,
         lower=lower,upper=upper,normalization_active_mask=active,commanded_motion_mask=moving,seeds=np.array(SEEDS),
@@ -282,6 +416,10 @@ def main():
         'role':'candidate' if reference else 'two_step_reference','fresh_process':True,'offline':True,'training_set_only':True,
         'dataset':str(dataset),'sample_manifest':str(manifest_path),'sample_manifest_sha256':digest(manifest_path),
         'processor_semantics_sha256':semantics_sha,'processor_semantics':semantics,
+        'model_config':model_config,'model_config_semantics_sha256':semantic_digest(model_config),
+        'checkpoint_model_config_sha256':digest(checkpoint/'config.json'),
+        'evaluation_protocol_sha256':protocol_sha,
+        'evaluation_mode':{'model_training':False,'processor_training':False},
         'statistics_sha256':digest(processor_root/'statistics.json'),'sample_count':100,'inferences':300,
         'seeds':SEEDS,'horizon':HORIZON,'denoising_steps':4,'joint_order':keys,'action_shape':list(prediction.shape),
         'absolute_decoded_actions':True,'groups':groups,'comparison':comparison,'instructions':sorted(set(instructions)),
@@ -290,6 +428,8 @@ def main():
         'limitation':'Five-episode training-set fitting comparison only. Passing means complete finite comparable evidence, irrespective of improvement; it does not establish held-out performance, instruction-dependent target selection, or robot success.',
         'elapsed_seconds':time.monotonic()-start,'peak_cuda_allocated_bytes':torch.cuda.max_memory_allocated(),
         'artifacts':{path.name:digest(path) for path in [report_path.with_suffix('.npz'),report_path.with_suffix('.png')]}}
+    if protocol:
+        assert_protocol_evaluation(record,protocol,candidate=True)
     write_new_json(report_path,record)
     print(json.dumps({'passed':True,'report':str(report_path),'groups':groups,'comparison':comparison},indent=2),flush=True)
 

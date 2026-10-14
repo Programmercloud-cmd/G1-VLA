@@ -1,0 +1,256 @@
+{
+  "artifact_type": "pilot_no_state_dropout_evaluation_protocol",
+  "schema_version": 1,
+  "status": "predeclared_before_training_and_candidate_inference",
+  "created_at_utc": "2026-10-14T22:09:35.420223+00:00",
+  "experiment": "pilot-fit-no-state-dropout-v1",
+  "training_recipe": {
+    "initial_checkpoint_global_step": 512,
+    "initial_checkpoint_ref": "archive:checkpoints/pilot-fit-v1/checkpoint-512",
+    "new_optimizer_updates": 1024,
+    "cumulative_optimizer_updates": 1536,
+    "optimizer_state": "fresh",
+    "scheduler_state": "fresh",
+    "state_dropout_prob": 0.0,
+    "seed": 42,
+    "microbatch": 1,
+    "gradient_accumulation_steps": 8,
+    "effective_batch": 8,
+    "learning_rate": 0.0001,
+    "warmup_ratio": 0.05,
+    "expected_training_examples": 8192,
+    "dataset": "same frozen five-episode pilot-v1; no expansion or relabeling"
+  },
+  "evaluation_recipe": {
+    "sample_count": 100,
+    "inferences": 300,
+    "seeds": [
+      42,
+      43,
+      44
+    ],
+    "horizon": 16,
+    "denoising_steps": 4,
+    "joint_order": [
+      "left_arm",
+      "right_arm",
+      "left_hand",
+      "right_hand"
+    ],
+    "absolute_decoded_actions": true
+  },
+  "allowed_semantic_change": {
+    "processor_path": [
+      "processor_config",
+      "processor_kwargs",
+      "state_dropout_prob"
+    ],
+    "model_config_path": [
+      "state_dropout_prob"
+    ],
+    "reference_value": 0.2,
+    "candidate_value": 0.0,
+    "scope": "training_only; model and processor must remain in evaluation mode"
+  },
+  "reference_model_config": {
+    "action_horizon": 40,
+    "add_pos_embed": true,
+    "apply_sincos_state_encoding": false,
+    "architectures": [
+      "Gr00tN1d7"
+    ],
+    "attn_dropout": 0.2,
+    "attn_implementation": null,
+    "backbone_embedding_dim": 2048,
+    "backbone_trainable_params_fp32": true,
+    "color_jitter_params": {
+      "brightness": 0.3,
+      "contrast": 0.4,
+      "hue": 0.08,
+      "saturation": 0.5
+    },
+    "crop_fraction": 0.95,
+    "diffusion_model_cfg": {
+      "attention_head_dim": 48,
+      "dropout": 0.2,
+      "final_dropout": true,
+      "interleave_self_attention": true,
+      "norm_type": "ada_norm",
+      "num_attention_heads": 32,
+      "num_layers": 32,
+      "output_dim": 1024,
+      "positional_embeddings": null
+    },
+    "dtype": "float32",
+    "exclude_state": false,
+    "formalize_language": true,
+    "hidden_size": 1024,
+    "image_crop_size": [
+      230,
+      230
+    ],
+    "image_target_size": [
+      256,
+      256
+    ],
+    "letter_box_transform": false,
+    "load_bf16": false,
+    "max_action_dim": 132,
+    "max_num_embodiments": 32,
+    "max_seq_len": 1024,
+    "max_state_dim": 132,
+    "model_dtype": "bfloat16",
+    "model_name": "nvidia/Cosmos-Reason2-2B",
+    "model_type": "Gr00tN1d7",
+    "noise_beta_alpha": 1.5,
+    "noise_beta_beta": 1.0,
+    "noise_s": 0.999,
+    "num_inference_timesteps": 4,
+    "num_timestep_buckets": 1000,
+    "random_history_crop": true,
+    "random_rotation_angle": 0,
+    "reproject_vision": false,
+    "rtc_ramp_rate": 6.0,
+    "select_layer": 16,
+    "shortest_image_edge": 256,
+    "state_dropout_prob": 0.2,
+    "state_gaussian_noise_std": 0.0,
+    "transformers_version": "4.57.3",
+    "tune_diffusion_model": true,
+    "tune_linear": true,
+    "tune_llm": false,
+    "tune_projector": true,
+    "tune_top_llm_layers": 0,
+    "tune_visual": false,
+    "tune_vlln": true,
+    "use_albumentations": true,
+    "use_alternate_vl_dit": true,
+    "use_flash_attention": true,
+    "use_future_tokens": false,
+    "use_mean_std": false,
+    "use_percentiles": true,
+    "use_vl_self_attention": true,
+    "use_vlln": true,
+    "vl_self_attention_cfg": {
+      "attention_head_dim": 64,
+      "dropout": 0.2,
+      "final_dropout": true,
+      "num_attention_heads": 32,
+      "num_layers": 4,
+      "positional_embeddings": null
+    }
+  },
+  "reference_model_config_semantics_sha256": "02558a68383f534a9ebf340b54011063a087dccbed163757edde878a3ab3dddb",
+  "statistics_sha256": "3dd8e49347dea635d91dc1179ca3545a8b0e152cf8442b601a8c72b51e249e81",
+  "reference_processor_semantics_sha256": "92e587355afa02195da457da3af6c7c665dfdbc352d6023db08bb574acdcfac4",
+  "bindings": {
+    "baseline_report": {
+      "path": "reports/pilot-fit-v1-baseline.json",
+      "sha256": "3bbf9c6b3fb626bf6eb3479e00eb52d4c606a4a84e5b95d6da7cce1a480f2891"
+    },
+    "baseline_arrays": {
+      "path": "reports/pilot-fit-v1-baseline.npz",
+      "sha256": "06a4b6580928d45bfd0dca3819a5497305a7a9abe21cea996b23f824a6081c69"
+    },
+    "previous_report": {
+      "path": "reports/pilot-fit-v1-evaluation.json",
+      "sha256": "bd9d5c0bfa078c5a18cac7b9c46de7bdcdf51eac2c628c344cfb6eb0c410b652"
+    },
+    "previous_arrays": {
+      "path": "reports/pilot-fit-v1-evaluation.npz",
+      "sha256": "c767535faff2c78c33fa4b092854424d842e6af1b4866c458badc3bfb961e211"
+    },
+    "sample_manifest": {
+      "path": "reports/pilot-fit-v1-samples.json",
+      "sha256": "04cf0414ce4c4f21ceb263dfc7797b1dd23ffd7a88129dcfb98c1005d8e1f232"
+    },
+    "pilot_manifest": {
+      "path": "derived/pilot-v1/manifest.json",
+      "sha256": "4fefddb84a73f7c1167b1f2a1dc58c076426012a9b90411e353071c320457144"
+    },
+    "temporal_declaration": {
+      "path": "reports/pilot-fit-v1-temporal-declaration.json",
+      "sha256": "cd8cd85ae3b18e2d258a7baafce62bcbc4e188f9d8d36a64364cbec9dff004d3"
+    },
+    "initial_checkpoint_archive": {
+      "path": "experiments/pilot-fit-v1/artifacts.json",
+      "sha256": "98ec40ab108219c0c39d4ab0180a10735d10ab0d3eca1806a620834bb2af66dd"
+    },
+    "initial_checkpoint_config": {
+      "ref": "archive:checkpoints/pilot-fit-v1/checkpoint-512/config.json",
+      "sha256": "6e9b72bc2372383af27599811e944b7aa72d0537bf06764aff32f7c5a0d53e4a"
+    }
+  },
+  "initial_checkpoint_files_sha256": {
+    "config.json": "6e9b72bc2372383af27599811e944b7aa72d0537bf06764aff32f7c5a0d53e4a",
+    "embodiment_id.json": "5e8611697dc90b7b7a92cf2a8da926275c16f5966c5eb109e0216c3c51af15a1",
+    "experiment_cfg/conf.yaml": "f42c015c6d236b638de8994cdad6d9f7e5d2ffaf7124115c54c84ae79223b731",
+    "experiment_cfg/config.yaml": "2c728c42bc0c0e3af1a3ea764d190909e6901e9e97c715a4d2cbd763ed97d0b2",
+    "experiment_cfg/dataset_statistics.json": "49ab79be164795a08f27c8e4c17efdad4a690331a70abe6e39a7889825efd254",
+    "experiment_cfg/final_model_config.json": "ee01ded3e8d98c1cfc8e37f227afe21dfbca11d8aaa56cffef4ae0ad51dea217",
+    "experiment_cfg/final_processor_config.json": "24a6fdbaa6515934345ee7191e41b5ae6518689ce129b4b81c7ab5cbb2988d7b",
+    "model-00001-of-00003.safetensors": "cbcaea5ee88f1e0f1465043920a2647c67e7de17d24adfd1c477742a6168edec",
+    "model-00002-of-00003.safetensors": "666372cc60be0139ec25a39188e732dd28cb0c0cbb5c6b3590f8ebe9564d19bf",
+    "model-00003-of-00003.safetensors": "a9e3539c4d1b89a021e22631f65e6d7a7a3f8a107d71fc0f8c4026ee46a7cc77",
+    "model.safetensors.index.json": "12117379d91d029c5979a585d07ba794001730c9516d6de5512e3dedfee30730",
+    "processor_config.json": "45540ae3b4f8950442dc241e905f1310607fca9849f58343d5fb3942e90f5776",
+    "statistics.json": "3dd8e49347dea635d91dc1179ca3545a8b0e152cf8442b601a8c72b51e249e81",
+    "trainer_state.json": "0303a545f1e8791c1bf299c39884acfda2324b286d4770bdaed6417e9317345c",
+    "training_args.bin": "88aec1573d5c4e56787c34db124b0df37d49ea2a5370fbec1e166354e995ac00",
+    "wandb_config.json": "7356397751d7c78f08077050555093bff9fd115f7319216b93b220ddd5c39df0"
+  },
+  "training_only_implementation_bindings": {
+    "vendor/Isaac-GR00T/gr00t/model/gr00t_n1d7/processing_gr00t_n1d7.py": "77fd0e1f6972cdcf0334f18f2e84724629f6746612721b6b27135ccb23f00b3f",
+    "vendor/Isaac-GR00T/gr00t/model/gr00t_n1d7/gr00t_n1d7.py": "6bd66ef768f1484ac5a7889c40358a599f1862b1d554d47d357e113f2f96501c"
+  },
+  "subset": {
+    "declaration_binding": "temporal_declaration",
+    "selection": "Reuse the already frozen target-only temporal-change mask without edits or reselection. Predictions never influence membership.",
+    "method": "For each joint, peak-to-peak absolute ground-truth target within the 16-frame horizon divided by the maximum saved action normalization span over that horizon; take the maximum across nonconstant joints within each group and select scores > 0.05. This measures changing target commands, not state-action offset or semantic task phase.",
+    "group_counts": {
+      "left_arm": 75,
+      "right_arm": 88,
+      "left_hand": 67,
+      "right_hand": 70
+    }
+  },
+  "acceptance": {
+    "groups": [
+      "left_arm",
+      "right_arm",
+      "left_hand",
+      "right_hand"
+    ],
+    "metrics": [
+      "mae",
+      "normalized_mae"
+    ],
+    "changing_target": {
+      "reference": "persistence",
+      "minimum_relative_improvement": 0.1,
+      "comparison": "candidate <= 0.9 * persistence"
+    },
+    "all_windows": {
+      "reference": "checkpoint_512",
+      "comparison": "candidate <= checkpoint_512",
+      "aggregation": "Each group averaged over all 100 windows, three seeds, horizon and group joints"
+    },
+    "combination": "All eight changing-target and all eight all-window checks must pass",
+    "invalid_or_empty_subset": "fail; no missing, nonfinite or zero persistence denominator is accepted"
+  },
+  "comparison_semantics": {
+    "candidate": "checkpoint-1024 from this fresh warm start; 1024 additional updates, 1536 cumulative including source checkpoint 512",
+    "paired_references": [
+      "saved two-step model",
+      "saved checkpoint-512 model",
+      "current-state persistence"
+    ],
+    "metrics": "Decoded absolute actions in native units and unclipped 2*error/(saved max-min); constant dimensions excluded only from normalized metrics, as in the original protocol. MAE aggregation is identical for all models.",
+    "all_windows": "100 fixed windows; 20 per episode, full 16-step horizon, three paired seeds 42/43/44. No group may exceed checkpoint 512 in native or normalized mean absolute error over this complete set.",
+    "changing_target": "Each of four groups must improve on persistence by at least 10% in BOTH native and normalized MAE on that group's frozen changing-target subset. Empty subsets, nonfinite metrics and zero persistence denominators fail acceptance.",
+    "two_step": "Report paired native/normalized comparisons over all windows and changing/small-change subsets; no additional two-step acceptance threshold is invented.",
+    "result_fields": "passed means evidence integrity/comparability only; acceptance_passed separately reports the conjunction of all 16 predeclared gates."
+  },
+  "preservation": "Original evaluation reports, arrays, sample manifest and temporal declaration remain byte-for-byte unchanged. New reports use a fresh prefix.",
+  "scope": "Training-set fitting experiment only; no held-out generalization, language-grounded target selection or robot success claim."
+}
