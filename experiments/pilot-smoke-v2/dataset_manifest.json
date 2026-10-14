@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "purpose": "Portable content identity of the five-episode pilot; recordings are not included.",
+  "source_dataset_name": "g1_inspire_pick_up_black_box_clean",
+  "source_inventory_provisional": true,
+  "snapshot_bytes": 183689904,
+  "episode_order": [
+    "episode_0037",
+    "episode_0040",
+    "episode_0042",
+    "episode_0046",
+    "episode_0047"
+  ],
+  "episodes": [
+    {
+      "episode": "episode_0037",
+      "derived_episode_index": 0,
+      "rows": 400,
+      "content_sha256": "ac2f6a8d4896cbd8ad911e7503193672a7653b1fadf23faf25ae1e8268b02108"
+    },
+    {
+      "episode": "episode_0040",
+      "derived_episode_index": 1,
+      "rows": 490,
+      "content_sha256": "f6bab95c6e05f3c1dbc8c9bce6d219cbd557f99ad581bb6ed2f08d8dfe5ec061"
+    },
+    {
+      "episode": "episode_0042",
+      "derived_episode_index": 2,
+      "rows": 497,
+      "content_sha256": "9856ede4bb2370a9d024a909d91581b4660e20afcc02523896f609639d4ec268"
+    },
+    {
+      "episode": "episode_0046",
+      "derived_episode_index": 3,
+      "rows": 345,
+      "content_sha256": "825c0361d7d3f47be48ecaa7800131b84aabc533bad14d17928f8127619691b7"
+    },
+    {
+      "episode": "episode_0047",
+      "derived_episode_index": 4,
+      "rows": 384,
+      "content_sha256": "e1e8ea08f3c3d7b1a2d08f319eb63152935ee3a570fa772fc40322bccefa8669"
+    }
+  ],
+  "joint_order": [
+    {
+      "group": "left_arm",
+      "size": 7
+    },
+    {
+      "group": "right_arm",
+      "size": 7
+    },
+    {
+      "group": "left_hand",
+      "size": 6
+    },
+    {
+      "group": "right_hand",
+      "size": 6
+    }
+  ],
+  "camera_mapping": {
+    "color_0": "observation.images.cam_left_high"
+  },
+  "fps_nominal": 30,
+  "stored_actions": "absolute",
+  "processor_action_representation": {
+    "left_arm": "relative",
+    "right_arm": "relative",
+    "left_hand": "absolute",
+    "right_hand": "absolute"
+  },
+  "source_manifest_sha256": "4fefddb84a73f7c1167b1f2a1dc58c076426012a9b90411e353071c320457144",
+  "content_hash_definition": "Per-episode SHA256 of JSON-encoded relative filename to SHA256 mapping, sorted keys and compact separators.",
+  "split_status": "Pilot only; no held-out validation split."
+}

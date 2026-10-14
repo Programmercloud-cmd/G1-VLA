@@ -1,0 +1,112 @@
+[
+  {
+    "package": "libass9_1%3a0.15.2-1_amd64.deb",
+    "url": "https://cz.archive.ubuntu.com/ubuntu/pool/universe/liba/libass/libass9_0.15.2-1_amd64.deb",
+    "sha256": "e9d388f0bbded6f36704c24280417a9d046abebcf2c6574ed640e3cfd1373d52"
+  },
+  {
+    "package": "libbs2b0_3.1.0+dfsg-2.2build1_amd64.deb",
+    "url": "https://cz.archive.ubuntu.com/ubuntu/pool/universe/libb/libbs2b/libbs2b0_3.1.0%2bdfsg-2.2build1_amd64.deb",
+    "sha256": "2cf73adeb858f9438d184145875a266f17d881eae5edcf80207cff239c8b1866"
+  },
+  {
+    "package": "libflite1_2.2-3_amd64.deb",
+    "url": "https://cz.archive.ubuntu.com/ubuntu/pool/universe/f/flite/libflite1_2.2-3_amd64.deb",
+    "sha256": "079ec37390feef7b59a099bc0cb56a1fc9f922c17c6415ee813010436ce5840e"
+  },
+  {
+    "package": "libserd-0-0_0.30.10-2_amd64.deb",
+    "url": "https://cz.archive.ubuntu.com/ubuntu/pool/universe/s/serd/libserd-0-0_0.30.10-2_amd64.deb",
+    "sha256": "5e1b679d793faa773411a117192b99b1cfc87c61e521d8d8c71e0046eb5aae2e"
+  },
+  {
+    "package": "libsord-0-0_0.16.8-2_amd64.deb",
+    "url": "https://cz.archive.ubuntu.com/ubuntu/pool/universe/s/sord/libsord-0-0_0.16.8-2_amd64.deb",
+    "sha256": "f871c61f20a45f15ca4fe52a6965da01b0761dfe35595fd20db776198763e384"
+  },
+  {
+    "package": "libsratom-0-0_0.6.8-1_amd64.deb",
+    "url": "https://cz.archive.ubuntu.com/ubuntu/pool/universe/s/sratom/libsratom-0-0_0.6.8-1_amd64.deb",
+    "sha256": "25e9ca5c4d5fc118b7470be65dbcc02dc2709af97555f771c2e73a322aa61abc"
+  },
+  {
+    "package": "liblilv-0-0_0.24.12-2_amd64.deb",
+    "url": "https://cz.archive.ubuntu.com/ubuntu/pool/universe/l/lilv/liblilv-0-0_0.24.12-2_amd64.deb",
+    "sha256": "a277601fb9875c90acc71b2fa38e8fe856b9e3283bd8341eb1f53ad5ead77977"
+  },
+  {
+    "package": "libmysofa1_1.2.1~dfsg0-1_amd64.deb",
+    "url": "https://cz.archive.ubuntu.com/ubuntu/pool/universe/libm/libmysofa/libmysofa1_1.2.1%7edfsg0-1_amd64.deb",
+    "sha256": "e3fb04d1c7ddb831cb02ec432eb06744a27f7f1a043207cbfdf047ae787e2a78"
+  },
+  {
+    "package": "libsphinxbase3_0.8+5prealpha+1-13build1_amd64.deb",
+    "url": "https://cz.archive.ubuntu.com/ubuntu/pool/universe/s/sphinxbase/libsphinxbase3_0.8%2b5prealpha%2b1-13build1_amd64.deb",
+    "sha256": "af2649a25313f10300ebbd750f81660b69126be0bdc2090f712c9543b495fbba"
+  },
+  {
+    "package": "libpocketsphinx3_0.8.0+real5prealpha+1-14ubuntu1_amd64.deb",
+    "url": "https://cz.archive.ubuntu.com/ubuntu/pool/universe/p/pocketsphinx/libpocketsphinx3_0.8.0%2breal5prealpha%2b1-14ubuntu1_amd64.deb",
+    "sha256": "3e19eb33065660f6a604d262867ff2217f48befaadb623486ec71d2ae65f38c3"
+  },
+  {
+    "package": "libpostproc55_7%3a4.4.2-0ubuntu0.22.04.1_amd64.deb",
+    "url": "https://cz.archive.ubuntu.com/ubuntu/pool/universe/f/ffmpeg/libpostproc55_4.4.2-0ubuntu0.22.04.1_amd64.deb",
+    "sha256": "de3631cfb6cf3340c3c2364bc3d4237c2562f949a8158e90f09265f8e3d18c57"
+  },
+  {
+    "package": "librubberband2_2.0.0-2_amd64.deb",
+    "url": "https://cz.archive.ubuntu.com/ubuntu/pool/universe/r/rubberband/librubberband2_2.0.0-2_amd64.deb",
+    "sha256": "ffe78e254bb3817c70e2bf6986c0aa16533fdc8d0eb7c7db4910ec5df6742f09"
+  },
+  {
+    "package": "libvidstab1.1_1.1.0-2_amd64.deb",
+    "url": "https://cz.archive.ubuntu.com/ubuntu/pool/universe/libv/libvidstab/libvidstab1.1_1.1.0-2_amd64.deb",
+    "sha256": "477655192eac8eaef3980aa46f5e8b073611827da1476f7c356abefbb89183c3"
+  },
+  {
+    "package": "libzimg2_3.0.3+ds1-1_amd64.deb",
+    "url": "https://cz.archive.ubuntu.com/ubuntu/pool/universe/z/zimg/libzimg2_3.0.3%2bds1-1_amd64.deb",
+    "sha256": "8c31afaea7dbe2a1fb3acaf24f60707daac9136afb99d62a046beb3f186ebeeb"
+  },
+  {
+    "package": "libavfilter7_7%3a4.4.2-0ubuntu0.22.04.1_amd64.deb",
+    "url": "https://cz.archive.ubuntu.com/ubuntu/pool/universe/f/ffmpeg/libavfilter7_4.4.2-0ubuntu0.22.04.1_amd64.deb",
+    "sha256": "9a2fc248cc8d3476cf3c134f91eaa0446fd7cbc0e1e3f1b2f83b33daa9a89cdb"
+  },
+  {
+    "package": "libopenal-data_1%3a1.19.1-2build3_all.deb",
+    "url": "https://cz.archive.ubuntu.com/ubuntu/pool/universe/o/openal-soft/libopenal-data_1.19.1-2build3_all.deb",
+    "sha256": "0fc7b012c00d611b5f5df3d380a80cade877f32a70b893d60409393f9a17f9bb"
+  },
+  {
+    "package": "libsndio7.0_1.8.1-1.1_amd64.deb",
+    "url": "https://cz.archive.ubuntu.com/ubuntu/pool/universe/s/sndio/libsndio7.0_1.8.1-1.1_amd64.deb",
+    "sha256": "80cde4ad8d384bf34022b0b40071081c8a211fdca2edd81ca310eb99b46ef742"
+  },
+  {
+    "package": "libopenal1_1%3a1.19.1-2build3_amd64.deb",
+    "url": "https://cz.archive.ubuntu.com/ubuntu/pool/universe/o/openal-soft/libopenal1_1.19.1-2build3_amd64.deb",
+    "sha256": "ce3542debf4313c400e232fa8281559b5b2895c33f59897b5876ae5e9580a823"
+  },
+  {
+    "package": "libdecor-0-0_0.1.0-3build1_amd64.deb",
+    "url": "https://cz.archive.ubuntu.com/ubuntu/pool/main/libd/libdecor-0/libdecor-0-0_0.1.0-3build1_amd64.deb",
+    "sha256": "52cf70767da9e0b23fa6873c6345811c037084f5c4ffe640e28d5758489da2b2"
+  },
+  {
+    "package": "libsdl2-2.0-0_2.0.20+dfsg-2ubuntu1.22.04.1_amd64.deb",
+    "url": "https://cz.archive.ubuntu.com/ubuntu/pool/main/libs/libsdl2/libsdl2-2.0-0_2.0.20%2bdfsg-2ubuntu1.22.04.1_amd64.deb",
+    "sha256": "ac3cea9ea66df71445541b2cfd5e07f554ba0f83e3ce4a9dacc311c358100c47"
+  },
+  {
+    "package": "libavdevice58_7%3a4.4.2-0ubuntu0.22.04.1_amd64.deb",
+    "url": "https://cz.archive.ubuntu.com/ubuntu/pool/universe/f/ffmpeg/libavdevice58_4.4.2-0ubuntu0.22.04.1_amd64.deb",
+    "sha256": "b44a8a7c9e6e96bbb4f3a617c6a421bb42aefe1df6041c4a35f9f0b6b75f2399"
+  },
+  {
+    "package": "ffmpeg_7%3a4.4.2-0ubuntu0.22.04.1_amd64.deb",
+    "url": "https://cz.archive.ubuntu.com/ubuntu/pool/universe/f/ffmpeg/ffmpeg_4.4.2-0ubuntu0.22.04.1_amd64.deb",
+    "sha256": "96beb71a9c3904c69a03c500caf9135370beb499e8599d6a544644cd9b909462"
+  }
+]

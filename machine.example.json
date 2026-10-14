@@ -1,0 +1,23 @@
+{
+  "paths": {
+    "raw_data": "data/g1_inspire_pick_up_black_box_clean",
+    "derived": "derived",
+    "reports": "reports",
+    "runs": "/dev/shm/vla-groot-smoke",
+    "archive": "storage",
+    "cache": ".cache",
+    "envs": ".venvs",
+    "vendor": "vendor",
+    "tools": ".tools"
+  },
+  "storage": {
+    "enabled": false,
+    "host": null,
+    "remote_path": null
+  },
+  "reserve_gib": 8,
+  "python_versions": {
+    "conversion": "3.10.12",
+    "gr00t": "3.12.2"
+  }
+}

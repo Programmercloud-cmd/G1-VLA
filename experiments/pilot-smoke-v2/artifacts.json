@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "artifact_ref_scheme": "archive: paths are relative to the machine-configured archive root; no credentials or machine address is stored here.",
+  "checkpoint": {
+    "ref": "archive:checkpoints/pilot-smoke-v2/checkpoint-2",
+    "bytes": 12583318231,
+    "files": [
+      {
+        "path": "config.json",
+        "size": 2146,
+        "sha256": "6e9b72bc2372383af27599811e944b7aa72d0537bf06764aff32f7c5a0d53e4a"
+      },
+      {
+        "path": "embodiment_id.json",
+        "size": 2226,
+        "sha256": "5e8611697dc90b7b7a92cf2a8da926275c16f5966c5eb109e0216c3c51af15a1"
+      },
+      {
+        "path": "experiment_cfg/conf.yaml",
+        "size": 5410,
+        "sha256": "dd216553f54fea84ccb56d69db0d120766735d4d54c96868fa17a09a330c71e1"
+      },
+      {
+        "path": "experiment_cfg/config.yaml",
+        "size": 5383,
+        "sha256": "a0f32fb82a0e4cf697843d2fc36427b6ef8d82d659858409db6799197d63ddd1"
+      },
+      {
+        "path": "experiment_cfg/dataset_statistics.json",
+        "size": 60284,
+        "sha256": "49ab79be164795a08f27c8e4c17efdad4a690331a70abe6e39a7889825efd254"
+      },
+      {
+        "path": "experiment_cfg/final_model_config.json",
+        "size": 1512,
+        "sha256": "ee01ded3e8d98c1cfc8e37f227afe21dfbca11d8aaa56cffef4ae0ad51dea217"
+      },
+      {
+        "path": "experiment_cfg/final_processor_config.json",
+        "size": 2548468,
+        "sha256": "24a6fdbaa6515934345ee7191e41b5ae6518689ce129b4b81c7ab5cbb2988d7b"
+      },
+      {
+        "path": "model-00001-of-00003.safetensors",
+        "size": 4986649584,
+        "sha256": "cbcaea5ee88f1e0f1465043920a2647c67e7de17d24adfd1c477742a6168edec"
+      },
+      {
+        "path": "model-00002-of-00003.safetensors",
+        "size": 4970792616,
+        "sha256": "c0334c8f5d9a7f8c258fa83fe3aa036213a8cc7c9f6b27d54e87064f576fe181"
+      },
+      {
+        "path": "model-00003-of-00003.safetensors",
+        "size": 2618758696,
+        "sha256": "6dc11cca5820eca92e134524d1ff05cdbc8708d6549775908ebbc5b61eb1f4c0"
+      },
+      {
+        "path": "model.safetensors.index.json",
+        "size": 104913,
+        "sha256": "12117379d91d029c5979a585d07ba794001730c9516d6de5512e3dedfee30730"
+      },
+      {
+        "path": "processor_config.json",
+        "size": 26949,
+        "sha256": "45540ae3b4f8950442dc241e905f1310607fca9849f58343d5fb3942e90f5776"
+      },
+      {
+        "path": "statistics.json",
+        "size": 4353377,
+        "sha256": "3dd8e49347dea635d91dc1179ca3545a8b0e152cf8442b601a8c72b51e249e81"
+      },
+      {
+        "path": "trainer_state.json",
+        "size": 764,
+        "sha256": "1b66b7c80b975586722b2c061184ab1440bced103421dc43487d081c2d398236"
+      },
+      {
+        "path": "training_args.bin",
+        "size": 5841,
+        "sha256": "6ceb0f476c826f239ceeca47bfe54cc29aff59c66a0770a165ebd92bd0557396"
+      },
+      {
+        "path": "wandb_config.json",
+        "size": 62,
+        "sha256": "143d778672f6671b30da3b1ba75df66e447768414269eb9b9e8d923f820c17de"
+      }
+    ]
+  },
+  "verification": {
+    "ref": "archive:checkpoints/pilot-smoke-v2/archive_verification.json",
+    "source_manifest_sha256": "35c97d36a97a275564506bbb5aa29431ba720a66e8bdbdf416deb86b30c0cff4",
+    "verified_at_utc": "2026-10-14T19:28:53.994147+00:00",
+    "all_sha256_match": true,
+    "file_count": 33
+  },
+  "dataset": {
+    "ref": "archive:derived/lerobot/local/g1_inspire_pilot_v1",
+    "format": "LeRobot v2.1",
+    "raw_snapshot_ref": "derived:pilot-v1"
+  },
+  "dependencies": {
+    "model_revisions": {
+      "nvidia/GR00T-N1.7-3B": "2fc962b973bccdd5d8ce4f67cc63b264d6886495",
+      "nvidia/Cosmos-Reason2-2B": "9ce19a195e423419c349abfc86fd07178b230561"
+    },
+    "runtime_lock": "../../locks/runtime-sources.json",
+    "note": "Reload also requires pinned Cosmos assets; weights, model caches, environments, and datasets are external to Git."
+  }
+}

@@ -1,0 +1,9 @@
+[submodule "vendor/Isaac-GR00T"]
+	path = vendor/Isaac-GR00T
+	url = https://github.com/NVIDIA/Isaac-GR00T.git
+[submodule "vendor/unitree_lerobot"]
+	path = vendor/unitree_lerobot
+	url = https://github.com/unitreerobotics/unitree_lerobot.git
+[submodule "vendor/lerobot-conversion"]
+	path = vendor/lerobot-conversion
+	url = https://github.com/huggingface/lerobot.git

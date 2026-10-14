@@ -1,0 +1,26 @@
+{
+  "Isaac-GR00T": {
+    "commit": "d2b7e75b937e3ec9aa5dbc798f08b89692c49734",
+    "origin": "https://github.com/NVIDIA/Isaac-GR00T.git",
+    "recursive_submodules": [
+      " 8f1084e3132a39270c3a13ebe37270a43ece2a01 external_dependencies/LIBERO (heads/master)",
+      " 8a2d286c926c1371927caa7651a412b4cc331756 external_dependencies/SimplerEnv (heads/main)",
+      " c2a9e87c186300b694da6f2497dd68d2c347a4b7 external_dependencies/SimplerEnv/ManiSkill2_real2sim (heads/main)",
+      " d89d481ce9c76da7f179466981676e268aa842e5 external_dependencies/robocasa (heads/main)",
+      " 4840e671596f93ca03651524b9f72ffb1aadfeff external_dependencies/robocasa-gr1-tabletop-tasks (heads/main)"
+    ],
+    "uv_lock_sha256": "0d67d3b0dd41b28375bbc2351eefc9e064cbad2d1c40682a52b97fc625a60f19"
+  },
+  "unitree_lerobot": {
+    "commit": "41c2805742de879ddab2d8d6beaeaf215f876395",
+    "origin": "https://github.com/unitreerobotics/unitree_lerobot.git",
+    "recursive_submodules": [
+      " a5b29d430105f5235eb05bbf2db5a0d747a869d6 unitree_lerobot/lerobot (a5b29d4)"
+    ]
+  },
+  "bootstrap_uv_version": "0.13.1",
+  "lerobot-conversion": {
+    "commit": "c75455a6de5c818fa1bb69fb2d92423e86c70475",
+    "origin": "https://github.com/huggingface/lerobot.git"
+  }
+}

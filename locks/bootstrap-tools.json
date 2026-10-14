@@ -1,0 +1,27 @@
+{
+  "supported_host": {
+    "os": "Ubuntu",
+    "version": "22.04",
+    "architecture": "x86_64"
+  },
+  "uv": {
+    "version": "0.13.1",
+    "url": "https://files.pythonhosted.org/packages/14/0b/6602a613533602e7a083e908c4375f9b0e78a94ba2e21c29b21c41a0a611/uv-0.13.1-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+    "sha256": "696dcf6d807d85da978f4db8472da81dccc1254b18b52cbd1367c4d923c421e0"
+  },
+  "tools_packages": [
+    "uv==0.13.1",
+    "huggingface-hub[cli]==0.35.3",
+    "pillow==12.3.0"
+  ],
+  "host_prerequisites": [
+    "git",
+    "build-essential",
+    "python3-dev",
+    "ffmpeg",
+    "ca-certificates"
+  ],
+  "prerequisites_command": "sudo apt-get update && sudo apt-get install -y git build-essential python3-dev ffmpeg ca-certificates",
+  "optional_storage_prerequisites_command": "sudo apt-get install -y sshfs openssh-client rsync",
+  "ffmpeg_note": "Fresh hosts must install Ubuntu FFmpeg4.4 via apt, including its shared-library dependency closure. Setup can use that system runtime or reuse an existing validated project FFmpeg prefix; the historical22addon-package lock alone is not a complete fresh-host installation."
+}

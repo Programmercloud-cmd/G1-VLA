@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "run": "pilot-smoke-v2",
+  "status": "two_step_smoke_passed_and_archived",
+  "purpose": "Verify conversion, two optimizer updates, checkpoint serialization and fresh-process inference. No task-success or generalization claim.",
+  "dataset": {
+    "episodes": 5,
+    "frames": 2116,
+    "camera_count": 1,
+    "image_shape_hwc": [
+      480,
+      640,
+      3
+    ],
+    "state_dimension": 26,
+    "action_dimension": 26,
+    "action_horizon": 16
+  },
+  "hardware": {
+    "gpu": "NVIDIA RTX A6000",
+    "vram_gib": 48,
+    "host_ram_gib": 125
+  },
+  "training": {
+    "global_step": 2,
+    "elapsed_seconds": 74.69693503200051,
+    "sampled_peak_gpu_mib": 38608,
+    "min_available_host_gib": 90.50536346435547,
+    "train_losses": [
+      1.456000566482544
+    ],
+    "checkpoint_bytes": 12583318231,
+    "total_output_bytes": 25166635698
+  },
+  "configuration": {
+    "microbatch": 1,
+    "gradient_accumulation_steps": 1,
+    "dataloader_workers": 0,
+    "save_only_model": true,
+    "frozen_vision_language": true,
+    "offline": true
+  },
+  "reload": {
+    "fresh_process": true,
+    "offline": true,
+    "action_shape": [
+      16,
+      26
+    ],
+    "dtype": "float32",
+    "finite": true,
+    "joint_order": [
+      "left_arm",
+      "right_arm",
+      "left_hand",
+      "right_hand"
+    ],
+    "output_semantics": "absolute, decoded by the saved GR00T processor",
+    "loading_seconds": 10.837065144000007,
+    "first_inference_seconds": 0.4895617210004275,
+    "statistics_sha256": "3dd8e49347dea635d91dc1179ca3545a8b0e152cf8442b601a8c72b51e249e81"
+  },
+  "archive": {
+    "status": "verified",
+    "checkpoint_count": 1,
+    "files_verified": 33,
+    "all_source_remote_sha256_match": true,
+    "artifact_ref": "archive:checkpoints/pilot-smoke-v2/checkpoint-2"
+  },
+  "model_revisions": {
+    "nvidia/GR00T-N1.7-3B": "2fc962b973bccdd5d8ce4f67cc63b264d6886495",
+    "nvidia/Cosmos-Reason2-2B": "9ce19a195e423419c349abfc86fd07178b230561"
+  },
+  "limitations": [
+    "Two optimizer steps establish pipeline operation only.",
+    "Reported training loss is the final aggregate; upstream filtering does not establish per-step finiteness.",
+    "The single first-prediction timing is not a deployment benchmark.",
+    "The dataset demonstrates the same target box; instruction-dependent target selection is untested.",
+    "This model-only checkpoint has no optimizer/scheduler state for exact training resumption."
+  ],
+  "private_evidence_sha256": {
+    "reports/pilot-smoke-v2-train.json": "9e52382c7425ae56a94ffa7dfaefc43aa91d940eaeeff4a3b430ec2cc63c96a8",
+    "reports/pilot-smoke-v2-reload.json": "88b22396c402dbb9867b63bb6f9f35336ae7c39db98ce5b286769df713c35ed0",
+    "reports/pilot-smoke-v2-archive.json": "5b490863f00674e1387d4aac49023911f883b23fe70e2ba8bcaa6e16791d22ea"
+  }
+}

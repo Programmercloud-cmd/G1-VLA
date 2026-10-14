@@ -1,0 +1,40 @@
+# Local recordings, generated datasets, logs, models, and checkpoints.
+/data/
+/derived/
+/reports/
+/runs/
+/storage/
+/artifacts/
+/.cache/
+/.tools/
+/.venvs/
+/.work/
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+*.log
+*.safetensors
+*.ckpt
+*.pt
+*.pth
+*.npz
+*.parquet
+*.mp4
+*.jpg
+*.jpeg
+
+# Machine configuration and credentials; only the template is public.
+.env
+.env.*
+!.env.example
+/machine.local.json
+/machine.*.local.json
+/configs/*.local.json
+
+# Third-party source is represented by the declared Git submodules only.
+/vendor/*
+!/vendor/Isaac-GR00T/
+!/vendor/unitree_lerobot/
+!/vendor/lerobot-conversion/
