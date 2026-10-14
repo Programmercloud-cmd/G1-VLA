@@ -1,0 +1,1130 @@
+{
+  "schema_version": 1,
+  "artifact_type": "bounded_pilot_interval_visual_review",
+  "status": "completed",
+  "selection": {
+    "path": "reports/pilot-interval-review-v1-selection.json",
+    "sha256": "e24da88265975ea760f3cc51edeee8fb60641cb00147c2b0578793ae335e5a92"
+  },
+  "source_data_json_sha256": {
+    "data/g1_inspire_pick_up_black_box_clean/episode_0037/data.json": "81712f9d4d84c7cb89bc1b42f45dd7aef3335f4a6a4af5456c51098db314b3ab",
+    "data/g1_inspire_pick_up_black_box_clean/episode_0040/data.json": "dae6515912a488ca83f556cabcb031f7c2b61426d5c7b600adf0184c79e0ac3b",
+    "data/g1_inspire_pick_up_black_box_clean/episode_0042/data.json": "2eb72856d34778c2a9e5a9c04230aef6358db412ae8d8d7a787e73f7d8470058",
+    "data/g1_inspire_pick_up_black_box_clean/episode_0046/data.json": "570e8407d601fab14283aa215ca0d8ccaaefd2282797c9159d52ede047d37071",
+    "data/g1_inspire_pick_up_black_box_clean/episode_0047/data.json": "b23cb6a8a4aae23886ae683237b096ff58f3e0cb28306d82b7198cb31efb0a23"
+  },
+  "scope": {
+    "episodes": 5,
+    "selected_intervals": 10,
+    "context_samples_per_interval": 12,
+    "overview_frames_per_episode": 12,
+    "displayed_frame_placements": 180,
+    "unique_source_frames_viewed": 178,
+    "targeted_extra_frames": 0,
+    "continuous_video_playback": false,
+    "all_episode_frames_visually_inspected": false,
+    "context_rows_hash_checked_not_all_visually_inspected": 700
+  },
+  "time_basis": "Raw row/30 is nominal index time. Converted Parquet time is synthesized; independent acquisition clocks were not established. Hidden asynchronous latency cannot be excluded.",
+  "evidence_indices": [
+    {
+      "path": "reports/pilot-interval-review-v1/sampled-frame-evidence.json",
+      "sha256": "4ef696beb73960cf21e8284bc22c7cfd82d02f4104adbe24c6b80008eb473cc5"
+    },
+    {
+      "path": "reports/pilot-interval-review-v1/overview-evidence.json",
+      "sha256": "f1ccbf3296ef690a9f957906ced1a17fef932c3ce9b49eaf73f52b9e747b5db6"
+    },
+    {
+      "path": "reports/pilot-interval-review-v1/interval-frame-evidence.json",
+      "sha256": "7471135987f388fff5c8f0d2fa40d16463a881419d932cce674f5729e03ef3a3"
+    }
+  ],
+  "overall_decision": {
+    "retain": 10,
+    "trim": 0,
+    "repair": 0,
+    "exclude": 0,
+    "rationale": "No systematic defect was found in the bounded evidence; this is not certification of all recordings. Commands remain targets and are not smoothed or replaced by measured state.",
+    "full_dataset_holds_unchanged": [
+      "episode_0092",
+      "episode_0136",
+      "episode_0165"
+    ]
+  },
+  "intervals": [
+    {
+      "interval_id": "episode_0037_highest_error",
+      "episode": "episode_0037",
+      "role": "highest_error",
+      "evaluated_raw_rows_inclusive": [
+        40,
+        55
+      ],
+      "context_raw_rows_inclusive": [
+        10,
+        85
+      ],
+      "raw_row_equals_source_idx": true,
+      "evaluated_nominal_seconds_inclusive": [
+        1.3333333333333333,
+        1.8333333333333333
+      ],
+      "viewed_raw_rows": [
+        10,
+        25,
+        39,
+        40,
+        43,
+        47,
+        51,
+        55,
+        56,
+        70,
+        84,
+        85
+      ],
+      "viewed_nominal_seconds": [
+        0.3333333333333333,
+        0.8333333333333334,
+        1.3,
+        1.3333333333333333,
+        1.4333333333333333,
+        1.5666666666666667,
+        1.7,
+        1.8333333333333333,
+        1.8666666666666667,
+        2.3333333333333335,
+        2.8,
+        2.8333333333333335
+      ],
+      "view_method": "12 sampled source-image thumbnails inspected in chronological contact sheet; no continuous playback",
+      "sheet": {
+        "path": "reports/pilot-interval-review-v1/episode_0037-worst-sampled.jpg",
+        "sha256": "f1e01a1ce4b5b6d0792b3a20b0fcab0fa5a62ac1cd99da2f4b7f40af82707c6d"
+      },
+      "phase": "open-hand setup and approach",
+      "phase_confidence": "high",
+      "visibly_supported": "Rows 10\u201325 show the box on the table with open hands nearby; rows 39\u201385 show the hands repositioning and approaching its sides while the box remains on the table. Row 25 includes hand motion blur, without a sampled scene discontinuity.",
+      "uncertainty": "Approach is visible; exact contact timing is outside these sampled stills.",
+      "decision": "retain",
+      "decision_basis": "No sampled visual evidence justifies trimming, repair or exclusion; high prediction error alone is not a data defect.",
+      "key_evidence": [
+        {
+          "raw_row": 10,
+          "source_idx": 10,
+          "nominal_seconds": 0.3333333333333333,
+          "image_path": "data/g1_inspire_pick_up_black_box_clean/episode_0037/colors/000010_color_0.jpg",
+          "image_sha256": "ec3d375b9866d1b53541129cd075622a8624bad45c6c7622919721389d147822"
+        },
+        {
+          "raw_row": 40,
+          "source_idx": 40,
+          "nominal_seconds": 1.3333333333333333,
+          "image_path": "data/g1_inspire_pick_up_black_box_clean/episode_0037/colors/000040_color_0.jpg",
+          "image_sha256": "568d6aad098b768f55c0df2034671b11acae9aaf857385374c3d25adacdec477"
+        },
+        {
+          "raw_row": 55,
+          "source_idx": 55,
+          "nominal_seconds": 1.8333333333333333,
+          "image_path": "data/g1_inspire_pick_up_black_box_clean/episode_0037/colors/000055_color_0.jpg",
+          "image_sha256": "57f7ead1076a4326a4a81d47a284fd9a00a15129889c6cc704a9eaad92eab7c1"
+        },
+        {
+          "raw_row": 85,
+          "source_idx": 85,
+          "nominal_seconds": 2.8333333333333335,
+          "image_path": "data/g1_inspire_pick_up_black_box_clean/episode_0037/colors/000085_color_0.jpg",
+          "image_sha256": "a81cbb88cc105349a16ae085bf1a9ec10062190a3de56488cea9202c926895d6"
+        }
+      ]
+    },
+    {
+      "interval_id": "episode_0037_median_comparison",
+      "episode": "episode_0037",
+      "role": "median_comparison",
+      "evaluated_raw_rows_inclusive": [
+        141,
+        156
+      ],
+      "context_raw_rows_inclusive": [
+        111,
+        186
+      ],
+      "raw_row_equals_source_idx": true,
+      "evaluated_nominal_seconds_inclusive": [
+        4.7,
+        5.2
+      ],
+      "viewed_raw_rows": [
+        111,
+        126,
+        140,
+        141,
+        144,
+        148,
+        152,
+        156,
+        157,
+        171,
+        185,
+        186
+      ],
+      "viewed_nominal_seconds": [
+        3.7,
+        4.2,
+        4.666666666666667,
+        4.7,
+        4.8,
+        4.933333333333334,
+        5.066666666666666,
+        5.2,
+        5.233333333333333,
+        5.7,
+        6.166666666666667,
+        6.2
+      ],
+      "view_method": "12 sampled source-image thumbnails inspected in chronological contact sheet; no continuous playback",
+      "sheet": {
+        "path": "reports/pilot-interval-review-v1/episode_0037-median-sampled.jpg",
+        "sha256": "c14b6c5b8a91fca94f344bce4ea20d4c03e91a4d678bdcf5d14be3eb73521507"
+      },
+      "phase": "bilateral side placement and pre-lift hold",
+      "phase_confidence": "medium",
+      "visibly_supported": "Rows 111\u2013186 show both hands beside the box with small pose changes; the box remains at the table surface in the sampled frames.",
+      "uncertainty": "A grasp-like posture is visible, but secure contact or grip force cannot be established from the images.",
+      "decision": "retain",
+      "decision_basis": "No sampled visual evidence justifies trimming, repair or exclusion; high prediction error alone is not a data defect.",
+      "key_evidence": [
+        {
+          "raw_row": 111,
+          "source_idx": 111,
+          "nominal_seconds": 3.7,
+          "image_path": "data/g1_inspire_pick_up_black_box_clean/episode_0037/colors/000111_color_0.jpg",
+          "image_sha256": "55567d4448895e72e3728976d48cf38568e8730c31d2358c1aab6045a8518d2e"
+        },
+        {
+          "raw_row": 141,
+          "source_idx": 141,
+          "nominal_seconds": 4.7,
+          "image_path": "data/g1_inspire_pick_up_black_box_clean/episode_0037/colors/000141_color_0.jpg",
+          "image_sha256": "49eaa6bc3e9ae9f7b7babd3b0c959a8bede57bb5cbf4c84dcc6923c56585c14c"
+        },
+        {
+          "raw_row": 156,
+          "source_idx": 156,
+          "nominal_seconds": 5.2,
+          "image_path": "data/g1_inspire_pick_up_black_box_clean/episode_0037/colors/000156_color_0.jpg",
+          "image_sha256": "d90ea1cfc00f73b8b72a8e7a3e365ac9cb3afaf681ec7505ec02f446160bf041"
+        },
+        {
+          "raw_row": 186,
+          "source_idx": 186,
+          "nominal_seconds": 6.2,
+          "image_path": "data/g1_inspire_pick_up_black_box_clean/episode_0037/colors/000186_color_0.jpg",
+          "image_sha256": "3a8bfbdf5effadd1fcc37e03895d0688a3131c3979c6fdb64ede54a218930942"
+        }
+      ]
+    },
+    {
+      "interval_id": "episode_0040_highest_error",
+      "episode": "episode_0040",
+      "role": "highest_error",
+      "evaluated_raw_rows_inclusive": [
+        424,
+        439
+      ],
+      "context_raw_rows_inclusive": [
+        394,
+        469
+      ],
+      "raw_row_equals_source_idx": true,
+      "evaluated_nominal_seconds_inclusive": [
+        14.133333333333333,
+        14.633333333333333
+      ],
+      "viewed_raw_rows": [
+        394,
+        409,
+        423,
+        424,
+        427,
+        431,
+        435,
+        439,
+        440,
+        454,
+        468,
+        469
+      ],
+      "viewed_nominal_seconds": [
+        13.133333333333333,
+        13.633333333333333,
+        14.1,
+        14.133333333333333,
+        14.233333333333333,
+        14.366666666666667,
+        14.5,
+        14.633333333333333,
+        14.666666666666666,
+        15.133333333333333,
+        15.6,
+        15.633333333333333
+      ],
+      "view_method": "12 sampled source-image thumbnails inspected in chronological contact sheet; no continuous playback",
+      "sheet": {
+        "path": "reports/pilot-interval-review-v1/episode_0040-worst-sampled.jpg",
+        "sha256": "6befe8f340a6a1a2a57fc1ea5d8370124c4429e187d4eacfee11a94eab0c3c1c"
+      },
+      "phase": "elevated held-box and carry-like posture",
+      "phase_confidence": "high",
+      "visibly_supported": "Rows 394\u2013469 show the box elevated near the camera between both hands, with modest orientation changes and a coherent background.",
+      "uncertainty": "Images support an elevated held-box posture, not verified task completion or stability between samples.",
+      "decision": "retain",
+      "decision_basis": "No sampled visual evidence justifies trimming, repair or exclusion; high prediction error alone is not a data defect.",
+      "key_evidence": [
+        {
+          "raw_row": 394,
+          "source_idx": 394,
+          "nominal_seconds": 13.133333333333333,
+          "image_path": "data/g1_inspire_pick_up_black_box_clean/episode_0040/colors/000394_color_0.jpg",
+          "image_sha256": "e16d54f9a6c0e935e336431c19092aa49bf367b44fb3eb02c2f5f52a00beb6e3"
+        },
+        {
+          "raw_row": 424,
+          "source_idx": 424,
+          "nominal_seconds": 14.133333333333333,
+          "image_path": "data/g1_inspire_pick_up_black_box_clean/episode_0040/colors/000424_color_0.jpg",
+          "image_sha256": "0ce2b1fa41584809de102f33d470092142146a529b78996b95c0e4a905a39918"
+        },
+        {
+          "raw_row": 439,
+          "source_idx": 439,
+          "nominal_seconds": 14.633333333333333,
+          "image_path": "data/g1_inspire_pick_up_black_box_clean/episode_0040/colors/000439_color_0.jpg",
+          "image_sha256": "70ebb01ba1850aed86d98c1edf6871db8ac56c8c52442cb316dd8211d5d933f6"
+        },
+        {
+          "raw_row": 469,
+          "source_idx": 469,
+          "nominal_seconds": 15.633333333333333,
+          "image_path": "data/g1_inspire_pick_up_black_box_clean/episode_0040/colors/000469_color_0.jpg",
+          "image_sha256": "26520ee38c10574693ad89f2f4fc803b22b89a267717ae9c04e8485bdc8e05e2"
+        }
+      ]
+    },
+    {
+      "interval_id": "episode_0040_median_comparison",
+      "episode": "episode_0040",
+      "role": "median_comparison",
+      "evaluated_raw_rows_inclusive": [
+        274,
+        289
+      ],
+      "context_raw_rows_inclusive": [
+        244,
+        319
+      ],
+      "raw_row_equals_source_idx": true,
+      "evaluated_nominal_seconds_inclusive": [
+        9.133333333333333,
+        9.633333333333333
+      ],
+      "viewed_raw_rows": [
+        244,
+        259,
+        273,
+        274,
+        277,
+        281,
+        285,
+        289,
+        290,
+        304,
+        318,
+        319
+      ],
+      "viewed_nominal_seconds": [
+        8.133333333333333,
+        8.633333333333333,
+        9.1,
+        9.133333333333333,
+        9.233333333333333,
+        9.366666666666667,
+        9.5,
+        9.633333333333333,
+        9.666666666666666,
+        10.133333333333333,
+        10.6,
+        10.633333333333333
+      ],
+      "view_method": "12 sampled source-image thumbnails inspected in chronological contact sheet; no continuous playback",
+      "sheet": {
+        "path": "reports/pilot-interval-review-v1/episode_0040-median-sampled.jpg",
+        "sha256": "bb0ddec0ae3cbe8dc20eb45d2f81be8c42cb25344dd5a01e262a326223813b35"
+      },
+      "phase": "side hold followed by early lift in context",
+      "phase_confidence": "medium",
+      "visibly_supported": "Rows 244\u2013304 show hands at the box sides while it remains near the tabletop; by rows 318\u2013319 the box is visibly raised relative to the platform.",
+      "uncertainty": "The exact lift onset is not resolved by the sample; the evaluated window itself is largely a pre-lift hold.",
+      "decision": "retain",
+      "decision_basis": "No sampled visual evidence justifies trimming, repair or exclusion; high prediction error alone is not a data defect.",
+      "key_evidence": [
+        {
+          "raw_row": 244,
+          "source_idx": 244,
+          "nominal_seconds": 8.133333333333333,
+          "image_path": "data/g1_inspire_pick_up_black_box_clean/episode_0040/colors/000244_color_0.jpg",
+          "image_sha256": "4b1975f9af65c19f6867999e0fda32798e86cf9efe743d43cd94990e952bf3e7"
+        },
+        {
+          "raw_row": 274,
+          "source_idx": 274,
+          "nominal_seconds": 9.133333333333333,
+          "image_path": "data/g1_inspire_pick_up_black_box_clean/episode_0040/colors/000274_color_0.jpg",
+          "image_sha256": "2daf669a1258a36275b941c026167a5d45f8ac0acffec57424fc1604b12df5f6"
+        },
+        {
+          "raw_row": 289,
+          "source_idx": 289,
+          "nominal_seconds": 9.633333333333333,
+          "image_path": "data/g1_inspire_pick_up_black_box_clean/episode_0040/colors/000289_color_0.jpg",
+          "image_sha256": "d91638e9bbf87d25e61071307467f9ee448906445268617f4456555abe9267a9"
+        },
+        {
+          "raw_row": 319,
+          "source_idx": 319,
+          "nominal_seconds": 10.633333333333333,
+          "image_path": "data/g1_inspire_pick_up_black_box_clean/episode_0040/colors/000319_color_0.jpg",
+          "image_sha256": "39dc14d2f110374a24fef583dbdec2a5ae3eb91881765c6d4ae9644ec9b393cd"
+        }
+      ]
+    },
+    {
+      "interval_id": "episode_0042_highest_error",
+      "episode": "episode_0042",
+      "role": "highest_error",
+      "evaluated_raw_rows_inclusive": [
+        430,
+        445
+      ],
+      "context_raw_rows_inclusive": [
+        400,
+        475
+      ],
+      "raw_row_equals_source_idx": true,
+      "evaluated_nominal_seconds_inclusive": [
+        14.333333333333334,
+        14.833333333333334
+      ],
+      "viewed_raw_rows": [
+        400,
+        415,
+        429,
+        430,
+        433,
+        437,
+        441,
+        445,
+        446,
+        460,
+        474,
+        475
+      ],
+      "viewed_nominal_seconds": [
+        13.333333333333334,
+        13.833333333333334,
+        14.3,
+        14.333333333333334,
+        14.433333333333334,
+        14.566666666666666,
+        14.7,
+        14.833333333333334,
+        14.866666666666667,
+        15.333333333333334,
+        15.8,
+        15.833333333333334
+      ],
+      "view_method": "12 sampled source-image thumbnails inspected in chronological contact sheet; no continuous playback",
+      "sheet": {
+        "path": "reports/pilot-interval-review-v1/episode_0042-worst-sampled.jpg",
+        "sha256": "b51c1a54fa6b880c2daf70d386881a42ddc454795b42d0ec7ab7c05975732488"
+      },
+      "phase": "elevated held-box with reorientation",
+      "phase_confidence": "high",
+      "visibly_supported": "Rows 400\u2013475 show the box held up between both hands, changing tilt as it is brought near the camera; the box remains visible throughout the sample.",
+      "uncertainty": "Carry-like reorientation is visible; sampled stills do not establish contact forces or absence of transient slip.",
+      "decision": "retain",
+      "decision_basis": "No sampled visual evidence justifies trimming, repair or exclusion; high prediction error alone is not a data defect.",
+      "key_evidence": [
+        {
+          "raw_row": 400,
+          "source_idx": 400,
+          "nominal_seconds": 13.333333333333334,
+          "image_path": "data/g1_inspire_pick_up_black_box_clean/episode_0042/colors/000400_color_0.jpg",
+          "image_sha256": "740181d38da7f0e33e9a2314157d0d2b899c0da8bd14e044129e15061f212246"
+        },
+        {
+          "raw_row": 430,
+          "source_idx": 430,
+          "nominal_seconds": 14.333333333333334,
+          "image_path": "data/g1_inspire_pick_up_black_box_clean/episode_0042/colors/000430_color_0.jpg",
+          "image_sha256": "91b619ebe839fcf04dd21cbfcea423155d13b8752fd416dc36cd8ce80375cf85"
+        },
+        {
+          "raw_row": 445,
+          "source_idx": 445,
+          "nominal_seconds": 14.833333333333334,
+          "image_path": "data/g1_inspire_pick_up_black_box_clean/episode_0042/colors/000445_color_0.jpg",
+          "image_sha256": "9f24c739e333a8267db3c4291a89f427bb05758e60cb181580ba036b97bfebc1"
+        },
+        {
+          "raw_row": 475,
+          "source_idx": 475,
+          "nominal_seconds": 15.833333333333334,
+          "image_path": "data/g1_inspire_pick_up_black_box_clean/episode_0042/colors/000475_color_0.jpg",
+          "image_sha256": "f312075d4a6fd3e82cb28e2dcb5d4117061a625306121d8739d226de5c3acdb0"
+        }
+      ]
+    },
+    {
+      "interval_id": "episode_0042_median_comparison",
+      "episode": "episode_0042",
+      "role": "median_comparison",
+      "evaluated_raw_rows_inclusive": [
+        278,
+        293
+      ],
+      "context_raw_rows_inclusive": [
+        248,
+        323
+      ],
+      "raw_row_equals_source_idx": true,
+      "evaluated_nominal_seconds_inclusive": [
+        9.266666666666667,
+        9.766666666666667
+      ],
+      "viewed_raw_rows": [
+        248,
+        263,
+        277,
+        278,
+        281,
+        285,
+        289,
+        293,
+        294,
+        308,
+        322,
+        323
+      ],
+      "viewed_nominal_seconds": [
+        8.266666666666667,
+        8.766666666666667,
+        9.233333333333333,
+        9.266666666666667,
+        9.366666666666667,
+        9.5,
+        9.633333333333333,
+        9.766666666666667,
+        9.8,
+        10.266666666666667,
+        10.733333333333333,
+        10.766666666666667
+      ],
+      "view_method": "12 sampled source-image thumbnails inspected in chronological contact sheet; no continuous playback",
+      "sheet": {
+        "path": "reports/pilot-interval-review-v1/episode_0042-median-sampled.jpg",
+        "sha256": "cfafef9bb08c7409a4fcd063d078363c522c4772a0abce80b4542e7e3f213c21"
+      },
+      "phase": "side hold and transition toward lift",
+      "phase_confidence": "medium",
+      "visibly_supported": "Rows 248\u2013308 show hands on either side of a box near the table; rows 322\u2013323 show the box raised above its earlier position.",
+      "uncertainty": "The transition is visible in the context; its exact onset and grasp security are uncertain.",
+      "decision": "retain",
+      "decision_basis": "No sampled visual evidence justifies trimming, repair or exclusion; high prediction error alone is not a data defect.",
+      "key_evidence": [
+        {
+          "raw_row": 248,
+          "source_idx": 248,
+          "nominal_seconds": 8.266666666666667,
+          "image_path": "data/g1_inspire_pick_up_black_box_clean/episode_0042/colors/000248_color_0.jpg",
+          "image_sha256": "1b99d378b35f2df1ce175e10840f7fcbd9f96b5eedc66a5a6f39d9d29683bf54"
+        },
+        {
+          "raw_row": 278,
+          "source_idx": 278,
+          "nominal_seconds": 9.266666666666667,
+          "image_path": "data/g1_inspire_pick_up_black_box_clean/episode_0042/colors/000278_color_0.jpg",
+          "image_sha256": "7d4489248ca5d8333e71cad3489971e780decf8cd946608ddc1205f86d313ad1"
+        },
+        {
+          "raw_row": 293,
+          "source_idx": 293,
+          "nominal_seconds": 9.766666666666667,
+          "image_path": "data/g1_inspire_pick_up_black_box_clean/episode_0042/colors/000293_color_0.jpg",
+          "image_sha256": "c0a49ab019b3e30110b253b0c96eab150310e6e7915c9e4bf6edbfae74f4adbf"
+        },
+        {
+          "raw_row": 323,
+          "source_idx": 323,
+          "nominal_seconds": 10.766666666666667,
+          "image_path": "data/g1_inspire_pick_up_black_box_clean/episode_0042/colors/000323_color_0.jpg",
+          "image_sha256": "7757533a32c4087848e2f82abea8d4f35e2745e6c2024207145f10c2aea8ec18"
+        }
+      ]
+    },
+    {
+      "interval_id": "episode_0046_highest_error",
+      "episode": "episode_0046",
+      "role": "highest_error",
+      "evaluated_raw_rows_inclusive": [
+        329,
+        344
+      ],
+      "context_raw_rows_inclusive": [
+        299,
+        344
+      ],
+      "raw_row_equals_source_idx": true,
+      "evaluated_nominal_seconds_inclusive": [
+        10.966666666666667,
+        11.466666666666667
+      ],
+      "viewed_raw_rows": [
+        299,
+        303,
+        307,
+        311,
+        314,
+        328,
+        329,
+        332,
+        336,
+        340,
+        343,
+        344
+      ],
+      "viewed_nominal_seconds": [
+        9.966666666666667,
+        10.1,
+        10.233333333333333,
+        10.366666666666667,
+        10.466666666666667,
+        10.933333333333334,
+        10.966666666666667,
+        11.066666666666666,
+        11.2,
+        11.333333333333334,
+        11.433333333333334,
+        11.466666666666667
+      ],
+      "view_method": "12 sampled source-image thumbnails inspected in chronological contact sheet; no continuous playback",
+      "sheet": {
+        "path": "reports/pilot-interval-review-v1/episode_0046-worst-sampled.jpg",
+        "sha256": "665cac6ac66894b50cf2489addf9b377a4e6675f0280eba815250a476cc8e9a5"
+      },
+      "phase": "late elevated hold and carry-like posture",
+      "phase_confidence": "high",
+      "visibly_supported": "Rows 299\u2013344 show the elevated box close to the camera between both hands, with small changes in orientation through the recorded endpoint.",
+      "uncertainty": "No continuation beyond the episode endpoint is available; a quiet hold is not evidence of irrelevant idle.",
+      "decision": "retain",
+      "decision_basis": "No sampled visual evidence justifies trimming, repair or exclusion; high prediction error alone is not a data defect.",
+      "key_evidence": [
+        {
+          "raw_row": 299,
+          "source_idx": 299,
+          "nominal_seconds": 9.966666666666667,
+          "image_path": "data/g1_inspire_pick_up_black_box_clean/episode_0046/colors/000299_color_0.jpg",
+          "image_sha256": "bfe25954171fdde73db7068860e6351db2704f820988a304da84d31d43883c16"
+        },
+        {
+          "raw_row": 329,
+          "source_idx": 329,
+          "nominal_seconds": 10.966666666666667,
+          "image_path": "data/g1_inspire_pick_up_black_box_clean/episode_0046/colors/000329_color_0.jpg",
+          "image_sha256": "6c36d86528a7800119219fd25ac34f51e8cfc3e1d36e06732880b5dafb6d965f"
+        },
+        {
+          "raw_row": 340,
+          "source_idx": 340,
+          "nominal_seconds": 11.333333333333334,
+          "image_path": "data/g1_inspire_pick_up_black_box_clean/episode_0046/colors/000340_color_0.jpg",
+          "image_sha256": "f7a05b569d683264de021b032ee74aaa79b6b657fc3391998d8b9af78aa44580"
+        },
+        {
+          "raw_row": 344,
+          "source_idx": 344,
+          "nominal_seconds": 11.466666666666667,
+          "image_path": "data/g1_inspire_pick_up_black_box_clean/episode_0046/colors/000344_color_0.jpg",
+          "image_sha256": "d0cc30170d2d8fc929717a9f2495d776d1a87ca1d3c4b68df9c2bf2b63416945"
+        }
+      ]
+    },
+    {
+      "interval_id": "episode_0046_median_comparison",
+      "episode": "episode_0046",
+      "role": "median_comparison",
+      "evaluated_raw_rows_inclusive": [
+        190,
+        205
+      ],
+      "context_raw_rows_inclusive": [
+        160,
+        235
+      ],
+      "raw_row_equals_source_idx": true,
+      "evaluated_nominal_seconds_inclusive": [
+        6.333333333333333,
+        6.833333333333333
+      ],
+      "viewed_raw_rows": [
+        160,
+        175,
+        189,
+        190,
+        193,
+        197,
+        201,
+        205,
+        206,
+        220,
+        234,
+        235
+      ],
+      "viewed_nominal_seconds": [
+        5.333333333333333,
+        5.833333333333333,
+        6.3,
+        6.333333333333333,
+        6.433333333333334,
+        6.566666666666666,
+        6.7,
+        6.833333333333333,
+        6.866666666666666,
+        7.333333333333333,
+        7.8,
+        7.833333333333333
+      ],
+      "view_method": "12 sampled source-image thumbnails inspected in chronological contact sheet; no continuous playback",
+      "sheet": {
+        "path": "reports/pilot-interval-review-v1/episode_0046-median-sampled.jpg",
+        "sha256": "80a60e9467840b47021fedb9d94771867caff7bbb0ce48396a86b925f245c3db"
+      },
+      "phase": "side grasp-like hold transitioning to lift",
+      "phase_confidence": "medium",
+      "visibly_supported": "Rows 160\u2013206 show hands beside the box with small upward changes; rows 220\u2013235 show the box increasingly raised and the platform exposed beneath it.",
+      "uncertainty": "The sampled sequence brackets a lift transition without pinpointing contact or lift onset.",
+      "decision": "retain",
+      "decision_basis": "No sampled visual evidence justifies trimming, repair or exclusion; high prediction error alone is not a data defect.",
+      "key_evidence": [
+        {
+          "raw_row": 160,
+          "source_idx": 160,
+          "nominal_seconds": 5.333333333333333,
+          "image_path": "data/g1_inspire_pick_up_black_box_clean/episode_0046/colors/000160_color_0.jpg",
+          "image_sha256": "e56dc40168d3125c89c5bb104e3b220f56c743fc65d8e141ff4f5461476b6071"
+        },
+        {
+          "raw_row": 190,
+          "source_idx": 190,
+          "nominal_seconds": 6.333333333333333,
+          "image_path": "data/g1_inspire_pick_up_black_box_clean/episode_0046/colors/000190_color_0.jpg",
+          "image_sha256": "5d2d27a4b95442079978eb0bc59e4f2f0a92d7904a231251371071d5d2756b03"
+        },
+        {
+          "raw_row": 205,
+          "source_idx": 205,
+          "nominal_seconds": 6.833333333333333,
+          "image_path": "data/g1_inspire_pick_up_black_box_clean/episode_0046/colors/000205_color_0.jpg",
+          "image_sha256": "e62073f9fd021aff3dfee57b47e11c2c3dab3d0309cfba4efa6f682d5df2f582"
+        },
+        {
+          "raw_row": 235,
+          "source_idx": 235,
+          "nominal_seconds": 7.833333333333333,
+          "image_path": "data/g1_inspire_pick_up_black_box_clean/episode_0046/colors/000235_color_0.jpg",
+          "image_sha256": "a6da8bc898c07bebdbbe6a13ce29ebfa5c8772df4c9eea827fe3db9d67d9607c"
+        }
+      ]
+    },
+    {
+      "interval_id": "episode_0047_highest_error",
+      "episode": "episode_0047",
+      "role": "highest_error",
+      "evaluated_raw_rows_inclusive": [
+        0,
+        15
+      ],
+      "context_raw_rows_inclusive": [
+        0,
+        45
+      ],
+      "raw_row_equals_source_idx": true,
+      "evaluated_nominal_seconds_inclusive": [
+        0.0,
+        0.5
+      ],
+      "viewed_raw_rows": [
+        0,
+        3,
+        4,
+        7,
+        8,
+        11,
+        12,
+        15,
+        16,
+        30,
+        44,
+        45
+      ],
+      "viewed_nominal_seconds": [
+        0.0,
+        0.1,
+        0.13333333333333333,
+        0.23333333333333334,
+        0.26666666666666666,
+        0.36666666666666664,
+        0.4,
+        0.5,
+        0.5333333333333333,
+        1.0,
+        1.4666666666666666,
+        1.5
+      ],
+      "view_method": "12 sampled source-image thumbnails inspected in chronological contact sheet; no continuous playback",
+      "sheet": {
+        "path": "reports/pilot-interval-review-v1/episode_0047-worst-sampled.jpg",
+        "sha256": "db49150edcacd2c5152e1105d48933066ba9c7b066e1d40a2fd7a870fb881438"
+      },
+      "phase": "initial open-hand setup before contact",
+      "phase_confidence": "high",
+      "visibly_supported": "Rows 0\u201316 show a nearly unchanged open-hand posture around the box on the table; rows 30\u201345 show clear hand repositioning while the box remains on the table.",
+      "uncertainty": "Similar initial images do not identify a capture fault or prove synchronized state/action timing.",
+      "decision": "retain",
+      "decision_basis": "No sampled visual evidence justifies trimming, repair or exclusion; high prediction error alone is not a data defect.",
+      "key_evidence": [
+        {
+          "raw_row": 0,
+          "source_idx": 0,
+          "nominal_seconds": 0.0,
+          "image_path": "data/g1_inspire_pick_up_black_box_clean/episode_0047/colors/000000_color_0.jpg",
+          "image_sha256": "0604a44ead4cb48acdc974dd5d2ee0d9353ae8acca3bd90aa6bf1a33cbee0aa8"
+        },
+        {
+          "raw_row": 15,
+          "source_idx": 15,
+          "nominal_seconds": 0.5,
+          "image_path": "data/g1_inspire_pick_up_black_box_clean/episode_0047/colors/000015_color_0.jpg",
+          "image_sha256": "536644f947380933b89182f22e022bd38b194ab33bb30c1653924ee9219c49c8"
+        },
+        {
+          "raw_row": 30,
+          "source_idx": 30,
+          "nominal_seconds": 1.0,
+          "image_path": "data/g1_inspire_pick_up_black_box_clean/episode_0047/colors/000030_color_0.jpg",
+          "image_sha256": "a1a909d01c516b91ae8783e846087a3a1b30d6b1059c67efdc2a3051c35b45de"
+        },
+        {
+          "raw_row": 45,
+          "source_idx": 45,
+          "nominal_seconds": 1.5,
+          "image_path": "data/g1_inspire_pick_up_black_box_clean/episode_0047/colors/000045_color_0.jpg",
+          "image_sha256": "b96b163dffe5924cab0d379a9af49f7a2b8bc65c86078e74beedb077a6088d15"
+        }
+      ]
+    },
+    {
+      "interval_id": "episode_0047_median_comparison",
+      "episode": "episode_0047",
+      "role": "median_comparison",
+      "evaluated_raw_rows_inclusive": [
+        135,
+        150
+      ],
+      "context_raw_rows_inclusive": [
+        105,
+        180
+      ],
+      "raw_row_equals_source_idx": true,
+      "evaluated_nominal_seconds_inclusive": [
+        4.5,
+        5.0
+      ],
+      "viewed_raw_rows": [
+        105,
+        120,
+        134,
+        135,
+        138,
+        142,
+        146,
+        150,
+        151,
+        165,
+        179,
+        180
+      ],
+      "viewed_nominal_seconds": [
+        3.5,
+        4.0,
+        4.466666666666667,
+        4.5,
+        4.6,
+        4.733333333333333,
+        4.866666666666666,
+        5.0,
+        5.033333333333333,
+        5.5,
+        5.966666666666667,
+        6.0
+      ],
+      "view_method": "12 sampled source-image thumbnails inspected in chronological contact sheet; no continuous playback",
+      "sheet": {
+        "path": "reports/pilot-interval-review-v1/episode_0047-median-sampled.jpg",
+        "sha256": "47aa72a0267cfccdfaf53e51fd218c844cbb16818c140f33ba97343622c17a42"
+      },
+      "phase": "bilateral side placement and pre-lift hold",
+      "phase_confidence": "medium",
+      "visibly_supported": "Rows 105\u2013180 show hands beside the box on the table, with small pose changes and no sampled scene reset or missing target.",
+      "uncertainty": "Grasp-like side placement is visible; precise contact force and transient events between samples are unknown.",
+      "decision": "retain",
+      "decision_basis": "No sampled visual evidence justifies trimming, repair or exclusion; high prediction error alone is not a data defect.",
+      "key_evidence": [
+        {
+          "raw_row": 105,
+          "source_idx": 105,
+          "nominal_seconds": 3.5,
+          "image_path": "data/g1_inspire_pick_up_black_box_clean/episode_0047/colors/000105_color_0.jpg",
+          "image_sha256": "47e64e2c83c03f1591b28504875c63688f55b0ff324226c7ca1d80b32ef80533"
+        },
+        {
+          "raw_row": 135,
+          "source_idx": 135,
+          "nominal_seconds": 4.5,
+          "image_path": "data/g1_inspire_pick_up_black_box_clean/episode_0047/colors/000135_color_0.jpg",
+          "image_sha256": "5c3ae5b35f4eaee7fd5e7d89863a6f2b88e5bc312e53e181be80d1a2a4702f2a"
+        },
+        {
+          "raw_row": 150,
+          "source_idx": 150,
+          "nominal_seconds": 5.0,
+          "image_path": "data/g1_inspire_pick_up_black_box_clean/episode_0047/colors/000150_color_0.jpg",
+          "image_sha256": "afa2950bb5fff70b488c7b77a5a8e90d9e64fb0c02fe395bb1a948f3829cc4a1"
+        },
+        {
+          "raw_row": 180,
+          "source_idx": 180,
+          "nominal_seconds": 6.0,
+          "image_path": "data/g1_inspire_pick_up_black_box_clean/episode_0047/colors/000180_color_0.jpg",
+          "image_sha256": "682dc19a7b867b47f164148fe0daf635bb8d1628eae5c635f998f0e73ff8b1ae"
+        }
+      ]
+    }
+  ],
+  "episode_overviews": [
+    {
+      "episode": "episode_0037",
+      "viewed_raw_rows": [
+        0,
+        36,
+        73,
+        109,
+        145,
+        181,
+        218,
+        254,
+        290,
+        326,
+        363,
+        399
+      ],
+      "sheet": {
+        "path": "reports/pilot-interval-review-v1/episode_0037-overview.jpg",
+        "sha256": "4ac172e6558902e0a0b5a5fb383bd2ae6469bf6e7b9b4b05d215afffde770277"
+      },
+      "visibly_supported": "Overview samples show open-hand approach, bilateral side placement, lifting and later elevated held-box/carry-like poses. They do not provide continuous coverage or establish physical task success.",
+      "quiet_tail_interpretation": "The last two overview frames retain an elevated box between the hands; no visual basis to classify this as disposable idle.",
+      "last_two_frame_evidence": [
+        {
+          "raw_row": 363,
+          "source_idx": 363,
+          "nominal_seconds": 12.1,
+          "image_path": "data/g1_inspire_pick_up_black_box_clean/episode_0037/colors/000363_color_0.jpg",
+          "image_sha256": "b8e96baea6160416a2f2c566c62f7acca099d729f71a4e4fe4375b6cdcc618c0"
+        },
+        {
+          "raw_row": 399,
+          "source_idx": 399,
+          "nominal_seconds": 13.3,
+          "image_path": "data/g1_inspire_pick_up_black_box_clean/episode_0037/colors/000399_color_0.jpg",
+          "image_sha256": "069fd820668719e348bed67d23de42f75716ccf3aefa181bd4103c39acf70d82"
+        }
+      ]
+    },
+    {
+      "episode": "episode_0040",
+      "viewed_raw_rows": [
+        0,
+        44,
+        89,
+        133,
+        178,
+        222,
+        267,
+        311,
+        356,
+        400,
+        445,
+        489
+      ],
+      "sheet": {
+        "path": "reports/pilot-interval-review-v1/episode_0040-overview.jpg",
+        "sha256": "f980d6a851f4d934baf09e24b3db84228404174228d36804c087f97f86aba6eb"
+      },
+      "visibly_supported": "Overview samples show open-hand approach, bilateral side placement, lifting and later elevated held-box/carry-like poses. They do not provide continuous coverage or establish physical task success.",
+      "quiet_tail_interpretation": "The last two overview frames retain an elevated box between the hands; no visual basis to classify this as disposable idle.",
+      "last_two_frame_evidence": [
+        {
+          "raw_row": 445,
+          "source_idx": 445,
+          "nominal_seconds": 14.833333333333334,
+          "image_path": "data/g1_inspire_pick_up_black_box_clean/episode_0040/colors/000445_color_0.jpg",
+          "image_sha256": "880663e9562d30ab34952ee2c2c3a9b0968eee10b8582e6cac21484e3af0a84e"
+        },
+        {
+          "raw_row": 489,
+          "source_idx": 489,
+          "nominal_seconds": 16.3,
+          "image_path": "data/g1_inspire_pick_up_black_box_clean/episode_0040/colors/000489_color_0.jpg",
+          "image_sha256": "32199b364aefcdf5d5866747dffa91c0f62cc7ce8023d188825552b57467b9ae"
+        }
+      ]
+    },
+    {
+      "episode": "episode_0042",
+      "viewed_raw_rows": [
+        0,
+        45,
+        90,
+        135,
+        180,
+        225,
+        271,
+        316,
+        361,
+        406,
+        451,
+        496
+      ],
+      "sheet": {
+        "path": "reports/pilot-interval-review-v1/episode_0042-overview.jpg",
+        "sha256": "22918ecce8e889eb3419edd3df64150fb7a19791ff681476b2a31d64d894fa47"
+      },
+      "visibly_supported": "Overview samples show open-hand approach, bilateral side placement, lifting and later elevated held-box/carry-like poses. They do not provide continuous coverage or establish physical task success.",
+      "quiet_tail_interpretation": "The last two overview frames retain an elevated box between the hands; no visual basis to classify this as disposable idle.",
+      "last_two_frame_evidence": [
+        {
+          "raw_row": 451,
+          "source_idx": 451,
+          "nominal_seconds": 15.033333333333333,
+          "image_path": "data/g1_inspire_pick_up_black_box_clean/episode_0042/colors/000451_color_0.jpg",
+          "image_sha256": "678a5ad2e5635447167a112f350f905010de2e7e7b816eee9f3393da8df47368"
+        },
+        {
+          "raw_row": 496,
+          "source_idx": 496,
+          "nominal_seconds": 16.533333333333335,
+          "image_path": "data/g1_inspire_pick_up_black_box_clean/episode_0042/colors/000496_color_0.jpg",
+          "image_sha256": "df973c654bf63a515f1a23e55c79bbf832f21235121a4c36ecb2ae03efa6350f"
+        }
+      ]
+    },
+    {
+      "episode": "episode_0046",
+      "viewed_raw_rows": [
+        0,
+        31,
+        63,
+        94,
+        125,
+        156,
+        188,
+        219,
+        250,
+        281,
+        313,
+        344
+      ],
+      "sheet": {
+        "path": "reports/pilot-interval-review-v1/episode_0046-overview.jpg",
+        "sha256": "af1832e2499df471d5b27e8e773ca696f8ee0a72814fb38c9da6bd6fb66c7f8b"
+      },
+      "visibly_supported": "Overview samples show open-hand approach, bilateral side placement, lifting and later elevated held-box/carry-like poses. They do not provide continuous coverage or establish physical task success.",
+      "quiet_tail_interpretation": "The last two overview frames retain an elevated box between the hands; no visual basis to classify this as disposable idle.",
+      "last_two_frame_evidence": [
+        {
+          "raw_row": 313,
+          "source_idx": 313,
+          "nominal_seconds": 10.433333333333334,
+          "image_path": "data/g1_inspire_pick_up_black_box_clean/episode_0046/colors/000313_color_0.jpg",
+          "image_sha256": "bb7e66bb8374511f8364a8d45f16fc4b34f74c511f0e5b27348bd7087164f6dc"
+        },
+        {
+          "raw_row": 344,
+          "source_idx": 344,
+          "nominal_seconds": 11.466666666666667,
+          "image_path": "data/g1_inspire_pick_up_black_box_clean/episode_0046/colors/000344_color_0.jpg",
+          "image_sha256": "d0cc30170d2d8fc929717a9f2495d776d1a87ca1d3c4b68df9c2bf2b63416945"
+        }
+      ]
+    },
+    {
+      "episode": "episode_0047",
+      "viewed_raw_rows": [
+        0,
+        35,
+        70,
+        104,
+        139,
+        174,
+        209,
+        244,
+        279,
+        313,
+        348,
+        383
+      ],
+      "sheet": {
+        "path": "reports/pilot-interval-review-v1/episode_0047-overview.jpg",
+        "sha256": "1223452b10ed797d186a61d64617c58fdc1c21705d436782865ef47c27d10e2f"
+      },
+      "visibly_supported": "Overview samples show open-hand approach, bilateral side placement, lifting and later elevated held-box/carry-like poses. They do not provide continuous coverage or establish physical task success.",
+      "quiet_tail_interpretation": "The last two overview frames retain an elevated box between the hands; no visual basis to classify this as disposable idle.",
+      "last_two_frame_evidence": [
+        {
+          "raw_row": 348,
+          "source_idx": 348,
+          "nominal_seconds": 11.6,
+          "image_path": "data/g1_inspire_pick_up_black_box_clean/episode_0047/colors/000348_color_0.jpg",
+          "image_sha256": "f8d7cc7d607adfb76e3016aa2c0aeff92e0389f7ca27b36041e311ead3c21c3d"
+        },
+        {
+          "raw_row": 383,
+          "source_idx": 383,
+          "nominal_seconds": 12.766666666666667,
+          "image_path": "data/g1_inspire_pick_up_black_box_clean/episode_0047/colors/000383_color_0.jpg",
+          "image_sha256": "fca890778cb45e615dd824d5add27ceda6403f34f87ebac12b3bb57a61190acc"
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Frames are sampled: events between them and outside the selected contexts were not continuously inspected.",
+    "Coarse visual phase labels are descriptions, not annotations of exact contact or success boundaries.",
+    "No visual or numerical association establishes synchronization, actuator calibration, grip force, closed-loop stability or robot task success.",
+    "The failed legacy persistence fitting gate remains a preserved diagnostic; it is not a GR00T requirement or a mandatory barrier to subsequent task evaluation."
+  ]
+}

@@ -1,0 +1,874 @@
+{
+  "artifact_type": "bounded_pilot_interval_review_quantitative_summary",
+  "candidate_updates": {
+    "additional": 1024,
+    "cumulative": 1536,
+    "fresh_optimizer_and_scheduler": true,
+    "initial_checkpoint": 512,
+    "state_dropout_prob": 0.0
+  },
+  "findings": [
+    "All ten selected windows have lower group-balanced normalized MAE than checkpoint 512, with reductions from 5.4% to 19.4%. This is descriptive post hoc comparison, not gate rescoring.",
+    "Episode 0037 rows 40\u201355 is an exception within the aggregate improvement: left/right hand normalized MAE rise from 0.595/0.552 at checkpoint 512 to 0.647/0.579; arm errors decrease.",
+    "The largest normalized mean residual cell varies across intervals: right pinky at +8, right wrist yaw at +5, left thumb bend at +1/+8, and right shoulder pitch at +0 in the five highest-error windows. High residuals do not identify recording defects.",
+    "Episode 0037 rows 40\u201355 has left-hand commanded/measured mean joint ranges 0.1283/0.0453 and right-hand ranges 0.0600/0.0160. These descriptive differences alone do not distinguish normal response, contact, or recording alignment.",
+    "Late highest-error windows in 0040 and 0046 have small within-window motion with approximately 0.105\u20130.147 rad mean same-row arm command/state discrepancy; holding/contact/control behavior needs visual context before any data action.",
+    "Three fixed-seed variance and seed-mean residual contributions are reported separately for every interval/group. They are empirical MSE decompositions, not calibrated uncertainty and not the MAE acceptance metric."
+  ],
+  "full_report_references": {
+    "analysis": {
+      "path": "reports/pilot-interval-review-v1-analysis.json",
+      "sha256": "e544465af8ab9f150b19c5e772c807fc1f52968d7cd27178940edd51818ad214"
+    },
+    "full_analysis_helper": {
+      "path": "reports/analyze_pilot_interval_review_v1.py",
+      "sha256": "6138edc8d1dcbe33866d20c4996e3214510b615b6200a20d50b2c9f6425b12b2"
+    },
+    "independent_timing_review": {
+      "path": "reports/pilot-interval-review-v1-timing.json",
+      "sha256": "8a74b29f82f19ff4518b95b16f900b1c494e66de6b4be5c5c00fb619b842794a"
+    },
+    "selection": {
+      "path": "reports/pilot-interval-review-v1-selection.json",
+      "sha256": "e24da88265975ea760f3cc51edeee8fb60641cb00147c2b0578793ae335e5a92"
+    }
+  },
+  "independent_timing_review_summary": {
+    "attribution": "Separate timing/corruption reviewer; see hash-bound full report.",
+    "capture_state_command_clocks_present": false,
+    "decoded_raw_jpeg_count": 2116,
+    "decoded_video_frame_count": 2116,
+    "duplicate_source_image_transitions": 216,
+    "maximum_identical_source_image_run_rows": 5,
+    "proven_physical_time_offset": false,
+    "recommendation": "No trim or temporal shift based on these timing findings alone.",
+    "source_and_converted_rows_consistent": true,
+    "total_source_image_transitions": 2111
+  },
+  "intervals": [
+    {
+      "candidate_group_balanced_normalized_mae": 0.5506854159286181,
+      "candidate_relative_change_vs_512_percent": -5.428607118560979,
+      "checkpoint_512_group_balanced_normalized_mae": 0.5822959767749153,
+      "context_rows_inclusive": [
+        10,
+        85
+      ],
+      "evaluated_rows_inclusive": [
+        40,
+        55
+      ],
+      "group_metrics": {
+        "left_arm": {
+          "candidate_native_mae": 0.13323705558286747,
+          "candidate_normalized_mae": 0.5008918533851118,
+          "checkpoint_512_native_mae": 0.16217451487041434,
+          "checkpoint_512_normalized_mae": 0.588495107535187,
+          "commanded_mean_joint_range_native": 0.16511770630521433,
+          "measured_mean_joint_range_native": 0.12165871847953115,
+          "same_row_command_measured_native_mae": 0.030563925268195038,
+          "seed_variance_fraction_of_candidate_native_mse": 0.6915681201240457
+        },
+        "left_hand": {
+          "candidate_native_mae": 0.08143305323190159,
+          "candidate_normalized_mae": 0.6471307482349482,
+          "checkpoint_512_native_mae": 0.0759244803339243,
+          "checkpoint_512_normalized_mae": 0.5945585099181263,
+          "commanded_mean_joint_range_native": 0.12832959493001303,
+          "measured_mean_joint_range_native": 0.04533333579699198,
+          "same_row_command_measured_native_mae": 0.033010038857658706,
+          "seed_variance_fraction_of_candidate_native_mse": 0.3321832182330115
+        },
+        "right_arm": {
+          "candidate_native_mae": 0.12383529550459657,
+          "candidate_normalized_mae": 0.4755522555415555,
+          "checkpoint_512_native_mae": 0.15478713115243453,
+          "checkpoint_512_normalized_mae": 0.5937715030159509,
+          "commanded_mean_joint_range_native": 0.09846369656068939,
+          "measured_mean_joint_range_native": 0.10183167376921379,
+          "same_row_command_measured_native_mae": 0.021409789144464803,
+          "seed_variance_fraction_of_candidate_native_mse": 0.5864664341729214
+        },
+        "right_hand": {
+          "candidate_native_mae": 0.08273289238827096,
+          "candidate_normalized_mae": 0.5791668065528568,
+          "checkpoint_512_native_mae": 0.08224355181058247,
+          "checkpoint_512_normalized_mae": 0.552358786630397,
+          "commanded_mean_joint_range_native": 0.05995645125706991,
+          "measured_mean_joint_range_native": 0.016000012556711834,
+          "same_row_command_measured_native_mae": 0.015796471387147903,
+          "seed_variance_fraction_of_candidate_native_mse": 0.3687988418814341
+        }
+      },
+      "highest_normalized_error_cell": {
+        "candidate_native_residual_per_seed": [
+          0.19969230890274048,
+          0.34144824743270874,
+          0.34144824743270874
+        ],
+        "candidate_normalized_mae": 1.5747693737612771,
+        "checkpoint_512_normalized_mae": 1.402568803348875,
+        "horizon_offset": 8,
+        "joint_name": "kRightHandPinky",
+        "source_row": 48
+      },
+      "interval_id": "episode_0037_highest_error",
+      "raw_episode": "episode_0037",
+      "sample_index": 2
+    },
+    {
+      "candidate_group_balanced_normalized_mae": 0.47194728267905073,
+      "candidate_relative_change_vs_512_percent": -15.621731678505446,
+      "checkpoint_512_group_balanced_normalized_mae": 0.5593232618627072,
+      "context_rows_inclusive": [
+        111,
+        186
+      ],
+      "evaluated_rows_inclusive": [
+        141,
+        156
+      ],
+      "group_metrics": {
+        "left_arm": {
+          "candidate_native_mae": 0.1482756699480801,
+          "candidate_normalized_mae": 0.5300507913622097,
+          "checkpoint_512_native_mae": 0.1759496076909792,
+          "checkpoint_512_normalized_mae": 0.6185417733362989,
+          "commanded_mean_joint_range_native": 0.011183968612125941,
+          "measured_mean_joint_range_native": 0.005863710173538753,
+          "same_row_command_measured_native_mae": 0.017475122851984843,
+          "seed_variance_fraction_of_candidate_native_mse": 0.6922886217224574
+        },
+        "left_hand": {
+          "candidate_native_mae": 0.04836417134437296,
+          "candidate_normalized_mae": 0.3930669232310536,
+          "checkpoint_512_native_mae": 0.0574791408661339,
+          "checkpoint_512_normalized_mae": 0.5327899035348028,
+          "commanded_mean_joint_range_native": 0.0030867656071980796,
+          "measured_mean_joint_range_native": 0.004833330710728963,
+          "same_row_command_measured_native_mae": 0.004508720089991887,
+          "seed_variance_fraction_of_candidate_native_mse": 0.5948082675409744
+        },
+        "right_arm": {
+          "candidate_native_mae": 0.1260839776176735,
+          "candidate_normalized_mae": 0.47981022989104194,
+          "checkpoint_512_native_mae": 0.14651759510992893,
+          "checkpoint_512_normalized_mae": 0.5593353343748804,
+          "commanded_mean_joint_range_native": 0.017387067200616002,
+          "measured_mean_joint_range_native": 0.011408981467996324,
+          "same_row_command_measured_native_mae": 0.01613522070692852,
+          "seed_variance_fraction_of_candidate_native_mse": 0.6624001911084234
+        },
+        "right_hand": {
+          "candidate_native_mae": 0.07378272029260795,
+          "candidate_normalized_mae": 0.4848611862318979,
+          "checkpoint_512_native_mae": 0.079305458917386,
+          "checkpoint_512_normalized_mae": 0.5266260362048469,
+          "commanded_mean_joint_range_native": 0.01122322678565979,
+          "measured_mean_joint_range_native": 0.01033333937327067,
+          "same_row_command_measured_native_mae": 0.00500624751051267,
+          "seed_variance_fraction_of_candidate_native_mse": 0.5086844504429492
+        }
+      },
+      "highest_normalized_error_cell": {
+        "candidate_native_residual_per_seed": [
+          -0.07119011878967285,
+          -0.20581698417663574,
+          -0.10502302646636963
+        ],
+        "candidate_normalized_mae": 1.0585936759832715,
+        "checkpoint_512_normalized_mae": 0.20052080813958092,
+        "horizon_offset": 0,
+        "joint_name": "kLeftHandThumbRotation",
+        "source_row": 141
+      },
+      "interval_id": "episode_0037_median_comparison",
+      "raw_episode": "episode_0037",
+      "sample_index": 7
+    },
+    {
+      "candidate_group_balanced_normalized_mae": 0.5129506955313083,
+      "candidate_relative_change_vs_512_percent": -19.37417391878903,
+      "checkpoint_512_group_balanced_normalized_mae": 0.636211398336105,
+      "context_rows_inclusive": [
+        394,
+        469
+      ],
+      "evaluated_rows_inclusive": [
+        424,
+        439
+      ],
+      "group_metrics": {
+        "left_arm": {
+          "candidate_native_mae": 0.16397198235998595,
+          "candidate_normalized_mae": 0.580709406415826,
+          "checkpoint_512_native_mae": 0.1959864231591512,
+          "checkpoint_512_normalized_mae": 0.6915114008599968,
+          "commanded_mean_joint_range_native": 0.03102998967681612,
+          "measured_mean_joint_range_native": 0.0216674841940403,
+          "same_row_command_measured_native_mae": 0.14657555475631462,
+          "seed_variance_fraction_of_candidate_native_mse": 0.49390096292935115
+        },
+        "left_hand": {
+          "candidate_native_mae": 0.05556453764438629,
+          "candidate_normalized_mae": 0.44452779430348077,
+          "checkpoint_512_native_mae": 0.07282753909627597,
+          "checkpoint_512_normalized_mae": 0.6179967696262718,
+          "commanded_mean_joint_range_native": 0.0015274484952290852,
+          "measured_mean_joint_range_native": 0.0018333295981089275,
+          "same_row_command_measured_native_mae": 0.002825150266289711,
+          "seed_variance_fraction_of_candidate_native_mse": 0.5186418245261769
+        },
+        "right_arm": {
+          "candidate_native_mae": 0.14108462525819915,
+          "candidate_normalized_mae": 0.5716774296208763,
+          "checkpoint_512_native_mae": 0.16721035626583866,
+          "checkpoint_512_normalized_mae": 0.6575576936888586,
+          "commanded_mean_joint_range_native": 0.022336944937705994,
+          "measured_mean_joint_range_native": 0.013882877571242196,
+          "same_row_command_measured_native_mae": 0.14596258542899573,
+          "seed_variance_fraction_of_candidate_native_mse": 0.527633907024137
+        },
+        "right_hand": {
+          "candidate_native_mae": 0.07107517061134179,
+          "candidate_normalized_mae": 0.4548881517850503,
+          "checkpoint_512_native_mae": 0.09191318818678458,
+          "checkpoint_512_normalized_mae": 0.5777797291692927,
+          "commanded_mean_joint_range_native": 0.0056725045045216875,
+          "measured_mean_joint_range_native": 0.00750000278155009,
+          "same_row_command_measured_native_mae": 0.0048608190069595976,
+          "seed_variance_fraction_of_candidate_native_mse": 0.4529564459786329
+        }
+      },
+      "highest_normalized_error_cell": {
+        "candidate_native_residual_per_seed": [
+          -0.21828166395425797,
+          -0.2918471470475197,
+          -0.30042431503534317
+        ],
+        "candidate_normalized_mae": 1.5996351546231338,
+        "checkpoint_512_normalized_mae": 1.4847262849126555,
+        "horizon_offset": 5,
+        "joint_name": "kRightWristYaw",
+        "source_row": 429
+      },
+      "interval_id": "episode_0040_highest_error",
+      "raw_episode": "episode_0040",
+      "sample_index": 37
+    },
+    {
+      "candidate_group_balanced_normalized_mae": 0.4733820861773143,
+      "candidate_relative_change_vs_512_percent": -12.89864740116916,
+      "checkpoint_512_group_balanced_normalized_mae": 0.543484196344924,
+      "context_rows_inclusive": [
+        244,
+        319
+      ],
+      "evaluated_rows_inclusive": [
+        274,
+        289
+      ],
+      "group_metrics": {
+        "left_arm": {
+          "candidate_native_mae": 0.14623852126896963,
+          "candidate_normalized_mae": 0.5195681289355912,
+          "checkpoint_512_native_mae": 0.1743649159574748,
+          "checkpoint_512_normalized_mae": 0.6152630884179603,
+          "commanded_mean_joint_range_native": 0.02930703785802637,
+          "measured_mean_joint_range_native": 0.01521824938910348,
+          "same_row_command_measured_native_mae": 0.05833862717762323,
+          "seed_variance_fraction_of_candidate_native_mse": 0.6920974338535495
+        },
+        "left_hand": {
+          "candidate_native_mae": 0.045377796722782984,
+          "candidate_normalized_mae": 0.38108282764502016,
+          "checkpoint_512_native_mae": 0.051659834674663015,
+          "checkpoint_512_normalized_mae": 0.4326107005014468,
+          "commanded_mean_joint_range_native": 0.006370832522710164,
+          "measured_mean_joint_range_native": 0.0068333446979522705,
+          "same_row_command_measured_native_mae": 0.005600528791546822,
+          "seed_variance_fraction_of_candidate_native_mse": 0.4642954935743508
+        },
+        "right_arm": {
+          "candidate_native_mae": 0.13107687351501746,
+          "candidate_normalized_mae": 0.5067046331205065,
+          "checkpoint_512_native_mae": 0.15428584260752404,
+          "checkpoint_512_normalized_mae": 0.5869119796145384,
+          "commanded_mean_joint_range_native": 0.0294162780046463,
+          "measured_mean_joint_range_native": 0.026572450197168758,
+          "same_row_command_measured_native_mae": 0.05178086692467332,
+          "seed_variance_fraction_of_candidate_native_mse": 0.663480878577972
+        },
+        "right_hand": {
+          "candidate_native_mae": 0.07568361910267009,
+          "candidate_normalized_mae": 0.4861727550081391,
+          "checkpoint_512_native_mae": 0.08314734459337261,
+          "checkpoint_512_normalized_mae": 0.5391510168457504,
+          "commanded_mean_joint_range_native": 0.0017022391160329182,
+          "measured_mean_joint_range_native": 0.0010000069936116536,
+          "same_row_command_measured_native_mae": 0.0033889015515645346,
+          "seed_variance_fraction_of_candidate_native_mse": 0.534156146507539
+        }
+      },
+      "highest_normalized_error_cell": {
+        "candidate_native_residual_per_seed": [
+          -0.022696733474731445,
+          -0.1773509979248047,
+          -0.1773509979248047
+        ],
+        "candidate_normalized_mae": 1.1756524343455224,
+        "checkpoint_512_normalized_mae": 0.8494806944782821,
+        "horizon_offset": 14,
+        "joint_name": "kRightHandMiddle",
+        "source_row": 288
+      },
+      "interval_id": "episode_0040_median_comparison",
+      "raw_episode": "episode_0040",
+      "sample_index": 31
+    },
+    {
+      "candidate_group_balanced_normalized_mae": 0.5443465705128866,
+      "candidate_relative_change_vs_512_percent": -11.242336448141966,
+      "checkpoint_512_group_balanced_normalized_mae": 0.6132952904904304,
+      "context_rows_inclusive": [
+        400,
+        475
+      ],
+      "evaluated_rows_inclusive": [
+        430,
+        445
+      ],
+      "group_metrics": {
+        "left_arm": {
+          "candidate_native_mae": 0.1489216170760171,
+          "candidate_normalized_mae": 0.5327529427442934,
+          "checkpoint_512_native_mae": 0.18168937389384068,
+          "checkpoint_512_normalized_mae": 0.6481885562884356,
+          "commanded_mean_joint_range_native": 0.06679191014596395,
+          "measured_mean_joint_range_native": 0.022470417565533092,
+          "same_row_command_measured_native_mae": 0.1410406795995576,
+          "seed_variance_fraction_of_candidate_native_mse": 0.6062537486381014
+        },
+        "left_hand": {
+          "candidate_native_mae": 0.06057870388031006,
+          "candidate_normalized_mae": 0.53463311875737,
+          "checkpoint_512_native_mae": 0.07226137527161175,
+          "checkpoint_512_normalized_mae": 0.5973199902076479,
+          "commanded_mean_joint_range_native": 0.0217782457669576,
+          "measured_mean_joint_range_native": 0.030333320299784344,
+          "same_row_command_measured_native_mae": 0.011333676055073738,
+          "seed_variance_fraction_of_candidate_native_mse": 0.5404297163902728
+        },
+        "right_arm": {
+          "candidate_native_mae": 0.14899388780551298,
+          "candidate_normalized_mae": 0.5863554791481279,
+          "checkpoint_512_native_mae": 0.15922317645024686,
+          "checkpoint_512_normalized_mae": 0.6153711209910036,
+          "commanded_mean_joint_range_native": 0.12052703755242485,
+          "measured_mean_joint_range_native": 0.09912152801241193,
+          "same_row_command_measured_native_mae": 0.10742699248450142,
+          "seed_variance_fraction_of_candidate_native_mse": 0.46630455512062463
+        },
+        "right_hand": {
+          "candidate_native_mae": 0.08145905896607372,
+          "candidate_normalized_mae": 0.5236447414017552,
+          "checkpoint_512_native_mae": 0.09569357552876075,
+          "checkpoint_512_normalized_mae": 0.5923014944746344,
+          "commanded_mean_joint_range_native": 0.027986307938893635,
+          "measured_mean_joint_range_native": 0.03300000230471293,
+          "same_row_command_measured_native_mae": 0.01112623947362105,
+          "seed_variance_fraction_of_candidate_native_mse": 0.49921641377761156
+        }
+      },
+      "highest_normalized_error_cell": {
+        "candidate_native_residual_per_seed": [
+          0.09256947040557861,
+          0.038399457931518555,
+          0.07672381401062012
+        ],
+        "candidate_normalized_mae": 1.4677376436432013,
+        "checkpoint_512_normalized_mae": 1.380497860848201,
+        "horizon_offset": 1,
+        "joint_name": "kLeftHandThumbBend",
+        "source_row": 431
+      },
+      "interval_id": "episode_0042_highest_error",
+      "raw_episode": "episode_0042",
+      "sample_index": 57
+    },
+    {
+      "candidate_group_balanced_normalized_mae": 0.46575676787878095,
+      "candidate_relative_change_vs_512_percent": -12.924895623026023,
+      "checkpoint_512_group_balanced_normalized_mae": 0.5348908522261215,
+      "context_rows_inclusive": [
+        248,
+        323
+      ],
+      "evaluated_rows_inclusive": [
+        278,
+        293
+      ],
+      "group_metrics": {
+        "left_arm": {
+          "candidate_native_mae": 0.14678607539618888,
+          "candidate_normalized_mae": 0.5236011631172468,
+          "checkpoint_512_native_mae": 0.17576195574760536,
+          "checkpoint_512_normalized_mae": 0.6196487321494226,
+          "commanded_mean_joint_range_native": 0.03803208067880145,
+          "measured_mean_joint_range_native": 0.01638243374015604,
+          "same_row_command_measured_native_mae": 0.0615005349297592,
+          "seed_variance_fraction_of_candidate_native_mse": 0.6866714902691042
+        },
+        "left_hand": {
+          "candidate_native_mae": 0.042510065974460706,
+          "candidate_normalized_mae": 0.3387022093648447,
+          "checkpoint_512_native_mae": 0.0500616327755981,
+          "checkpoint_512_normalized_mae": 0.4140207343186544,
+          "commanded_mean_joint_range_native": 0.0022312204043070474,
+          "measured_mean_joint_range_native": 0.0004999935626983643,
+          "same_row_command_measured_native_mae": 0.004106273253758748,
+          "seed_variance_fraction_of_candidate_native_mse": 0.45746431870937443
+        },
+        "right_arm": {
+          "candidate_native_mae": 0.13197356949534705,
+          "candidate_normalized_mae": 0.5087337625700785,
+          "checkpoint_512_native_mae": 0.15109776449424403,
+          "checkpoint_512_normalized_mae": 0.5741004401796987,
+          "commanded_mean_joint_range_native": 0.02471306174993515,
+          "measured_mean_joint_range_native": 0.011463764788849013,
+          "same_row_command_measured_native_mae": 0.07092266230444823,
+          "seed_variance_fraction_of_candidate_native_mse": 0.6576339763524489
+        },
+        "right_hand": {
+          "candidate_native_mae": 0.07621682259357637,
+          "candidate_normalized_mae": 0.49198993646295375,
+          "checkpoint_512_native_mae": 0.08253671353061993,
+          "checkpoint_512_normalized_mae": 0.5317935022567102,
+          "commanded_mean_joint_range_native": 0.0098227858543396,
+          "measured_mean_joint_range_native": 0.0070000191529591875,
+          "same_row_command_measured_native_mae": 0.005399175609151523,
+          "seed_variance_fraction_of_candidate_native_mse": 0.5598008584895232
+        }
+      },
+      "highest_normalized_error_cell": {
+        "candidate_native_residual_per_seed": [
+          -0.25717711448669434,
+          -0.301449179649353,
+          -0.15400725603103638
+        ],
+        "candidate_normalized_mae": 1.1737157948214445,
+        "checkpoint_512_normalized_mae": 0.6387429083178007,
+        "horizon_offset": 7,
+        "joint_name": "kLeftHandPinky",
+        "source_row": 285
+      },
+      "interval_id": "episode_0042_median_comparison",
+      "raw_episode": "episode_0042",
+      "sample_index": 51
+    },
+    {
+      "candidate_group_balanced_normalized_mae": 0.5579723732242292,
+      "candidate_relative_change_vs_512_percent": -16.983179965829564,
+      "checkpoint_512_group_balanced_normalized_mae": 0.6721196656226569,
+      "context_rows_inclusive": [
+        299,
+        344
+      ],
+      "evaluated_rows_inclusive": [
+        329,
+        344
+      ],
+      "group_metrics": {
+        "left_arm": {
+          "candidate_native_mae": 0.14791575267043386,
+          "candidate_normalized_mae": 0.5228571184200848,
+          "checkpoint_512_native_mae": 0.18135792317722613,
+          "checkpoint_512_normalized_mae": 0.6434317852466526,
+          "commanded_mean_joint_range_native": 0.013120330337967192,
+          "measured_mean_joint_range_native": 0.009039530796664101,
+          "same_row_command_measured_native_mae": 0.10530476667918265,
+          "seed_variance_fraction_of_candidate_native_mse": 0.6453334000364629
+        },
+        "left_hand": {
+          "candidate_native_mae": 0.0697616630544265,
+          "candidate_normalized_mae": 0.5954680117504844,
+          "checkpoint_512_native_mae": 0.08956106089883381,
+          "checkpoint_512_normalized_mae": 0.743648645239169,
+          "commanded_mean_joint_range_native": 0.004876583814620972,
+          "measured_mean_joint_range_native": 0.005666663249333699,
+          "same_row_command_measured_native_mae": 0.004080677404999733,
+          "seed_variance_fraction_of_candidate_native_mse": 0.33699915229887534
+        },
+        "right_arm": {
+          "candidate_native_mae": 0.1474562903112244,
+          "candidate_normalized_mae": 0.5762845902992306,
+          "checkpoint_512_native_mae": 0.17346416348924062,
+          "checkpoint_512_normalized_mae": 0.667578638831711,
+          "commanded_mean_joint_range_native": 0.014813037855284554,
+          "measured_mean_joint_range_native": 0.002405405044555664,
+          "same_row_command_measured_native_mae": 0.1147608516371942,
+          "seed_variance_fraction_of_candidate_native_mse": 0.49981820316974596
+        },
+        "right_hand": {
+          "candidate_native_mae": 0.08176320201406877,
+          "candidate_normalized_mae": 0.537279772427117,
+          "checkpoint_512_native_mae": 0.09819134397225247,
+          "checkpoint_512_normalized_mae": 0.6338195931730949,
+          "commanded_mean_joint_range_native": 0.0031461318333943686,
+          "measured_mean_joint_range_native": 0.003166655699412028,
+          "same_row_command_measured_native_mae": 0.003922318418820699,
+          "seed_variance_fraction_of_candidate_native_mse": 0.4787819784544895
+        }
+      },
+      "highest_normalized_error_cell": {
+        "candidate_native_residual_per_seed": [
+          -0.06489592790603638,
+          -0.09290224313735962,
+          -0.08018887042999268
+        ],
+        "candidate_normalized_mae": 1.6818235221959235,
+        "checkpoint_512_normalized_mae": 1.7964066900036333,
+        "horizon_offset": 8,
+        "joint_name": "kLeftHandThumbBend",
+        "source_row": 337
+      },
+      "interval_id": "episode_0046_highest_error",
+      "raw_episode": "episode_0046",
+      "sample_index": 79
+    },
+    {
+      "candidate_group_balanced_normalized_mae": 0.46401740349275755,
+      "candidate_relative_change_vs_512_percent": -13.647221908311424,
+      "checkpoint_512_group_balanced_normalized_mae": 0.5373508690132334,
+      "context_rows_inclusive": [
+        160,
+        235
+      ],
+      "evaluated_rows_inclusive": [
+        190,
+        205
+      ],
+      "group_metrics": {
+        "left_arm": {
+          "candidate_native_mae": 0.14975028961184544,
+          "candidate_normalized_mae": 0.5301828780813501,
+          "checkpoint_512_native_mae": 0.18083048819486672,
+          "checkpoint_512_normalized_mae": 0.6325707357988885,
+          "commanded_mean_joint_range_native": 0.04758733617407935,
+          "measured_mean_joint_range_native": 0.04901889605181558,
+          "same_row_command_measured_native_mae": 0.059193884687764306,
+          "seed_variance_fraction_of_candidate_native_mse": 0.6149778275445015
+        },
+        "left_hand": {
+          "candidate_native_mae": 0.04388599283993244,
+          "candidate_normalized_mae": 0.35571753167959214,
+          "checkpoint_512_native_mae": 0.0501983587940534,
+          "checkpoint_512_normalized_mae": 0.42464699543060375,
+          "commanded_mean_joint_range_native": 0.006696919600168864,
+          "measured_mean_joint_range_native": 0.005500008662541707,
+          "same_row_command_measured_native_mae": 0.005752069254716237,
+          "seed_variance_fraction_of_candidate_native_mse": 0.41686631941970487
+        },
+        "right_arm": {
+          "candidate_native_mae": 0.1254067733007971,
+          "candidate_normalized_mae": 0.4822851300221829,
+          "checkpoint_512_native_mae": 0.14741531381843656,
+          "checkpoint_512_normalized_mae": 0.5606511180147001,
+          "commanded_mean_joint_range_native": 0.056326670705207756,
+          "measured_mean_joint_range_native": 0.03868679010442325,
+          "same_row_command_measured_native_mae": 0.056216942021689774,
+          "seed_variance_fraction_of_candidate_native_mse": 0.70257200417222
+        },
+        "right_hand": {
+          "candidate_native_mae": 0.07404782426440054,
+          "candidate_normalized_mae": 0.487884074187905,
+          "checkpoint_512_native_mae": 0.080239310550193,
+          "checkpoint_512_normalized_mae": 0.5315346268087409,
+          "commanded_mean_joint_range_native": 0.004835476477940877,
+          "measured_mean_joint_range_native": 0.003833343585332235,
+          "same_row_command_measured_native_mae": 0.004321043690045674,
+          "seed_variance_fraction_of_candidate_native_mse": 0.5300454519589225
+        }
+      },
+      "highest_normalized_error_cell": {
+        "candidate_native_residual_per_seed": [
+          0.2631063908338547,
+          0.21743987500667572,
+          0.26172254979610443
+        ],
+        "candidate_normalized_mae": 1.3968380890512861,
+        "checkpoint_512_normalized_mae": 1.1346310742388395,
+        "horizon_offset": 3,
+        "joint_name": "kLeftShoulderYaw",
+        "source_row": 193
+      },
+      "interval_id": "episode_0046_median_comparison",
+      "raw_episode": "episode_0046",
+      "sample_index": 71
+    },
+    {
+      "candidate_group_balanced_normalized_mae": 0.5231345968746635,
+      "candidate_relative_change_vs_512_percent": -9.662270300188036,
+      "checkpoint_512_group_balanced_normalized_mae": 0.5790876067098599,
+      "context_rows_inclusive": [
+        0,
+        45
+      ],
+      "evaluated_rows_inclusive": [
+        0,
+        15
+      ],
+      "group_metrics": {
+        "left_arm": {
+          "candidate_native_mae": 0.15912655885248178,
+          "candidate_normalized_mae": 0.5495881868132304,
+          "checkpoint_512_native_mae": 0.17764820887879024,
+          "checkpoint_512_normalized_mae": 0.6204995287617207,
+          "commanded_mean_joint_range_native": 0.030906099493482282,
+          "measured_mean_joint_range_native": 0.009570260931338583,
+          "same_row_command_measured_native_mae": 0.010009255563740485,
+          "seed_variance_fraction_of_candidate_native_mse": 0.48532321339767354
+        },
+        "left_hand": {
+          "candidate_native_mae": 0.0673231848826011,
+          "candidate_normalized_mae": 0.5276599049741274,
+          "checkpoint_512_native_mae": 0.07353703532781866,
+          "checkpoint_512_normalized_mae": 0.5768098234874636,
+          "commanded_mean_joint_range_native": 0.0035987496376037598,
+          "measured_mean_joint_range_native": 0.0035000046094258628,
+          "same_row_command_measured_native_mae": 0.0037258751690387726,
+          "seed_variance_fraction_of_candidate_native_mse": 0.5283171993319772
+        },
+        "right_arm": {
+          "candidate_native_mae": 0.12682832817310036,
+          "candidate_normalized_mae": 0.49739424802969506,
+          "checkpoint_512_native_mae": 0.14693003044314018,
+          "checkpoint_512_normalized_mae": 0.5645313557158188,
+          "commanded_mean_joint_range_native": 0.029742065284933363,
+          "measured_mean_joint_range_native": 0.0060674431068556646,
+          "same_row_command_measured_native_mae": 0.016033703428027884,
+          "seed_variance_fraction_of_candidate_native_mse": 0.6420542438618022
+        },
+        "right_hand": {
+          "candidate_native_mae": 0.07604362970838945,
+          "candidate_normalized_mae": 0.5178960476816007,
+          "checkpoint_512_native_mae": 0.0828122202720907,
+          "checkpoint_512_normalized_mae": 0.5545097188744367,
+          "commanded_mean_joint_range_native": 0.004095007975896199,
+          "measured_mean_joint_range_native": 0.004666676123936971,
+          "same_row_command_measured_native_mae": 0.0036120073248942695,
+          "seed_variance_fraction_of_candidate_native_mse": 0.47335658296401467
+        }
+      },
+      "highest_normalized_error_cell": {
+        "candidate_native_residual_per_seed": [
+          -0.12180497497320175,
+          -0.1146768219769001,
+          -0.07276328653097153
+        ],
+        "candidate_normalized_mae": 1.4122273522116309,
+        "checkpoint_512_normalized_mae": 1.5001179800027042,
+        "horizon_offset": 0,
+        "joint_name": "kRightShoulderPitch",
+        "source_row": 0
+      },
+      "interval_id": "episode_0047_highest_error",
+      "raw_episode": "episode_0047",
+      "sample_index": 80
+    },
+    {
+      "candidate_group_balanced_normalized_mae": 0.46152664844020685,
+      "candidate_relative_change_vs_512_percent": -17.665800112768604,
+      "checkpoint_512_group_balanced_normalized_mae": 0.5605527825282014,
+      "context_rows_inclusive": [
+        105,
+        180
+      ],
+      "evaluated_rows_inclusive": [
+        135,
+        150
+      ],
+      "group_metrics": {
+        "left_arm": {
+          "candidate_native_mae": 0.15030727056381737,
+          "candidate_normalized_mae": 0.5318978511031189,
+          "checkpoint_512_native_mae": 0.17646706810392926,
+          "checkpoint_512_normalized_mae": 0.6202337927417474,
+          "commanded_mean_joint_range_native": 0.038258103387696404,
+          "measured_mean_joint_range_native": 0.02851389561380659,
+          "same_row_command_measured_native_mae": 0.03092318294303758,
+          "seed_variance_fraction_of_candidate_native_mse": 0.6395757700683138
+        },
+        "left_hand": {
+          "candidate_native_mae": 0.03927429703374704,
+          "candidate_normalized_mae": 0.3294517501541681,
+          "checkpoint_512_native_mae": 0.05068324278626177,
+          "checkpoint_512_normalized_mae": 0.4281724550382887,
+          "commanded_mean_joint_range_native": 0.007812986771265665,
+          "measured_mean_joint_range_native": 0.010500013828277588,
+          "same_row_command_measured_native_mae": 0.006328614428639412,
+          "seed_variance_fraction_of_candidate_native_mse": 0.4642928075982837
+        },
+        "right_arm": {
+          "candidate_native_mae": 0.13057109615779372,
+          "candidate_normalized_mae": 0.5012305178584815,
+          "checkpoint_512_native_mae": 0.15271965379638242,
+          "checkpoint_512_normalized_mae": 0.5830010740416168,
+          "commanded_mean_joint_range_native": 0.046532329238419025,
+          "measured_mean_joint_range_native": 0.04502644256821701,
+          "same_row_command_measured_native_mae": 0.03715293209409408,
+          "seed_variance_fraction_of_candidate_native_mse": 0.5991992007409374
+        },
+        "right_hand": {
+          "candidate_native_mae": 0.07226745898110999,
+          "candidate_normalized_mae": 0.483526474645059,
+          "checkpoint_512_native_mae": 0.0899439583429032,
+          "checkpoint_512_normalized_mae": 0.6108038082911526,
+          "commanded_mean_joint_range_native": 0.010817329088846842,
+          "measured_mean_joint_range_native": 0.016833335161209106,
+          "same_row_command_measured_native_mae": 0.0098399439205726,
+          "seed_variance_fraction_of_candidate_native_mse": 0.45892502690101034
+        }
+      },
+      "highest_normalized_error_cell": {
+        "candidate_native_residual_per_seed": [
+          -0.050158143043518066,
+          -0.21400809288024902,
+          -0.21400809288024902
+        ],
+        "candidate_normalized_mae": 1.4895832180103745,
+        "checkpoint_512_normalized_mae": 1.3072916394678555,
+        "horizon_offset": 14,
+        "joint_name": "kRightHandMiddle",
+        "source_row": 149
+      },
+      "interval_id": "episode_0047_median_comparison",
+      "raw_episode": "episode_0047",
+      "sample_index": 87
+    }
+  ],
+  "limitations": [
+    "Post hoc error-enriched selection; not an unbiased quality estimate or new acceptance test.",
+    "Five training episodes, three fixed inference seeds, no held-out or robot-success claim.",
+    "Observation/action variation and lag can reflect normal control; prediction error does not establish a recording defect.",
+    "Time values are nominal row-index times, not independently recorded sensor timestamps.",
+    "Retain/trim/repair/exclude decisions require the separate visual and timing evidence."
+  ],
+  "primary_interval_count": 10,
+  "quantitative_recommendation": {
+    "action": "retain",
+    "reason": "No trim, repair, or exclusion is justified by prediction error or command/state discrepancy alone. Preserve source and current data/config; use separate visual/timing evidence for final interval-specific recommendations.",
+    "status": "provisional_pending_combined_visual_timing_review"
+  },
+  "replay_helper_sha256": "210a70a37e8175c5c6ae9d5b56e1cc509c24816b3340670a05c1ff4133fcb6e3",
+  "reproduction": "vendor/Isaac-GR00T/.venv/bin/python -B experiments/pilot-interval-review-v1/replay.py; add --emit to print reproduced numeric records. Requires NumPy and bound saved files; performs no inference and writes no files.",
+  "required_input_bindings": {
+    "candidate_arrays": {
+      "path": "reports/pilot-fit-no-state-dropout-v1-evaluation.npz",
+      "sha256": "3bf6cb0db1b8bb37d69e956f3f481b2c8dc17a7c56b4d8280ef7a086e2a52be3"
+    },
+    "candidate_report": {
+      "path": "reports/pilot-fit-no-state-dropout-v1-evaluation.json",
+      "sha256": "137e7f1646db737f50706d006fbb8e97ec26cd4d66a1cbbfa6124715bd8ffd66"
+    },
+    "checkpoint_512_arrays": {
+      "path": "reports/pilot-fit-v1-evaluation.npz",
+      "sha256": "c767535faff2c78c33fa4b092854424d842e6af1b4866c458badc3bfb961e211"
+    },
+    "checkpoint_512_report": {
+      "path": "reports/pilot-fit-v1-evaluation.json",
+      "sha256": "bd9d5c0bfa078c5a18cac7b9c46de7bdcdf51eac2c628c344cfb6eb0c410b652"
+    },
+    "dataset_info": {
+      "path": "derived/lerobot/local/g1_inspire_pilot_v1/meta/info.json",
+      "sha256": "ffb76a43e2263670a1f175b92110e24b142cce1893e9b4e489b6755fc991c894"
+    },
+    "episode_000000_parquet": {
+      "path": "derived/lerobot/local/g1_inspire_pilot_v1/data/chunk-000/episode_000000.parquet",
+      "sha256": "7258f240f76bff7343093c58dee517cf92b15776238d68bcc0f4e02243121a03"
+    },
+    "episode_000001_parquet": {
+      "path": "derived/lerobot/local/g1_inspire_pilot_v1/data/chunk-000/episode_000001.parquet",
+      "sha256": "bce386664802cf721533b04d2cc58be43bb41a6fb0b84248da56bc9f9a8d9a84"
+    },
+    "episode_000002_parquet": {
+      "path": "derived/lerobot/local/g1_inspire_pilot_v1/data/chunk-000/episode_000002.parquet",
+      "sha256": "fa9a6903f167e0f1fa05cfa985a1a83ec85f9cdcdd85fb38c4a4b23044d1f6a8"
+    },
+    "episode_000003_parquet": {
+      "path": "derived/lerobot/local/g1_inspire_pilot_v1/data/chunk-000/episode_000003.parquet",
+      "sha256": "1f6282c767be95f54fc88ae8644e0018e631cb57f462aeaeffa8d20ffb37344a"
+    },
+    "episode_000004_parquet": {
+      "path": "derived/lerobot/local/g1_inspire_pilot_v1/data/chunk-000/episode_000004.parquet",
+      "sha256": "988abde73b0528e5c3628076f73faee91147e35dff38598c818eae5799ce7326"
+    },
+    "frozen_protocol": {
+      "path": "experiments/pilot-fit-no-state-dropout-v1/evaluation-protocol.json",
+      "sha256": "fd5fec3f0db608ad18dc43fc95501a6fdf39a0f006bac6db05fb2f5a8d0b8cc3"
+    },
+    "frozen_temporal_comparison": {
+      "path": "reports/pilot-fit-no-state-dropout-v1-temporal-comparison.json",
+      "sha256": "7b620abe5fdd3c00d5400d9f3f2ada40eb21028f96d14793b9b779d07868099a"
+    },
+    "frozen_temporal_declaration": {
+      "path": "reports/pilot-fit-v1-temporal-declaration.json",
+      "sha256": "cd8cd85ae3b18e2d258a7baafce62bcbc4e188f9d8d36a64364cbec9dff004d3"
+    },
+    "pilot_manifest": {
+      "path": "derived/pilot-v1/manifest.json",
+      "sha256": "4fefddb84a73f7c1167b1f2a1dc58c076426012a9b90411e353071c320457144"
+    },
+    "raw_episode_0037": {
+      "path": "data/g1_inspire_pick_up_black_box_clean/episode_0037/data.json",
+      "sha256": "81712f9d4d84c7cb89bc1b42f45dd7aef3335f4a6a4af5456c51098db314b3ab"
+    },
+    "raw_episode_0040": {
+      "path": "data/g1_inspire_pick_up_black_box_clean/episode_0040/data.json",
+      "sha256": "dae6515912a488ca83f556cabcb031f7c2b61426d5c7b600adf0184c79e0ac3b"
+    },
+    "raw_episode_0042": {
+      "path": "data/g1_inspire_pick_up_black_box_clean/episode_0042/data.json",
+      "sha256": "2eb72856d34778c2a9e5a9c04230aef6358db412ae8d8d7a787e73f7d8470058"
+    },
+    "raw_episode_0046": {
+      "path": "data/g1_inspire_pick_up_black_box_clean/episode_0046/data.json",
+      "sha256": "570e8407d601fab14283aa215ca0d8ccaaefd2282797c9159d52ede047d37071"
+    },
+    "raw_episode_0047": {
+      "path": "data/g1_inspire_pick_up_black_box_clean/episode_0047/data.json",
+      "sha256": "b23cb6a8a4aae23886ae683237b096ff58f3e0cb28306d82b7198cb31efb0a23"
+    },
+    "sample_manifest": {
+      "path": "reports/pilot-fit-v1-samples.json",
+      "sha256": "04cf0414ce4c4f21ceb263dfc7797b1dd23ffd7a88129dcfb98c1005d8e1f232"
+    }
+  },
+  "row_and_time_convention": "Zero-based inclusive row offsets; source idx equals row offset in these five episodes. A 16-row interval is start..start+15. Times are row/30 nominal seconds, not independently measured capture clocks.",
+  "schema_version": 1,
+  "scope": "Authorized bounded inspection only. No raw/converted data, training configuration, inference, frozen metrics, or acceptance gates changed.",
+  "selection_method": {
+    "candidate": "1024 additional updates from checkpoint 512; 1536 cumulative; state dropout 0",
+    "context": "Evaluated inclusive [start,start+15], extended by 30 rows each side and bounded to [0,episode_length-1].",
+    "highest_error": "Maximum score within episode; exact ties choose earliest start then lowest sample index.",
+    "median_comparison": "Remove windows whose 16 evaluated rows overlap the highest-error window; sort remaining by (score ascending,start ascending,sample_index ascending); choose zero-based rank floor((n-1)/2), the lower median.",
+    "nonoverlap": "Applies to evaluated 16-row windows, not extended context. Context overlap is allowed.",
+    "population": "The 100 frozen evaluated windows, 20 per episode; no extra prediction windows.",
+    "score": "Float64 arithmetic: mean of four group MAEs; each group averages abs(2*(prediction-target)/(upper-lower)) over 3 seeds and active horizon/joint cells. Bounds and active mask come from candidate NPZ. No clipping. Equal group weights.",
+    "selection_independent_of": [
+      "visual phase",
+      "image duplication",
+      "command/state lag",
+      "motion magnitude",
+      "checkpoint_512 error"
+    ],
+    "times": "Index-derived nominal 30 Hz seconds; Parquet timestamps are synthesized conversion timestamps, not independent sensor capture times."
+  },
+  "status": "quantitative_review_complete_visual_and_timing_disposition_separate",
+  "units": {
+    "left_arm": "radian",
+    "left_hand": "normalized hand command",
+    "right_arm": "radian",
+    "right_hand": "normalized hand command"
+  }
+}

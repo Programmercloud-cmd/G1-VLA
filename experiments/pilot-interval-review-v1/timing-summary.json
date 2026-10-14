@@ -1,0 +1,727 @@
+{
+  "schema_version": 1,
+  "artifact_type": "pilot_interval_timing_summary",
+  "status": "completed_bounded_review",
+  "scope": "Read-only inspection of five original pilot episodes and their existing v3/v2.1 conversions. No shift, trim, conversion, statistics, configuration, training, or model inference.",
+  "full_report": {
+    "local_path": "reports/pilot-interval-review-v1-timing.json",
+    "sha256": "8a74b29f82f19ff4518b95b16f900b1c494e66de6b4be5c5c00fb619b842794a",
+    "tracked": false
+  },
+  "source_bindings": {
+    "pilot_manifest_sha256": "4fefddb84a73f7c1167b1f2a1dc58c076426012a9b90411e353071c320457144",
+    "run_manifest_sha256": "598472d6c372a7198f6e35dce755f4525b6d6496a4771e0a38b8a068ccd81239",
+    "v3_parquet_sha256": "802d877240388b07241b8be94f7df200acee7e56c9fe924c65083f7d27a447f5",
+    "interval_selection_path": "reports/pilot-interval-review-v1-selection.json",
+    "interval_selection_sha256": "e24da88265975ea760f3cc51edeee8fb60641cb00147c2b0578793ae335e5a92",
+    "analysis_script_sha256": "db7298680c5b7136f89b3e5af578c7a153f10431552cae0e40d8be766d10c168",
+    "source_code_sha256": {
+      "vendor/unitree_lerobot/unitree_lerobot/utils/convert_unitree_json_to_lerobot.py": "4a5f5dcf9165a2301fe4d4f7c0850e56a94714833735f1b2ca3e8f280dce6eb7",
+      "vendor/unitree_lerobot/unitree_lerobot/lerobot/src/lerobot/datasets/lerobot_dataset.py": "1bd9e5f133f0931d73a20aab73ba8490ac2d4fa1308bf1a0b045981490afd504",
+      "vendor/Isaac-GR00T/scripts/lerobot_conversion/convert_v3_to_v2.py": "94bc600b613be43133aabcddde64ca3188048a09cd84e293afe4d5a79614e24c"
+    }
+  },
+  "method": {
+    "discontinuity_screen": "Absolute adjacent-row change >0.25 rad in any arm joint or >0.20 in any normalized hand command, separately for states and actions. Heuristic review flags, not hardware limits or proof of corruption.",
+    "low_motion": "Every one of 26 state channels AND every one of 26 action channels must satisfy the stated within-window peak-to-peak bound. Strict: 31 rows, 0.02 rad/0.02 hand. Sensitivity: 31 rows, 0.05 rad/0.05 hand. Short: 16 rows, 0.02/0.02. No visual idle classification is implied.",
+    "image_freeze": "Consecutive byte-identical original JPEG files, including runs of two frames. This proves repeated stored images, not camera-clock duration."
+  },
+  "timing_interpretation": {
+    "source": "Source info.date and info.image.fps describe a calendar day and nominal 30 Hz. idx and numeric image filenames establish row order, not acquisition times.",
+    "missing": [
+      "camera capture timestamps",
+      "state acquisition timestamps",
+      "command issue timestamps",
+      "actuator receipt/execution timestamps",
+      "clock domain identifiers"
+    ],
+    "conversion": "Pinned Unitree converter emits state[i], action[i], image[i] in JSON row order without a timestamp; pinned LeRobot add_frame synthesizes frame_index/fps. v3-to-v2.1 retains that nominal timebase.",
+    "conclusion": "No observed row permutation, dropped index, or conversion timestamp bug. Physical capture/command alignment and demonstration-to-actuator delay remain unmeasured. Signal correlation or state/action disagreement cannot justify shifting training targets."
+  },
+  "aggregate": {
+    "episodes": 5,
+    "rows": 2116,
+    "source_files_verified_against_frozen_pilot": 2121,
+    "source_mismatches": 0,
+    "original_jpegs_decoded": 2116,
+    "converted_video_frames_decoded_and_row_compared": 2116,
+    "duplicate_image_transitions": 216,
+    "adjacent_image_transitions": 2111,
+    "longest_identical_image_run_frames": 5,
+    "low_motion_covered_rows": {
+      "strict_1s": 54,
+      "sensitivity_1s": 133,
+      "strict_half_second": 76
+    },
+    "nonfinite_found": false,
+    "changes_performed": [],
+    "all_conversion_integrity_checks_passed": true,
+    "discontinuity_screen_flag_count": 0,
+    "duplicate_image_transition_fraction": 0.10232117479867361,
+    "low_motion_covered_row_fractions": {
+      "strict_1s": 0.02551984877126654,
+      "sensitivity_1s": 0.06285444234404537,
+      "strict_half_second": 0.035916824196597356
+    }
+  },
+  "episodes": [
+    {
+      "episode": "episode_0037",
+      "rows": 400,
+      "nominal_span_seconds": 13.3,
+      "source": {
+        "json_path": "data/g1_inspire_pick_up_black_box_clean/episode_0037/data.json",
+        "data_json_sha256": "81712f9d4d84c7cb89bc1b42f45dd7aef3335f4a6a4af5456c51098db314b3ab",
+        "frozen_episode_content_sha256": "ac2f6a8d4896cbd8ad911e7503193672a7653b1fadf23faf25ae1e8268b02108",
+        "source_files_verified": 401,
+        "hash_mismatches": 0,
+        "date": "2026-07-29",
+        "fps_nominal": 30.0,
+        "exif_clock_rows": []
+      },
+      "row_binding": {
+        "row_idx_equals_position": true,
+        "image_filename_index_equals_row": true,
+        "parquet_sha256": "7258f240f76bff7343093c58dee517cf92b15776238d68bcc0f4e02243121a03",
+        "parquet_matches_completed_run": true
+      },
+      "conversion_checks": {
+        "v2_1": {
+          "state_action_float32_exact": true,
+          "frame_global_episode_indices_exact": true,
+          "max_nominal_timestamp_error_seconds": 4.4504801444134046e-07
+        },
+        "v3": {
+          "state_action_float32_exact": true,
+          "frame_global_episode_indices_exact": true,
+          "max_nominal_timestamp_error_seconds": 4.4504801444134046e-07
+        }
+      },
+      "video": {
+        "path": "derived/lerobot/local/g1_inspire_pilot_v1/videos/chunk-000/observation.images.cam_left_high/episode_000000.mp4",
+        "sha256": "e28d496fd7e62eb40deb108ddab8120075395edffc548159d952a723837d7d64",
+        "decoded_frames": 400,
+        "all_row_raw_video_rgb_mae_mean": 2.2709427625868055,
+        "all_row_raw_video_rgb_mae_max": 2.9146853298611113,
+        "max_nominal_pts_error_seconds": 3.333333342681044e-07
+      },
+      "finite": {
+        "states": true,
+        "actions": true
+      },
+      "motion": {
+        "state": {
+          "max_arm_adjacent_absolute_change_rad": 0.06307297945022583,
+          "max_hand_adjacent_absolute_change_0_1": 0.08399999999999996,
+          "threshold_flag_count": 0
+        },
+        "action": {
+          "max_arm_adjacent_absolute_change_rad": 0.0709850685528311,
+          "max_hand_adjacent_absolute_change_0_1": 0.0409738363797163,
+          "threshold_flag_count": 0
+        }
+      },
+      "repeated_images": {
+        "duplicate_adjacent_transitions": 41,
+        "adjacent_transitions": 399,
+        "longest_run_rows": 5,
+        "max_nominal_first_to_last_span_seconds": 0.13333333333333333
+      },
+      "low_motion": {
+        "strict_1s": {
+          "qualifying_window_start_count": 24,
+          "covered_rows": 54,
+          "covered_row_fraction": 0.135,
+          "merged_covered_row_ranges_inclusive": [
+            [
+              346,
+              399
+            ]
+          ]
+        },
+        "sensitivity_1s": {
+          "qualifying_window_start_count": 28,
+          "covered_rows": 58,
+          "covered_row_fraction": 0.145,
+          "merged_covered_row_ranges_inclusive": [
+            [
+              342,
+              399
+            ]
+          ]
+        },
+        "strict_half_second": {
+          "qualifying_window_start_count": 40,
+          "covered_rows": 55,
+          "covered_row_fraction": 0.1375,
+          "merged_covered_row_ranges_inclusive": [
+            [
+              345,
+              399
+            ]
+          ]
+        }
+      },
+      "selected_intervals": [
+        {
+          "interval_id": "episode_0037_highest_error",
+          "evaluated_rows_inclusive": [
+            40,
+            55
+          ],
+          "context_rows_inclusive": [
+            10,
+            85
+          ],
+          "nonfinite_values": 0,
+          "overlapping_repeated_image_runs": [
+            {
+              "rows": [
+                47,
+                48
+              ],
+              "frames": 2
+            }
+          ]
+        },
+        {
+          "interval_id": "episode_0037_median_comparison",
+          "evaluated_rows_inclusive": [
+            141,
+            156
+          ],
+          "context_rows_inclusive": [
+            111,
+            186
+          ],
+          "nonfinite_values": 0,
+          "overlapping_repeated_image_runs": [
+            {
+              "rows": [
+                144,
+                145
+              ],
+              "frames": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "episode": "episode_0040",
+      "rows": 490,
+      "nominal_span_seconds": 16.3,
+      "source": {
+        "json_path": "data/g1_inspire_pick_up_black_box_clean/episode_0040/data.json",
+        "data_json_sha256": "dae6515912a488ca83f556cabcb031f7c2b61426d5c7b600adf0184c79e0ac3b",
+        "frozen_episode_content_sha256": "f6bab95c6e05f3c1dbc8c9bce6d219cbd557f99ad581bb6ed2f08d8dfe5ec061",
+        "source_files_verified": 491,
+        "hash_mismatches": 0,
+        "date": "2026-07-29",
+        "fps_nominal": 30.0,
+        "exif_clock_rows": []
+      },
+      "row_binding": {
+        "row_idx_equals_position": true,
+        "image_filename_index_equals_row": true,
+        "parquet_sha256": "bce386664802cf721533b04d2cc58be43bb41a6fb0b84248da56bc9f9a8d9a84",
+        "parquet_matches_completed_run": true
+      },
+      "conversion_checks": {
+        "v2_1": {
+          "state_action_float32_exact": true,
+          "frame_global_episode_indices_exact": true,
+          "max_nominal_timestamp_error_seconds": 8.900960288826809e-07
+        },
+        "v3": {
+          "state_action_float32_exact": true,
+          "frame_global_episode_indices_exact": true,
+          "max_nominal_timestamp_error_seconds": 8.900960288826809e-07
+        }
+      },
+      "video": {
+        "path": "derived/lerobot/local/g1_inspire_pilot_v1/videos/chunk-000/observation.images.cam_left_high/episode_000001.mp4",
+        "sha256": "5897a32423ba17f8870cd37a19ace22b4b38866e0ac1a490fa1182e846bd111a",
+        "decoded_frames": 490,
+        "all_row_raw_video_rgb_mae_mean": 2.2737090441645407,
+        "all_row_raw_video_rgb_mae_max": 2.7272352430555555,
+        "max_nominal_pts_error_seconds": 3.3333333604446125e-07
+      },
+      "finite": {
+        "states": true,
+        "actions": true
+      },
+      "motion": {
+        "state": {
+          "max_arm_adjacent_absolute_change_rad": 0.05028581619262695,
+          "max_hand_adjacent_absolute_change_0_1": 0.038000000000000034,
+          "threshold_flag_count": 0
+        },
+        "action": {
+          "max_arm_adjacent_absolute_change_rad": 0.06387971729590503,
+          "max_hand_adjacent_absolute_change_0_1": 0.015704029543844644,
+          "threshold_flag_count": 0
+        }
+      },
+      "repeated_images": {
+        "duplicate_adjacent_transitions": 39,
+        "adjacent_transitions": 489,
+        "longest_run_rows": 4,
+        "max_nominal_first_to_last_span_seconds": 0.1
+      },
+      "low_motion": {
+        "strict_1s": {
+          "qualifying_window_start_count": 0,
+          "covered_rows": 0,
+          "covered_row_fraction": 0.0,
+          "merged_covered_row_ranges_inclusive": []
+        },
+        "sensitivity_1s": {
+          "qualifying_window_start_count": 0,
+          "covered_rows": 0,
+          "covered_row_fraction": 0.0,
+          "merged_covered_row_ranges_inclusive": []
+        },
+        "strict_half_second": {
+          "qualifying_window_start_count": 0,
+          "covered_rows": 0,
+          "covered_row_fraction": 0.0,
+          "merged_covered_row_ranges_inclusive": []
+        }
+      },
+      "selected_intervals": [
+        {
+          "interval_id": "episode_0040_highest_error",
+          "evaluated_rows_inclusive": [
+            424,
+            439
+          ],
+          "context_rows_inclusive": [
+            394,
+            469
+          ],
+          "nonfinite_values": 0,
+          "overlapping_repeated_image_runs": [
+            {
+              "rows": [
+                424,
+                425
+              ],
+              "frames": 2
+            }
+          ]
+        },
+        {
+          "interval_id": "episode_0040_median_comparison",
+          "evaluated_rows_inclusive": [
+            274,
+            289
+          ],
+          "context_rows_inclusive": [
+            244,
+            319
+          ],
+          "nonfinite_values": 0,
+          "overlapping_repeated_image_runs": []
+        }
+      ]
+    },
+    {
+      "episode": "episode_0042",
+      "rows": 497,
+      "nominal_span_seconds": 16.533333333333335,
+      "source": {
+        "json_path": "data/g1_inspire_pick_up_black_box_clean/episode_0042/data.json",
+        "data_json_sha256": "2eb72856d34778c2a9e5a9c04230aef6358db412ae8d8d7a787e73f7d8470058",
+        "frozen_episode_content_sha256": "9856ede4bb2370a9d024a909d91581b4660e20afcc02523896f609639d4ec268",
+        "source_files_verified": 498,
+        "hash_mismatches": 0,
+        "date": "2026-07-29",
+        "fps_nominal": 30.0,
+        "exif_clock_rows": []
+      },
+      "row_binding": {
+        "row_idx_equals_position": true,
+        "image_filename_index_equals_row": true,
+        "parquet_sha256": "fa9a6903f167e0f1fa05cfa985a1a83ec85f9cdcdd85fb38c4a4b23044d1f6a8",
+        "parquet_matches_completed_run": true
+      },
+      "conversion_checks": {
+        "v2_1": {
+          "state_action_float32_exact": true,
+          "frame_global_episode_indices_exact": true,
+          "max_nominal_timestamp_error_seconds": 8.900960288826809e-07
+        },
+        "v3": {
+          "state_action_float32_exact": true,
+          "frame_global_episode_indices_exact": true,
+          "max_nominal_timestamp_error_seconds": 8.900960288826809e-07
+        }
+      },
+      "video": {
+        "path": "derived/lerobot/local/g1_inspire_pilot_v1/videos/chunk-000/observation.images.cam_left_high/episode_000002.mp4",
+        "sha256": "d2234cc5572d66d06c42c7fb9afe5a21e67910d563778aa491b9d2bb1ff71e7f",
+        "decoded_frames": 497,
+        "all_row_raw_video_rgb_mae_mean": 2.320266143300777,
+        "all_row_raw_video_rgb_mae_max": 3.174626736111111,
+        "max_nominal_pts_error_seconds": 3.3333333604446125e-07
+      },
+      "finite": {
+        "states": true,
+        "actions": true
+      },
+      "motion": {
+        "state": {
+          "max_arm_adjacent_absolute_change_rad": 0.06314486265182495,
+          "max_hand_adjacent_absolute_change_0_1": 0.05599999999999994,
+          "threshold_flag_count": 0
+        },
+        "action": {
+          "max_arm_adjacent_absolute_change_rad": 0.051758707498399614,
+          "max_hand_adjacent_absolute_change_0_1": 0.03886380188557015,
+          "threshold_flag_count": 0
+        }
+      },
+      "repeated_images": {
+        "duplicate_adjacent_transitions": 44,
+        "adjacent_transitions": 496,
+        "longest_run_rows": 5,
+        "max_nominal_first_to_last_span_seconds": 0.13333333333333333
+      },
+      "low_motion": {
+        "strict_1s": {
+          "qualifying_window_start_count": 0,
+          "covered_rows": 0,
+          "covered_row_fraction": 0.0,
+          "merged_covered_row_ranges_inclusive": []
+        },
+        "sensitivity_1s": {
+          "qualifying_window_start_count": 0,
+          "covered_rows": 0,
+          "covered_row_fraction": 0.0,
+          "merged_covered_row_ranges_inclusive": []
+        },
+        "strict_half_second": {
+          "qualifying_window_start_count": 0,
+          "covered_rows": 0,
+          "covered_row_fraction": 0.0,
+          "merged_covered_row_ranges_inclusive": []
+        }
+      },
+      "selected_intervals": [
+        {
+          "interval_id": "episode_0042_highest_error",
+          "evaluated_rows_inclusive": [
+            430,
+            445
+          ],
+          "context_rows_inclusive": [
+            400,
+            475
+          ],
+          "nonfinite_values": 0,
+          "overlapping_repeated_image_runs": []
+        },
+        {
+          "interval_id": "episode_0042_median_comparison",
+          "evaluated_rows_inclusive": [
+            278,
+            293
+          ],
+          "context_rows_inclusive": [
+            248,
+            323
+          ],
+          "nonfinite_values": 0,
+          "overlapping_repeated_image_runs": []
+        }
+      ]
+    },
+    {
+      "episode": "episode_0046",
+      "rows": 345,
+      "nominal_span_seconds": 11.466666666666667,
+      "source": {
+        "json_path": "data/g1_inspire_pick_up_black_box_clean/episode_0046/data.json",
+        "data_json_sha256": "570e8407d601fab14283aa215ca0d8ccaaefd2282797c9159d52ede047d37071",
+        "frozen_episode_content_sha256": "825c0361d7d3f47be48ecaa7800131b84aabc533bad14d17928f8127619691b7",
+        "source_files_verified": 346,
+        "hash_mismatches": 0,
+        "date": "2026-07-29",
+        "fps_nominal": 30.0,
+        "exif_clock_rows": []
+      },
+      "row_binding": {
+        "row_idx_equals_position": true,
+        "image_filename_index_equals_row": true,
+        "parquet_sha256": "1f6282c767be95f54fc88ae8644e0018e631cb57f462aeaeffa8d20ffb37344a",
+        "parquet_matches_completed_run": true
+      },
+      "conversion_checks": {
+        "v2_1": {
+          "state_action_float32_exact": true,
+          "frame_global_episode_indices_exact": true,
+          "max_nominal_timestamp_error_seconds": 4.4504801444134046e-07
+        },
+        "v3": {
+          "state_action_float32_exact": true,
+          "frame_global_episode_indices_exact": true,
+          "max_nominal_timestamp_error_seconds": 4.4504801444134046e-07
+        }
+      },
+      "video": {
+        "path": "derived/lerobot/local/g1_inspire_pilot_v1/videos/chunk-000/observation.images.cam_left_high/episode_000003.mp4",
+        "sha256": "2a0e2cbca72990f8bf8c70e00da139e17276caf697156a52f966be3d2925b551",
+        "decoded_frames": 345,
+        "all_row_raw_video_rgb_mae_mean": 2.2544529677435587,
+        "all_row_raw_video_rgb_mae_max": 2.708745659722222,
+        "max_nominal_pts_error_seconds": 3.333333342681044e-07
+      },
+      "finite": {
+        "states": true,
+        "actions": true
+      },
+      "motion": {
+        "state": {
+          "max_arm_adjacent_absolute_change_rad": 0.061011701822280884,
+          "max_hand_adjacent_absolute_change_0_1": 0.05800000000000005,
+          "threshold_flag_count": 0
+        },
+        "action": {
+          "max_arm_adjacent_absolute_change_rad": 0.06903749643363422,
+          "max_hand_adjacent_absolute_change_0_1": 0.04363023451828718,
+          "threshold_flag_count": 0
+        }
+      },
+      "repeated_images": {
+        "duplicate_adjacent_transitions": 39,
+        "adjacent_transitions": 344,
+        "longest_run_rows": 5,
+        "max_nominal_first_to_last_span_seconds": 0.13333333333333333
+      },
+      "low_motion": {
+        "strict_1s": {
+          "qualifying_window_start_count": 0,
+          "covered_rows": 0,
+          "covered_row_fraction": 0.0,
+          "merged_covered_row_ranges_inclusive": []
+        },
+        "sensitivity_1s": {
+          "qualifying_window_start_count": 5,
+          "covered_rows": 35,
+          "covered_row_fraction": 0.10144927536231885,
+          "merged_covered_row_ranges_inclusive": [
+            [
+              310,
+              344
+            ]
+          ]
+        },
+        "strict_half_second": {
+          "qualifying_window_start_count": 0,
+          "covered_rows": 0,
+          "covered_row_fraction": 0.0,
+          "merged_covered_row_ranges_inclusive": []
+        }
+      },
+      "selected_intervals": [
+        {
+          "interval_id": "episode_0046_highest_error",
+          "evaluated_rows_inclusive": [
+            329,
+            344
+          ],
+          "context_rows_inclusive": [
+            299,
+            344
+          ],
+          "nonfinite_values": 0,
+          "overlapping_repeated_image_runs": [
+            {
+              "rows": [
+                342,
+                343
+              ],
+              "frames": 2
+            }
+          ]
+        },
+        {
+          "interval_id": "episode_0046_median_comparison",
+          "evaluated_rows_inclusive": [
+            190,
+            205
+          ],
+          "context_rows_inclusive": [
+            160,
+            235
+          ],
+          "nonfinite_values": 0,
+          "overlapping_repeated_image_runs": [
+            {
+              "rows": [
+                196,
+                197
+              ],
+              "frames": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "episode": "episode_0047",
+      "rows": 384,
+      "nominal_span_seconds": 12.766666666666667,
+      "source": {
+        "json_path": "data/g1_inspire_pick_up_black_box_clean/episode_0047/data.json",
+        "data_json_sha256": "b23cb6a8a4aae23886ae683237b096ff58f3e0cb28306d82b7198cb31efb0a23",
+        "frozen_episode_content_sha256": "e1e8ea08f3c3d7b1a2d08f319eb63152935ee3a570fa772fc40322bccefa8669",
+        "source_files_verified": 385,
+        "hash_mismatches": 0,
+        "date": "2026-07-29",
+        "fps_nominal": 30.0,
+        "exif_clock_rows": []
+      },
+      "row_binding": {
+        "row_idx_equals_position": true,
+        "image_filename_index_equals_row": true,
+        "parquet_sha256": "988abde73b0528e5c3628076f73faee91147e35dff38598c818eae5799ce7326",
+        "parquet_matches_completed_run": true
+      },
+      "conversion_checks": {
+        "v2_1": {
+          "state_action_float32_exact": true,
+          "frame_global_episode_indices_exact": true,
+          "max_nominal_timestamp_error_seconds": 4.4504801444134046e-07
+        },
+        "v3": {
+          "state_action_float32_exact": true,
+          "frame_global_episode_indices_exact": true,
+          "max_nominal_timestamp_error_seconds": 4.4504801444134046e-07
+        }
+      },
+      "video": {
+        "path": "derived/lerobot/local/g1_inspire_pilot_v1/videos/chunk-000/observation.images.cam_left_high/episode_000004.mp4",
+        "sha256": "a6b225f8c78e72e48dfbc92c7d21083d38f0f3c6400be667ba8a46172ae14af7",
+        "decoded_frames": 384,
+        "all_row_raw_video_rgb_mae_mean": 2.2233649133752897,
+        "all_row_raw_video_rgb_mae_max": 2.76068359375,
+        "max_nominal_pts_error_seconds": 3.333333342681044e-07
+      },
+      "finite": {
+        "states": true,
+        "actions": true
+      },
+      "motion": {
+        "state": {
+          "max_arm_adjacent_absolute_change_rad": 0.05202353000640869,
+          "max_hand_adjacent_absolute_change_0_1": 0.06000000000000005,
+          "threshold_flag_count": 0
+        },
+        "action": {
+          "max_arm_adjacent_absolute_change_rad": 0.05802420553938342,
+          "max_hand_adjacent_absolute_change_0_1": 0.06441296964267418,
+          "threshold_flag_count": 0
+        }
+      },
+      "repeated_images": {
+        "duplicate_adjacent_transitions": 53,
+        "adjacent_transitions": 383,
+        "longest_run_rows": 5,
+        "max_nominal_first_to_last_span_seconds": 0.13333333333333333
+      },
+      "low_motion": {
+        "strict_1s": {
+          "qualifying_window_start_count": 0,
+          "covered_rows": 0,
+          "covered_row_fraction": 0.0,
+          "merged_covered_row_ranges_inclusive": []
+        },
+        "sensitivity_1s": {
+          "qualifying_window_start_count": 10,
+          "covered_rows": 40,
+          "covered_row_fraction": 0.10416666666666667,
+          "merged_covered_row_ranges_inclusive": [
+            [
+              344,
+              383
+            ]
+          ]
+        },
+        "strict_half_second": {
+          "qualifying_window_start_count": 6,
+          "covered_rows": 21,
+          "covered_row_fraction": 0.0546875,
+          "merged_covered_row_ranges_inclusive": [
+            [
+              361,
+              381
+            ]
+          ]
+        }
+      },
+      "selected_intervals": [
+        {
+          "interval_id": "episode_0047_highest_error",
+          "evaluated_rows_inclusive": [
+            0,
+            15
+          ],
+          "context_rows_inclusive": [
+            0,
+            45
+          ],
+          "nonfinite_values": 0,
+          "overlapping_repeated_image_runs": []
+        },
+        {
+          "interval_id": "episode_0047_median_comparison",
+          "evaluated_rows_inclusive": [
+            135,
+            150
+          ],
+          "context_rows_inclusive": [
+            105,
+            180
+          ],
+          "nonfinite_values": 0,
+          "overlapping_repeated_image_runs": []
+        }
+      ]
+    }
+  ],
+  "visual_cross_check": {
+    "path": "experiments/pilot-interval-review-v1/visual-findings.json",
+    "interpretation": {
+      "reviewer": "label_audit_early",
+      "scope": "Existing permitted 12-frame episode overviews and sampled stills within the 10 fixed contexts; no extra tail-image inspection requested.",
+      "findings": {
+        "episode_0037": "Overview rows363 and399 show the box elevated near the robot between both hands: carry/hold-like, not irrelevant idle.",
+        "episode_0046": "Overview rows313 and344 and selected context299\u2013344 show the elevated held box.",
+        "episode_0047": "Overview rows348 and383 show an elevated box with both hands.",
+        "episode_0040_and_0042": "Late overview frames show a held box with orientation adjustment."
+      },
+      "limitations": "Sampled visual evidence does not establish contact force, precise phase boundaries, successful execution, or synchronization.",
+      "recommendation": "Retain all10 reviewed intervals. Low-motion candidates are not defensible automatic trim boundaries."
+    },
+    "sha256": "4e47ae899c9c2e63162aa6973246eacb54aa4cf256b2c544a09e616cc969de73"
+  },
+  "decisions": {
+    "time_shift": "None supported: no independent source clocks or demonstrable conversion offset.",
+    "trimming": "None supported by this bounded review; retain holding/contact and selected intervals.",
+    "repeated_images": "Record short repetitions as source-quality observations; preserve row alignment. Without acquisition clocks, their physical duration and origin cannot be established.",
+    "future_recording": "Capture camera/state/command monotonic acquisition and issue clocks plus clock-domain/sequence metadata to measure synchronization directly."
+  },
+  "limits": [
+    "Only the five existing pilot episodes were checked; no new 125-episode inventory or quality certification was performed.",
+    "Contiguous stored indices and nominal converted timestamps do not prove acquisition continuity or physical synchronization.",
+    "A shared calendar date does not establish a session or independent collection groups.",
+    "Repeated JPEG bytes prove repeated stored images, not the cause or measured duration of a camera freeze.",
+    "Finite values and heuristic adjacent-row limits cannot rule out all mechanical faults or demonstrate tracking accuracy.",
+    "Low-motion windows include purposeful carry/holding; thresholds are descriptive screening choices and do not define trim boundaries.",
+    "Image comparison errors reflect lossy encoding and are not a substitute for the separately bounded visual review.",
+    "No correlation-based action shift was fitted or applied; no training or model inference occurred."
+  ],
+  "decoder_note": "OpenCV bundled AV1 decoding failed on this host; the existing project FFmpeg runtime decoded all videos successfully. The library failure is not classified as video corruption."
+}
