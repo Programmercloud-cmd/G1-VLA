@@ -46,45 +46,47 @@ Source checkouts are pinned submodules under `vendor/`: Isaac-GR00T, Unitree LeR
 
 ## Convert a small pilot
 
-Original recordings remain read-only. These commands create a new five-episode snapshot, convert it to LeRobot v3 and then v2.1, check raw values and decoded images, compute pilot statistics, and exercise GR00T's actual loader. Choose new run names when outputs already exist.
+Original recordings remain read-only. These commands create a new five-episode snapshot with reviewed workspace labels, convert it to LeRobot v3 and then v2.1, check raw values and decoded images, compute pilot statistics, and exercise GR00T's actual loader. The override manifest is bound to these recordings; other recordings need their own reviewed manifest. Choose new run names when outputs already exist.
 
 ```bash
-python3 scripts/prepare_pilot.py --count 5 --run pilot-v1 --max-mib 512
+python3 scripts/prepare_pilot.py \
+  --count 5 --run workspace-label-pilot-v1 --max-mib 512 \
+  --label-overrides annotations/goal-overrides-workspace-v1.json
 python3 scripts/convert_single_camera.py \
-  --pilot-root derived/pilot-v1 --repo-id local/g1_inspire_pilot_v1
+  --pilot-root derived/workspace-label-pilot-v1 --repo-id local/g1_workspace_label_pilot_v1
 python3 scripts/convert_single_camera.py --to-v21 \
-  --pilot-root derived/pilot-v1 --repo-id local/g1_inspire_pilot_v1
+  --pilot-root derived/workspace-label-pilot-v1 --repo-id local/g1_workspace_label_pilot_v1
 python3 scripts/prepare_gr00t_dataset.py \
-  --dataset derived/lerobot/local/g1_inspire_pilot_v1 \
-  --pilot-root derived/pilot-v1 --report derived/pilot-v1-validation.json \
+  --dataset derived/lerobot/local/g1_workspace_label_pilot_v1 \
+  --pilot-root derived/workspace-label-pilot-v1 --report derived/workspace-label-pilot-v1-validation.json \
   --apply-metadata --compute-stats
 python3 scripts/check_gr00t_loader.py \
-  --dataset derived/lerobot/local/g1_inspire_pilot_v1 \
-  --pilot-root derived/pilot-v1 --report derived/pilot-v1-loader.json
+  --dataset derived/lerobot/local/g1_workspace_label_pilot_v1 \
+  --pilot-root derived/workspace-label-pilot-v1 --report derived/workspace-label-pilot-v1-loader.json
 ```
 
 After conversion, check dataset and training capacity together:
 
 ```bash
 python3 scripts/verify_pipeline.py --level gpu --profile training \
-  --dataset derived/lerobot/local/g1_inspire_pilot_v1 \
-  --report reports/training-readiness.json
+  --dataset derived/lerobot/local/g1_workspace_label_pilot_v1 \
+  --report reports/workspace-label-pilot-v1-training-readiness.json
 ```
 
 The training profile requires the dataset metadata, an actual GR00T loader sample, at least 40 GiB total and currently free VRAM on selected CUDA device 0, 60 GiB available host RAM, and 35 GiB free run-output space. It also checks the configured disk reserve. A passing check is a readiness snapshot, not a memory guarantee for larger batches.
 
 The examples use the default relative directories; adjust explicit artifact paths when changing `paths.derived`. The converter preserves the snapshot's instructions and absolute joint targets. GR00T's processor makes arm targets relative to the observed state; hands remain absolute. Joint order is left arm 7, right arm 7, left hand 6, right hand 6. The one camera maps `color_0` to `cam_left_high`.
 
-The [task-label review and override workflow](docs/dataset-labels.md) covers a provisional 125 source JSON files with identical original goals and 337 image evidence references. One episode lacks local images; three remain on review hold (0092, 0136, 0165). Episode 0141's right/front correction was applied only in a new derived snapshot and passed snapshot and conversion validation. The global spatial reference remains pending; original recordings and the completed pilot are preserved. Accepted overrides require a new snapshot and conversion. The recorded task picks the same target box from varied positions; selecting different boxes from changing instructions still needs separate data/evaluation. See [the experiment plan](docs/execution-plan.md) for remaining dataset decisions.
+The [task-label review and override workflow](docs/dataset-labels.md) covers 125 provisional source JSON files with identical original goals and 337 image evidence references. The selected reference is the workspace as seen by the camera, not another box or a hard image-center split. The [accepted workspace overlay](annotations/goal-overrides-workspace-v1.json) has 122 accepted labels: 76 left/front, 44 right/front, and two front-only (0169, 0170); 0092, 0136, and 0165 remain on hold, with 0165 missing local images. [Annotation validation](annotations/workspace-label-validation-v1.json) checks the manifest and source bindings. The full corrected dataset has not been built or trained; only the earlier episode 0141 snapshot and conversion were integration-validated. Original recordings and the completed pilot are preserved. Selecting different boxes from changing instructions still needs separate data/evaluation; see [the experiment plan](docs/execution-plan.md).
 
 ## Run and reload the two-step smoke
 
 ```bash
 python3 scripts/run_gr00t_smoke.py \
-  --dataset derived/lerobot/local/g1_inspire_pilot_v1 --run smoke-v1
+  --dataset derived/lerobot/local/g1_workspace_label_pilot_v1 --run smoke-v1
 python3 scripts/reload_gr00t_checkpoint.py \
   --checkpoint /dev/shm/vla-groot-smoke/smoke-v1/checkpoint-2 \
-  --dataset derived/lerobot/local/g1_inspire_pilot_v1 \
+  --dataset derived/lerobot/local/g1_workspace_label_pilot_v1 \
   --report reports/smoke-v1-reload.json
 ```
 

@@ -1,0 +1,84 @@
+{
+  "artifact_type": "workspace_label_overlay_validation",
+  "summary_version": 1,
+  "created_at_utc": "2026-10-14T21:59:19.753506+00:00",
+  "status": "passed",
+  "reference_convention": "workspace_relative",
+  "decision_scope": "The selected workspace convention resolves the reference choice. Existing review holds remain excluded.",
+  "counts": {
+    "episodes": 125,
+    "accepted": 122,
+    "needs_review": 3,
+    "needs_review_episodes": [
+      "episode_0092",
+      "episode_0136",
+      "episode_0165"
+    ],
+    "accepted_spatial_phrase_counts": {
+      "on the left at the front": 76,
+      "on the right at the front": 44,
+      "at the front": 2
+    },
+    "accepted_goals_unchanged": 76,
+    "accepted_goals_changed": 46,
+    "front_only_episodes": [
+      "episode_0169",
+      "episode_0170"
+    ]
+  },
+  "checks": {
+    "existing_parse_label_overrides_passed": true,
+    "unique_episode_ids": 125,
+    "source_json_hashes_verified": 125,
+    "original_goals_verified": 125,
+    "source_frame_counts_verified": 125,
+    "current_source_json_inventory_matches_review": true,
+    "accepted_goals_equal_workspace_proposals": true,
+    "instruction_remainder_preserved": true,
+    "all_review_holds_preserved": true,
+    "held_entries_have_no_accepted_goal": true,
+    "evidence_references_preserved": 337,
+    "unavailable_evidence_references_preserved": 3,
+    "evidence_references_match_current_source_rows": true,
+    "frozen_review_unchanged": true,
+    "prior_episode_0141_overlay_unchanged": true,
+    "workspace_goals_and_confidence_match_frozen_proposals": true
+  },
+  "source_bindings": {
+    "source_root": "data/g1_inspire_pick_up_black_box_clean",
+    "source_json_inventory_sha256": "461eeb5430ad781e1b2f62324b4623ff1c8b2c1c18e70204f493d76de40bf54b",
+    "digest_definition": "SHA-256 of canonical sorted compact JSON mapping dataset-relative data.json paths to their exact-byte SHA-256 values."
+  },
+  "proposal_bindings": {
+    "source_field": "reviews[].proposals.workspace_relative",
+    "workspace_proposals_sha256": "d5f935c92becaa1a8156556523f4202179ced98c869df48ffd7999d15765eb02",
+    "digest_definition": "SHA-256 of canonical sorted compact JSON mapping episode IDs to their frozen workspace_relative proposal objects."
+  },
+  "artifacts": {
+    "source_review": {
+      "repository_relative_path": "annotations/spatial-goal-review-v1.json",
+      "sha256": "45bc1d8efc33a7e9439b7cd184ec3b9a9fc4ab9dd0727e5f32281065b6f58eeb"
+    },
+    "accepted_workspace_overlay": {
+      "repository_relative_path": "annotations/goal-overrides-workspace-v1.json",
+      "sha256": "16f1fa5baf0e835c5112dcfd7bd9bb778027d0ea33017561d7ae8a8f23d902bc"
+    },
+    "preserved_episode_0141_overlay": {
+      "repository_relative_path": "annotations/goal-overrides-0141-v1.json",
+      "sha256": "70726ebd098be91c66d1fbe152ce9db330d4dd8a9b2a42c209906942fe0b1836"
+    },
+    "ingestion_parser": {
+      "repository_relative_path": "scripts/prepare_pilot.py",
+      "sha256": "944cb4e7b6594bd611d37b75f63a9cb1b8c1169b3a76fd1d8ad89f976b59f2bc"
+    }
+  },
+  "work_performed": {
+    "raw_recordings_modified": false,
+    "snapshots_created": false,
+    "conversion_run": false,
+    "statistics_run": false,
+    "model_execution_run": false,
+    "training_run": false
+  },
+  "verification_scope": "Validated labels, source JSON bindings, evidence-reference preservation, and existing overlay parser compatibility. No new image review or recording-quality certification was performed."
+}
