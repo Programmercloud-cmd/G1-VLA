@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "artifact_type": "preparation_path_incident",
+  "status": "recovery_in_progress",
+  "executed_implementation_commit": "54734a0",
+  "preparation_helper_sha256": "ab1282d67d8bdb230d0b895b0503afcb193bbaddad5feba36953b11d2cea8fd3",
+  "failure_log": {
+    "path": "reports/larger-dataset-v1-conversion.log",
+    "sha256": "63044126d68ca8305f9ab0a5632601e7e953d0299ec02de4be19b7b108cdf026"
+  },
+  "cause": "Pinned NVIDIA converter rejects resolved video paths beneath /dev, including /dev/shm. It stopped before producing training v2.1 video files.",
+  "completed_training_v3": {
+    "episodes": 98,
+    "rows": 38751,
+    "bytes": 422523729,
+    "exact_float32_state_action_task_and_row_verification_passed": true
+  },
+  "partial_training_v2": {
+    "files": 101,
+    "bytes": 9827287,
+    "preservation": "Retain inactive partial output with explicit failure provenance during recovery."
+  },
+  "recovery": "Use fresh configurable external-disk staging for the unchanged pinned v3-to-v2 converter, then hash-verify copies back to RAM. Preserve completed v3 and source recordings. No data exclusion, re-encoding of completed training videos, or upstream path-guard bypass.",
+  "training_started": false
+}

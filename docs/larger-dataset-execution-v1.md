@@ -8,6 +8,7 @@ Run from the repository root with the pinned environments and configured storage
 VLA_CFG=reports/larger-dataset-v1-machine.json
 VLA_PY=vendor/Isaac-GR00T/.venv/bin/python
 VLA_DATA=/dev/shm/vla-large-data-v1
+VLA_STAGE=storage/derived/larger-dataset-v1-conversion
 VLA_RUN_ROOT=storage/runs
 VLA_RUN=larger-dataset-v1
 VLA_SPLIT=experiments/larger-dataset-v1/split.json
@@ -46,10 +47,26 @@ Create the two new snapshots sequentially, checking successful completion before
   --split-manifest "$VLA_SPLIT" \
   --train-snapshot "$VLA_DATA/snapshots/train" \
   --validation-snapshot "$VLA_DATA/snapshots/validation" \
-  --output-parent "$VLA_DATA/lerobot" --report "$VLA_CONVERSION"
+  --output-parent "$VLA_DATA/lerobot" --v21-staging-parent "$VLA_STAGE" \
+  --report "$VLA_CONVERSION"
 ```
 
+The pinned NVIDIA converter rejects resolved paths under `/dev`, including `/dev/shm`. V3 encoding can use RAM; v3-to-v2.1 conversion must use the supported staging volume. The helper verifies every copied file and runs the unchanged upstream converter there, then publishes verified v2.1 copies back into RAM. Omitting staging for a RAM output is rejected before encoding.
+
 Conversion retains separate v3.0 copies beside the final v2.1 datasets. It checks exact float32 states/actions, task text and row order, decodes final video frame counts, and compares three source-image anchors per episode. GR00T absolute and relative statistics are computed only for training. Validation contributes no processor statistics. The conversion report binds the split, snapshots, final file inventories and training statistics.
+
+The [recorded path incident](../experiments/larger-dataset-v1/conversion-path-incident.json) preserved the complete train v3 output and the failed first v2.1 partial. After the independent validation v3 encoder has completed, recover with the same conversion command plus `--resume`:
+
+```bash
+"$VLA_PY" -B scripts/prepare_dataset_split.py --config "$VLA_CFG" convert \
+  --split-manifest "$VLA_SPLIT" \
+  --train-snapshot "$VLA_DATA/snapshots/train" \
+  --validation-snapshot "$VLA_DATA/snapshots/validation" \
+  --output-parent "$VLA_DATA/lerobot" --v21-staging-parent "$VLA_STAGE" \
+  --report "$VLA_CONVERSION" --resume
+```
+
+Resume verifies existing v3 source/snapshot bindings and exact rows before reuse. It preserves failed RAM partial output under `lerobot/local/retained/` with its file inventory. After a fresh v2.1 copy passes full hashes, publication first renames the original v3 to its `_v3.0` sibling, then publishes v2.1 at the original active name; a receipt permits recovery between those two renames. Completed preparation phases are reused only with matching receipts. Incomplete external conversions and unreceipted metadata/statistics work fail closed, preserving their files for review. No completed v3 encoding is repeated automatically.
 
 Before bulk work, measure capacity on the actual host. The dedicated RAM-data budget is at most 8 GiB including estimated conversion temporary storage, while retaining at least 8 GiB free there and on the project volume. These are preparation preflight estimates, not a continuous conversion disk monitor. Preserve every existing output. The training run needs a separate durable output volume with at least 80 GiB free, at least 60 GiB available host RAM and 40 GiB free VRAM at launch. Its six-hour cap includes initialization and checkpoint writes; there is no automatic extension.
 
@@ -78,6 +95,8 @@ Finish CPU preparation before archiving the dedicated data root: its processor f
 ```
 
 A tiny real-host receiver fixture passed member-hash verification, file and directory fsync, and atomic publication on the configured storage. That fixture validates the transfer mechanism; it is not the production dataset archive. Its local evidence is `reports/larger-dataset-v1-receiver-fixture.json`.
+
+SSH is optional. With `storage.enabled=false`, the dataset archive uses the same receiver locally at `paths.archive/derived/larger-dataset-v1`, with the same capacity, member-hash, fsync and no-overwrite checks. Configure a durable local archive/output volume with sufficient free space; keep it separate from the working data root. Local archive destinations under `/dev/shm` are rejected. For checkpoint inventory on local storage, omit `--hash-via-ssh` from the loop below. The remaining evaluation and in-place publication commands are unchanged. The tiny automated local fixture mocks the free-space reading; real execution retains the 16 GiB archive-capacity preflight.
 
 The durable dataset artifact is `dataset.tar.gz`, with an adjacent `archive_manifest.json` and `archive_verification.json`; it is not an extracted dataset. For restoration, verify the compressed SHA256 from the archive report, extract only into a new empty directory, and verify the restored member sizes/hashes against the manifest before use. The archived processor must accompany the datasets. `/dev/shm` is temporary and cannot serve as the durable copy. Absolute paths inside historical evidence identify the original execution; relocation needs explicit new execution bindings rather than edits to frozen records.
 

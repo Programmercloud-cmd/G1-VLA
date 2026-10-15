@@ -2,7 +2,7 @@
 
 Status: approved; preparation in progress. No result from this experiment is claimed yet. The completed five-episode fitting tests and their failed persistence criterion remain unchanged.
 
-The [frozen split](split.json) contains 98 training episodes (38,751 frames) and 24 validation episodes (8,811 frames). The five historical pilot episodes stay in training. Episodes 0092, 0136 and 0165 remain on hold. All 122 accepted source JSONs and their 47,562 referenced images passed structural, value, decode and checksum checks. This verifies the selected local contents; completion of the original copying process is unconfirmed. Later arrivals cannot enter this frozen experiment.
+The [frozen split](split.json) contains 98 training episodes (38,751 frames) and 24 validation episodes (8,811 frames). The five historical pilot episodes stay in training. Episodes 0092, 0136 and 0165 remain on hold. All 122 accepted source JSONs and their 47,562 referenced images passed structural, value, decode and checksum checks. The user subsequently [confirmed copy completion](copy-completion.json). The split retains its contemporaneous assessment from before that confirmation; its membership and hashes remain unchanged.
 
 No genuine session or layout identifiers were recorded. Seed 42 determines the whole-episode split, stratified by the accepted workspace position. Training has 61 left/front, 36 right/front and one front-only episode; validation has 15, eight and one respectively. This split cannot establish generalization to new sessions or layouts.
 

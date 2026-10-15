@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "artifact_type": "source_copy_completion_confirmation",
+  "recorded_at_utc": "2026-10-15T00:06:59.449966+00:00",
+  "source": "user_confirmation_in_project_conversation",
+  "statement": "Copying is complete",
+  "split_manifest": {
+    "path": "experiments/larger-dataset-v1/split.json",
+    "sha256": "9a721d4bb14157a119650b4848c62e0cdd6134a843dc0e6d27b84d36e20e040b"
+  },
+  "scope": "Additional evidence received after the immutable split was frozen and all accepted required files were verified. The frozen split retains its original contemporaneous copy-status assessment; this record confirms subsequent user-reported completion. No new episodes are admitted."
+}

@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "artifact_type": "larger_dataset_recovery_implementation_validation",
+  "recorded_at_utc": "2026-10-15T00:21:54.179735+00:00",
+  "passed": true,
+  "scope": "Implementation validation only. Recovery conversion has been launched; no completed conversion, production archive, model evaluation or training is claimed here.",
+  "source_bindings": [
+    {
+      "path": "scripts/prepare_dataset_split.py",
+      "sha256": "b31af732ee3d2a3ad8d1f91edd9e576e3be64b344edcfafd2d03497f281182ee"
+    },
+    {
+      "path": "tests/test_dataset_split.py",
+      "sha256": "c75489e7831b52ab519110332f6179cdd9bb7b10d52c85d78fbbdf1dc804d60b"
+    },
+    {
+      "path": "docs/larger-dataset-execution-v1.md",
+      "sha256": "027bef0997cb6949ad053c4024f4db453708ea7193e5a95040f23b9202c79e1c"
+    }
+  ],
+  "frozen_split": {
+    "path": "experiments/larger-dataset-v1/split.json",
+    "sha256": "9a721d4bb14157a119650b4848c62e0cdd6134a843dc0e6d27b84d36e20e040b"
+  },
+  "prior_implementation_validation": {
+    "path": "experiments/larger-dataset-v1/implementation-validation.json",
+    "sha256": "51865cca4f971215b93d5410efa1c5a5eff4391a48e697e317cbc21a3ba27671"
+  },
+  "tests": {
+    "command": "CUDA_VISIBLE_DEVICES='' vendor/Isaac-GR00T/.venv/bin/python -B -m unittest discover -s tests -p test_dataset_split.py -v",
+    "tests_run": 20,
+    "tests_passed": 20,
+    "tests_skipped": 0,
+    "elapsed_seconds": 1.782,
+    "exit_code": 0,
+    "log": {
+      "path": "reports/larger-dataset-v1-recovery-tests.log",
+      "sha256": "10db660cd524aa75dd35cb9ccd160fb3d7c4403df529e5ec50f3e14473837736"
+    },
+    "coverage": [
+      "Original deterministic split, raw preservation and source-bound goal-only snapshots remain covered.",
+      "Local compressed archive succeeds without SSH, rejects transient /dev/shm destinations, retains inputs and refuses repeated output.",
+      "Unsupported RAM conversion without staging fails before encoding.",
+      "Verified copies reject existing outputs and corrupted bytes without changing source data.",
+      "Publication preserves original v3 and failed partial inventory; interruption between renames resumes from receipt-bound copies.",
+      "Already-published changes and unowned outputs fail closed; retained partial bindings survive resume.",
+      "Staged orchestration fixture reuses complete v3, invokes statistics only for training, and reuses fully prepared receipts."
+    ],
+    "fixture_limits": [
+      "The tiny automated archive fixture mocks the free-space reading; actual archive execution retains the 16 GiB capacity preflight.",
+      "The staged orchestration fixture uses real Arrow row checks and file hashes but substitutes pinned converter/video-validator subprocesses. It verifies command ownership and train-only statistics invocation, not production video conversion."
+    ]
+  },
+  "peer_review": {
+    "method": "Independent read-only source review by sibling label_audit_middle",
+    "reviewed_helper_sha256": "b31af732ee3d2a3ad8d1f91edd9e576e3be64b344edcfafd2d03497f281182ee",
+    "result": "No remaining material preservation, split or statistics issue in the fresh recovery path.",
+    "resolved_findings": [
+      "Recover and verify retained-partial bindings after publication resume.",
+      "Fail closed for unreceipted metadata/statistics rather than adopting an existing report/cache."
+    ]
+  },
+  "real_host_archive_receiver_fixture": {
+    "path": "reports/larger-dataset-v1-receiver-fixture.json",
+    "sha256": "bf59f787ffb4dd5a4d2325391e2e33dfb33ae021ea1318f14c0af97199be75c1",
+    "passed": true,
+    "file_count": 1,
+    "total_bytes": 41,
+    "compressed_bytes": 266,
+    "all_member_sha256_match": true,
+    "archive_file_and_metadata_fsync_completed": true,
+    "directory_fsync_and_atomic_publication_passed": true,
+    "capacity_mocked": false,
+    "scope": "Tiny synthetic transfer on configured host storage; not a production dataset archive."
+  },
+  "recovery_contract": {
+    "vendor_changes": false,
+    "path_guard_bypass": false,
+    "completed_v3_reencoded": false,
+    "explicit_flags": [
+      "--v21-staging-parent",
+      "--resume"
+    ],
+    "preservation": "Original v3 becomes the _v3.0 sibling only after a fresh copied v2.1 passes all file hashes. Failed RAM partial output is retained with its inventory. No existing destinations are overwritten.",
+    "resume_scope": "Complete source/staged/fully prepared phases and the gap between publication renames; unreceipted metadata/statistics and incomplete external conversions fail closed.",
+    "statistics_owner": "train"
+  },
+  "bulk_execution": "Root workflow owns host recovery, full post-conversion validation and subsequent archival; its reports remain separate evidence."
+}

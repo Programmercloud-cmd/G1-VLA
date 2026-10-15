@@ -338,7 +338,205 @@ def verify_rows(dataset,snapshot_root):
     return {'passed':True,'format':info['codebase_version'],'episodes':len(manifest['episodes']),'rows':running,'float32_state_action_exact':True,'task_text_exact':True,'row_order_exact':True}
 
 
-def convert(split_path,train_snapshot,validation_snapshot,output_parent,report_path,config):
+def tree_inventory(path):
+    path=Path(path)
+    if path.is_symlink() or not path.is_dir():raise ValueError('Expected ordinary conversion directory')
+    paths=sorted(path.rglob('*'))
+    if any(p.is_symlink() for p in paths):raise ValueError('Conversion tree contains symlinks')
+    result={str(p.relative_to(path)):digest(p) for p in paths if p.is_file()}
+    if not result:raise ValueError('Empty conversion tree')
+    return result
+
+
+def verify_tree(path,expected):
+    if tree_inventory(path)!=expected:raise ValueError('Conversion copy inventory/hash mismatch: '+str(path))
+
+
+def copy_tree_verified(source,destination):
+    source,destination=Path(source),Path(destination)
+    if destination.exists() or destination.is_symlink():raise FileExistsError(destination)
+    expected=tree_inventory(source);destination.mkdir(parents=True)
+    for name,sha in expected.items():
+        target=destination/name;target.parent.mkdir(parents=True,exist_ok=True)
+        shutil.copyfile(source/name,target)
+        if digest(target)!=sha:raise ValueError('Conversion copy hash mismatch: '+name)
+    verify_tree(source,expected);verify_tree(destination,expected)
+    return expected
+
+
+def require_v21_location(path):
+    path=Path(path).resolve()
+    if any(path==Path(p) or path.is_relative_to(p) for p in ['/etc','/sys','/proc','/dev','/boot','/root']):
+        raise ValueError('Pinned NVIDIA v2.1 conversion rejects system paths; supply --v21-staging-parent on supported configured storage before encoding')
+
+
+def receipt(path,value):
+    path=Path(path)
+    if path.exists():
+        if json.loads(path.read_text())!=value:raise ValueError('Conversion phase receipt differs: '+str(path))
+    else:write_new(path,value)
+
+
+def v3_source_binding(path,snapshot_root,manifest):
+    if json.loads((path/'meta/info.json').read_text()).get('codebase_version')!='v3.0':raise ValueError('Expected a complete v3 source')
+    record=json.loads((path/'conversion_provenance.json').read_text())
+    expected=[{'episode':r['episode'],'content_sha256':r['content_sha256']} for r in manifest['episodes']]
+    if (Path(record['pilot_manifest']).resolve()!=(snapshot_root/'manifest.json').resolve()
+            or record['episodes']!=expected or record['camera']!={'color_0':'cam_left_high'}
+            or record['push_to_hub'] is not False):raise ValueError('Existing v3 source/snapshot provenance differs')
+    locked=json.loads((PROJECT_ROOT/'locks/runtime-sources.json').read_text())['unitree_lerobot']['commit']
+    if record['unitree_commit']!=locked:raise ValueError('Existing v3 converter source differs from lock')
+
+
+def publish_staged_v2(dataset,staged,v3_files,v2_files,identity):
+    """Publish only verified new copies; resume the gap between the two renames."""
+    dataset,staged=Path(dataset),Path(staged)
+    backup=dataset.with_name(dataset.name+'_v3.0');ready=dataset.with_name(dataset.name+'_v2.1-verified')
+    publication=dataset.parent/(dataset.name+'-publication.json')
+    value={**identity,'v3_files_sha256':v3_files,'v2_files_sha256':v2_files,'staged_dataset':ref(staged)}
+    retained=[]
+    if dataset.exists() and json.loads((dataset/'meta/info.json').read_text()).get('codebase_version')=='v2.1':
+        if not publication.is_file():raise ValueError('Existing v2 output lacks publication ownership receipt')
+        receipt(publication,value);verify_tree(backup,v3_files);verify_tree(staged,v2_files);verify_tree(dataset,v2_files)
+        retained_path=dataset.parent/'retained'/(dataset.name+'_v2.1-retained.json')
+        if retained_path.exists():
+            record=json.loads(retained_path.read_text());saved=dataset.parent/'retained'/(dataset.name+'_v2.1')
+            if record['retained_path']!=ref(saved):raise ValueError('Retained partial path binding differs')
+            verify_tree(saved,record['files_sha256']);retained.append(binding(retained_path))
+        return retained,value
+    source=backup if backup.exists() else dataset
+    verify_tree(source,v3_files);verify_tree(staged,v2_files)
+    if ready.exists():verify_tree(ready,v2_files)
+    else:copy_tree_verified(staged,ready)
+    receipt(publication,value)
+    # Preserve any failed original attempt before publishing into the active name.
+    partial=dataset.with_name(dataset.name+'_v2.1')
+    saved=dataset.parent/'retained'/partial.name;record_path=saved.with_name(saved.name+'-retained.json')
+    if partial.exists() or saved.exists() or record_path.exists():
+        if partial.exists() and saved.exists():raise ValueError('Both failed and retained conversion directories exist')
+        current=partial if partial.exists() else saved
+        record={'original_path':ref(partial),'retained_path':ref(saved),'files_sha256':tree_inventory(current),
+                'reason':'Preserved pre-existing incomplete v2.1 sibling before guarded staged conversion publication'}
+        receipt(record_path,record)
+        if partial.exists():
+            saved.parent.mkdir(parents=True,exist_ok=True)
+            if saved.exists():raise FileExistsError(saved)
+            partial.rename(saved)
+        verify_tree(saved,record['files_sha256']);retained.append(binding(record_path))
+    if not backup.exists():
+        if not dataset.exists():raise ValueError('Missing original v3 source')
+        verify_tree(dataset,v3_files)
+        if backup.exists():raise FileExistsError(backup)
+        dataset.rename(backup)
+    else:
+        verify_tree(backup,v3_files)
+        if dataset.exists():raise FileExistsError(dataset)
+    # A crash after the preceding rename leaves backup + ready, both receipt-bound.
+    verify_tree(ready,v2_files)
+    if dataset.exists() or dataset.is_symlink():raise FileExistsError(dataset)
+    ready.rename(dataset);verify_tree(dataset,v2_files)
+    return retained,value
+
+
+def convert_staged(split_path,train_snapshot,validation_snapshot,output_parent,report_path,config,staging_parent,resume):
+    frozen=load_split_manifest(split_path);parent=guard_derived(output_parent,config);stage=guard_derived(staging_parent,config)
+    require_v21_location(stage)
+    if parent==stage or parent.is_relative_to(stage) or stage.is_relative_to(parent):raise ValueError('Conversion staging and working roots must be separate')
+    if Path(report_path).exists():raise FileExistsError(report_path)
+    snapshots={'train':guard_derived(train_snapshot,config),'validation':guard_derived(validation_snapshot,config)}
+    runtime=load_runtime(config);env=runtime_environment(config,offline=True)
+    common=['--config',str(config['config_path'])] if config['config_path'].exists() else []
+    total=sum(r['source_bytes'] for r in frozen['episodes'])
+    budget=math.ceil(total*.50)+2*max(r['rows'] for r in frozen['episodes'])*640*480*3+256*1024**2
+    snapshot_bytes=sum(sum(p.stat().st_size for p in snap.rglob('*') if p.is_file()) for snap in snapshots.values())
+    if snapshot_bytes+budget>8*1024**3:raise ValueError('Estimated data/conversion peak exceeds 8 GiB bulk budget')
+    capacity(parent,budget,config);capacity(stage,math.ceil(total*.50),config)
+    results={};retained=[]
+    for split,snap in snapshots.items():
+        manifest=validate_snapshot(snap)
+        if (manifest.get('split_manifest_sha256')!=digest(Path(split_path)) or manifest.get('split')!=split
+                or [r['episode'] for r in manifest['episodes']]!=frozen['splits'][split]):raise ValueError('Snapshot does not match frozen split')
+        name=f'g1_inspire_larger_v1_{split}';repo='local/'+name;dataset=parent/repo;staged=stage/repo
+        backup=dataset.with_name(name+'_v3.0');done=parent/(name+'-prepared.json')
+        identity={'split_manifest_sha256':digest(Path(split_path)),'snapshot_manifest_sha256':digest(snap/'manifest.json'),'split':split}
+        verify=[str(runtime['interpreters']['gr00t']),str(Path(__file__).resolve()),*common,'verify-rows','--snapshot-root',str(snap)]
+        if done.exists():
+            if not resume:raise FileExistsError(done)
+            completed=json.loads(done.read_text())
+            if completed['identity']!=identity:raise ValueError('Completed conversion belongs to different frozen inputs')
+            result=completed['result']
+            if result['dataset_path']!=ref(dataset) or result['snapshot_manifest']!=binding(snap/'manifest.json'):raise ValueError('Prepared dataset identity differs')
+            verify_tree(dataset,result['files_sha256']);v3_source_binding(backup,snap,manifest)
+            publication=json.loads((dataset.parent/(name+'-publication.json')).read_text())
+            verify_tree(backup,publication['v3_files_sha256'])
+            if digest(resolve_path(result['validation_report']['path']))!=result['validation_report']['sha256']:raise ValueError('Conversion validation report changed')
+            for item in completed['retained_outputs']:
+                retained_path=resolve_path(item['path'])
+                if digest(retained_path)!=item['sha256']:raise ValueError('Retained partial record changed')
+                record=json.loads(retained_path.read_text());verify_tree(resolve_path(record['retained_path']),record['files_sha256'])
+            subprocess.run([*verify,'--dataset',str(dataset)],check=True,cwd=PROJECT_ROOT,env=env)
+            results[split]=result;retained.extend(completed['retained_outputs']);continue
+        occupied=any(p.exists() or p.is_symlink() for p in [dataset,backup,staged])
+        if occupied and not resume:raise FileExistsError('Existing conversion phase requires explicit --resume')
+        source=backup if backup.exists() else dataset
+        base=[str(runtime['interpreters']['unitree']),str(PROJECT_ROOT/'scripts/convert_single_camera.py'),*common,'--pilot-root',str(snap),'--repo-id',repo]
+        if not source.exists():
+            subprocess.run([*base,'--output-parent',str(parent)],check=True,cwd=PROJECT_ROOT,env=env)
+        v3_source_binding(source,snap,manifest)
+        subprocess.run([*verify,'--dataset',str(source)],check=True,cwd=PROJECT_ROOT,env=env)
+        v3_files=tree_inventory(source)
+        source_receipt=stage/(name+'-v3-source.json')
+        source_record={**identity,'files_sha256':v3_files}
+        stage_backup=staged.with_name(name+'_v3.0');stage_partial=staged.with_name(name+'_v2.1')
+        if not staged.exists():
+            if stage_backup.exists() or stage_partial.exists():raise FileExistsError('Incomplete external conversion needs a fresh staging parent')
+            copy_tree_verified(source,staged)
+        receipt(source_receipt,source_record)
+        version=json.loads((staged/'meta/info.json').read_text()).get('codebase_version')
+        if version=='v3.0':
+            verify_tree(staged,v3_files)
+            # Unchanged wrapper refuses either occupied sibling before upstream's destructive rerun branch.
+            if stage_backup.exists() or stage_partial.exists():raise FileExistsError('Preserve incomplete external conversion and choose a fresh staging parent')
+            subprocess.run([*base,'--output-parent',str(stage),'--to-v21'],check=True,cwd=PROJECT_ROOT,env=env)
+        elif version!='v2.1':raise ValueError('Unknown staged dataset format')
+        verify_tree(stage_backup,v3_files)
+        subprocess.run([*verify,'--dataset',str(staged)],check=True,cwd=PROJECT_ROOT,env=env)
+        v2_files=tree_inventory(staged)
+        receipt(stage/(name+'-v2-complete.json'),{**identity,'files_sha256':v2_files,'v3_source_receipt':binding(source_receipt)})
+        saved,publication=publish_staged_v2(dataset,staged,v3_files,v2_files,identity);retained.extend(saved)
+        subprocess.run([*verify,'--dataset',str(dataset)],check=True,cwd=PROJECT_ROOT,env=env)
+        validation_report=dataset.parent/(name+'-validation.json')
+        # Completed preparation is reusable only through its final receipt. Partial
+        # metadata/statistics work fails closed rather than adopting an unbound cache.
+        if validation_report.exists():raise FileExistsError('Unreceipted metadata preparation requires review; existing report preserved')
+        command=[str(runtime['interpreters']['gr00t']),str(PROJECT_ROOT/'scripts/prepare_gr00t_dataset.py'),*common,'--dataset',str(dataset),'--pilot-root',str(snap),'--report',str(validation_report),'--apply-metadata']
+        if split=='train':command.append('--compute-stats')
+        subprocess.run(command,check=True,cwd=PROJECT_ROOT,env=env)
+        subprocess.run([*verify,'--dataset',str(dataset)],check=True,cwd=PROJECT_ROOT,env=env)
+        result={'dataset_path':ref(dataset),'snapshot_manifest':binding(snap/'manifest.json'),'files_sha256':tree_inventory(dataset),
+                'validation_report':binding(validation_report),'v3_dataset_path':ref(backup),
+                'staged_conversion_receipt':binding(stage/(name+'-v2-complete.json'))}
+        receipt(done,{'identity':identity,'result':result,'retained_outputs':saved});results[split]=result
+    train=resolve_path(results['train']['dataset_path'])
+    value={'schema_version':1,'artifact_type':'larger_dataset_conversion','split_manifest':binding(split_path),'splits':results,
+        'statistics':{'owner':'train','stats_json':binding(train/'meta/stats.json'),'relative_stats_json':binding(train/'meta/relative_stats.json'),
+                      'validation_policy':'Only training runs GR00T statistics; validation uses the frozen training processor.'},
+        'recovery':{'staging_parent':ref(stage),'resume_requested':resume,'retained_outputs':retained,
+                    'policy':'Pinned converter unchanged; complete v3 reused, verified copies published with original v3 preserved.'},
+        'implementation_sha256':digest(Path(__file__)),
+        'validation_scope':'Exact float32 states/actions, goals and row order in both formats; final video frame counts and three source-image anchors per episode checked.'}
+    write_new(report_path,value);return value
+
+
+def convert(split_path,train_snapshot,validation_snapshot,output_parent,report_path,config,staging_parent=None,resume=False):
+    if staging_parent is not None:
+        return convert_staged(split_path,train_snapshot,validation_snapshot,output_parent,report_path,config,staging_parent,resume)
+    require_v21_location(output_parent)
+    if resume:raise ValueError('--resume requires explicit --v21-staging-parent')
+    return convert_direct(split_path,train_snapshot,validation_snapshot,output_parent,report_path,config)
+
+
+def convert_direct(split_path,train_snapshot,validation_snapshot,output_parent,report_path,config):
     frozen=load_split_manifest(split_path);parent=guard_derived(output_parent,config);runtime=load_runtime(config)
     if Path(report_path).exists():raise FileExistsError(report_path)
     snapshots={'train':guard_derived(train_snapshot,config),'validation':guard_derived(validation_snapshot,config)}
@@ -439,7 +637,13 @@ print(json.dumps(report))
 def archive_dataset(data_root, split_path, conversion_path, manifest_path, report_path, config):
     root=guard_derived(data_root,config)
     if root!=config['paths']['derived'].resolve():raise ValueError('Archive only the dedicated configured larger-data root')
-    if not config['storage']['enabled']:raise ValueError('This bounded archive requires configured SSH storage')
+    if not config['storage']['enabled']:
+        destination=(config['paths']['archive']/'derived/larger-dataset-v1').resolve()
+        if destination.is_relative_to(Path('/dev/shm')):
+            raise ValueError('Local data archive requires durable storage outside /dev/shm')
+        if (not destination.is_relative_to(config['paths']['archive'].resolve())
+                or destination.is_relative_to(root) or root.is_relative_to(destination)):
+            raise ValueError('Local archive destination escapes archive storage or overlaps working data')
     if Path(report_path).exists() or Path(manifest_path).exists():raise FileExistsError('Archive evidence already exists')
     split=load_split_manifest(split_path);conversion=json.loads(Path(conversion_path).read_text())
     if conversion.get('artifact_type')!='larger_dataset_conversion' or conversion['split_manifest']['sha256']!=digest(Path(split_path)):raise ValueError('Conversion/split binding mismatch')
@@ -477,9 +681,13 @@ def archive_dataset(data_root, split_path, conversion_path, manifest_path, repor
             key=str((dataset/name).relative_to(root))
             if archive_hashes.get(key)!=expected:raise ValueError('Converted data changed before archive')
     write_new(manifest_path,manifest);manifest_sha=digest(Path(manifest_path))
-    destination=str(Path(config['storage']['remote_path'])/'derived/larger-dataset-v1')
-    command=' '.join(shlex.quote(arg) for arg in ['python3','-c',ARCHIVE_RECEIVER,destination,manifest_sha])
-    with subprocess.Popen(['ssh','-o','BatchMode=yes','-o','ConnectTimeout=15',config['storage']['host'],command],stdin=subprocess.PIPE,stdout=subprocess.PIPE) as process:
+    if config['storage']['enabled']:
+        destination=str(Path(config['storage']['remote_path'])/'derived/larger-dataset-v1')
+        command=' '.join(shlex.quote(arg) for arg in ['python3','-c',ARCHIVE_RECEIVER,destination,manifest_sha])
+        transfer=['ssh','-o','BatchMode=yes','-o','ConnectTimeout=15',config['storage']['host'],command]
+    else:
+        transfer=[sys.executable,'-c',ARCHIVE_RECEIVER,str(destination),manifest_sha]
+    with subprocess.Popen(transfer,stdin=subprocess.PIPE,stdout=subprocess.PIPE) as process:
         try:
             with tarfile.open(fileobj=process.stdin,mode='w|gz',compresslevel=1) as stream:
                 stream.add(manifest_path,arcname='archive_manifest.json',recursive=False)
@@ -500,7 +708,7 @@ def main():
     p=sub.add_parser('freeze');p.add_argument('--inventory',type=Path,required=True);p.add_argument('--output',type=Path,required=True);p.add_argument('--copy-completion-report',type=Path)
     p=sub.add_parser('snapshot');p.add_argument('--split-manifest',type=Path,required=True);p.add_argument('--split',choices=['train','validation'],required=True);p.add_argument('--output',type=Path,required=True);p.add_argument('--max-mib',type=int,default=MAX_SNAPSHOT_MIB)
     p=sub.add_parser('verify-rows');p.add_argument('--dataset',type=Path,required=True);p.add_argument('--snapshot-root',type=Path,required=True)
-    p=sub.add_parser('convert');p.add_argument('--split-manifest',type=Path,required=True);p.add_argument('--train-snapshot',type=Path,required=True);p.add_argument('--validation-snapshot',type=Path,required=True);p.add_argument('--output-parent',type=Path,required=True);p.add_argument('--report',type=Path,required=True)
+    p=sub.add_parser('convert');p.add_argument('--split-manifest',type=Path,required=True);p.add_argument('--train-snapshot',type=Path,required=True);p.add_argument('--validation-snapshot',type=Path,required=True);p.add_argument('--output-parent',type=Path,required=True);p.add_argument('--report',type=Path,required=True);p.add_argument('--v21-staging-parent',type=Path);p.add_argument('--resume',action='store_true')
     p=sub.add_parser('archive');p.add_argument('--data-root',type=Path,required=True);p.add_argument('--split-manifest',type=Path,required=True);p.add_argument('--conversion-manifest',type=Path,required=True);p.add_argument('--manifest',type=Path,required=True);p.add_argument('--report',type=Path,required=True)
     args=parser.parse_args();config=load_config(args.config)
     if args.action=='inventory':inventory(resolve_path(args.raw_root or config['paths']['raw_data']),resolve_path(args.label_overrides),resolve_path(args.output))
@@ -508,7 +716,7 @@ def main():
     elif args.action=='snapshot':snapshot(resolve_path(args.split_manifest),args.split,resolve_path(args.output),config,args.max_mib)
     elif args.action=='verify-rows':print(json.dumps(verify_rows(resolve_path(args.dataset),resolve_path(args.snapshot_root))))
     elif args.action=='archive':archive_dataset(resolve_path(args.data_root),resolve_path(args.split_manifest),resolve_path(args.conversion_manifest),resolve_path(args.manifest),resolve_path(args.report),config)
-    else:convert(resolve_path(args.split_manifest),resolve_path(args.train_snapshot),resolve_path(args.validation_snapshot),resolve_path(args.output_parent),resolve_path(args.report),config)
+    else:convert(resolve_path(args.split_manifest),resolve_path(args.train_snapshot),resolve_path(args.validation_snapshot),resolve_path(args.output_parent),resolve_path(args.report),config,resolve_path(args.v21_staging_parent) if args.v21_staging_parent else None,args.resume)
 
 
 if __name__=='__main__':
