@@ -1,0 +1,242 @@
+{
+  "schema_version": 1,
+  "artifact_type": "larger_dataset_session_closeout",
+  "recorded_at_utc": "2026-10-15T01:08:47.831982+00:00",
+  "status": "cpu_prepared_and_durably_archived_training_deferred",
+  "implementation_commit": "1382decfeecb9db7b6069bc18d8ffd279495a931",
+  "user_direction": "User deferred the long training run and requested consolidation; this closeout also leaves GPU baseline evaluation pending. Nothing auto-starts.",
+  "frozen_split": {
+    "path": "experiments/larger-dataset-v1/split.json",
+    "bytes": 100076,
+    "sha256": "9a721d4bb14157a119650b4848c62e0cdd6134a843dc0e6d27b84d36e20e040b"
+  },
+  "copy_completion": {
+    "path": "experiments/larger-dataset-v1/copy-completion.json",
+    "bytes": 693,
+    "sha256": "d68e5dd4b2071ee3c4e46ba60d493bf5bf554a27e9cc78bc61961bea2cf249c7"
+  },
+  "recovery_implementation_validation": {
+    "path": "experiments/larger-dataset-v1/recovery-validation.json",
+    "bytes": 4750,
+    "sha256": "6e7e3ca8106ca678ab5fccce852a4e37147f5426c8c464f878cb50c509e737a5"
+  },
+  "conversion": {
+    "report": {
+      "path": "reports/larger-dataset-v1-conversion.json",
+      "bytes": 37064,
+      "sha256": "8262ef9bd3d0dde7cf50ba532f59a58b981b687c4aa429119ea4af29af9d9456"
+    },
+    "completed_log": {
+      "path": "reports/larger-dataset-v1-conversion-recovery.log",
+      "bytes": 14456,
+      "sha256": "72a52f490b89f11a19c49c5dbdd4154ea23d0b3590964e8de843713c741ab28b"
+    },
+    "exit_code": 0,
+    "exact_float32_state_action_and_task_rows": true,
+    "final_video_frame_checks": true,
+    "statistics_owner": "train",
+    "statistics": {
+      "owner": "train",
+      "relative_stats_json": {
+        "path": "/dev/shm/vla-large-data-v1/lerobot/local/g1_inspire_larger_v1_train/meta/relative_stats.json",
+        "sha256": "d0912c36de1b42cf1033712f339bcc0acffac9611f577ee6d2ef40e3d155de8b"
+      },
+      "stats_json": {
+        "path": "/dev/shm/vla-large-data-v1/lerobot/local/g1_inspire_larger_v1_train/meta/stats.json",
+        "sha256": "ec9c72c1b2054eecb69ce264b90ad38343469f7101369b608ad880c62360c071"
+      },
+      "validation_policy": "Only training runs GR00T statistics; validation uses the frozen training processor."
+    },
+    "splits": {
+      "train": {
+        "episodes": 98,
+        "frames": 38751,
+        "fixed_windows": 100,
+        "episodes_represented": 98,
+        "sample_json": {
+          "path": "experiments/larger-dataset-v1/train-samples.json",
+          "bytes": 87357,
+          "sha256": "7096090d4e978c0cef58fac4f7c5708e63c8ce6cc9ceb5446b24ae4bae60604c"
+        },
+        "target_arrays": {
+          "path": "experiments/larger-dataset-v1/train-samples.npz",
+          "bytes": 151805,
+          "sha256": "74c1f7a99d84342a2399a9fe7fc9f4a47c7b0c1335970bdbcb93cce442e6ba8d"
+        },
+        "snapshot_manifest": {
+          "path": "/dev/shm/vla-large-data-v1/snapshots/train/manifest.json",
+          "sha256": "782c19340e6113f374e55937f0a4a359487f3925667111c38737354de1022dac"
+        },
+        "final_validation_report": {
+          "path": "/dev/shm/vla-large-data-v1/lerobot/local/g1_inspire_larger_v1_train-validation.json",
+          "sha256": "eaeda945d067cd0fc659d22156faec7a226e50b534a5efd41741b907dbf58d68"
+        }
+      },
+      "validation": {
+        "episodes": 24,
+        "frames": 8811,
+        "fixed_windows": 100,
+        "episodes_represented": 24,
+        "sample_json": {
+          "path": "experiments/larger-dataset-v1/validation-samples.json",
+          "bytes": 87806,
+          "sha256": "32fd398f6fc606c2df516e7655e4732cd034a93a0e3344647a53d88b557b33b5"
+        },
+        "target_arrays": {
+          "path": "experiments/larger-dataset-v1/validation-samples.npz",
+          "bytes": 147894,
+          "sha256": "5f8ba5d9c96bf99d48b1db7a3943d0d9dfd8c62bde89f5673dabf974b6345e75"
+        },
+        "snapshot_manifest": {
+          "path": "/dev/shm/vla-large-data-v1/snapshots/validation/manifest.json",
+          "sha256": "f5a05ee8459d98c911d2e1da2e1494d949269ffcee6f30333e8d0c11fe0579e0"
+        },
+        "final_validation_report": {
+          "path": "/dev/shm/vla-large-data-v1/lerobot/local/g1_inspire_larger_v1_validation-validation.json",
+          "sha256": "f1eb5ad990cc4374ecfe5218e0c0b2bc91e34a7ca4d9ed7afd9671b33adb10da"
+        }
+      }
+    }
+  },
+  "cpu_evaluation_preparation": {
+    "protocol": {
+      "path": "experiments/larger-dataset-v1/evaluation-protocol.json",
+      "bytes": 42385,
+      "sha256": "9f8cf657889f49ea747928232e592610863562e222778563ee09ff7c9bd96ab1"
+    },
+    "completed_log": {
+      "path": "reports/larger-dataset-v1-prepare.log",
+      "bytes": 248,
+      "sha256": "5947b0720d4ff231731556b3306327c58d2a115d98b39c50547e80d35821a214"
+    },
+    "status": "frozen_before_step_zero",
+    "processor": {
+      "path": "/dev/shm/vla-large-data-v1/processor",
+      "files_sha256": {
+        "processor_config.json": "033aeac07e3227b523703d152dca8ac2d277a40168f1d2698b536e6d2417c228",
+        "statistics.json": "7abadea98ec3c97086ac3be138189086d07907a3c007bafd4a8f5d39950a4282",
+        "embodiment_id.json": "5e8611697dc90b7b7a92cf2a8da926275c16f5966c5eb109e0216c3c51af15a1"
+      },
+      "semantics_file": {
+        "path": "/dev/shm/vla-large-data-v1/processor/evaluation-semantics.json",
+        "sha256": "b34e1d3a28083bad7ce5e17c7675c0f01cdd4000f366dfbfae8729fe2b40ac63"
+      },
+      "semantics_sha256": "e9fabe9dfd6b04b7c7a4cb6097073e0200b21987059a7c7987cf41c0f949997c",
+      "statistics_owner": "train"
+    },
+    "evaluation_evidence_mapping": {
+      "archive_relative_path": "evaluation-evidence/manifest.json",
+      "sha256": "85f791c16c76da93a819e669322d581d9e1ed00f230f436628b45b5a3531c01a"
+    },
+    "preserved_evaluation_files": 5,
+    "preserved_evaluation_bytes": 517247
+  },
+  "durable_archive": {
+    "artifact_ref": "archive:derived/larger-dataset-v1/dataset.tar.gz",
+    "compressed_sha256": "4a534fa8a29f08296d7c8adeff90d26d851c67be68ea2084abfec6fe7493726d",
+    "compressed_bytes": 4986798573,
+    "uncompressed_bytes": 5276113118,
+    "file_count": 48204,
+    "report": {
+      "path": "reports/larger-dataset-v1-archive.json",
+      "bytes": 558,
+      "sha256": "f107ceb6f2b96862429f9ce18997560aea58089d7342f59274f5203a4b82397c"
+    },
+    "manifest": {
+      "path": "reports/larger-dataset-v1-archive-manifest.json",
+      "bytes": 10216215,
+      "sha256": "1d4695b069d3570cbbbbedd389a884ff8209bdd2d49bc6ee5cbb9a65df864263"
+    },
+    "remote_verification": {
+      "artifact_ref": "archive:derived/larger-dataset-v1/archive_verification.json",
+      "sha256": "a21e7c209521e2fa4cca4502f154f616052dfb343788d253fc0d87b4c35b895c"
+    },
+    "all_member_sha256_match": true,
+    "archive_manifest_report_fsync_completed": true,
+    "source_preserved": true,
+    "manifest_completeness_inspection": {
+      "required_paths": [
+        "processor/processor_config.json",
+        "processor/statistics.json",
+        "processor/embodiment_id.json",
+        "processor/evaluation-semantics.json",
+        "evaluation-evidence/evaluation-protocol.json",
+        "evaluation-evidence/train-samples.json",
+        "evaluation-evidence/validation-samples.json",
+        "evaluation-evidence/train-samples.npz",
+        "evaluation-evidence/validation-samples.npz",
+        "evaluation-evidence/manifest.json",
+        "provenance/split.json",
+        "provenance/conversion.json",
+        "provenance/source-inventory.json",
+        "provenance/label-overrides.json"
+      ],
+      "all_present": true,
+      "scope": "Inspection of the project-local archive manifest; receiver verification separately checks archived member hashes."
+    }
+  },
+  "host_preflight": {
+    "path": "reports/larger-dataset-v1-session-preflight.json",
+    "bytes": 6249,
+    "sha256": "886f35762f2f2a0e776ed3d26e598abff0f27ae1ba48b9158582c1ba5d70bb84",
+    "scope": "Timestamped actual-host CPU/protocol, GPU-idle and resource evidence. Its archive-in-progress observation is superseded by the successful archive record above; resources must be rechecked next session."
+  },
+  "final_host_idle_check": {
+    "path": "reports/larger-dataset-v1-session-idle.json",
+    "bytes": 432,
+    "sha256": "f1bcc0cd8189584cd0ebb828e8a0df54b4877b0410fa5897e43da8fce83cd7bc",
+    "passed": true,
+    "active_preparation_evaluation_training_processes": 0,
+    "gpu_compute_processes": 0,
+    "larger_training_output_absent": true
+  },
+  "preservation": {
+    "frozen_split_changed": false,
+    "original_recordings_written": false,
+    "completed_pilot_artifacts_written": false,
+    "v3_backups": [
+      "/dev/shm/vla-large-data-v1/lerobot/local/g1_inspire_larger_v1_train_v3.0",
+      "/dev/shm/vla-large-data-v1/lerobot/local/g1_inspire_larger_v1_validation_v3.0"
+    ],
+    "retained_failed_partial": [
+      {
+        "path": "/dev/shm/vla-large-data-v1/lerobot/local/retained/g1_inspire_larger_v1_train_v2.1-retained.json",
+        "sha256": "562c6c90b051e0a3c5815e993699a878856d1a9193c3ee041537e8f03b199c4c"
+      }
+    ],
+    "historical_incident_unchanged": "experiments/larger-dataset-v1/conversion-path-incident.json"
+  },
+  "gpu_work": {
+    "step_zero_started": false,
+    "training_started": false,
+    "checkpoint_evaluation_started": false,
+    "new_checkpoint_count": 0
+  },
+  "pending_recipe": {
+    "updates": 8192,
+    "timeout_seconds": 21600,
+    "microbatch": 1,
+    "gradient_accumulation_steps": 8,
+    "state_dropout_model_and_processor": 0.0,
+    "initialization": "pinned pretrained weights with new train-only processor and fresh optimizer",
+    "checkpoint_steps": [
+      2048,
+      4096,
+      6144,
+      8192
+    ],
+    "mandatory_persistence_improvement_threshold": null
+  },
+  "remaining_work": [
+    "When user asks to resume, verify exact bound artifacts, SSHFS and fresh host/GPU resources.",
+    "Run paired train/validation step-zero evaluation; then inspect runner dry-run before launching the bounded run.",
+    "After training exits, inventory, evaluate and archive complete checkpoints sequentially; select only after all four valid pairs."
+  ],
+  "restoration_limits": {
+    "full_reboot_extract_restore_rehearsal_performed": false,
+    "general_restoration_helper_implemented": false,
+    "scope": "Verified archive stream/member integrity plus documented restoration; no tested-restoration claim. Restore exact frozen paths or create an explicitly versioned new protocol."
+  },
+  "handoff": "docs/session-handoff-larger-dataset-v1.md",
+  "repository_scope": "Compact bindings only. Full inventories, ignored target arrays, machine configuration, recordings, generated datasets and weights remain outside Git."
+}

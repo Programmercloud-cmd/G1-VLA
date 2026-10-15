@@ -1,0 +1,3771 @@
+{
+  "schema_version": 1,
+  "split": "train",
+  "samples": [
+    {
+      "episode_index": 0,
+      "source_episode": "episode_0036",
+      "start": 147,
+      "length": 439,
+      "source_row_offset": 147,
+      "progress": 0.3475177304964539,
+      "source_indices": [
+        147,
+        148,
+        149,
+        150,
+        151,
+        152,
+        153,
+        154,
+        155,
+        156,
+        157,
+        158,
+        159,
+        160,
+        161,
+        162
+      ],
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0036/data.json",
+        "sha256": "53cf9aa481bbfca3e6651d388888f78924d51b13a07789049b15cf261b837ff8"
+      }
+    },
+    {
+      "episode_index": 1,
+      "source_episode": "episode_0037",
+      "start": 168,
+      "length": 400,
+      "source_row_offset": 168,
+      "progress": 0.4375,
+      "source_indices": [
+        168,
+        169,
+        170,
+        171,
+        172,
+        173,
+        174,
+        175,
+        176,
+        177,
+        178,
+        179,
+        180,
+        181,
+        182,
+        183
+      ],
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0037/data.json",
+        "sha256": "81712f9d4d84c7cb89bc1b42f45dd7aef3335f4a6a4af5456c51098db314b3ab"
+      }
+    },
+    {
+      "episode_index": 2,
+      "source_episode": "episode_0038",
+      "start": 448,
+      "length": 471,
+      "source_row_offset": 448,
+      "progress": 0.9846153846153847,
+      "source_indices": [
+        448,
+        449,
+        450,
+        451,
+        452,
+        453,
+        454,
+        455,
+        456,
+        457,
+        458,
+        459,
+        460,
+        461,
+        462,
+        463
+      ],
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0038/data.json",
+        "sha256": "1f40f01c0c78944ea07c7ce4d1e34d37fcaa228836722b5b5f11f67bac982fb6"
+      }
+    },
+    {
+      "episode_index": 3,
+      "source_episode": "episode_0039",
+      "start": 97,
+      "length": 468,
+      "source_row_offset": 97,
+      "progress": 0.21460176991150443,
+      "source_indices": [
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112
+      ],
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0039/data.json",
+        "sha256": "016edd081d3f50624a56688f89851c068476b4ce9f831cc60d2689e90aa1621d"
+      }
+    },
+    {
+      "episode_index": 4,
+      "source_episode": "episode_0040",
+      "start": 131,
+      "length": 490,
+      "source_row_offset": 131,
+      "progress": 0.27637130801687765,
+      "source_indices": [
+        131,
+        132,
+        133,
+        134,
+        135,
+        136,
+        137,
+        138,
+        139,
+        140,
+        141,
+        142,
+        143,
+        144,
+        145,
+        146
+      ],
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0040/data.json",
+        "sha256": "dae6515912a488ca83f556cabcb031f7c2b61426d5c7b600adf0184c79e0ac3b"
+      }
+    },
+    {
+      "episode_index": 5,
+      "source_episode": "episode_0041",
+      "start": 206,
+      "length": 521,
+      "source_row_offset": 206,
+      "progress": 0.4079207920792079,
+      "source_indices": [
+        206,
+        207,
+        208,
+        209,
+        210,
+        211,
+        212,
+        213,
+        214,
+        215,
+        216,
+        217,
+        218,
+        219,
+        220,
+        221
+      ],
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0041/data.json",
+        "sha256": "fdb9d9eeded538e6983ef7b7a7f0b7fe4eaee83cd2934c961798203ef6ed2731"
+      }
+    },
+    {
+      "episode_index": 6,
+      "source_episode": "episode_0042",
+      "start": 478,
+      "length": 497,
+      "source_row_offset": 478,
+      "progress": 0.9937629937629938,
+      "source_indices": [
+        478,
+        479,
+        480,
+        481,
+        482,
+        483,
+        484,
+        485,
+        486,
+        487,
+        488,
+        489,
+        490,
+        491,
+        492,
+        493
+      ],
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0042/data.json",
+        "sha256": "2eb72856d34778c2a9e5a9c04230aef6358db412ae8d8d7a787e73f7d8470058"
+      }
+    },
+    {
+      "episode_index": 7,
+      "source_episode": "episode_0045",
+      "start": 370,
+      "length": 449,
+      "source_row_offset": 370,
+      "progress": 0.8545034642032333,
+      "source_indices": [
+        370,
+        371,
+        372,
+        373,
+        374,
+        375,
+        376,
+        377,
+        378,
+        379,
+        380,
+        381,
+        382,
+        383,
+        384,
+        385
+      ],
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0045/data.json",
+        "sha256": "858972f1ca1576c7b32c4497fb1a7f2097f39ace1c1f02b5804d4459efadaa6c"
+      }
+    },
+    {
+      "episode_index": 8,
+      "source_episode": "episode_0046",
+      "start": 11,
+      "length": 345,
+      "source_row_offset": 11,
+      "progress": 0.03343465045592705,
+      "source_indices": [
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26
+      ],
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0046/data.json",
+        "sha256": "570e8407d601fab14283aa215ca0d8ccaaefd2282797c9159d52ede047d37071"
+      }
+    },
+    {
+      "episode_index": 9,
+      "source_episode": "episode_0047",
+      "start": 86,
+      "length": 384,
+      "source_row_offset": 86,
+      "progress": 0.23369565217391305,
+      "source_indices": [
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101
+      ],
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0047/data.json",
+        "sha256": "b23cb6a8a4aae23886ae683237b096ff58f3e0cb28306d82b7198cb31efb0a23"
+      }
+    },
+    {
+      "episode_index": 10,
+      "source_episode": "episode_0048",
+      "start": 332,
+      "length": 420,
+      "source_row_offset": 332,
+      "progress": 0.8217821782178217,
+      "source_indices": [
+        332,
+        333,
+        334,
+        335,
+        336,
+        337,
+        338,
+        339,
+        340,
+        341,
+        342,
+        343,
+        344,
+        345,
+        346,
+        347
+      ],
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0048/data.json",
+        "sha256": "36353eef6170d78d926e4de7fb73cd62f83889a82637f0ef42a187392ecfe457"
+      }
+    },
+    {
+      "episode_index": 11,
+      "source_episode": "episode_0050",
+      "start": 22,
+      "length": 403,
+      "source_row_offset": 22,
+      "progress": 0.056847545219638244,
+      "source_indices": [
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37
+      ],
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0050/data.json",
+        "sha256": "f8b2fa763fbdbfb63d17d64c2ed17788335b3f7f8f5b0d1a7d86bb46be1a7ab7"
+      }
+    },
+    {
+      "episode_index": 12,
+      "source_episode": "episode_0051",
+      "start": 310,
+      "length": 378,
+      "source_row_offset": 310,
+      "progress": 0.856353591160221,
+      "source_indices": [
+        310,
+        311,
+        312,
+        313,
+        314,
+        315,
+        316,
+        317,
+        318,
+        319,
+        320,
+        321,
+        322,
+        323,
+        324,
+        325
+      ],
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0051/data.json",
+        "sha256": "457fb5310571f452e36ec4c9b34ef7516918884b2d20fb9bebf1d4387a761fc5"
+      }
+    },
+    {
+      "episode_index": 13,
+      "source_episode": "episode_0052",
+      "start": 114,
+      "length": 422,
+      "source_row_offset": 114,
+      "progress": 0.28078817733990147,
+      "source_indices": [
+        114,
+        115,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        122,
+        123,
+        124,
+        125,
+        126,
+        127,
+        128,
+        129
+      ],
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0052/data.json",
+        "sha256": "13282072bd39a6d7dc15d6c0b48548228ba4b5c9f99a46b107d2d1b81528f128"
+      }
+    },
+    {
+      "episode_index": 14,
+      "source_episode": "episode_0054",
+      "start": 322,
+      "length": 366,
+      "source_row_offset": 322,
+      "progress": 0.92,
+      "source_indices": [
+        322,
+        323,
+        324,
+        325,
+        326,
+        327,
+        328,
+        329,
+        330,
+        331,
+        332,
+        333,
+        334,
+        335,
+        336,
+        337
+      ],
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0054/data.json",
+        "sha256": "91cc3ec83ece21b2becb8af9d41fd8f683c2c5444ea25079978b46d277bea87d"
+      }
+    },
+    {
+      "episode_index": 15,
+      "source_episode": "episode_0055",
+      "start": 147,
+      "length": 516,
+      "source_row_offset": 147,
+      "progress": 0.294,
+      "source_indices": [
+        147,
+        148,
+        149,
+        150,
+        151,
+        152,
+        153,
+        154,
+        155,
+        156,
+        157,
+        158,
+        159,
+        160,
+        161,
+        162
+      ],
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0055/data.json",
+        "sha256": "84b35962abe3485dadff8f2857e4cf6ae83ea8b5064cf7f6d0ea2f0ad0cb8025"
+      }
+    },
+    {
+      "episode_index": 16,
+      "source_episode": "episode_0057",
+      "start": 171,
+      "length": 411,
+      "source_row_offset": 171,
+      "progress": 0.43291139240506327,
+      "source_indices": [
+        171,
+        172,
+        173,
+        174,
+        175,
+        176,
+        177,
+        178,
+        179,
+        180,
+        181,
+        182,
+        183,
+        184,
+        185,
+        186
+      ],
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0057/data.json",
+        "sha256": "90d0f7517320a143e0c2647c361e49ff60a417e686b39be642a05d10e668ec34"
+      }
+    },
+    {
+      "episode_index": 17,
+      "source_episode": "episode_0058",
+      "start": 292,
+      "length": 457,
+      "source_row_offset": 292,
+      "progress": 0.6621315192743764,
+      "source_indices": [
+        292,
+        293,
+        294,
+        295,
+        296,
+        297,
+        298,
+        299,
+        300,
+        301,
+        302,
+        303,
+        304,
+        305,
+        306,
+        307
+      ],
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0058/data.json",
+        "sha256": "704b2ce1650f1b201ce3996826fcf723b8962f36dcc9d14b35e585c17fd6012d"
+      }
+    },
+    {
+      "episode_index": 18,
+      "source_episode": "episode_0061",
+      "start": 60,
+      "length": 497,
+      "source_row_offset": 60,
+      "progress": 0.12474012474012475,
+      "source_indices": [
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75
+      ],
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0061/data.json",
+        "sha256": "b7a5ebf844f0cc7af3e832f52117c8acea626ef107c1d3c9a3f3f92cc71e0ae8"
+      }
+    },
+    {
+      "episode_index": 19,
+      "source_episode": "episode_0063",
+      "start": 225,
+      "length": 419,
+      "source_row_offset": 225,
+      "progress": 0.5583126550868487,
+      "source_indices": [
+        225,
+        226,
+        227,
+        228,
+        229,
+        230,
+        231,
+        232,
+        233,
+        234,
+        235,
+        236,
+        237,
+        238,
+        239,
+        240
+      ],
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0063/data.json",
+        "sha256": "d3e89df66e928e8ff0bc741303567e312c3c3dff18caa80b794d568536954cfc"
+      }
+    },
+    {
+      "episode_index": 20,
+      "source_episode": "episode_0065",
+      "start": 164,
+      "length": 340,
+      "source_row_offset": 164,
+      "progress": 0.5061728395061729,
+      "source_indices": [
+        164,
+        165,
+        166,
+        167,
+        168,
+        169,
+        170,
+        171,
+        172,
+        173,
+        174,
+        175,
+        176,
+        177,
+        178,
+        179
+      ],
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0065/data.json",
+        "sha256": "000806a92c870ce41b840bcf3b501d936af92a538cbf8ef07b6cbf565950d093"
+      }
+    },
+    {
+      "episode_index": 21,
+      "source_episode": "episode_0066",
+      "start": 132,
+      "length": 354,
+      "source_row_offset": 132,
+      "progress": 0.3905325443786982,
+      "source_indices": [
+        132,
+        133,
+        134,
+        135,
+        136,
+        137,
+        138,
+        139,
+        140,
+        141,
+        142,
+        143,
+        144,
+        145,
+        146,
+        147
+      ],
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0066/data.json",
+        "sha256": "494d1d15c6c4de44c6c9f4bb51301c6036d2512fdf90d7d93c82d14f8d9d2976"
+      }
+    },
+    {
+      "episode_index": 21,
+      "source_episode": "episode_0066",
+      "start": 338,
+      "length": 354,
+      "source_row_offset": 338,
+      "progress": 1.0,
+      "source_indices": [
+        338,
+        339,
+        340,
+        341,
+        342,
+        343,
+        344,
+        345,
+        346,
+        347,
+        348,
+        349,
+        350,
+        351,
+        352,
+        353
+      ],
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0066/data.json",
+        "sha256": "494d1d15c6c4de44c6c9f4bb51301c6036d2512fdf90d7d93c82d14f8d9d2976"
+      }
+    },
+    {
+      "episode_index": 22,
+      "source_episode": "episode_0067",
+      "start": 263,
+      "length": 411,
+      "source_row_offset": 263,
+      "progress": 0.6658227848101266,
+      "source_indices": [
+        263,
+        264,
+        265,
+        266,
+        267,
+        268,
+        269,
+        270,
+        271,
+        272,
+        273,
+        274,
+        275,
+        276,
+        277,
+        278
+      ],
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0067/data.json",
+        "sha256": "cef65a495e6d524d4a5000354bc624e56c596010f82e81c81f93db8b152bc04a"
+      }
+    },
+    {
+      "episode_index": 23,
+      "source_episode": "episode_0068",
+      "start": 153,
+      "length": 390,
+      "source_row_offset": 153,
+      "progress": 0.4090909090909091,
+      "source_indices": [
+        153,
+        154,
+        155,
+        156,
+        157,
+        158,
+        159,
+        160,
+        161,
+        162,
+        163,
+        164,
+        165,
+        166,
+        167,
+        168
+      ],
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0068/data.json",
+        "sha256": "06834b62b6cda318d496cffeb9c712f9f2707435fc041491af8e43c233e62dc6"
+      }
+    },
+    {
+      "episode_index": 24,
+      "source_episode": "episode_0069",
+      "start": 184,
+      "length": 469,
+      "source_row_offset": 184,
+      "progress": 0.40618101545253865,
+      "source_indices": [
+        184,
+        185,
+        186,
+        187,
+        188,
+        189,
+        190,
+        191,
+        192,
+        193,
+        194,
+        195,
+        196,
+        197,
+        198,
+        199
+      ],
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0069/data.json",
+        "sha256": "b2378b42a58d7f54a354b91f587ce252297c9e184a5ef2d56004fdae5b52f928"
+      }
+    },
+    {
+      "episode_index": 25,
+      "source_episode": "episode_0070",
+      "start": 134,
+      "length": 337,
+      "source_row_offset": 134,
+      "progress": 0.4174454828660436,
+      "source_indices": [
+        134,
+        135,
+        136,
+        137,
+        138,
+        139,
+        140,
+        141,
+        142,
+        143,
+        144,
+        145,
+        146,
+        147,
+        148,
+        149
+      ],
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0070/data.json",
+        "sha256": "66d85a7d7e407a926cbaf85320e9b008abbe6dbac3aef78b41c602e247880427"
+      }
+    },
+    {
+      "episode_index": 26,
+      "source_episode": "episode_0071",
+      "start": 293,
+      "length": 376,
+      "source_row_offset": 293,
+      "progress": 0.8138888888888889,
+      "source_indices": [
+        293,
+        294,
+        295,
+        296,
+        297,
+        298,
+        299,
+        300,
+        301,
+        302,
+        303,
+        304,
+        305,
+        306,
+        307,
+        308
+      ],
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0071/data.json",
+        "sha256": "b2a0896b4e755b30084ad56db216312741703224464ec3e55679deba85350acd"
+      }
+    },
+    {
+      "episode_index": 27,
+      "source_episode": "episode_0072",
+      "start": 129,
+      "length": 417,
+      "source_row_offset": 129,
+      "progress": 0.32169576059850374,
+      "source_indices": [
+        129,
+        130,
+        131,
+        132,
+        133,
+        134,
+        135,
+        136,
+        137,
+        138,
+        139,
+        140,
+        141,
+        142,
+        143,
+        144
+      ],
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0072/data.json",
+        "sha256": "9669b844976c3d631499ba4b0992961cea75a539474c46cc3ed4188231b2d931"
+      }
+    },
+    {
+      "episode_index": 28,
+      "source_episode": "episode_0073",
+      "start": 68,
+      "length": 427,
+      "source_row_offset": 68,
+      "progress": 0.1654501216545012,
+      "source_indices": [
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83
+      ],
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0073/data.json",
+        "sha256": "5f708ff592ab67d347042270988da860ceeed1fe97ba998cc996c427960d6f5a"
+      }
+    },
+    {
+      "episode_index": 29,
+      "source_episode": "episode_0075",
+      "start": 114,
+      "length": 358,
+      "source_row_offset": 114,
+      "progress": 0.3333333333333333,
+      "source_indices": [
+        114,
+        115,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        122,
+        123,
+        124,
+        125,
+        126,
+        127,
+        128,
+        129
+      ],
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0075/data.json",
+        "sha256": "6ba33982adb22bb4c77f3d2157195f57210889c1295e36bb309c2ed9a252298e"
+      }
+    },
+    {
+      "episode_index": 30,
+      "source_episode": "episode_0076",
+      "start": 7,
+      "length": 325,
+      "source_row_offset": 7,
+      "progress": 0.022653721682847898,
+      "source_indices": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22
+      ],
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0076/data.json",
+        "sha256": "135a32be97bff5426419d7d68b878be8ff8a8756085cb42ce15589a4b945a9bb"
+      }
+    },
+    {
+      "episode_index": 31,
+      "source_episode": "episode_0078",
+      "start": 26,
+      "length": 266,
+      "source_row_offset": 26,
+      "progress": 0.104,
+      "source_indices": [
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41
+      ],
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0078/data.json",
+        "sha256": "88bdcfb0cc95e4619119dba535908bbc819a3ffc2567d5a4bbd3d10072d3277a"
+      }
+    },
+    {
+      "episode_index": 32,
+      "source_episode": "episode_0079",
+      "start": 28,
+      "length": 327,
+      "source_row_offset": 28,
+      "progress": 0.09003215434083602,
+      "source_indices": [
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43
+      ],
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0079/data.json",
+        "sha256": "2a0af7cb8d147651317cd4029b5c01e8a25bcac1f796a32bea79dc948d92c71d"
+      }
+    },
+    {
+      "episode_index": 33,
+      "source_episode": "episode_0081",
+      "start": 234,
+      "length": 319,
+      "source_row_offset": 234,
+      "progress": 0.7722772277227723,
+      "source_indices": [
+        234,
+        235,
+        236,
+        237,
+        238,
+        239,
+        240,
+        241,
+        242,
+        243,
+        244,
+        245,
+        246,
+        247,
+        248,
+        249
+      ],
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0081/data.json",
+        "sha256": "289fdd816bc03f36f69a1f4ff21d1270e340c58867a8eadca454f892b6319c8a"
+      }
+    },
+    {
+      "episode_index": 34,
+      "source_episode": "episode_0082",
+      "start": 207,
+      "length": 302,
+      "source_row_offset": 207,
+      "progress": 0.7237762237762237,
+      "source_indices": [
+        207,
+        208,
+        209,
+        210,
+        211,
+        212,
+        213,
+        214,
+        215,
+        216,
+        217,
+        218,
+        219,
+        220,
+        221,
+        222
+      ],
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0082/data.json",
+        "sha256": "b55b2fed6efbb8197caa0acf66c384c0892e97e37cee908763807e83fd4b8a95"
+      }
+    },
+    {
+      "episode_index": 35,
+      "source_episode": "episode_0083",
+      "start": 241,
+      "length": 362,
+      "source_row_offset": 241,
+      "progress": 0.6965317919075145,
+      "source_indices": [
+        241,
+        242,
+        243,
+        244,
+        245,
+        246,
+        247,
+        248,
+        249,
+        250,
+        251,
+        252,
+        253,
+        254,
+        255,
+        256
+      ],
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0083/data.json",
+        "sha256": "0d96b0a4bdbced26dbceff4d4759f06223c4b52c06e9ad83c6b639f088fb6912"
+      }
+    },
+    {
+      "episode_index": 36,
+      "source_episode": "episode_0084",
+      "start": 141,
+      "length": 321,
+      "source_row_offset": 141,
+      "progress": 0.46229508196721314,
+      "source_indices": [
+        141,
+        142,
+        143,
+        144,
+        145,
+        146,
+        147,
+        148,
+        149,
+        150,
+        151,
+        152,
+        153,
+        154,
+        155,
+        156
+      ],
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0084/data.json",
+        "sha256": "fd7b2db2f7b655c00c16481cf4b6f57a790221f8da1974fcbac0176ec4c90246"
+      }
+    },
+    {
+      "episode_index": 37,
+      "source_episode": "episode_0085",
+      "start": 255,
+      "length": 372,
+      "source_row_offset": 255,
+      "progress": 0.7162921348314607,
+      "source_indices": [
+        255,
+        256,
+        257,
+        258,
+        259,
+        260,
+        261,
+        262,
+        263,
+        264,
+        265,
+        266,
+        267,
+        268,
+        269,
+        270
+      ],
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0085/data.json",
+        "sha256": "4d5c8864e4bc2e0b20fcd6a92daef1c9fb970b7e87633527c00607fadde0754b"
+      }
+    },
+    {
+      "episode_index": 38,
+      "source_episode": "episode_0094",
+      "start": 75,
+      "length": 483,
+      "source_row_offset": 75,
+      "progress": 0.16059957173447537,
+      "source_indices": [
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90
+      ],
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0094/data.json",
+        "sha256": "fd7e6b3cc8c58b7852dd77fc794e1916498b3abb41c644a21dafe60348fb463b"
+      }
+    },
+    {
+      "episode_index": 39,
+      "source_episode": "episode_0095",
+      "start": 320,
+      "length": 371,
+      "source_row_offset": 320,
+      "progress": 0.9014084507042254,
+      "source_indices": [
+        320,
+        321,
+        322,
+        323,
+        324,
+        325,
+        326,
+        327,
+        328,
+        329,
+        330,
+        331,
+        332,
+        333,
+        334,
+        335
+      ],
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0095/data.json",
+        "sha256": "b4549c8cdff22eb67549dfbbbbd3c2f8298f237e2c4cc985993d9859cc8bce89"
+      }
+    },
+    {
+      "episode_index": 40,
+      "source_episode": "episode_0097",
+      "start": 277,
+      "length": 568,
+      "source_row_offset": 277,
+      "progress": 0.5018115942028986,
+      "source_indices": [
+        277,
+        278,
+        279,
+        280,
+        281,
+        282,
+        283,
+        284,
+        285,
+        286,
+        287,
+        288,
+        289,
+        290,
+        291,
+        292
+      ],
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0097/data.json",
+        "sha256": "0f05f237cab6a138dabe8629b700225aeae0f3fa072f596ab6f963da4e20e8ae"
+      }
+    },
+    {
+      "episode_index": 41,
+      "source_episode": "episode_0100",
+      "start": 405,
+      "length": 447,
+      "source_row_offset": 405,
+      "progress": 0.9396751740139211,
+      "source_indices": [
+        405,
+        406,
+        407,
+        408,
+        409,
+        410,
+        411,
+        412,
+        413,
+        414,
+        415,
+        416,
+        417,
+        418,
+        419,
+        420
+      ],
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0100/data.json",
+        "sha256": "1c4afca55fb744c6f2bb0e3f154f866d33f4909cd7c998bfed5d6d967b2fec4f"
+      }
+    },
+    {
+      "episode_index": 42,
+      "source_episode": "episode_0101",
+      "start": 56,
+      "length": 386,
+      "source_row_offset": 56,
+      "progress": 0.15135135135135136,
+      "source_indices": [
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71
+      ],
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0101/data.json",
+        "sha256": "6598bd2c2d8f3e04a556e36b823a12878c00030b7d0785f96f8ddf68079c689b"
+      }
+    },
+    {
+      "episode_index": 43,
+      "source_episode": "episode_0103",
+      "start": 229,
+      "length": 477,
+      "source_row_offset": 229,
+      "progress": 0.4967462039045553,
+      "source_indices": [
+        229,
+        230,
+        231,
+        232,
+        233,
+        234,
+        235,
+        236,
+        237,
+        238,
+        239,
+        240,
+        241,
+        242,
+        243,
+        244
+      ],
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0103/data.json",
+        "sha256": "854d10091675cd27c39e96ba4dccb54580d4478cda8ec89a6e257c51eda3ee45"
+      }
+    },
+    {
+      "episode_index": 44,
+      "source_episode": "episode_0104",
+      "start": 306,
+      "length": 455,
+      "source_row_offset": 306,
+      "progress": 0.6970387243735763,
+      "source_indices": [
+        306,
+        307,
+        308,
+        309,
+        310,
+        311,
+        312,
+        313,
+        314,
+        315,
+        316,
+        317,
+        318,
+        319,
+        320,
+        321
+      ],
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0104/data.json",
+        "sha256": "b6acb2fed26437bbf78c6b2ca5d7cd6d141e6efd74a801d59584406fc596a732"
+      }
+    },
+    {
+      "episode_index": 45,
+      "source_episode": "episode_0106",
+      "start": 228,
+      "length": 476,
+      "source_row_offset": 228,
+      "progress": 0.4956521739130435,
+      "source_indices": [
+        228,
+        229,
+        230,
+        231,
+        232,
+        233,
+        234,
+        235,
+        236,
+        237,
+        238,
+        239,
+        240,
+        241,
+        242,
+        243
+      ],
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0106/data.json",
+        "sha256": "1a6db610308fa29849fb4c64df4373ab993504bcfb9642353ddf671d53923b7d"
+      }
+    },
+    {
+      "episode_index": 46,
+      "source_episode": "episode_0107",
+      "start": 201,
+      "length": 466,
+      "source_row_offset": 201,
+      "progress": 0.44666666666666666,
+      "source_indices": [
+        201,
+        202,
+        203,
+        204,
+        205,
+        206,
+        207,
+        208,
+        209,
+        210,
+        211,
+        212,
+        213,
+        214,
+        215,
+        216
+      ],
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0107/data.json",
+        "sha256": "11b33500d6be56a0b47306a6d30e7af7c428aeb1ab0ac41b81f3e03fab1843f9"
+      }
+    },
+    {
+      "episode_index": 47,
+      "source_episode": "episode_0108",
+      "start": 56,
+      "length": 354,
+      "source_row_offset": 56,
+      "progress": 0.16568047337278108,
+      "source_indices": [
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71
+      ],
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0108/data.json",
+        "sha256": "6f1ad13ad3be397557153d30e9b73d4950b69d221db48312210c1da842a50afa"
+      }
+    },
+    {
+      "episode_index": 48,
+      "source_episode": "episode_0109",
+      "start": 135,
+      "length": 370,
+      "source_row_offset": 135,
+      "progress": 0.3813559322033898,
+      "source_indices": [
+        135,
+        136,
+        137,
+        138,
+        139,
+        140,
+        141,
+        142,
+        143,
+        144,
+        145,
+        146,
+        147,
+        148,
+        149,
+        150
+      ],
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0109/data.json",
+        "sha256": "5a61766ee5503fa98882f3f3256e17cef29691783750a2b06a4214482c865d2b"
+      }
+    },
+    {
+      "episode_index": 49,
+      "source_episode": "episode_0110",
+      "start": 116,
+      "length": 502,
+      "source_row_offset": 116,
+      "progress": 0.23868312757201646,
+      "source_indices": [
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        122,
+        123,
+        124,
+        125,
+        126,
+        127,
+        128,
+        129,
+        130,
+        131
+      ],
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0110/data.json",
+        "sha256": "e139411ab325fc93837cbbc1a718e0f2c614427e8c956a06db64122373422ad9"
+      }
+    },
+    {
+      "episode_index": 50,
+      "source_episode": "episode_0111",
+      "start": 137,
+      "length": 471,
+      "source_row_offset": 137,
+      "progress": 0.3010989010989011,
+      "source_indices": [
+        137,
+        138,
+        139,
+        140,
+        141,
+        142,
+        143,
+        144,
+        145,
+        146,
+        147,
+        148,
+        149,
+        150,
+        151,
+        152
+      ],
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0111/data.json",
+        "sha256": "dea0d500bdac2261b6cee83ab7f1907823c13a67f7563687cb71b653400f0219"
+      }
+    },
+    {
+      "episode_index": 51,
+      "source_episode": "episode_0112",
+      "start": 235,
+      "length": 360,
+      "source_row_offset": 235,
+      "progress": 0.6831395348837209,
+      "source_indices": [
+        235,
+        236,
+        237,
+        238,
+        239,
+        240,
+        241,
+        242,
+        243,
+        244,
+        245,
+        246,
+        247,
+        248,
+        249,
+        250
+      ],
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0112/data.json",
+        "sha256": "5665798e7e7177b55f36f3d9ad5a3abe47331305fbb7235f2e904ce4dfc1c569"
+      }
+    },
+    {
+      "episode_index": 52,
+      "source_episode": "episode_0113",
+      "start": 228,
+      "length": 377,
+      "source_row_offset": 228,
+      "progress": 0.631578947368421,
+      "source_indices": [
+        228,
+        229,
+        230,
+        231,
+        232,
+        233,
+        234,
+        235,
+        236,
+        237,
+        238,
+        239,
+        240,
+        241,
+        242,
+        243
+      ],
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0113/data.json",
+        "sha256": "bece543f5eeff58aa81f9aecf85c248dc3967377717c617af324b94e40db005e"
+      }
+    },
+    {
+      "episode_index": 53,
+      "source_episode": "episode_0114",
+      "start": 247,
+      "length": 422,
+      "source_row_offset": 247,
+      "progress": 0.6083743842364532,
+      "source_indices": [
+        247,
+        248,
+        249,
+        250,
+        251,
+        252,
+        253,
+        254,
+        255,
+        256,
+        257,
+        258,
+        259,
+        260,
+        261,
+        262
+      ],
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0114/data.json",
+        "sha256": "a27f549ea33d767f441ffc57aeceec029736f865310a90dde39325bd889d4ac4"
+      }
+    },
+    {
+      "episode_index": 54,
+      "source_episode": "episode_0115",
+      "start": 120,
+      "length": 348,
+      "source_row_offset": 120,
+      "progress": 0.3614457831325301,
+      "source_indices": [
+        120,
+        121,
+        122,
+        123,
+        124,
+        125,
+        126,
+        127,
+        128,
+        129,
+        130,
+        131,
+        132,
+        133,
+        134,
+        135
+      ],
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0115/data.json",
+        "sha256": "354d25de45df490575eff8436790410ffc375f2e708271f45f23bd243e175900"
+      }
+    },
+    {
+      "episode_index": 55,
+      "source_episode": "episode_0116",
+      "start": 410,
+      "length": 443,
+      "source_row_offset": 410,
+      "progress": 0.9601873536299765,
+      "source_indices": [
+        410,
+        411,
+        412,
+        413,
+        414,
+        415,
+        416,
+        417,
+        418,
+        419,
+        420,
+        421,
+        422,
+        423,
+        424,
+        425
+      ],
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0116/data.json",
+        "sha256": "3c53c65cec593c1c5c818ba30f0e391a6388f6f346d367e6b750eea27e6df6c6"
+      }
+    },
+    {
+      "episode_index": 56,
+      "source_episode": "episode_0117",
+      "start": 32,
+      "length": 388,
+      "source_row_offset": 32,
+      "progress": 0.08602150537634409,
+      "source_indices": [
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47
+      ],
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0117/data.json",
+        "sha256": "8a6aa48fb23b81ea5a05780875c58ca71b94c90d343626522b27f739cefc94b5"
+      }
+    },
+    {
+      "episode_index": 57,
+      "source_episode": "episode_0118",
+      "start": 56,
+      "length": 345,
+      "source_row_offset": 56,
+      "progress": 0.1702127659574468,
+      "source_indices": [
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71
+      ],
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0118/data.json",
+        "sha256": "305e1ab1b1256a93c64702cbae961ef5ad8cd1267d4577eeb6aeb952399e380e"
+      }
+    },
+    {
+      "episode_index": 57,
+      "source_episode": "episode_0118",
+      "start": 184,
+      "length": 345,
+      "source_row_offset": 184,
+      "progress": 0.5592705167173252,
+      "source_indices": [
+        184,
+        185,
+        186,
+        187,
+        188,
+        189,
+        190,
+        191,
+        192,
+        193,
+        194,
+        195,
+        196,
+        197,
+        198,
+        199
+      ],
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0118/data.json",
+        "sha256": "305e1ab1b1256a93c64702cbae961ef5ad8cd1267d4577eeb6aeb952399e380e"
+      }
+    },
+    {
+      "episode_index": 58,
+      "source_episode": "episode_0119",
+      "start": 134,
+      "length": 411,
+      "source_row_offset": 134,
+      "progress": 0.3392405063291139,
+      "source_indices": [
+        134,
+        135,
+        136,
+        137,
+        138,
+        139,
+        140,
+        141,
+        142,
+        143,
+        144,
+        145,
+        146,
+        147,
+        148,
+        149
+      ],
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0119/data.json",
+        "sha256": "971b368babeeb638f881b1ab0e4dbf196a6464e1fa08fdacd3a3fee74493b669"
+      }
+    },
+    {
+      "episode_index": 59,
+      "source_episode": "episode_0120",
+      "start": 373,
+      "length": 403,
+      "source_row_offset": 373,
+      "progress": 0.9638242894056848,
+      "source_indices": [
+        373,
+        374,
+        375,
+        376,
+        377,
+        378,
+        379,
+        380,
+        381,
+        382,
+        383,
+        384,
+        385,
+        386,
+        387,
+        388
+      ],
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0120/data.json",
+        "sha256": "5f11f001ce2b793a21794c9797b920341f0ae2aed5d71e95b21458be695c7e89"
+      }
+    },
+    {
+      "episode_index": 60,
+      "source_episode": "episode_0121",
+      "start": 129,
+      "length": 368,
+      "source_row_offset": 129,
+      "progress": 0.3664772727272727,
+      "source_indices": [
+        129,
+        130,
+        131,
+        132,
+        133,
+        134,
+        135,
+        136,
+        137,
+        138,
+        139,
+        140,
+        141,
+        142,
+        143,
+        144
+      ],
+      "effective_goal": "Pick up the black box on the left at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0121/data.json",
+        "sha256": "2655d73d2bdd1778b71db7eb7eaff3db4dcaac926fbe885824d1c428328897b9"
+      }
+    },
+    {
+      "episode_index": 61,
+      "source_episode": "episode_0123",
+      "start": 277,
+      "length": 320,
+      "source_row_offset": 277,
+      "progress": 0.9111842105263158,
+      "source_indices": [
+        277,
+        278,
+        279,
+        280,
+        281,
+        282,
+        283,
+        284,
+        285,
+        286,
+        287,
+        288,
+        289,
+        290,
+        291,
+        292
+      ],
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0123/data.json",
+        "sha256": "6d9b864a4d10c57e69df1a34cd16b71815a5fb2f147e0c8bd2b89b8aef6c551e"
+      }
+    },
+    {
+      "episode_index": 62,
+      "source_episode": "episode_0124",
+      "start": 207,
+      "length": 435,
+      "source_row_offset": 207,
+      "progress": 0.49403341288782815,
+      "source_indices": [
+        207,
+        208,
+        209,
+        210,
+        211,
+        212,
+        213,
+        214,
+        215,
+        216,
+        217,
+        218,
+        219,
+        220,
+        221,
+        222
+      ],
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0124/data.json",
+        "sha256": "b5edda3d88b8660497c0d0e616b136fd529979514c98e5dfd07d66ca64caf09c"
+      }
+    },
+    {
+      "episode_index": 63,
+      "source_episode": "episode_0125",
+      "start": 292,
+      "length": 433,
+      "source_row_offset": 292,
+      "progress": 0.7002398081534772,
+      "source_indices": [
+        292,
+        293,
+        294,
+        295,
+        296,
+        297,
+        298,
+        299,
+        300,
+        301,
+        302,
+        303,
+        304,
+        305,
+        306,
+        307
+      ],
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0125/data.json",
+        "sha256": "5f16ba85a79ebb51d751697e98b55b4e746a73916a8522eba805a36979253868"
+      }
+    },
+    {
+      "episode_index": 64,
+      "source_episode": "episode_0126",
+      "start": 166,
+      "length": 379,
+      "source_row_offset": 166,
+      "progress": 0.4573002754820937,
+      "source_indices": [
+        166,
+        167,
+        168,
+        169,
+        170,
+        171,
+        172,
+        173,
+        174,
+        175,
+        176,
+        177,
+        178,
+        179,
+        180,
+        181
+      ],
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0126/data.json",
+        "sha256": "6e35988e49c8f2e3b28ad52d66e01564cdc7bb8dd80d6de523d002261e76a73d"
+      }
+    },
+    {
+      "episode_index": 65,
+      "source_episode": "episode_0128",
+      "start": 151,
+      "length": 586,
+      "source_row_offset": 151,
+      "progress": 0.2649122807017544,
+      "source_indices": [
+        151,
+        152,
+        153,
+        154,
+        155,
+        156,
+        157,
+        158,
+        159,
+        160,
+        161,
+        162,
+        163,
+        164,
+        165,
+        166
+      ],
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0128/data.json",
+        "sha256": "8f8c4d20adc07168573bbc120c181d681468710c7781d522b6264abab4861962"
+      }
+    },
+    {
+      "episode_index": 66,
+      "source_episode": "episode_0129",
+      "start": 333,
+      "length": 451,
+      "source_row_offset": 333,
+      "progress": 0.7655172413793103,
+      "source_indices": [
+        333,
+        334,
+        335,
+        336,
+        337,
+        338,
+        339,
+        340,
+        341,
+        342,
+        343,
+        344,
+        345,
+        346,
+        347,
+        348
+      ],
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0129/data.json",
+        "sha256": "28bc667cbaf77e7603bdaaf1a2e427a407ef664b6d95a63c47c1f808ca25da3c"
+      }
+    },
+    {
+      "episode_index": 67,
+      "source_episode": "episode_0130",
+      "start": 347,
+      "length": 374,
+      "source_row_offset": 347,
+      "progress": 0.9692737430167597,
+      "source_indices": [
+        347,
+        348,
+        349,
+        350,
+        351,
+        352,
+        353,
+        354,
+        355,
+        356,
+        357,
+        358,
+        359,
+        360,
+        361,
+        362
+      ],
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0130/data.json",
+        "sha256": "02b045e2bdfc8d9be9cec5e93f431fdf201c67733d9a8bcd240e8c92ce5508a2"
+      }
+    },
+    {
+      "episode_index": 68,
+      "source_episode": "episode_0132",
+      "start": 93,
+      "length": 371,
+      "source_row_offset": 93,
+      "progress": 0.2619718309859155,
+      "source_indices": [
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108
+      ],
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0132/data.json",
+        "sha256": "a85f1a9f6fa432fc4145d5b5dfdd10f5db4228e04321680ddc5828a940b063c7"
+      }
+    },
+    {
+      "episode_index": 69,
+      "source_episode": "episode_0134",
+      "start": 251,
+      "length": 338,
+      "source_row_offset": 251,
+      "progress": 0.7795031055900621,
+      "source_indices": [
+        251,
+        252,
+        253,
+        254,
+        255,
+        256,
+        257,
+        258,
+        259,
+        260,
+        261,
+        262,
+        263,
+        264,
+        265,
+        266
+      ],
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0134/data.json",
+        "sha256": "e6982f1d3baabcf6bbda5032a2e1cd60625baf6ac1d08b6723e2024f22d70954"
+      }
+    },
+    {
+      "episode_index": 70,
+      "source_episode": "episode_0135",
+      "start": 84,
+      "length": 340,
+      "source_row_offset": 84,
+      "progress": 0.25925925925925924,
+      "source_indices": [
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99
+      ],
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0135/data.json",
+        "sha256": "bab9b84a62f1db774058c65ada76e7f08053a4bb15065d27cb2f76398c7b29a3"
+      }
+    },
+    {
+      "episode_index": 71,
+      "source_episode": "episode_0138",
+      "start": 146,
+      "length": 219,
+      "source_row_offset": 146,
+      "progress": 0.7192118226600985,
+      "source_indices": [
+        291,
+        292,
+        293,
+        294,
+        295,
+        296,
+        297,
+        298,
+        299,
+        300,
+        301,
+        302,
+        303,
+        304,
+        305,
+        306
+      ],
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0138/data.json",
+        "sha256": "7cfdfaaf82981bc4e07bacd0055ad07e861704290c9e6648d78d794f573ec218"
+      }
+    },
+    {
+      "episode_index": 72,
+      "source_episode": "episode_0139",
+      "start": 286,
+      "length": 378,
+      "source_row_offset": 286,
+      "progress": 0.7900552486187845,
+      "source_indices": [
+        286,
+        287,
+        288,
+        289,
+        290,
+        291,
+        292,
+        293,
+        294,
+        295,
+        296,
+        297,
+        298,
+        299,
+        300,
+        301
+      ],
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0139/data.json",
+        "sha256": "d12134f608011900ff9cc28b9f59a4cd019c8b80de8e0053aedc3d1431e04a60"
+      }
+    },
+    {
+      "episode_index": 73,
+      "source_episode": "episode_0140",
+      "start": 211,
+      "length": 486,
+      "source_row_offset": 211,
+      "progress": 0.44893617021276594,
+      "source_indices": [
+        211,
+        212,
+        213,
+        214,
+        215,
+        216,
+        217,
+        218,
+        219,
+        220,
+        221,
+        222,
+        223,
+        224,
+        225,
+        226
+      ],
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0140/data.json",
+        "sha256": "ed39eef5771590fafdbb40e1f092f3764fcfd189e669cd5cad568861a6ba7f0b"
+      }
+    },
+    {
+      "episode_index": 74,
+      "source_episode": "episode_0142",
+      "start": 215,
+      "length": 308,
+      "source_row_offset": 215,
+      "progress": 0.7363013698630136,
+      "source_indices": [
+        215,
+        216,
+        217,
+        218,
+        219,
+        220,
+        221,
+        222,
+        223,
+        224,
+        225,
+        226,
+        227,
+        228,
+        229,
+        230
+      ],
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0142/data.json",
+        "sha256": "91ab298018d596900e28ee91b97d0b769d6dad11ccb75ae3d2a786ef479c9a65"
+      }
+    },
+    {
+      "episode_index": 75,
+      "source_episode": "episode_0143",
+      "start": 83,
+      "length": 321,
+      "source_row_offset": 83,
+      "progress": 0.2721311475409836,
+      "source_indices": [
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98
+      ],
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0143/data.json",
+        "sha256": "a43afc44258ad0c8eb5169dab4175532e8de50908636255de48708eaadb1404a"
+      }
+    },
+    {
+      "episode_index": 76,
+      "source_episode": "episode_0145",
+      "start": 30,
+      "length": 406,
+      "source_row_offset": 30,
+      "progress": 0.07692307692307693,
+      "source_indices": [
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45
+      ],
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0145/data.json",
+        "sha256": "08835dec66b2bbec24fbb59604af6c37c1d57eef43fb8a6ac2e2d07b4d94cc51"
+      }
+    },
+    {
+      "episode_index": 77,
+      "source_episode": "episode_0146",
+      "start": 32,
+      "length": 348,
+      "source_row_offset": 32,
+      "progress": 0.0963855421686747,
+      "source_indices": [
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47
+      ],
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0146/data.json",
+        "sha256": "9ba9550d8b3159a11b7d57073a8dbccbd0037141f7b94e34ffcef8aba85fce6d"
+      }
+    },
+    {
+      "episode_index": 78,
+      "source_episode": "episode_0147",
+      "start": 154,
+      "length": 361,
+      "source_row_offset": 154,
+      "progress": 0.4463768115942029,
+      "source_indices": [
+        154,
+        155,
+        156,
+        157,
+        158,
+        159,
+        160,
+        161,
+        162,
+        163,
+        164,
+        165,
+        166,
+        167,
+        168,
+        169
+      ],
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0147/data.json",
+        "sha256": "a9f7b7eb7e6674273ebb011aff53d62b2bf98ceeaeca6d469ff3d6ecccc625c2"
+      }
+    },
+    {
+      "episode_index": 79,
+      "source_episode": "episode_0148",
+      "start": 292,
+      "length": 339,
+      "source_row_offset": 292,
+      "progress": 0.9040247678018576,
+      "source_indices": [
+        292,
+        293,
+        294,
+        295,
+        296,
+        297,
+        298,
+        299,
+        300,
+        301,
+        302,
+        303,
+        304,
+        305,
+        306,
+        307
+      ],
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0148/data.json",
+        "sha256": "3013c33bb107a6f784559a391d1f8587692471d41f95f5ddd8a656b7b339a527"
+      }
+    },
+    {
+      "episode_index": 80,
+      "source_episode": "episode_0150",
+      "start": 40,
+      "length": 335,
+      "source_row_offset": 40,
+      "progress": 0.12539184952978055,
+      "source_indices": [
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55
+      ],
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0150/data.json",
+        "sha256": "03f5531f914f7dc0cb7b25eb9f0af1e03f474abe58ec186a1fc57b9aceb4d34e"
+      }
+    },
+    {
+      "episode_index": 81,
+      "source_episode": "episode_0151",
+      "start": 144,
+      "length": 331,
+      "source_row_offset": 144,
+      "progress": 0.45714285714285713,
+      "source_indices": [
+        144,
+        145,
+        146,
+        147,
+        148,
+        149,
+        150,
+        151,
+        152,
+        153,
+        154,
+        155,
+        156,
+        157,
+        158,
+        159
+      ],
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0151/data.json",
+        "sha256": "808b6c0d46f5661afc4e5c7037169b2f5ceb722d7e669b90332d133e600af318"
+      }
+    },
+    {
+      "episode_index": 82,
+      "source_episode": "episode_0152",
+      "start": 245,
+      "length": 363,
+      "source_row_offset": 245,
+      "progress": 0.7060518731988472,
+      "source_indices": [
+        245,
+        246,
+        247,
+        248,
+        249,
+        250,
+        251,
+        252,
+        253,
+        254,
+        255,
+        256,
+        257,
+        258,
+        259,
+        260
+      ],
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0152/data.json",
+        "sha256": "cf9e21acd08d5109987cd84bacf16b091736a4ba80ff032b56b231dc1a0789e5"
+      }
+    },
+    {
+      "episode_index": 83,
+      "source_episode": "episode_0153",
+      "start": 59,
+      "length": 311,
+      "source_row_offset": 59,
+      "progress": 0.2,
+      "source_indices": [
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74
+      ],
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0153/data.json",
+        "sha256": "eaa973b3a5131581d043fd62ae79983852160e7e7c10271d598ebed547af55d3"
+      }
+    },
+    {
+      "episode_index": 84,
+      "source_episode": "episode_0154",
+      "start": 191,
+      "length": 280,
+      "source_row_offset": 191,
+      "progress": 0.7234848484848485,
+      "source_indices": [
+        191,
+        192,
+        193,
+        194,
+        195,
+        196,
+        197,
+        198,
+        199,
+        200,
+        201,
+        202,
+        203,
+        204,
+        205,
+        206
+      ],
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0154/data.json",
+        "sha256": "9ead645b722e6f64a5314c44c9f4ed4d50cd5f8f06a6d78fb7bac0aee89c8047"
+      }
+    },
+    {
+      "episode_index": 85,
+      "source_episode": "episode_0155",
+      "start": 110,
+      "length": 377,
+      "source_row_offset": 110,
+      "progress": 0.3047091412742382,
+      "source_indices": [
+        110,
+        111,
+        112,
+        113,
+        114,
+        115,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        122,
+        123,
+        124,
+        125
+      ],
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0155/data.json",
+        "sha256": "bf1ed1ab97b8c6339349e342c71dd7f8ad1eb5eaeb3e069e421653df9d1959ae"
+      }
+    },
+    {
+      "episode_index": 86,
+      "source_episode": "episode_0156",
+      "start": 295,
+      "length": 380,
+      "source_row_offset": 295,
+      "progress": 0.8104395604395604,
+      "source_indices": [
+        295,
+        296,
+        297,
+        298,
+        299,
+        300,
+        301,
+        302,
+        303,
+        304,
+        305,
+        306,
+        307,
+        308,
+        309,
+        310
+      ],
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0156/data.json",
+        "sha256": "11b8bacac5130c150c69b6edc209b380d8ac92fdd34118a0b1689c8a70c67687"
+      }
+    },
+    {
+      "episode_index": 87,
+      "source_episode": "episode_0157",
+      "start": 265,
+      "length": 473,
+      "source_row_offset": 265,
+      "progress": 0.5798687089715536,
+      "source_indices": [
+        265,
+        266,
+        267,
+        268,
+        269,
+        270,
+        271,
+        272,
+        273,
+        274,
+        275,
+        276,
+        277,
+        278,
+        279,
+        280
+      ],
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0157/data.json",
+        "sha256": "1392e5a11d39f55f2f0055b34c2515eba07e68c45214b81452c68dcf11ca4f49"
+      }
+    },
+    {
+      "episode_index": 88,
+      "source_episode": "episode_0158",
+      "start": 181,
+      "length": 347,
+      "source_row_offset": 181,
+      "progress": 0.5468277945619335,
+      "source_indices": [
+        181,
+        182,
+        183,
+        184,
+        185,
+        186,
+        187,
+        188,
+        189,
+        190,
+        191,
+        192,
+        193,
+        194,
+        195,
+        196
+      ],
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0158/data.json",
+        "sha256": "9d4c19ad6fa45be575ccfb8b20479cb3ba84367a6f3d646033fb6247d42a66b3"
+      }
+    },
+    {
+      "episode_index": 89,
+      "source_episode": "episode_0159",
+      "start": 62,
+      "length": 370,
+      "source_row_offset": 62,
+      "progress": 0.1751412429378531,
+      "source_indices": [
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77
+      ],
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0159/data.json",
+        "sha256": "56bff535847c0a918ad03037d31381ae0dbcc9737d553b3e4a0f711497b54698"
+      }
+    },
+    {
+      "episode_index": 90,
+      "source_episode": "episode_0160",
+      "start": 164,
+      "length": 371,
+      "source_row_offset": 164,
+      "progress": 0.4619718309859155,
+      "source_indices": [
+        164,
+        165,
+        166,
+        167,
+        168,
+        169,
+        170,
+        171,
+        172,
+        173,
+        174,
+        175,
+        176,
+        177,
+        178,
+        179
+      ],
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0160/data.json",
+        "sha256": "983b6929ca6ffc1a8c875969b65bc977e6d5e80396d75ef292ab69b68e291d4a"
+      }
+    },
+    {
+      "episode_index": 91,
+      "source_episode": "episode_0161",
+      "start": 317,
+      "length": 386,
+      "source_row_offset": 317,
+      "progress": 0.8567567567567568,
+      "source_indices": [
+        317,
+        318,
+        319,
+        320,
+        321,
+        322,
+        323,
+        324,
+        325,
+        326,
+        327,
+        328,
+        329,
+        330,
+        331,
+        332
+      ],
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0161/data.json",
+        "sha256": "e066637004868b4e8366b7e4dba186cd784332891a27580af92dbc58ba6e2a5f"
+      }
+    },
+    {
+      "episode_index": 92,
+      "source_episode": "episode_0163",
+      "start": 5,
+      "length": 290,
+      "source_row_offset": 5,
+      "progress": 0.01824817518248175,
+      "source_indices": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0163/data.json",
+        "sha256": "30d01a74b3e51665654306f37737079eba1cb3acd5b0811891a489fa2cb80d3c"
+      }
+    },
+    {
+      "episode_index": 93,
+      "source_episode": "episode_0164",
+      "start": 298,
+      "length": 408,
+      "source_row_offset": 298,
+      "progress": 0.7602040816326531,
+      "source_indices": [
+        298,
+        299,
+        300,
+        301,
+        302,
+        303,
+        304,
+        305,
+        306,
+        307,
+        308,
+        309,
+        310,
+        311,
+        312,
+        313
+      ],
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0164/data.json",
+        "sha256": "e0357d32bca5bf42d65aaae2c255004964ddb19f7c33691d49173c6726216c55"
+      }
+    },
+    {
+      "episode_index": 94,
+      "source_episode": "episode_0166",
+      "start": 176,
+      "length": 373,
+      "source_row_offset": 176,
+      "progress": 0.49299719887955185,
+      "source_indices": [
+        176,
+        177,
+        178,
+        179,
+        180,
+        181,
+        182,
+        183,
+        184,
+        185,
+        186,
+        187,
+        188,
+        189,
+        190,
+        191
+      ],
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0166/data.json",
+        "sha256": "49217dfe025c92d6792b40957f8920607c6a8add894168aed6daf39c9df34266"
+      }
+    },
+    {
+      "episode_index": 95,
+      "source_episode": "episode_0167",
+      "start": 283,
+      "length": 409,
+      "source_row_offset": 283,
+      "progress": 0.7201017811704835,
+      "source_indices": [
+        283,
+        284,
+        285,
+        286,
+        287,
+        288,
+        289,
+        290,
+        291,
+        292,
+        293,
+        294,
+        295,
+        296,
+        297,
+        298
+      ],
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0167/data.json",
+        "sha256": "fd987d651c484be6d20c4a46fa0fac040ab35b316268f035001ce8dcdf9d114b"
+      }
+    },
+    {
+      "episode_index": 96,
+      "source_episode": "episode_0168",
+      "start": 203,
+      "length": 322,
+      "source_row_offset": 203,
+      "progress": 0.6633986928104575,
+      "source_indices": [
+        203,
+        204,
+        205,
+        206,
+        207,
+        208,
+        209,
+        210,
+        211,
+        212,
+        213,
+        214,
+        215,
+        216,
+        217,
+        218
+      ],
+      "effective_goal": "Pick up the black box on the right at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0168/data.json",
+        "sha256": "9f0b879be64cd5ac94a1b883d9e1502a7ee6da2c07503897cab5b8610ffe9584"
+      }
+    },
+    {
+      "episode_index": 97,
+      "source_episode": "episode_0169",
+      "start": 216,
+      "length": 515,
+      "source_row_offset": 216,
+      "progress": 0.43286573146292584,
+      "source_indices": [
+        216,
+        217,
+        218,
+        219,
+        220,
+        221,
+        222,
+        223,
+        224,
+        225,
+        226,
+        227,
+        228,
+        229,
+        230,
+        231
+      ],
+      "effective_goal": "Pick up the black box at the front using both hands and bring it to the centered carry position.",
+      "source_data_json": {
+        "path": "/dev/shm/vla-large-data-v1/snapshots/train/raw/pick_up_black_box/episode_0169/data.json",
+        "sha256": "40656316d8d231c32da13e892a97031fca29a5798e30cfa9ecdc5303f5a8bb60"
+      }
+    }
+  ],
+  "examples": [
+    {
+      "sample_index": 0,
+      "joint_indices": [
+        0,
+        10,
+        18,
+        24
+      ]
+    },
+    {
+      "sample_index": 25,
+      "joint_indices": [
+        0,
+        13,
+        18,
+        25
+      ]
+    },
+    {
+      "sample_index": 49,
+      "joint_indices": [
+        3,
+        7,
+        18,
+        21
+      ]
+    },
+    {
+      "sample_index": 74,
+      "joint_indices": [
+        0,
+        7,
+        18,
+        22
+      ]
+    },
+    {
+      "sample_index": 99,
+      "joint_indices": [
+        2,
+        13,
+        19,
+        20
+      ]
+    }
+  ],
+  "dataset_manifest_sha256": "782c19340e6113f374e55937f0a4a359487f3925667111c38737354de1022dac",
+  "split_manifest_sha256": "9a721d4bb14157a119650b4848c62e0cdd6134a843dc0e6d27b84d36e20e040b",
+  "arrays_sha256": "74c1f7a99d84342a2399a9fe7fc9f4a47c7b0c1335970bdbcb93cce442e6ba8d",
+  "changing_target_mask": [
+    [
+      false,
+      true,
+      true,
+      true
+    ],
+    [
+      true,
+      true,
+      true,
+      true
+    ],
+    [
+      true,
+      true,
+      true,
+      true
+    ],
+    [
+      true,
+      true,
+      true,
+      true
+    ],
+    [
+      false,
+      false,
+      false,
+      false
+    ],
+    [
+      false,
+      true,
+      true,
+      true
+    ],
+    [
+      false,
+      false,
+      true,
+      true
+    ],
+    [
+      true,
+      true,
+      true,
+      true
+    ],
+    [
+      true,
+      true,
+      false,
+      true
+    ],
+    [
+      false,
+      true,
+      false,
+      true
+    ],
+    [
+      true,
+      true,
+      true,
+      true
+    ],
+    [
+      true,
+      true,
+      true,
+      true
+    ],
+    [
+      true,
+      true,
+      true,
+      true
+    ],
+    [
+      false,
+      true,
+      false,
+      true
+    ],
+    [
+      true,
+      true,
+      false,
+      true
+    ],
+    [
+      true,
+      false,
+      false,
+      false
+    ],
+    [
+      false,
+      false,
+      false,
+      false
+    ],
+    [
+      true,
+      true,
+      false,
+      true
+    ],
+    [
+      true,
+      true,
+      false,
+      false
+    ],
+    [
+      true,
+      false,
+      false,
+      false
+    ],
+    [
+      true,
+      true,
+      true,
+      true
+    ],
+    [
+      false,
+      false,
+      true,
+      false
+    ],
+    [
+      false,
+      false,
+      false,
+      false
+    ],
+    [
+      true,
+      true,
+      true,
+      false
+    ],
+    [
+      false,
+      true,
+      true,
+      false
+    ],
+    [
+      false,
+      true,
+      true,
+      true
+    ],
+    [
+      false,
+      true,
+      true,
+      true
+    ],
+    [
+      true,
+      true,
+      true,
+      true
+    ],
+    [
+      false,
+      true,
+      true,
+      true
+    ],
+    [
+      true,
+      true,
+      true,
+      false
+    ],
+    [
+      false,
+      false,
+      false,
+      true
+    ],
+    [
+      true,
+      true,
+      true,
+      true
+    ],
+    [
+      true,
+      false,
+      true,
+      false
+    ],
+    [
+      true,
+      true,
+      true,
+      true
+    ],
+    [
+      true,
+      true,
+      false,
+      true
+    ],
+    [
+      true,
+      true,
+      true,
+      false
+    ],
+    [
+      true,
+      true,
+      true,
+      false
+    ],
+    [
+      true,
+      true,
+      true,
+      true
+    ],
+    [
+      true,
+      true,
+      false,
+      false
+    ],
+    [
+      true,
+      false,
+      true,
+      true
+    ],
+    [
+      true,
+      true,
+      false,
+      true
+    ],
+    [
+      false,
+      false,
+      true,
+      false
+    ],
+    [
+      true,
+      true,
+      true,
+      false
+    ],
+    [
+      true,
+      true,
+      false,
+      true
+    ],
+    [
+      false,
+      true,
+      false,
+      true
+    ],
+    [
+      true,
+      true,
+      true,
+      true
+    ],
+    [
+      false,
+      true,
+      true,
+      true
+    ],
+    [
+      false,
+      true,
+      false,
+      true
+    ],
+    [
+      true,
+      true,
+      true,
+      false
+    ],
+    [
+      false,
+      true,
+      true,
+      true
+    ],
+    [
+      true,
+      false,
+      true,
+      true
+    ],
+    [
+      false,
+      true,
+      true,
+      true
+    ],
+    [
+      true,
+      true,
+      true,
+      true
+    ],
+    [
+      true,
+      true,
+      false,
+      true
+    ],
+    [
+      true,
+      true,
+      true,
+      true
+    ],
+    [
+      false,
+      true,
+      false,
+      true
+    ],
+    [
+      false,
+      true,
+      false,
+      false
+    ],
+    [
+      true,
+      true,
+      true,
+      false
+    ],
+    [
+      true,
+      true,
+      true,
+      true
+    ],
+    [
+      true,
+      true,
+      true,
+      true
+    ],
+    [
+      false,
+      true,
+      true,
+      false
+    ],
+    [
+      false,
+      false,
+      false,
+      false
+    ],
+    [
+      false,
+      true,
+      true,
+      true
+    ],
+    [
+      true,
+      true,
+      true,
+      true
+    ],
+    [
+      false,
+      true,
+      false,
+      true
+    ],
+    [
+      true,
+      true,
+      true,
+      true
+    ],
+    [
+      true,
+      true,
+      true,
+      true
+    ],
+    [
+      false,
+      false,
+      false,
+      false
+    ],
+    [
+      true,
+      true,
+      true,
+      false
+    ],
+    [
+      false,
+      false,
+      false,
+      false
+    ],
+    [
+      true,
+      true,
+      true,
+      true
+    ],
+    [
+      true,
+      true,
+      false,
+      true
+    ],
+    [
+      false,
+      true,
+      false,
+      true
+    ],
+    [
+      true,
+      true,
+      true,
+      true
+    ],
+    [
+      true,
+      true,
+      true,
+      true
+    ],
+    [
+      true,
+      false,
+      true,
+      false
+    ],
+    [
+      true,
+      true,
+      true,
+      true
+    ],
+    [
+      true,
+      false,
+      true,
+      false
+    ],
+    [
+      true,
+      true,
+      true,
+      true
+    ],
+    [
+      true,
+      true,
+      true,
+      false
+    ],
+    [
+      false,
+      true,
+      false,
+      true
+    ],
+    [
+      true,
+      true,
+      true,
+      true
+    ],
+    [
+      true,
+      true,
+      true,
+      true
+    ],
+    [
+      true,
+      true,
+      true,
+      true
+    ],
+    [
+      true,
+      true,
+      false,
+      true
+    ],
+    [
+      true,
+      true,
+      true,
+      false
+    ],
+    [
+      true,
+      true,
+      true,
+      true
+    ],
+    [
+      false,
+      true,
+      false,
+      true
+    ],
+    [
+      true,
+      true,
+      false,
+      true
+    ],
+    [
+      false,
+      true,
+      false,
+      true
+    ],
+    [
+      true,
+      true,
+      false,
+      true
+    ],
+    [
+      true,
+      true,
+      true,
+      true
+    ],
+    [
+      false,
+      true,
+      false,
+      true
+    ],
+    [
+      true,
+      true,
+      true,
+      true
+    ],
+    [
+      true,
+      true,
+      true,
+      true
+    ],
+    [
+      true,
+      true,
+      true,
+      true
+    ],
+    [
+      true,
+      true,
+      true,
+      true
+    ],
+    [
+      true,
+      true,
+      true,
+      true
+    ],
+    [
+      true,
+      true,
+      false,
+      true
+    ],
+    [
+      false,
+      false,
+      false,
+      false
+    ]
+  ],
+  "selection": {
+    "allocation": "At least one window per eligible episode when episode count <=100. Allocate remaining slots round-robin over a seed-42 permutation, respecting available distinct full windows.",
+    "starts": "For each episode, divide its valid start range into allocated equal index bins and draw one start uniformly per bin using numpy PCG64 seeded42. No predictions, errors, or visual labels enter selection.",
+    "order": "Sort final samples by episode index then start. Train and validation each use a fresh seed42 RNG.",
+    "validity": "Exactly16 targets, finite state/actions, no episode-boundary padding. Insufficient eligible episodes/windows fail preparation.",
+    "examples": "Five episodes at evenly spaced positions in the sorted episode list; first selected window in each; per-group joint with largest target peak-to-peak divided by maximum training normalization span, earliest joint breaks ties."
+  },
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "horizon": 16
+}
