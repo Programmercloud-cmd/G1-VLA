@@ -17,6 +17,41 @@ import watch_training_cap as cap
 
 
 class LocalCapTests(unittest.TestCase):
+    def test_real_runtime_exec_preserves_canonical_worker_identity_without_B(self):
+        from project_config import load_config, runtime_environment
+        with tempfile.TemporaryDirectory(dir=ROOT/'reports',prefix='bootstrap-fixture-') as folder:
+            folder=Path(folder);config_path=folder/'config.json'
+            config_path.write_text(json.dumps({'interpreters':{'gr00t':sys.executable}}))
+            config=load_config(config_path);environment=runtime_environment(config,offline=True)
+            environment.pop('VLA_RUNTIME_STARTUP',None)
+            self.assertEqual(environment['PYTHONDONTWRITEBYTECODE'],'1')
+            script=folder/'bootstrap.py'
+            script.write_text(
+                "import json,os,sys;from pathlib import Path\n"
+                f"sys.path.insert(0,{str(ROOT/'scripts')!r})\n"
+                "from project_config import load_config\n"
+                "from convert_single_camera import ensure_python\n"
+                "import watch_training_cap as cap\n"
+                "config,before,after=map(Path,sys.argv[1:])\n"
+                "if not before.exists():before.write_text(json.dumps(cap.inspect(os.getpid())))\n"
+                "ensure_python(load_config(config),'gr00t')\n"
+                "after.write_text(json.dumps(cap.inspect(os.getpid())))\n")
+            for old_B in [False,True]:
+                before=folder/f'before-{old_B}.json';after=folder/f'after-{old_B}.json'
+                command=[sys.executable,*(['-B'] if old_B else []),str(script),str(config_path),str(before),str(after)]
+                result=subprocess.run(command,cwd=ROOT,env=environment,capture_output=True,text=True,timeout=15)
+                self.assertEqual(result.returncode,0,result.stderr)
+                first,last=json.loads(before.read_text()),json.loads(after.read_text())
+                for field in ['pid','uid','start_ticks','pgrp','session']:
+                    self.assertEqual(first[field],last[field])
+                if old_B:
+                    self.assertEqual([x for x in first['argv'] if x!='-B'],last['argv'])
+                    with self.assertRaisesRegex(ValueError,'PID identity changed'):
+                        cap.same_process(first,last)
+                else:
+                    self.assertEqual(first['argv'],last['argv'])
+                    self.assertTrue(cap.same_process(first,last))
+
     def test_recycled_pid_identity_cannot_be_signaled(self):
         expected={'pid':123,'uid':os.getuid(),'start_ticks':100,'cmdline_sha256':'a',
                   'pgrp':123,'session':123,'state':'S'}

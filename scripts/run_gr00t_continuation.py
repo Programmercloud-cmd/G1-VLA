@@ -602,7 +602,9 @@ def main():
     signal.signal(signal.SIGTERM,interrupted);signal.signal(signal.SIGINT,interrupted)
     try:
         with evidence['-train.log'].open('x') as log:
-            process=subprocess.Popen([str(runtime['interpreters']['gr00t']),'-B',str(Path(__file__).resolve()),
+            # Match ensure_python's canonical exec argv exactly. Bytecode remains
+            # disabled by runtime_environment(PYTHONDONTWRITEBYTECODE=1).
+            process=subprocess.Popen([str(runtime['interpreters']['gr00t']),str(Path(__file__).resolve()),
                                       '--config',str(config['config_path']),'--worker',str(evidence['-run.json'])],
                                      cwd=ROOT,env=runtime_environment(config,offline=True),stdout=log,
                                      stderr=subprocess.STDOUT,start_new_session=True)
