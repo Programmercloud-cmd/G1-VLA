@@ -1,0 +1,175 @@
+{
+  "schema_version": 1,
+  "artifact_type": "g1_continuation_evaluation_protocol",
+  "status": "declared_before_continuation_training",
+  "generated_at_utc": "2026-10-21T22:25:04.657378+00:00",
+  "original_evaluation_protocol": {
+    "path": "experiments/larger-dataset-v1/evaluation-protocol.json",
+    "sha256": "9f8cf657889f49ea747928232e592610863562e222778563ee09ff7c9bd96ab1"
+  },
+  "source_checkpoint": "/home/test2/dev/VLA/storage/runs/larger-dataset-v1-retry2/checkpoint-4096",
+  "cumulative_base_step": 4096,
+  "local_to_cumulative": {
+    "2048": 6144,
+    "4096": 8192
+  },
+  "step_semantics": "HF trainer global_step and checkpoint names remain honest local additional-update counts. Cumulative values describe model-weight ancestry only; original optimizer state is unavailable.",
+  "inference_recipe": {
+    "samples_per_split": 100,
+    "selection_seed": 42,
+    "inference_seeds": [
+      42,
+      43,
+      44
+    ],
+    "horizon": 16,
+    "denoising_steps": 4,
+    "state_dropout_prob": 0.0,
+    "joint_groups": [
+      "left_arm",
+      "right_arm",
+      "left_hand",
+      "right_hand"
+    ],
+    "checkpoint_steps": [
+      2048,
+      4096,
+      6144,
+      8192
+    ],
+    "normalization_owner": "train",
+    "reference": "pretrained_step_zero_with_training_processor",
+    "selection_metric": "validation/all/group_balanced_normalized_mae",
+    "checkpoint_tie_rule": "lowest_optimizer_step",
+    "persistence": "descriptive_only",
+    "mandatory_improvement_threshold": null
+  },
+  "samples": {
+    "train": {
+      "path": "experiments/larger-dataset-v1/train-samples.json",
+      "sha256": "7096090d4e978c0cef58fac4f7c5708e63c8ce6cc9ceb5446b24ae4bae60604c",
+      "arrays": {
+        "path": "experiments/larger-dataset-v1/train-samples.npz",
+        "sha256": "74c1f7a99d84342a2399a9fe7fc9f4a47c7b0c1335970bdbcb93cce442e6ba8d"
+      }
+    },
+    "validation": {
+      "path": "experiments/larger-dataset-v1/validation-samples.json",
+      "sha256": "32fd398f6fc606c2df516e7655e4732cd034a93a0e3344647a53d88b557b33b5",
+      "arrays": {
+        "path": "experiments/larger-dataset-v1/validation-samples.npz",
+        "sha256": "5f8ba5d9c96bf99d48b1db7a3943d0d9dfd8c62bde89f5673dabf974b6345e75"
+      }
+    }
+  },
+  "processor": {
+    "path": "/dev/shm/vla-large-data-v1/processor",
+    "files_sha256": {
+      "processor_config.json": "033aeac07e3227b523703d152dca8ac2d277a40168f1d2698b536e6d2417c228",
+      "statistics.json": "7abadea98ec3c97086ac3be138189086d07907a3c007bafd4a8f5d39950a4282",
+      "embodiment_id.json": "5e8611697dc90b7b7a92cf2a8da926275c16f5966c5eb109e0216c3c51af15a1"
+    },
+    "semantics_file": {
+      "path": "/dev/shm/vla-large-data-v1/processor/evaluation-semantics.json",
+      "sha256": "b34e1d3a28083bad7ce5e17c7675c0f01cdd4000f366dfbfae8729fe2b40ac63"
+    },
+    "semantics_sha256": "e9fabe9dfd6b04b7c7a4cb6097073e0200b21987059a7c7987cf41c0f949997c",
+    "statistics_owner": "train"
+  },
+  "bindings": {
+    "source_inventory": {
+      "path": "storage/reports/larger-dataset-v1/larger-dataset-v1-retry2-checkpoint-4096-inventory.json",
+      "sha256": "fe78550476202ab1476e9565b9f5fe3dbe39855ebb0b2724b9a093c7af92f6ca"
+    },
+    "source_archive": {
+      "path": "storage/reports/larger-dataset-v1/larger-dataset-v1-retry2-checkpoint-4096-archive.json",
+      "sha256": "db2401d9da6cb364edafe27ac02ede54990dcfe6cb4117a125ea55dfdeec76be"
+    },
+    "source_archive_manifest": {
+      "path": "storage/checkpoints/larger-dataset-v1-retry2-checkpoint-4096/archive_manifest.json",
+      "sha256": "44c0efc8eb45ce05b4574a227ff38c64eb43c19bd6c76ba51e43df32157ee5f9"
+    },
+    "source_train": {
+      "path": "storage/reports/larger-dataset-v1/larger-dataset-v1-retry2-checkpoint-4096-train.json",
+      "sha256": "090bb68723f41a8b5e7c572be89ca7a20a61370021cc9474d1104d2535eaf54f"
+    },
+    "source_train_arrays": {
+      "path": "storage/reports/larger-dataset-v1/larger-dataset-v1-retry2-checkpoint-4096-train.npz",
+      "sha256": "dee0263577a9036f998efbe72d54f2782edb88018225da359731254ef6501bd4"
+    },
+    "baseline_train": {
+      "path": "storage/reports/larger-dataset-v1/larger-dataset-v1-step-zero-train.json",
+      "sha256": "8b06f2eb52003585c8011bb69ad166765fddcd508430aeef26f5ad76f9ee9ee3"
+    },
+    "baseline_train_arrays": {
+      "path": "storage/reports/larger-dataset-v1/larger-dataset-v1-step-zero-train.npz",
+      "sha256": "6462b2fd14e599a70707e08a4b7d38d59197a8fd4fce608451e028d4bfe0f623"
+    },
+    "source_validation": {
+      "path": "storage/reports/larger-dataset-v1/larger-dataset-v1-retry2-checkpoint-4096-validation.json",
+      "sha256": "566af2f490fcf2f95a38e73feeb1a6ebb0e4973417751cd1ece0638577d0542c"
+    },
+    "source_validation_arrays": {
+      "path": "storage/reports/larger-dataset-v1/larger-dataset-v1-retry2-checkpoint-4096-validation.npz",
+      "sha256": "7f292a10ed19cc4bd43c3dc1e404c5013ee4f2039d5d76f09a135808af07c9e0"
+    },
+    "baseline_validation": {
+      "path": "storage/reports/larger-dataset-v1/larger-dataset-v1-step-zero-validation.json",
+      "sha256": "237553885152c2ac13ba893ee6bcfa1be2190ca86863018a793e8fa824fd5e30"
+    },
+    "baseline_validation_arrays": {
+      "path": "storage/reports/larger-dataset-v1/larger-dataset-v1-step-zero-validation.npz",
+      "sha256": "96ccec1e4855939251b0e18bde1c498418494031d3b5d37e8bcdba36778056bb"
+    }
+  },
+  "selection_rule": {
+    "candidates_cumulative_steps": [
+      4096,
+      6144,
+      8192
+    ],
+    "metric": "validation/all/group_balanced_normalized_mae",
+    "tie": "earliest_cumulative_step",
+    "formal_selection_requires_both_new_pairs": true,
+    "incomplete_run": "descriptive_ranking_of_certified_available_candidates_only",
+    "mandatory_improvement_threshold": null,
+    "persistence": "descriptive_only"
+  },
+  "training_segment": {
+    "additional_updates": 4096,
+    "source_weight_updates": 4096,
+    "optimizer_and_scheduler": "fresh",
+    "learning_rate": 5e-05,
+    "warmup_ratio": 0.025,
+    "warmup_steps": 103,
+    "scheduler": "cosine",
+    "sampling_seed": 4138,
+    "frozen_split_seed": 42,
+    "exact_dataset_cursor_resume_supported": false
+  },
+  "new_source_sha256": {
+    "scripts/continuation_artifacts.py": "386eed4bfb3f86bf2e52360f739d3d92fd5551015e990a4ab612e0ccabb0e1af",
+    "scripts/evaluate_gr00t_continuation.py": "63bfe2ac8e13b8f63e6ff5a458b06bd41d491af64d63f4eb533dc69e75242775",
+    "scripts/archive_gr00t_continuation.py": "c0336112c6da2542a883e4d65f77a95e5cec7ff63e8cd91e3a0b8ceccd65c8cb",
+    "scripts/launch_gr00t_evaluation.py": "ecd8070838828717d66100f2c206397cd9069022c602b7ea9ce16d70cf9241d4",
+    "scripts/run_gr00t_continuation.py": "308ed70689b44bcb1edd20c9af35dda71938cd4e1d0a2496a67dfb64a68d87a0",
+    "scripts/watch_training_cap.py": "4851a9dd6ef9dd4d08701f078e064aa58241a346487675eb1c6dcd17ee23f5ff"
+  },
+  "full_state_policy": {
+    "new_checkpoints_require": [
+      "optimizer.pt",
+      "rng_state.pth",
+      "scheduler.pt"
+    ],
+    "durable_storage_host_sha256_and_fsync_before_next_training_update": true,
+    "inference_views_resumable": false,
+    "canonical_full_checkpoint_is_resume_reference": true,
+    "exact_iterable_dataset_cursor_resume_supported": false
+  },
+  "scope": "Same frozen100-window train/validation samples, original stepzero and actual4096 predictions; no mandatory persistence or improvement threshold; no robot competence claim.",
+  "implementation_commit": "5e2235fd372d353ca6ae361de74853920e73b941",
+  "previous_continuation_protocol": {
+    "path": "experiments/larger-dataset-v1-continuation-v1/evaluation-protocol.json",
+    "sha256": "651d3c1b371f06fe7f262f6e5da222ac90315771f46bc76431062d1d0440a383"
+  }
+}
