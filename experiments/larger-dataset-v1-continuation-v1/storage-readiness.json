@@ -1,0 +1,268 @@
+{
+  "schema_version": 1,
+  "artifact_type": "continuation_storage_cleanup_and_readiness",
+  "generated_at_utc": "2026-10-21T22:17:04.431518+00:00",
+  "passed": true,
+  "scope": "Storage/environment/CPU-processor readiness and tiny GPU kernels only; no model weight load or training. Final frozen launch guards remain required.",
+  "cleanup": {
+    "record": {
+      "ref": "archive:maintenance/20261022-substantial-headroom/cleanup-record.json",
+      "bytes": 390095,
+      "sha256": "1320450851073b0c4352cd6edfd7d76642584be0f5de23ac2622e30ae238c419"
+    },
+    "candidate_inode_manifest": {
+      "ref": "archive:maintenance/20261022-substantial-headroom/candidate-file-manifest.json",
+      "bytes": 122932407,
+      "sha256": "d439694ff0833cdf8228eb9261e4af173534e5d4bb66ecc99e9a916baa53018c"
+    },
+    "root_free_before_bytes": 8679063552,
+    "root_free_after_bytes": 22139371520,
+    "measured_root_free_increase_bytes": 13460307968,
+    "target_root_free_bytes": 21474836480,
+    "guard_bytes_unchanged": 8589934592,
+    "disposed_groups": [
+      {
+        "name": "inactive_phoronix_benchmark_installations",
+        "entries": 36846,
+        "reason": "Regenerable benchmark downloads, build trees, isolated test runtimes and generated test databases; no running process references; published benchmark result directories are preserved.",
+        "restoration": "Reinstall the requested Phoronix benchmark versions; this is outside the VLA pipeline."
+      },
+      {
+        "name": "inactive_vscode_server_versions",
+        "entries": 16685,
+        "reason": "Old inactive VSCode server version payloads; preserve active code/server07f806f999227108933c2e30515b26eecc1fda74 and all settings, extensions, tokens and logs.",
+        "restoration": "VSCode Remote can redownload the same version payloads."
+      },
+      {
+        "name": "conda_download_and_extracted_package_cache",
+        "entries": 220243,
+        "reason": "Conda download archives and extracted package cache; no preserved environment symlink resolves into pkgs. Surviving environment hardlinks retain their original bytes/inodes. Cache aliases may be removed even when they are hardlinked to environments; only last-link extents count as reclaimable. Private URL/config metadata and base interpreter/environments are preserved.",
+        "restoration": "Conda can redownload package archives from existing environment package metadata. No installed environment path is removed."
+      },
+      {
+        "name": "obsolete_installer_downloads",
+        "entries": 3,
+        "reason": "Completed installer downloads, not installed applications or environments.",
+        "restoration": "Redownload these explicitly named vendor installer versions if needed."
+      },
+      {
+        "name": "inactive_codex_release_caches",
+        "entries": 125,
+        "reason": "Inactive older release payloads; all running Codex tools use0.163.0, which is preserved along with credentials, settings, threads and logs.",
+        "restoration": "The Codex updater can redownload the corresponding release payloads."
+      }
+    ],
+    "reclaimable_last_link_inode_bytes": 13327523840,
+    "shared_inode_bytes_preserved_by_remaining_links": 6766964736,
+    "protected_roots_count": 13,
+    "protected_metadata_unchanged": true,
+    "no_environment_data_model_checkpoint_bytes_written": true,
+    "prior_external_git_pack_dependencies_untouched": true,
+    "disposable_caches_regenerable_not_archived": true
+  },
+  "configuration": {
+    "machine_local_file": {
+      "ref": "reports/larger-dataset-v1-continuation-v1-machine.json",
+      "bytes": 326,
+      "sha256": "1f5c7b54e9452b665db7ba2ddebd543805916059951cc02f55313b5980d29e07"
+    },
+    "durable_copy": {
+      "ref": "archive:reports/larger-dataset-v1-continuation-v1-preflight/reports/larger-dataset-v1-continuation-v1-machine.json",
+      "bytes": 326,
+      "sha256": "1f5c7b54e9452b665db7ba2ddebd543805916059951cc02f55313b5980d29e07"
+    },
+    "only_changed_setting_from_retry2": "paths.reports=reports/larger-dataset-v1-continuation-v1",
+    "original_evaluation_config_unchanged": true,
+    "runtime_record_cache_storage_and_dataset_paths_preserved": true
+  },
+  "ram_temporary_directory": {
+    "path": "/dev/shm/vla-continuation-tmp-20261022",
+    "mode": "0o700",
+    "pinned_python_tempfile_path_verified": true,
+    "outside_frozen_dataset": true
+  },
+  "readiness": {
+    "publication_manifest": {
+      "ref": "archive:reports/larger-dataset-v1-continuation-v1-preflight/publication-manifest.json",
+      "bytes": 1176,
+      "sha256": "bde0e725d54670c3313be638913df8d3947ed1ab194e8d3ff5ac7a5e444c2fd1"
+    },
+    "runtime_report": {
+      "ref": "archive:reports/larger-dataset-v1-continuation-v1-preflight/reports/larger-dataset-v1-continuation-v1/readiness-20261022.json",
+      "bytes": 4221,
+      "sha256": "0fff3a65e0ec83547fad2a39bfc2545e7aa16da4b189fc722a23ba79bc7af2e6"
+    },
+    "frozen_data_and_parent_report": {
+      "ref": "archive:reports/larger-dataset-v1-continuation-v1-preflight/reports/larger-dataset-v1-continuation-v1/frozen-storage-parent-readiness-20261022.json",
+      "bytes": 2062,
+      "sha256": "d2cd8322aa7389e5b1d9c2dfd5adc38280c461917ef50fb8c173a0e080a78979"
+    },
+    "checks_passed": 19,
+    "environments": {
+      "unitree": {
+        "python": "/home/test2/dev/VLA/.venvs/unitree/bin/python",
+        "python_version": "3.10.12",
+        "packages": 125
+      },
+      "conversion": {
+        "python": "/home/test2/dev/VLA/.venvs/conversion/bin/python",
+        "python_version": "3.10.12",
+        "packages": 92
+      },
+      "gr00t": {
+        "python": "/home/test2/dev/VLA/vendor/Isaac-GR00T/.venv/bin/python",
+        "python_version": "3.12.2",
+        "packages": 135
+      },
+      "tools": {
+        "python": "/home/test2/dev/VLA/.tools/python/bin/python",
+        "python_version": "3.12.2",
+        "packages": 20
+      }
+    },
+    "locked_model_assets": {
+      "lock": {
+        "ref": "locks/model-assets.json",
+        "bytes": 3046,
+        "sha256": "be445c931fac431029f1af3edbd680e5e8be35cdd01f3b19707956baecc66115"
+      },
+      "all_required_full_sha256_checked": true,
+      "models": [
+        {
+          "repo": "nvidia/GR00T-N1.7-3B",
+          "revision": "2fc962b973bccdd5d8ce4f67cc63b264d6886495",
+          "files": 7,
+          "bytes": 6914922850
+        },
+        {
+          "repo": "nvidia/Cosmos-Reason2-2B",
+          "revision": "9ce19a195e423419c349abfc86fd07178b230561",
+          "files": 10,
+          "bytes": 4888970298
+        }
+      ]
+    },
+    "tiny_gpu_kernels": {
+      "matmul_backward": true,
+      "flash_attention_backward": true,
+      "readiness_lease_released_after_check": true,
+      "training_not_launched_by_readiness": true
+    }
+  },
+  "frozen_bindings": {
+    "protocol": {
+      "ref": "experiments/larger-dataset-v1/evaluation-protocol.json",
+      "bytes": 42385,
+      "sha256": "9f8cf657889f49ea747928232e592610863562e222778563ee09ff7c9bd96ab1"
+    },
+    "frozen_source_sha_count": 21,
+    "processor_sha_count": 3,
+    "small_protocol_binding_count": 6,
+    "sample_json_npz_files": 4,
+    "converted_datasets": [
+      {
+        "split": "train",
+        "dataset": "/dev/shm/vla-large-data-v1/lerobot/local/g1_inspire_larger_v1_train",
+        "episodes": 98,
+        "frames": 38751,
+        "verified_converted_files": 203,
+        "verified_file_bytes": 423450100
+      },
+      {
+        "split": "validation",
+        "dataset": "/dev/shm/vla-large-data-v1/lerobot/local/g1_inspire_larger_v1_validation",
+        "episodes": 24,
+        "frames": 8811,
+        "verified_converted_files": 54,
+        "verified_file_bytes": 95146023
+      }
+    ],
+    "raw_image_decode_repeated": false,
+    "parent_checkpoint": "archive:runs/larger-dataset-v1-retry2/checkpoint-4096",
+    "parent_inventory": {
+      "ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-retry2-checkpoint-4096-inventory.json",
+      "bytes": 7140,
+      "sha256": "fe78550476202ab1476e9565b9f5fe3dbe39855ebb0b2724b9a093c7af92f6ca"
+    },
+    "parent_files": 16,
+    "parent_bytes": 12583374975,
+    "fresh_remote_and_local_signatures_verified": true,
+    "small_metadata_sha_verified": true,
+    "checkpoint_weight_bytes_rehashed": false,
+    "source_checkpoint_untouched": true
+  },
+  "cpu_warmstart_processor": {
+    "publication_manifest": {
+      "ref": "archive:reports/larger-dataset-v1-continuation-v1-preflight/processor-warmstart-attempt-2/manifest.json",
+      "bytes": 1244,
+      "sha256": "4b32df2e1840e70104fcfb2b2b32ac5b6f60395ffd98eaa44f295faefbcfae2f"
+    },
+    "report": {
+      "ref": "archive:reports/larger-dataset-v1-continuation-v1-preflight/processor-warmstart-attempt-2/proof.json",
+      "bytes": 2815,
+      "sha256": "5de69c6b8196bacee1ae79fabe79802526fb9079d1fdceb8f7c79b0499292114"
+    },
+    "source": {
+      "ref": "archive:reports/larger-dataset-v1-continuation-v1-preflight/processor-warmstart-attempt-2/proof-source.py",
+      "bytes": 5690,
+      "sha256": "83657aa198ff7ef79626fc4c81d7d6dea5744a04ef92c1000b4dc9d7c7d8e0c6"
+    },
+    "gate_summary": {
+      "ref": "archive:reports/larger-dataset-v1-continuation-v1-preflight/processor-warmstart-attempt-2/gate-summary.json",
+      "bytes": 1141,
+      "sha256": "033a7b697813d12f20f55605f0a55f0fe3e6a43569936227f7f602d2f759c715"
+    },
+    "native_sequence": [
+      "configure_segment(seed4138)",
+      "set_seed",
+      "Config.validate",
+      "Gr00tN1d7Pipeline(model=None)._create_dataset"
+    ],
+    "pythonhashseed": 1,
+    "cuda_visible_devices": "",
+    "cuda_initialized": false,
+    "model_is_none": true,
+    "model_weights_loaded": false,
+    "train_episodes": 98,
+    "train_frames": 38751,
+    "saved_processor_modality_count": 9,
+    "new_embodiment_action_horizon": 16,
+    "model_action_capacity": 40,
+    "processor_files_sha256": {
+      "processor_config.json": "033aeac07e3227b523703d152dca8ac2d277a40168f1d2698b536e6d2417c228",
+      "statistics.json": "7abadea98ec3c97086ac3be138189086d07907a3c007bafd4a8f5d39950a4282",
+      "embodiment_id.json": "5e8611697dc90b7b7a92cf2a8da926275c16f5966c5eb109e0216c3c51af15a1"
+    },
+    "processor_semantics_sha256": "e9fabe9dfd6b04b7c7a4cb6097073e0200b21987059a7c7987cf41c0f949997c",
+    "statistics_bytes_unchanged": true,
+    "runner_sha256_at_start": "19c4a1249a1eb605b4d76e7ec658d218be5d3f3e1f8157bfb38d060912423d37",
+    "runner_sha256_at_finish": "19c4a1249a1eb605b4d76e7ec658d218be5d3f3e1f8157bfb38d060912423d37",
+    "prior_attempt": {
+      "classification": "FAILED_HARNESS_OMITTED_NATIVE_VALIDATE",
+      "publication_manifest": {
+        "ref": "archive:reports/larger-dataset-v1-continuation-v1-preflight/processor-warmstart-attempt-1/manifest.json",
+        "bytes": 653,
+        "sha256": "427562640ee8ac935dab80b112cc957f5dc92827e81f276f5bde6792b38024c9"
+      },
+      "explanation": "Attempt1 bypassed native Config.validate and merged unused global registry overrides. Actual native experiment.run already filters to configured embodiments; production runtime/checkpoint/config needed no change.",
+      "production_runtime_or_checkpoint_fix_required": false
+    }
+  },
+  "resource_snapshots": {
+    "root_free_after_cleanup_bytes": 22139371520,
+    "root_free_at_record_bytes": 22132453376,
+    "host_available_at_readiness_bytes": 125722357760,
+    "external_output_free_at_readiness_bytes": 1079728279552,
+    "gpu_free_at_readiness_bytes": 50744786944,
+    "required_prelaunch_root_bytes": 21474836480,
+    "required_host_bytes": 64424509440,
+    "required_gpu_bytes": 42949672960,
+    "required_external_output_bytes": 128849018880,
+    "training_guard_bytes_unchanged": 8589934592
+  },
+  "limitations": [
+    "Readiness validates the current host; this is not a new-machine installation proof.",
+    "Resource figures are timestamped snapshots; mandatory launch checks recheck resources.",
+    "The processor CPU proof loads no model weights and establishes no trained-policy or hardware competence."
+  ]
+}

@@ -1,5 +1,12 @@
 # Larger-dataset v1 resume — 21 October 2026
 
+Current next scope: the user authorized a [separate continuation from the verified
+4,096 checkpoint](larger-dataset-v1-continuation.md), with fresh optimizer/scheduler
+state and at most 4,096 additional updates under its own six-hour cap. It is
+preparing, not launched. The material below records the completed earlier
+partial experiment and recovery history; its old commands are not a new launch
+instruction.
+
 Current outcome: [retry2](larger-dataset-v1-retry2.md) stopped at 5,231 of
 8,192 updates when the unchanged 8 GiB local disk reserve guard fired. Its cap
 was not reached. Checkpoints 2,048 and 4,096 have certified save events; their
