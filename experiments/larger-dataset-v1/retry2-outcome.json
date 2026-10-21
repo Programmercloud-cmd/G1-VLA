@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "artifact_type": "bounded_training_partial_outcome",
+  "run": "larger-dataset-v1-retry2",
+  "status": "interrupted_by_resource_reserve_guard",
+  "training_completed": false,
+  "executed_pipeline_commit": "2d681e4b093213a39a280e7ec9877d639e0edd07",
+  "requested_updates": 8192,
+  "completed_updates": 5231,
+  "remaining_to_requested_target": 2961,
+  "elapsed_seconds": 10789.182788866,
+  "worker_exit_code": -15,
+  "stop_reason": "Unchanged resource reserve guard; actual host check reproduced project/reports filesystem below8GiB. Host RAM and external output remained ample.",
+  "root_allocation_cause_status": "APT daily service started20:33:17UTC, immediately before the last training audit timestamp20:33:19UTC; root-owned Contents indexes were replaced20:34:57\u201358UTC and free space recovered afterward. This is strong timing/metadata evidence for incidental APT allocation, not proof of the exact temporary peak or exclusive cause. See additive diagnosis manifest.",
+  "cap_reached": false,
+  "cap_watchdog_sent_signals": false,
+  "finite_complete_update_prefix": {
+    "passed": true,
+    "micro_losses": 41848,
+    "gradient_updates": 5231,
+    "optimizer_updates": 5231,
+    "nonfinite_events_in_full_audit": 0,
+    "excluded_partial_next_update_micro_losses": 4,
+    "prefix_sha256_through_step_end_5231": "3cf21cfab09a086044b7b45f0a8a9966e12d08bd909a49f0dd52c3cfa5e59ecd",
+    "first_160_mean_loss": 1.2645221889019012,
+    "last_160_mean_loss": 0.05427266525803134
+  },
+  "certified_saved_checkpoint_steps": [
+    2048,
+    4096
+  ],
+  "missing_requested_checkpoint_steps": [
+    6144,
+    8192
+  ],
+  "checkpoint_at_final_observed_update_exists": false,
+  "formal_four_checkpoint_selection_performed": false,
+  "artifacts": {
+    "run_manifest": {
+      "artifact_ref": "archive:reports/larger-dataset-v1-retry2-completion/reports/larger-dataset-v1-retry2/larger-dataset-v1-retry2-run.json",
+      "bytes": 92212,
+      "sha256": "c58885dc695f03b99d63b7a3c90d6c51fa8cff3dc25d571d39f1555ee54f0dc5"
+    },
+    "training_report": {
+      "artifact_ref": "archive:reports/larger-dataset-v1-retry2-completion/reports/larger-dataset-v1-retry2/larger-dataset-v1-retry2-train.json",
+      "bytes": 4397,
+      "sha256": "13e424d48fd5cea6cc919900923c8dfb2a28f08da506bd5493d1e1c0e7db69ca"
+    },
+    "raw_finite_audit": {
+      "artifact_ref": "archive:reports/larger-dataset-v1-retry2-completion/reports/larger-dataset-v1-retry2/larger-dataset-v1-retry2-finite.jsonl",
+      "bytes": 8819584,
+      "sha256": "0833b8d57fdff111dfa01b42bec3f13d834a214b9d08b2f09bc05a110ea57513"
+    },
+    "final_cap_watchdog": {
+      "artifact_ref": "archive:reports/larger-dataset-v1-retry2-completion/reports/larger-dataset-v1-retry2/larger-dataset-v1-retry2-cap-watchdog.json",
+      "bytes": 2986,
+      "sha256": "77830b338a6a37b95a41e3bf295b168fcd4b8e2ba5de3957fb5e204fb4eff818"
+    },
+    "checkpoint_2048_save_proof": {
+      "artifact_ref": "archive:reports/larger-dataset-v1-retry2-completion/reports/larger-dataset-v1-retry2/larger-dataset-v1-retry2-checkpoint-2048-save-proof.json",
+      "bytes": 2904,
+      "sha256": "b3ccb8eb8067394a9786c013b8ef4780846dd0580518d436f27472305ffe40aa"
+    },
+    "checkpoint_4096_save_proof": {
+      "artifact_ref": "archive:reports/larger-dataset-v1-retry2-completion/reports/larger-dataset-v1-retry2/larger-dataset-v1-retry2-checkpoint-4096-save-proof.json",
+      "bytes": 2904,
+      "sha256": "2add64dd0665884bf2426e9a11d1c4fb2652a171f6560c20d0b9be2c531127ae"
+    },
+    "completion_publication": {
+      "artifact_ref": "archive:reports/larger-dataset-v1-retry2-completion/publication-manifest.json",
+      "bytes": 12202,
+      "sha256": "b23b03d698620e779ec2ac3a2eadac1ea439701ecd416d0bf10633b7dddcbcaa"
+    },
+    "summary_publication": {
+      "artifact_ref": "archive:reports/larger-dataset-v1-retry2-completion-summary/publication-manifest.json",
+      "bytes": 1083,
+      "sha256": "be274797fcab386c64ab417965acd79f73cf79b4bce68a4160726de9c2754a00"
+    },
+    "interrupted_summary": {
+      "artifact_ref": "archive:reports/larger-dataset-v1-retry2-completion-summary/reports/larger-dataset-v1-retry2-interrupted-summary.json",
+      "bytes": 4377,
+      "sha256": "f57ac8ab2b6c73ce44dcf881f6625b0c2beea5b1da2322635f3a238ef566cf3f"
+    },
+    "apt_disk_diagnosis": {
+      "artifact_ref": "archive:reports/larger-dataset-v1-retry2-disk-diagnosis/manifest.json",
+      "bytes": 559,
+      "sha256": "6e48f0478838767e0f04b39b4bfea6088a8c717d4994f2e1578db560a8617bb3"
+    }
+  },
+  "policy_scope": "Offline loss decline does not establish target selection, grasping, pickup or carrying success.",
+  "next_scope": "Inventory and evaluate only saved checkpoints2048 and4096 against original baselines; report a partial learning curve. No automatic training retry or resume.",
+  "final_frozen_binding_recheck": {
+    "checked_script_config_bindings": 14,
+    "checked_input_bindings": 276,
+    "mismatches": 0,
+    "scope": "Actual-host read-only SHA256 comparison against executed run manifest after training exit, including frozen RAM data files, original baselines and pinned pretrained files."
+  }
+}

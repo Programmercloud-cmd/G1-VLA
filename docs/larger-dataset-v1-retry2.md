@@ -1,5 +1,13 @@
 # Larger-dataset v1 storage recovery and retry2
 
+**Actual outcome:** retry2 stopped at 5,231 of 8,192 updates when the unchanged
+8 GiB local disk reserve guard fired, before its six-hour cap. Checkpoints 2,048
+and 4,096 are certified and preserved; their evaluations are underway. The
+[partial outcome](../experiments/larger-dataset-v1/retry2-outcome.json) records
+finite-prefix evidence. No automatic training retry/resume or four-pair selection
+is authorized. The launch commands below are historical records; use the
+[post-training record](post-training-larger-dataset-v1-retry2.md) for current scope.
+
 `larger-dataset-v1-retry1` completed 1,364 optimizer updates before its SSHFS
 connection failed. The preserved audit contains 10,915 finite micro-losses and
 1,364 finite gradient/update records, ending three microbatches into the next
@@ -29,7 +37,8 @@ configured external volume. Keep the PC, external drive and SSH tunnel available
 through training, saves and evaluation. A noninteractive attempt to acquire a
 sleep inhibitor on that PC was denied; no power settings were changed.
 
-Use separate training and evaluation configurations:
+Historical configuration and launch dry-run record; existing outputs are occupied,
+and these commands are not authorization to launch again:
 
 ```bash
 VLA_TRAIN_CFG=reports/larger-dataset-v1-retry2-machine.json
@@ -59,25 +68,25 @@ including full model-asset hashes. Both earlier real CPU processor proofs remain
 applicable: `PYTHONHASHSEED=1` reproduces all three frozen processor files, while
 the training/data seed remains 42. All 21 frozen source hashes remain exact.
 
-The unchanged pipeline was already published at `2d681e4` when retry2 launched;
-the supplemental recovery record may be published afterward. After current
-resource checks and the GPU lease, repeat the command without `--dry-run`, capturing output in a fresh local
-`$VLA_TRAIN_REPORTS/$VLA_RUN-launcher.log` with overwrite disabled. Keep normal GPU
-visibility; the empty `CUDA_VISIBLE_DEVICES` used for CPU proof must not enter
-training. Attest only the selected environment keys and actual process IDs, and
-arm the independent local watchdog with those exact identities and the fresh
-process-start-plus-21,600-second deadline. Compare the first 32 actual consumed
-coordinates with retry1's preserved first 32; this checks sampling identities,
-not whole-training numerical equivalence.
+The unchanged pipeline was already published at `2d681e4` when retry2 launched.
+The actual command omitted `--dry-run`, used `PYTHONHASHSEED=1` with normal GPU
+visibility, and captured its launcher log locally. The execution declaration
+records the selected environment and exact process identities. An independent
+local watchdog used process-start plus 21,600 seconds; it ended without signals
+when training stopped early. The first 32 actual consumed coordinates matched
+retry1's preserved prefix, checking sampling identities rather than whole-model
+numerical equivalence. This is a completed execution record, not an instruction
+to repeat the command.
 
-All other training requirements remain unchanged: 8,192 updates, microbatch one,
+The executed training requirements were unchanged: 8,192 updates, microbatch one,
 accumulation eight, pretrained initialization, fresh optimizer, zero state
 dropout, four model-only checkpoints at 2,048/4,096/6,144/8,192, the mandatory
 final root save, and existing finite/source/resource guards. Do not extend or
 automatically resume if the cap or a required guard stops training.
 
-After training exits, use `VLA_EVAL_CFG` for checkpoint inventories, the tested
-paired evaluation launcher, and in-place archival. Put each inventory and
+Training has exited. Current post-training work uses `VLA_EVAL_CFG` for the
+existing checkpoint inventories, the tested paired evaluation launcher and
+in-place archival. Put each inventory and
 train/validation evaluation report under `VLA_EVAL_REPORTS`. Pass
 `--run-config "$VLA_TRAIN_REPORTS/$VLA_RUN-run.json"` and
 `--train-report "$VLA_TRAIN_REPORTS/$VLA_RUN-train.json"` to archival; the run
@@ -87,7 +96,8 @@ reports after they stop changing; do not relocate the active audit.
 The [retry2 post-training note](post-training-larger-dataset-v1-retry2.md) gives
 the exact checkpoint, evaluation and publication commands for these two configurations.
 
-No GPU evaluation may overlap training. Selection still requires all four valid
-checkpoint pairs and uses the unchanged validation metric. Preserve and report
-any incomplete prefix honestly; offline errors alone do not establish robot
+No GPU evaluation may overlap training; its lease was released after process exit.
+The unchanged protocol requires all four valid checkpoint pairs for formal
+selection. This run has only two saved checkpoints and will report a partial
+curve without that selection. Offline errors alone do not establish robot
 pickup success.

@@ -1,17 +1,20 @@
 # Larger-dataset v1 resume — 21 October 2026
 
-Current execution is [retry2](larger-dataset-v1-retry2.md), with local audit logs
-and a fresh six-hour cap explicitly approved after retry1's storage interruption.
-Retry1 stopped at 1,364 completed updates without a checkpoint; its evidence is
-preserved. The [retry2 post-training commands](post-training-larger-dataset-v1-retry2.md)
-supersede the earlier commands below.
+Current outcome: [retry2](larger-dataset-v1-retry2.md) stopped at 5,231 of
+8,192 updates when the unchanged 8 GiB local disk reserve guard fired. Its cap
+was not reached. Checkpoints 2,048 and 4,096 have certified save events; their
+paired train/validation evaluations are underway. The [partial outcome](../experiments/larger-dataset-v1/retry2-outcome.json)
+preserves the finite prefix and final evidence. There is no automatic training
+retry/resume or formal four-checkpoint selection. The [retry2 post-training record](post-training-larger-dataset-v1-retry2.md)
+is the current evaluation/archive reference.
 
-The first training startup subsequently stopped before any update because upstream
-set iteration changed the JSON ordering of two identical embodiment IDs. Preserve
-that attempt. The [verified deterministic retry](larger-dataset-v1-retry1.md)
-supersedes the original launch command below: use `PYTHONHASHSEED=1` and the fresh
-`larger-dataset-v1-retry1` identity. Its [post-training commands](post-training-larger-dataset-v1-retry1.md)
-retain the original baselines and frozen evaluation protocol.
+The launch and recovery commands below are historical execution records, not
+instructions to start another run. The first startup stopped before any update
+because upstream set iteration changed the JSON ordering of two identical
+embodiment IDs. The [deterministic retry](larger-dataset-v1-retry1.md) used
+`PYTHONHASHSEED=1`; retry1 later stopped at 1,364 completed updates after a storage
+interruption, without a checkpoint. The user then explicitly approved retry2's
+fresh six-hour cap. All attempts and their evidence remain preserved.
 
 The user resumed the already approved 8,192-update experiment. The frozen split,
 protocol, processor, source bindings and historical reports remain unchanged.
@@ -29,7 +32,7 @@ including the actual dataset loader, runtime/source locks, decoder, GPU capacity
 and tiny CUDA kernels. Its report is
 `storage/reports/larger-dataset-v1/larger-dataset-v1-next-session-readiness.json`.
 The readiness freeze preceded model inference. Both pretrained step-zero
-baselines are now complete; training remains pending.
+baselines completed before training; the partial training outcome is recorded above.
 
 Storage maintenance also completed, reclaiming 405,536,768 allocated bytes while
 preserving source, environment, model, dataset and checkpoint bytes. Its report
@@ -61,7 +64,7 @@ launcher also passed with fresh, nonauthoritative `step-zero-launcher-check`
 reports: both prediction arrays are bitwise identical to their original baselines
 (maximum absolute difference zero), and validation reused the one model in the
 same process. The original authoritative baseline references remain unchanged.
-Fine-tuned checkpoint evaluations follow training.
+Fine-tuned checkpoint evaluations are now underway for the two saved checkpoints.
 
 The actual restore ran the preserved implementation from
 `reports/restore_larger_dataset_v1.py`. Its byte-for-byte tracked copy is
@@ -98,13 +101,15 @@ This command refuses an occupied destination or report. Inspect existing results
 before choosing another execution; the current restored destination is occupied.
 The machine's root filesystem must retain the existing 8 GiB reserve.
 
-New reports use durable storage at
+Post-training reports use durable storage at
 `storage/reports/larger-dataset-v1`. The machine-local configuration sets
 `paths.reports` to that directory and explicitly retains
 `paths.runtime_record="reports/machine-runtime.json"`. This changes only locations
 for new execution evidence. Existing `reports/larger-dataset-v1-conversion.json`
-and every frozen protocol input remain at their original paths. Shell log
-redirections must also target the new reports directory. Do not write beneath
+and every frozen protocol input remain at their original paths. Post-training shell log
+redirections also target that directory. Retry2 training instead used the separate
+`reports/larger-dataset-v1-retry2-machine.json` configuration and local audit files;
+those completed files are now durably copied with SHA verification. Do not write beneath
 `storage` unless its configured SSHFS mount is present.
 
 The ignored `reports/larger-dataset-v1-machine.json` was updated after saving
@@ -112,9 +117,9 @@ The ignored `reports/larger-dataset-v1-machine.json` was updated after saving
 This session does not relocate model assets, existing conversion evidence or
 frozen evaluation files.
 
-Restoration and readiness have passed. Use these next commands from
-`/home/test2/dev/VLA` with the updated machine-local configuration; the existing
-readiness report is preserved rather than overwritten:
+Historical original-launch dry run, preserved below for provenance. It is not the
+current retry2 command and must not be rerun into existing outputs. The existing
+readiness and dry-run reports remain preserved:
 
 ```bash
 VLA_CFG=reports/larger-dataset-v1-machine.json
@@ -139,21 +144,19 @@ python3 scripts/project_storage.py --config "$VLA_CFG" status
   --run larger-dataset-v1 --timeout-seconds 21600 --dry-run
 ```
 
-Inspect both successful baseline reports and the dry-run bindings, then repeat
-the training command without `--dry-run`. The resumed authorization covers this
-run. Keep the six-hour limit and existing resource reserves. The launcher
-automatically places its run report, training log, finite audit and coverage
-files under the configured external reports directory.
+The original launch command above was superseded first by the deterministic
+retry1 and then by retry2. It is not authorization for another training run.
+Retry2's actual run manifest records commit `2d681e4`, fixed hash seed 1, local
+training audits and unchanged recipe/source bindings. The final report records
+`aborted=resource_reserve` and worker exit -15; the independent cap watchdog ended
+without sending signals. Final evidence is durably preserved under
+`storage/reports/larger-dataset-v1-retry2-completion`.
 
-The baseline reports already exist; preserve them. After training exits, follow the
-[checkpoint inventory, paired evaluation, archive and selection workflow](larger-dataset-execution-v1.md),
-using `"$VLA_REPORTS/..."` for every new report/inventory argument, both step-zero
-reference arguments, `--run-config` and `--train-report`. Checkpoint weights stay
-under `storage/runs/larger-dataset-v1`; archival publishes their evidence in
-place. Replace `scripts/evaluate_gr00t_dataset.py` with
-`scripts/launch_gr00t_evaluation.py` in paired evaluation commands, keeping the
-same `--config` and all evaluator arguments. No GPU evaluation may overlap
-training. Selection requires all four valid
-pairs at 2,048, 4,096, 6,144 and 8,192 updates. Preserve and report an incomplete
-run honestly if the cap is reached. Offline action errors do not establish robot
-pickup success.
+Follow the [retry2 post-training record](post-training-larger-dataset-v1-retry2.md)
+for the existing inventories and ongoing evaluations of checkpoints 2,048 and
+4,096 only. The original step-zero baselines remain authoritative. Evaluation
+uses a checked RAM-backed temporary directory to keep incidental temporary
+allocation off the narrowly provisioned project filesystem. No GPU evaluation
+may overlap training; training has exited and its GPU lease has been released.
+The protocol's four-pair selection is unavailable for this incomplete run.
+Offline action errors do not establish robot pickup success.

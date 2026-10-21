@@ -1,14 +1,16 @@
 # Larger-dataset v1 retry2 checkpoint evaluation
 
-These commands are prepared for the fresh `larger-dataset-v1-retry2` run. They
-are not authorization to share the GPU while training is active. Root must first
-confirm the training process has exited and release its GPU lease. The final
-training report must exist before checkpoint inventory, evaluation or archival.
-The original failed zero-update run and authoritative step-zero reports remain
-preserved at their original names. This note supersedes the retry1 commands for
-execution. Retry1 stopped after storage interruption at 1,364 updates, before
-its first checkpoint, and remains preserved. The user approved a fresh six-hour
-cap for retry2; it starts from pretrained initialization with a fresh optimizer.
+Retry2 stopped at **5,231 of 8,192 updates** after the unchanged local disk
+reserve guard fired, before its six-hour cap. The worker exited and released the
+GPU; the independent cap watchdog sent no signals. Only checkpoints **2,048 and
+4,096** have certified saves. Their host-side inventories already exist, and
+paired evaluations are underway, starting with 4,096. The [partial outcome](../experiments/larger-dataset-v1/retry2-outcome.json)
+binds the final report, complete finite prefix and durable evidence.
+
+This note records the current two-checkpoint workflow. Commands with existing
+outputs must not be blindly rerun; inspect their reports and logs first. There
+is no automatic training retry/resume and no formal four-pair selection. Earlier
+attempts and original authoritative step-zero reports remain preserved.
 
 Use a shell with `set -euo pipefail`, from `/home/test2/dev/VLA`. The fixed Python
 hash seed is process-start configuration for the serialization recovery; it is
@@ -24,6 +26,7 @@ baseline paths are unchanged.
 ```bash
 set -euo pipefail
 export PYTHONHASHSEED=1
+export TMPDIR=/dev/shm/vla-larger-evaluation-tmp-20261021
 VLA_EVAL_CFG=reports/larger-dataset-v1-machine.json
 VLA_PY=vendor/Isaac-GR00T/.venv/bin/python
 VLA_REPORTS=storage/reports/larger-dataset-v1
@@ -34,6 +37,17 @@ VLA_PROTOCOL=experiments/larger-dataset-v1/evaluation-protocol.json
 VLA_ZERO_TRAIN="$VLA_REPORTS/larger-dataset-v1-step-zero-train.json"
 VLA_ZERO_VALIDATION="$VLA_REPORTS/larger-dataset-v1-step-zero-validation.json"
 
+# This RAM-backed directory was created mode 0700 before the current GPU lease.
+# Verify the existing override in a fresh pinned Python process; do not fall back to /tmp.
+"$VLA_PY" -B - <<'PYTMP'
+import os, tempfile
+from pathlib import Path
+expected = Path(os.environ['TMPDIR']).resolve()
+assert expected.is_dir() and os.access(expected, os.W_OK | os.X_OK)
+assert expected.stat().st_mode & 0o777 == 0o700
+assert Path(tempfile.gettempdir()).resolve() == expected
+print('Verified temporary directory:', expected)
+PYTMP
 python3 scripts/project_storage.py --config "$VLA_EVAL_CFG" status
 python3 - "$VLA_TRAIN_REPORTS/$VLA_RUN-run.json" "$VLA_TRAIN_REPORTS/$VLA_RUN-train.json" <<'PY'
 from pathlib import Path
@@ -64,34 +78,39 @@ for checkpoint in report['checkpoints']:
     assert hashlib.sha256(coverage.read_bytes()).hexdigest() == event['coverage_sha256']
     assert json.loads(coverage.read_text())['consumed_examples'] == step * 8
     eligible.append(step)
-assert eligible, 'No certified checkpoint prefix is available'
+assert eligible == [2048, 4096], 'Expected only the two certified retry2 checkpoints'
 print('Whole run completed:', report['passed'], 'aborted:', report['aborted'])
 print('Certified checkpoint steps:', ' '.join(map(str, eligible)))
 PY
 ```
 
-The final report may describe a bounded run that stopped at its cap. A certified
+The final report records a resource-reserve stop, not a time-cap stop. A certified
 checkpoint prefix can still be evaluated and archived after root releases the
 GPU; overall `training.passed=false` does not invalidate a complete finite
 checkpoint prefix. Inspect the final bindings and printed certified steps with
-root. The cap is not extended. An incomplete run cannot be called a completed
-four-checkpoint curve or enter the four-checkpoint selection command below.
+root. No training extension or retry is being launched. This incomplete run cannot be
+called a completed four-checkpoint curve or enter the historical selection command below.
 
-For each checkpoint, create its durable host-side inventory, run paired evaluation
-through the tested additive launcher, then publish its evidence in place. Every
-output name is new and refuses occupied destinations. Inspect any occupied or
-partial output before proceeding; do not overwrite or blindly repeat the loop.
+Both durable host-side inventories have completed successfully, using remote
+SHA256 and fsync. The current execution evaluates 4,096, then 2,048, through the
+tested additive launcher and publishes each pair in place. The following records
+the commands used; it is not a command to restart the active evaluation. Output
+names refuse occupied destinations. Inspect existing or partial results before
+any execution, and preserve them. The fresh RAM temporary-directory preflight
+also checked host memory, `/dev/shm`, root reserve and free VRAM; all existing
+resource guards remain unchanged.
 
 ```bash
-# Use only the certified steps printed above. This example is the full-run case.
-VLA_STEPS=(2048 4096 6144 8192)
+# Actual certified subset, in current evaluation order. Inventories already exist.
+VLA_STEPS=(4096 2048)
 for VLA_STEP in "${VLA_STEPS[@]}"; do
   VLA_CHECKPOINT="$VLA_RUN_ROOT/$VLA_RUN/checkpoint-$VLA_STEP"
   VLA_INVENTORY="$VLA_REPORTS/$VLA_RUN-checkpoint-$VLA_STEP-inventory.json"
   VLA_EVAL_TRAIN="$VLA_REPORTS/$VLA_RUN-checkpoint-$VLA_STEP-train.json"
   VLA_EVAL_VALIDATION="$VLA_REPORTS/$VLA_RUN-checkpoint-$VLA_STEP-validation.json"
-  "$VLA_PY" -B scripts/archive_gr00t_dataset.py --config "$VLA_EVAL_CFG" \
-    --source "$VLA_CHECKPOINT" --inventory-output "$VLA_INVENTORY" --hash-via-ssh
+  # Historical inventory command, already completed for both steps; do not rerun.
+  # "$VLA_PY" -B scripts/archive_gr00t_dataset.py --config "$VLA_EVAL_CFG" \
+  #   --source "$VLA_CHECKPOINT" --inventory-output "$VLA_INVENTORY" --hash-via-ssh
   "$VLA_PY" -B scripts/launch_gr00t_evaluation.py --config "$VLA_EVAL_CFG" evaluate \
     --protocol "$VLA_PROTOCOL" --split both --checkpoint "$VLA_CHECKPOINT" \
     --checkpoint-inventory "$VLA_INVENTORY" \
@@ -111,10 +130,12 @@ finite arrays, one shared process and validation reuse of the same policy. The
 inventory is computed on the storage host to avoid redundant weight hashing over
 SSHFS. The checkpoint is already durable, so archive publication copies evidence
 and retains the referenced run weights in place. Preserve those weights with
-their archive records. The four archive summaries appear under
+their archive records. The two archive summaries will appear under
 `storage/reports/larger-dataset-v1/larger-dataset-v1-retry2-checkpoint-STEP-archive.json`.
 
-Only after all four pairs and archives pass, select the checkpoint:
+Historical full-run selection command, preserved for the original protocol only.
+**Do not run it for retry2:** checkpoints 6,144 and 8,192 do not exist. The current
+result is a two-checkpoint partial curve, without formal protocol selection:
 
 ```bash
 "$VLA_PY" -B scripts/launch_gr00t_evaluation.py --config "$VLA_EVAL_CFG" select \
@@ -130,7 +151,17 @@ Only after all four pairs and archives pass, select the checkpoint:
   --report "$VLA_REPORTS/$VLA_RUN-checkpoint-selection.json"
 ```
 
-Selection minimizes validation group-balanced normalized MAE, with earliest step
-breaking an exact tie. Report all four group curves and changing-target subsets;
+For a completed future four-checkpoint experiment, selection minimizes validation
+group-balanced normalized MAE, with earliest step breaking an exact tie. For this
+run, report only the two observed checkpoint curves and changing-target subsets;
 persistence remains descriptive. Validation is a selection set, and these offline
 scores do not establish box selection, grasp or carry success on the robot.
+
+The additive [summary helper](../scripts/summarize_larger_dataset.py) performs CPU
+analysis after both checkpoint pairs are complete. Pass both train and validation
+reports for each of 2,048 and 4,096 explicitly, and omit `--selection`. It does not
+select a checkpoint. Loss-window means use only the 41,848 microbatches belonging
+to 5,231 complete updates; four trailing micro-losses are retained separately.
+Coverage describes sample exposure, so its 41,852 count includes those four and
+also reports the complete-update count. Baseline-only helper validation outputs
+are tests, not the production partial learning curve.
