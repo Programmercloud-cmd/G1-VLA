@@ -166,5 +166,6 @@
     "canonical_full_checkpoint_is_resume_reference": true,
     "exact_iterable_dataset_cursor_resume_supported": false
   },
-  "scope": "Same frozen100-window train/validation samples, original stepzero and actual4096 predictions; no mandatory persistence or improvement threshold; no robot competence claim."
+  "scope": "Same frozen100-window train/validation samples, original stepzero and actual4096 predictions; no mandatory persistence or improvement threshold; no robot competence claim.",
+  "implementation_commit": "c354793294d539318c9a95ac1dffa7bc20f9b5a2"
 }
