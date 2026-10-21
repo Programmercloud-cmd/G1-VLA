@@ -1,0 +1,326 @@
+{
+  "schema_version": 1,
+  "artifact_type": "larger_dataset_evaluation_runtime_incident",
+  "generated_at_utc": "2026-10-21T16:15:38.659006+00:00",
+  "status": "baseline_recovered_and_additive_launcher_real_paired_inference_verified_before_training",
+  "original_evaluation_protocol": {
+    "path": "experiments/larger-dataset-v1/evaluation-protocol.json",
+    "bytes": 42385,
+    "sha256": "9f8cf657889f49ea747928232e592610863562e222778563ee09ff7c9bd96ab1"
+  },
+  "frozen_sources_count": 21,
+  "all_frozen_sources_unchanged": true,
+  "original_paired_attempt": {
+    "session_id": 26799,
+    "exit_code": 1,
+    "log": {
+      "path": "storage/reports/larger-dataset-v1/larger-dataset-v1-step-zero.log",
+      "bytes": 4913,
+      "sha256": "62a13bcb725dd85570a7e8936da80507cea164861bed1a79e8c84da8e8e027e8"
+    },
+    "train_inference_and_report_completed": true,
+    "validation_outputs_written": false,
+    "failure": "ValueError: Paired evaluation output already exists",
+    "cause": "After train report publication, the second split calls ensure_python again. OpenCV import has prepended its native directories to LD_LIBRARY_PATH, changing the startup identity. The original runtime guard re-executes the paired CLI; its no-overwrite guard rejects the preserved train output.",
+    "classification": "Runtime orchestration failure after successful train inference; no data or model integrity failure."
+  },
+  "validation_recovery": {
+    "session_id": 61880,
+    "exit_code": 0,
+    "log": {
+      "path": "storage/reports/larger-dataset-v1/larger-dataset-v1-step-zero-validation-recovery.log",
+      "bytes": 4227,
+      "sha256": "177a314d1795359871595e5a89f0615a8df3b74ceb9d197c39a61e4068143bdd"
+    },
+    "command": "vendor/Isaac-GR00T/.venv/bin/python -B scripts/evaluate_gr00t_dataset.py --config reports/larger-dataset-v1-machine.json evaluate --protocol experiments/larger-dataset-v1/evaluation-protocol.json --split validation --step-zero --report storage/reports/larger-dataset-v1/larger-dataset-v1-step-zero-validation.json",
+    "same_frozen_evaluator_model_data_processor_and_seeds": true,
+    "train_outputs_preserved": true,
+    "separate_fresh_process": true
+  },
+  "completed_baselines": {
+    "train": {
+      "report": {
+        "path": "storage/reports/larger-dataset-v1/larger-dataset-v1-step-zero-train.json",
+        "bytes": 887857,
+        "sha256": "8b06f2eb52003585c8011bb69ad166765fddcd508430aeef26f5ad76f9ee9ee3"
+      },
+      "predictions": {
+        "path": "storage/reports/larger-dataset-v1/larger-dataset-v1-step-zero-train.npz",
+        "bytes": 491440,
+        "sha256": "6462b2fd14e599a70707e08a4b7d38d59197a8fd4fce608451e028d4bfe0f623"
+      },
+      "plot": {
+        "path": "storage/reports/larger-dataset-v1/larger-dataset-v1-step-zero-train.png",
+        "bytes": 673469,
+        "sha256": "576a77bca3ccdc5a4fa033069b1620a3fe98eb009f84908129fbcf940bba4d66"
+      },
+      "passed": true,
+      "global_step": 0,
+      "process_id": 53698,
+      "sample_count": 100,
+      "inferences": 300,
+      "elapsed_seconds": 158.47870247399987,
+      "peak_cuda_allocated_bytes": 6372500480,
+      "group_balanced_normalized_mae": 0.7593495577477766,
+      "groups": {
+        "left_arm": {
+          "mae": 0.26091739959253607,
+          "rmse": 0.3170330580128986,
+          "normalized_mae": 0.6792994645184206,
+          "normalized_rmse": 0.7752987404988524
+        },
+        "right_arm": {
+          "mae": 0.23234167557688384,
+          "rmse": 0.2869482669996564,
+          "normalized_mae": 0.6614806312675973,
+          "normalized_rmse": 0.7690772069981736
+        },
+        "left_hand": {
+          "mae": 0.12577843364535107,
+          "rmse": 0.15720186964492522,
+          "normalized_mae": 0.871286574462693,
+          "normalized_rmse": 1.0548428664058813
+        },
+        "right_hand": {
+          "mae": 0.09712122386631866,
+          "rmse": 0.1247399923976448,
+          "normalized_mae": 0.8253315607423956,
+          "normalized_rmse": 1.1047488434092416
+        }
+      }
+    },
+    "validation": {
+      "report": {
+        "path": "storage/reports/larger-dataset-v1/larger-dataset-v1-step-zero-validation.json",
+        "bytes": 257006,
+        "sha256": "237553885152c2ac13ba893ee6bcfa1be2190ca86863018a793e8fa824fd5e30"
+      },
+      "predictions": {
+        "path": "storage/reports/larger-dataset-v1/larger-dataset-v1-step-zero-validation.npz",
+        "bytes": 487441,
+        "sha256": "96ccec1e4855939251b0e18bde1c498418494031d3b5d37e8bcdba36778056bb"
+      },
+      "plot": {
+        "path": "storage/reports/larger-dataset-v1/larger-dataset-v1-step-zero-validation.png",
+        "bytes": 698197,
+        "sha256": "07b8ed4dbe9b0a48a955cdc01431c0d5420d667bcb8084dee07daf59c0f8cd95"
+      },
+      "passed": true,
+      "global_step": 0,
+      "process_id": 57432,
+      "sample_count": 100,
+      "inferences": 300,
+      "elapsed_seconds": 79.74175963800008,
+      "peak_cuda_allocated_bytes": 6372500480,
+      "group_balanced_normalized_mae": 0.7657805846075387,
+      "groups": {
+        "left_arm": {
+          "mae": 0.2612221660852171,
+          "rmse": 0.3178224162375467,
+          "normalized_mae": 0.6808725881834126,
+          "normalized_rmse": 0.7792929384653003
+        },
+        "right_arm": {
+          "mae": 0.23190336178645204,
+          "rmse": 0.2865579453330386,
+          "normalized_mae": 0.6598745298508063,
+          "normalized_rmse": 0.7668032684352852
+        },
+        "left_hand": {
+          "mae": 0.12941113542144497,
+          "rmse": 0.16224471822482323,
+          "normalized_mae": 0.8964218208084895,
+          "normalized_rmse": 1.086877064759596
+        },
+        "right_hand": {
+          "mae": 0.09867314794825183,
+          "rmse": 0.1262802626111894,
+          "normalized_mae": 0.8259533995874464,
+          "normalized_rmse": 1.0309250977077504
+        }
+      }
+    }
+  },
+  "cpu_integrity_validation": {
+    "passed": true,
+    "loader": "evaluate_gr00t_dataset.load_protocol and load_completed for each split with step_zero=True",
+    "finite_prediction_shape_per_split": [
+      100,
+      3,
+      16,
+      26
+    ],
+    "frozen_targets_match": true,
+    "selection_scores_recomputed": true,
+    "matching_train_validation_fields": [
+      "model_semantics_sha256",
+      "processor_semantics_sha256",
+      "statistics_sha256",
+      "checkpoint_files_sha256"
+    ],
+    "all_match": true,
+    "model_semantics_sha256": "b48efdc0558c6959d25702a44163673f30f23b0f0fa64cfbc467dab56a8efbef",
+    "processor_semantics_sha256": "e9fabe9dfd6b04b7c7a4cb6097073e0200b21987059a7c7987cf41c0f949997c",
+    "statistics_sha256": "7abadea98ec3c97086ac3be138189086d07907a3c007bafd4a8f5d39950a4282"
+  },
+  "additive_launcher": {
+    "source": {
+      "path": "scripts/launch_gr00t_evaluation.py",
+      "bytes": 2231,
+      "sha256": "ecd8070838828717d66100f2c206397cd9069022c602b7ea9ce16d70cf9241d4"
+    },
+    "tests": {
+      "path": "tests/test_dataset_evaluation_launcher.py",
+      "bytes": 4902,
+      "sha256": "35b2f09bcab3acb5de680f04ab94ef7f56ca6d0c506c6aa12060613434636aa7"
+    },
+    "purpose": "Cache OpenCV before unchanged evaluator/model execution, restoring original native PATH and LD_LIBRARY_PATH so the original runtime guard remains idempotent across paired splits.",
+    "production_runtime_validator_modified_or_patched": false,
+    "runtime_marker_forced": false,
+    "frozen_evaluator_modified": false,
+    "argv_forwarding": "Canonical --config followed by exact evaluator argument remainder, executed through runpy.",
+    "unit_tests": {
+      "command": "python3 -B -m unittest discover -s tests -p test_dataset_evaluation_launcher.py -v",
+      "tests_run": 4,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0,
+      "elapsed_seconds": 0.003,
+      "passed": true
+    },
+    "actual_cpu_preflight": {
+      "command": "vendor/Isaac-GR00T/.venv/bin/python -B tests/test_dataset_evaluation_launcher.py --runtime-preflight --config reports/larger-dataset-v1-machine.json",
+      "exit_code": 0,
+      "passed": true,
+      "scope": "Actual pinned interpreter/runtime and native cached cv2 import only; no model or GPU workload.",
+      "proof": "After the original ensure_python establishes startup, test-only os.execve patch raises on any attempted restart. Real OpenCV preload/path restore, cached re-import, and repeated unmodified ensure_python all return normally. Same-PID observations are not used as proof."
+    },
+    "remaining_limit": "Paired pretrained full-model integration passed with bitwise-identical predictions to authoritative baselines. Fine-tuned checkpoint evaluation remains pending until after training.",
+    "real_paired_integration": {
+      "session_id": 40567,
+      "exit_code": 0,
+      "passed": true,
+      "role": "nonauthoritative_integration_check",
+      "log": {
+        "path": "storage/reports/larger-dataset-v1/larger-dataset-v1-step-zero-launcher-check.log",
+        "bytes": 5463,
+        "sha256": "511ebf974415309f95dceceb9b47fcd1221d2cd67999abd7eb64b543ca4c691d"
+      },
+      "command": "vendor/Isaac-GR00T/.venv/bin/python -B scripts/launch_gr00t_evaluation.py --config reports/larger-dataset-v1-machine.json evaluate --protocol experiments/larger-dataset-v1/evaluation-protocol.json --split both --step-zero --train-report storage/reports/larger-dataset-v1/larger-dataset-v1-step-zero-launcher-check-train.json --validation-report storage/reports/larger-dataset-v1/larger-dataset-v1-step-zero-launcher-check-validation.json",
+      "all_frozen_source_bindings_unchanged": true,
+      "authoritative_baselines_preserved": true,
+      "splits": {
+        "train": {
+          "report": {
+            "path": "storage/reports/larger-dataset-v1/larger-dataset-v1-step-zero-launcher-check-train.json",
+            "bytes": 887887,
+            "sha256": "4956625a94095da51d444db72e1822025b0dd7d8de7bcb325903a031fb8d4067"
+          },
+          "predictions": {
+            "path": "storage/reports/larger-dataset-v1/larger-dataset-v1-step-zero-launcher-check-train.npz",
+            "bytes": 491440,
+            "sha256": "6462b2fd14e599a70707e08a4b7d38d59197a8fd4fce608451e028d4bfe0f623"
+          },
+          "plot": {
+            "path": "storage/reports/larger-dataset-v1/larger-dataset-v1-step-zero-launcher-check-train.png",
+            "bytes": 673469,
+            "sha256": "576a77bca3ccdc5a4fa033069b1620a3fe98eb009f84908129fbcf940bba4d66"
+          },
+          "original_report": {
+            "path": "storage/reports/larger-dataset-v1/larger-dataset-v1-step-zero-train.json",
+            "bytes": 887857,
+            "sha256": "8b06f2eb52003585c8011bb69ad166765fddcd508430aeef26f5ad76f9ee9ee3"
+          },
+          "prediction_comparison": {
+            "shape": [
+              100,
+              3,
+              16,
+              26
+            ],
+            "max_absolute_difference": 0.0,
+            "array_equal": true,
+            "allclose": true,
+            "rtol": 1e-06,
+            "atol": 1e-07
+          },
+          "matching_metadata_fields": [
+            "model_semantics_sha256",
+            "processor_semantics_sha256",
+            "statistics_sha256",
+            "checkpoint_files_sha256",
+            "evaluation_protocol_sha256",
+            "recipe",
+            "sample_manifest_sha256",
+            "evaluation_mode",
+            "group_balanced_normalized_mae"
+          ],
+          "metadata_all_match": true,
+          "elapsed_seconds": 155.55510656700062,
+          "process_id": 59424,
+          "model_load_count_in_process": 1,
+          "policy_reused_between_splits": false,
+          "group_balanced_normalized_mae": 0.7593495577477766
+        },
+        "validation": {
+          "report": {
+            "path": "storage/reports/larger-dataset-v1/larger-dataset-v1-step-zero-launcher-check-validation.json",
+            "bytes": 257035,
+            "sha256": "348cb0ceb3df8661cd824f034149bc90e224d639dc55265cc1c6c720016f7bca"
+          },
+          "predictions": {
+            "path": "storage/reports/larger-dataset-v1/larger-dataset-v1-step-zero-launcher-check-validation.npz",
+            "bytes": 487441,
+            "sha256": "96ccec1e4855939251b0e18bde1c498418494031d3b5d37e8bcdba36778056bb"
+          },
+          "plot": {
+            "path": "storage/reports/larger-dataset-v1/larger-dataset-v1-step-zero-launcher-check-validation.png",
+            "bytes": 698197,
+            "sha256": "07b8ed4dbe9b0a48a955cdc01431c0d5420d667bcb8084dee07daf59c0f8cd95"
+          },
+          "original_report": {
+            "path": "storage/reports/larger-dataset-v1/larger-dataset-v1-step-zero-validation.json",
+            "bytes": 257006,
+            "sha256": "237553885152c2ac13ba893ee6bcfa1be2190ca86863018a793e8fa824fd5e30"
+          },
+          "prediction_comparison": {
+            "shape": [
+              100,
+              3,
+              16,
+              26
+            ],
+            "max_absolute_difference": 0.0,
+            "array_equal": true,
+            "allclose": true,
+            "rtol": 1e-06,
+            "atol": 1e-07
+          },
+          "matching_metadata_fields": [
+            "model_semantics_sha256",
+            "processor_semantics_sha256",
+            "statistics_sha256",
+            "checkpoint_files_sha256",
+            "evaluation_protocol_sha256",
+            "recipe",
+            "sample_manifest_sha256",
+            "evaluation_mode",
+            "group_balanced_normalized_mae"
+          ],
+          "metadata_all_match": true,
+          "elapsed_seconds": 66.05110505799894,
+          "process_id": 59424,
+          "model_load_count_in_process": 1,
+          "policy_reused_between_splits": true,
+          "group_balanced_normalized_mae": 0.7657805846075387
+        }
+      },
+      "same_model_process_id": 59424,
+      "validation_reuses_policy_in_same_process": true,
+      "strict_model_load_count": 1
+    }
+  },
+  "training_started": false,
+  "checkpoint_evaluation_started": false,
+  "preservation": "Original paired log and completed train/validation artifacts retained; historical handoff, frozen protocol, samples and all 21 frozen source files unchanged."
+}

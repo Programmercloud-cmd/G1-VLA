@@ -15,8 +15,8 @@ the original closeout SHA256. Actual-host GPU readiness also passed all 19 check
 including the actual dataset loader, runtime/source locks, decoder, GPU capacity
 and tiny CUDA kernels. Its report is
 `storage/reports/larger-dataset-v1/larger-dataset-v1-next-session-readiness.json`.
-Pretrained model baseline evaluation and training are still pending at this freeze;
-readiness kernels do not constitute model baseline inference or training.
+The readiness freeze preceded model inference. Both pretrained step-zero
+baselines are now complete; training remains pending.
 
 Storage maintenance also completed, reclaiming 405,536,768 allocated bytes while
 preserving source, environment, model, dataset and checkpoint bytes. Its report
@@ -27,6 +27,28 @@ record remains preserved. The compact
 [resume validation record](../experiments/larger-dataset-v1/resume-validation-20261021.json)
 binds these reports, the preserved helper/tests, machine configuration and all
 21 unchanged frozen source hashes.
+
+The first paired baseline completed the train split, then restarted because
+OpenCV had changed `LD_LIBRARY_PATH` before the second runtime check. The original
+no-overwrite guard stopped that restart, preserving the completed train evidence.
+Validation then completed in a separate process using the unchanged evaluator,
+model, processor, samples and seeds. Both reports passed CPU integrity checks;
+train/validation model, processor, statistics and weight identities match. Their
+group-balanced normalized MAEs are 0.759350 and 0.765781 respectively.
+[The additive runtime incident record](../experiments/larger-dataset-v1/evaluation-runtime-incident-20261021.json)
+binds the original failure log, recovered baseline artifacts and new launcher tests.
+
+Use [scripts/launch_gr00t_evaluation.py](../scripts/launch_gr00t_evaluation.py) for
+forthcoming paired checkpoint evaluations. It preloads OpenCV, restores the two
+native startup path variables, and forwards arguments to the unchanged evaluator.
+The original runtime validator and marker remain active. Four CPU fixtures and
+an actual pinned-runtime OpenCV preflight passed; the latter makes any attempted
+restart fail the test after startup. Full paired model inference through this
+launcher also passed with fresh, nonauthoritative `step-zero-launcher-check`
+reports: both prediction arrays are bitwise identical to their original baselines
+(maximum absolute difference zero), and validation reused the one model in the
+same process. The original authoritative baseline references remain unchanged.
+Fine-tuned checkpoint evaluations follow training.
 
 The actual restore ran the preserved implementation from
 `reports/restore_larger_dataset_v1.py`. Its byte-for-byte tracked copy is
@@ -93,10 +115,6 @@ VLA_ZERO_VALIDATION="$VLA_REPORTS/larger-dataset-v1-step-zero-validation.json"
 
 python3 scripts/project_storage.py --config "$VLA_CFG" status
 
-"$VLA_PY" -B scripts/evaluate_gr00t_dataset.py --config "$VLA_CFG" evaluate \
-  --protocol "$VLA_PROTOCOL" --split both --step-zero \
-  --train-report "$VLA_ZERO_TRAIN" --validation-report "$VLA_ZERO_VALIDATION"
-
 "$VLA_PY" -B scripts/run_gr00t_dataset.py --config "$VLA_CFG" \
   --train-dataset "$VLA_TRAIN" \
   --train-manifest "$VLA_DATA/snapshots/train/manifest.json" \
@@ -114,12 +132,15 @@ run. Keep the six-hour limit and existing resource reserves. The launcher
 automatically places its run report, training log, finite audit and coverage
 files under the configured external reports directory.
 
-After training exits, follow the
+The baseline reports already exist; preserve them. After training exits, follow the
 [checkpoint inventory, paired evaluation, archive and selection workflow](larger-dataset-execution-v1.md),
 using `"$VLA_REPORTS/..."` for every new report/inventory argument, both step-zero
 reference arguments, `--run-config` and `--train-report`. Checkpoint weights stay
 under `storage/runs/larger-dataset-v1`; archival publishes their evidence in
-place. No GPU evaluation may overlap training. Selection requires all four valid
+place. Replace `scripts/evaluate_gr00t_dataset.py` with
+`scripts/launch_gr00t_evaluation.py` in paired evaluation commands, keeping the
+same `--config` and all evaluator arguments. No GPU evaluation may overlap
+training. Selection requires all four valid
 pairs at 2,048, 4,096, 6,144 and 8,192 updates. Preserve and report an incomplete
 run honestly if the cap is reached. Offline action errors do not establish robot
 pickup success.
