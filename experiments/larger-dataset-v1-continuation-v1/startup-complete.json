@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "artifact_type": "continuation_retry1_verified_runtime_startup",
+  "passed": true,
+  "generated_at_utc": "2026-10-21T22:56:37.633363+00:00",
+  "observed_at_utc": "2026-10-21T22:53:58.193214+00:00",
+  "run": "larger-dataset-v1-continuation-v1-retry1",
+  "execution_commit": "84c1f7db6637dcedecbb73627e62b26fc435ebb4",
+  "status": "running_startup_verified_at_captured_local35",
+  "execution_history": {
+    "ref": "experiments/larger-dataset-v1-continuation-v1/execution.json",
+    "bytes": 7257,
+    "sha256": "e5b8b50b07b35ac660b8cbd1a7018a25e81dc838a70919afe0f46950e22c1399"
+  },
+  "immutable_runtime_proof": {
+    "ref": "archive:reports/larger-dataset-v1-continuation-v1-retry1-startup-complete/runtime-startup-proof.json",
+    "bytes": 6417,
+    "sha256": "e0300c35bbb5b7b3d17d6e1a5ecd9f8b5e5f6caebc326a5dbeefcc136355c2b6"
+  },
+  "independent_prefix_verification": {
+    "ref": "archive:reports/larger-dataset-v1-continuation-v1-retry1-startup-complete/verification.json",
+    "bytes": 1392,
+    "sha256": "d5ae208db2790c11c2a940d56e9450c10a70ee2dc55bd5ca376854724723b1d5"
+  },
+  "durable_publication": {
+    "ref": "archive:reports/larger-dataset-v1-continuation-v1-retry1-startup-complete/publication-manifest.json",
+    "bytes": 1031,
+    "sha256": "7be14c93cfc48528d7468336affc84380a98ae58c8af9b126dadcd07b1f421c2"
+  },
+  "immutable_complete_audit_prefix": {
+    "ref": "archive:reports/larger-dataset-v1-continuation-v1-retry1-startup-complete/finite-prefix-through-local-35.jsonl",
+    "bytes": 72529,
+    "sha256": "8928644f90ba30220979103ac64fb86e09f18cbd7703b99de354241ff8209e3f"
+  },
+  "cpu_sample_schedule_proof": {
+    "ref": "archive:reports/larger-dataset-v1-continuation-v1-retry1-startup-complete/cpu-seed-schedule-proof.json",
+    "bytes": 3818,
+    "sha256": "b0ca5c478ddafee28039ebe8bc297afd3fba74f12aaf33f27873a3a811752494"
+  },
+  "cpu_sample_schedule_source": {
+    "ref": "archive:reports/larger-dataset-v1-continuation-v1-retry1-startup-complete/cpu-seed-schedule-source.py",
+    "bytes": 3681,
+    "sha256": "a9aaca6809578c3ea5335bf0e7993da1eec93f36d0a51f348d7b414a597284db"
+  },
+  "capture": {
+    "local_completed_optimizer_updates": 35,
+    "cumulative_weight_lineage": 4131,
+    "planned_additional_updates": 4096,
+    "cumulative_target": 8192,
+    "finite_micro_losses": 280,
+    "finite_gradients": 35,
+    "certified_new_checkpoints_in_captured_prefix": [],
+    "historical_snapshot_not_live_progress_counter": true
+  },
+  "runtime_checks": {
+    "all_five_audits_passed": true,
+    "audits": [
+      "configuration_override",
+      "initial_checkpoint_load",
+      "runtime",
+      "cap_protection",
+      "fresh_optimizer"
+    ],
+    "strict_learned_parent4096_tensor_load": true,
+    "missing_unexpected_mismatched_and_error_arrays_empty": true,
+    "frozen_processor_files_sha256": {
+      "processor_config.json": "033aeac07e3227b523703d152dca8ac2d277a40168f1d2698b536e6d2417c228",
+      "statistics.json": "7abadea98ec3c97086ac3be138189086d07907a3c007bafd4a8f5d39950a4282",
+      "embodiment_id.json": "5e8611697dc90b7b7a92cf2a8da926275c16f5966c5eb109e0216c3c51af15a1"
+    },
+    "state_dropout_prob": {
+      "training_config": 0.0,
+      "model_config": 0.0,
+      "action_head": 0.0,
+      "processor": 0.0
+    },
+    "seed_only_change": {
+      "base_seed": 42,
+      "actual_seed": 4138,
+      "changed_fields": [
+        "data.seed"
+      ]
+    },
+    "fresh_optimizer_state_entries_at_start": 0,
+    "fresh_scheduler_epoch_at_start": 0,
+    "local_initial_step": 0,
+    "cumulative_initial_step": 4096,
+    "live_independent_cap_verified_at_train_begin": true
+  },
+  "first_actual_numerics": {
+    "loss": 0.12529052793979645,
+    "post_clip_gradient_norm": 0.9999994039535522,
+    "completed_local_step": 1,
+    "first_post_update_learning_rate": 4.854368932038835e-07,
+    "all_finite": true
+  },
+  "actual_sample_identity_check": {
+    "samples": 32,
+    "sha256": "372679a81deacaf7521d28f7c9c90da043e304709745a255cc5a46916d84c866",
+    "matches_cpu_seed4138_prefix": true,
+    "differs_from_source_seed42_prefix": true,
+    "scope": "First32 actual consumed sample coordinates only; no whole-run sampling or augmentation/model numerical equivalence claim."
+  },
+  "cap": {
+    "estimated_deadline_utc": "2026-10-22T04:21:22.357728+00:00",
+    "monotonic_deadline": 55190.025453703995,
+    "remaining_original_budget_only": true,
+    "no_six_hour_extension": true
+  },
+  "preservation": {
+    "publication_remote_sha_and_fsync_verified": true,
+    "active_audit_unmodified": true,
+    "active_audit_full_file_sha_not_frozen": true,
+    "read_active_audit_once_through_historical_local35": true,
+    "execution_json_unchanged": true,
+    "prior_failed_attempt_history_unchanged": true
+  },
+  "limits": [
+    "This proof certifies successful startup and the captured35-update finite prefix, not final training completion or any new checkpoint.",
+    "Exact iterable sample-cursor restoration and whole-model numerical equivalence are not established.",
+    "Offline/startup evidence does not establish box selection, grasping, carrying or robot deployment competence."
+  ]
+}

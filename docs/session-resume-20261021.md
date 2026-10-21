@@ -4,10 +4,13 @@ Current next scope: the user authorized a [separate continuation from the verifi
 4,096 checkpoint](larger-dataset-v1-continuation.md), with fresh optimizer/scheduler
 state and at most 4,096 additional updates within its original six-hour budget.
 The [controlled retry](../experiments/larger-dataset-v1-continuation-v1/execution.json)
-is running and initializing under commit `84c1f7d`, with its independent watchdog
+is running with [startup verified](../experiments/larger-dataset-v1-continuation-v1/startup-complete.json)
+under commit `84c1f7d`, with its independent watchdog
 armed until **22 October 2026 at 04:21:22 UTC**, earlier than the original deadline.
-Its startup snapshot certifies zero new updates/checkpoints; strict learned-weight
-loading, processor/runtime and fresh-optimizer audits remain pending. Its first
+The captured snapshot records 35 finite local updates (cumulative weight lineage
+4,131), strict learned-parent loading, frozen processor/zero dropout, live cap and
+fresh optimizer state. Its first 32 consumed sample coordinates match seed 4,138;
+no new checkpoint or final result is certified by this snapshot. Its first
 startup stopped after 23.4 seconds with zero updates following a watchdog worker
 command-line identity error; [the failed startup](../experiments/larger-dataset-v1-continuation-v1/startup-attempt-1.json)
 is preserved; retry startup did not extend the original cap.

@@ -1,12 +1,17 @@
 # Larger-dataset v1 continuation v1
 
 Status: the controlled retry `larger-dataset-v1-continuation-v1-retry1` is running
-and initializing. Its [immutable execution receipt](execution.json) binds actual
+with [startup verified](startup-complete.json). The captured snapshot records
+35 finite local updates (cumulative weight lineage 4,131), all five runtime audits,
+strict learned-parent loading, frozen processor/zero dropout, live cap and fresh
+optimizer state. The first 32 actual sample coordinates match seed 4,138 and differ
+from the parent's seed-42 prefix. No new checkpoint is certified by this snapshot.
+Its earlier [immutable execution receipt](execution.json) binds actual
 commit `84c1f7d`, the v2 protocol, run manifest and stable post-arm process identities.
 The watchdog deadline is **22 October 2026 at 04:21:22 UTC**, slightly earlier than
 the original deadline; its 21,227-second cap uses the remaining original budget.
-At the startup snapshot, zero new updates/checkpoints are certified and strict
-learned-weight loading, processor/runtime and fresh-optimizer audits are pending.
+That earlier receipt records the pre-audit initialization state and remains
+unchanged history; the new startup proof supplies the completed runtime checks.
 
 The first startup failed before any optimizer update. The
 [startup receipt](startup-attempt-1.json) binds the immutable run manifest,

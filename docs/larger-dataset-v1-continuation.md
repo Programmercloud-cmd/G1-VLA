@@ -1,13 +1,18 @@
 # Larger-dataset v1 continuation from checkpoint 4,096
 
 Status: the controlled retry `larger-dataset-v1-continuation-v1-retry1` is running
-and initializing under commit `84c1f7d`. The [execution receipt](../experiments/larger-dataset-v1-continuation-v1/execution.json)
+with [startup verified](../experiments/larger-dataset-v1-continuation-v1/startup-complete.json)
+under commit `84c1f7d`. The captured snapshot records 35 finite local optimizer
+updates (cumulative weight lineage 4,131); all five startup audits passed, including
+strict learned-parent loading, frozen processor/zero dropout, live cap and fresh
+optimizer state. The first 32 actual sample coordinates match seed 4,138 and differ
+from the parent's seed-42 prefix. No new checkpoint or final result is certified
+by this snapshot. The earlier [execution receipt](../experiments/larger-dataset-v1-continuation-v1/execution.json)
 binds its actual manifest, v2 protocol, armed watchdog and stable process identities.
 Its conservative deadline is **22 October 2026 at 04:21:22 UTC**, earlier than the
 original 04:21:24 UTC deadline; the 21,227-second cap consumes only the remaining
-original budget. At the startup snapshot, zero new optimizer updates/checkpoints
-are certified. Strict learned-weight loading, processor/runtime and fresh-optimizer
-audits are pending; the startup record does not establish their success.
+original budget. The original pre-audit execution receipt remains unchanged history;
+the new startup proof adds the verified runtime checks and historical progress.
 
 The first startup stopped after 23.4 seconds with zero
 optimizer updates and no new checkpoint. The [failed-start receipt](../experiments/larger-dataset-v1-continuation-v1/startup-attempt-1.json)
