@@ -2,7 +2,10 @@
 
 **Actual outcome:** retry2 stopped at 5,231 of 8,192 updates when the unchanged
 8 GiB local disk reserve guard fired, before its six-hour cap. Checkpoints 2,048
-and 4,096 are certified and preserved; their evaluations are underway. The
+and 4,096 are certified and preserved; both paired evaluations, archives and CPU
+analysis passed. Validation group-balanced normalized MAE fell from 0.765781
+pretrained to 0.196946 and 0.149138. See [the partial results](larger-dataset-v1-results.md)
+and [curated evidence](../experiments/larger-dataset-v1/partial-results.json). The
 [partial outcome](../experiments/larger-dataset-v1/retry2-outcome.json) records
 finite-prefix evidence. No automatic training retry/resume or four-pair selection
 is authorized. The launch commands below are historical records; use the
@@ -98,6 +101,6 @@ the exact checkpoint, evaluation and publication commands for these two configur
 
 No GPU evaluation may overlap training; its lease was released after process exit.
 The unchanged protocol requires all four valid checkpoint pairs for formal
-selection. This run has only two saved checkpoints and will report a partial
+selection. This run has only two saved checkpoints and reports a completed partial
 curve without that selection. Offline errors alone do not establish robot
 pickup success.

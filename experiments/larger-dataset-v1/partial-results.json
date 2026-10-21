@@ -1,0 +1,1843 @@
+{
+  "schema_version": 1,
+  "artifact_type": "verified_partial_training_offline_results",
+  "generated_at_utc": "2026-10-21T21:43:15.149124+00:00",
+  "run": "larger-dataset-v1-retry2",
+  "training_completed": false,
+  "available_checkpoint_evaluations_and_archives_complete": true,
+  "training_execution_commit": "2d681e4b093213a39a280e7ec9877d639e0edd07",
+  "frozen_protocol": {
+    "bytes": 42385,
+    "sha256": "9f8cf657889f49ea747928232e592610863562e222778563ee09ff7c9bd96ab1",
+    "project_path": "experiments/larger-dataset-v1/evaluation-protocol.json"
+  },
+  "frozen_split": {
+    "bytes": 100076,
+    "sha256": "9a721d4bb14157a119650b4848c62e0cdd6134a843dc0e6d27b84d36e20e040b",
+    "project_path": "experiments/larger-dataset-v1/split.json"
+  },
+  "training": {
+    "requested_optimizer_updates": 8192,
+    "completed_optimizer_updates": 5231,
+    "remaining_requested_updates": 2961,
+    "complete_update_microbatches": 41848,
+    "trailing_partial_update_microbatches": 4,
+    "stop_reason": "resource_reserve",
+    "full_training_report_passed": false,
+    "elapsed_seconds": 10789.182788866,
+    "checkpoint_at_final_observed_update_saved": false,
+    "run_manifest": {
+      "bytes": 92212,
+      "sha256": "c58885dc695f03b99d63b7a3c90d6c51fa8cff3dc25d571d39f1555ee54f0dc5",
+      "artifact_ref": "archive:reports/larger-dataset-v1-retry2-completion/reports/larger-dataset-v1-retry2/larger-dataset-v1-retry2-run.json"
+    },
+    "training_report": {
+      "bytes": 4397,
+      "sha256": "13e424d48fd5cea6cc919900923c8dfb2a28f08da506bd5493d1e1c0e7db69ca",
+      "artifact_ref": "archive:reports/larger-dataset-v1-retry2-completion/reports/larger-dataset-v1-retry2/larger-dataset-v1-retry2-train.json"
+    },
+    "finite_audit": {
+      "bytes": 8819584,
+      "sha256": "0833b8d57fdff111dfa01b42bec3f13d834a214b9d08b2f09bc05a110ea57513",
+      "artifact_ref": "archive:reports/larger-dataset-v1-retry2-completion/reports/larger-dataset-v1-retry2/larger-dataset-v1-retry2-finite.jsonl"
+    }
+  },
+  "observed_training_exposure": {
+    "policy": "Loss-computed sample exposure, including any trailing partial update; separate complete-update count is explicit.",
+    "complete_update_microbatches": 41848,
+    "trailing_partial_update_microbatches": 4,
+    "consumed_examples": 41852,
+    "unique_window_starts": 37281,
+    "eligible_windows": 37281,
+    "example_equivalent_passes": 1.1226093720662,
+    "unique_window_fraction": 1.0,
+    "episodes_observed": 98
+  },
+  "evaluation_design": {
+    "fixed_windows_per_split": 100,
+    "inference_seeds": [
+      42,
+      43,
+      44
+    ],
+    "action_horizon": 16,
+    "denoising_steps": 4,
+    "normalization_owner": "train",
+    "score": "Arithmetic mean of four all-window group normalized MAEs",
+    "target_change": {
+      "method": "For each joint, peak-to-peak absolute ground-truth target within the 16-frame horizon divided by the maximum saved action normalization span over that horizon; take the maximum across nonconstant joints within each group and select scores > 0.05. This measures changing target commands, not state-action offset or semantic task phase.",
+      "threshold": 0.05
+    },
+    "persistence": "descriptive_only",
+    "native_metric_names": {
+      "mae": "native mean absolute error",
+      "rmse": "native root mean square error"
+    },
+    "normalized_metric_names": [
+      "normalized_mae",
+      "normalized_rmse"
+    ]
+  },
+  "evaluations": [
+    {
+      "optimizer_step": 0,
+      "split": "train",
+      "role": "step_zero_reference",
+      "group_balanced_normalized_mae": 0.7593495577477766,
+      "report": {
+        "bytes": 887857,
+        "sha256": "8b06f2eb52003585c8011bb69ad166765fddcd508430aeef26f5ad76f9ee9ee3",
+        "artifact_ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-step-zero-train.json"
+      },
+      "predictions": {
+        "bytes": 491440,
+        "sha256": "6462b2fd14e599a70707e08a4b7d38d59197a8fd4fce608451e028d4bfe0f623",
+        "artifact_ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-step-zero-train.npz"
+      },
+      "global_group_metrics": {
+        "left_arm": {
+          "native_unit": "radians",
+          "all": {
+            "sample_count": 100,
+            "model": {
+              "mae": 0.26091739959253607,
+              "rmse": 0.3170330580128986,
+              "normalized_mae": 0.6792994645184206,
+              "normalized_rmse": 0.7752987404988524
+            },
+            "persistence": {
+              "mae": 0.06495657514841079,
+              "rmse": 0.09569644796044618,
+              "normalized_mae": 0.17637272685451905,
+              "normalized_rmse": 0.25511501564807815
+            }
+          },
+          "changing_target": {
+            "sample_count": 66,
+            "model": {
+              "mae": 0.26227035939626053,
+              "rmse": 0.3206775200959416,
+              "normalized_mae": 0.6814663123159155,
+              "normalized_rmse": 0.7811052774609175
+            },
+            "persistence": {
+              "mae": 0.08034872483314513,
+              "rmse": 0.11023154309844682,
+              "normalized_mae": 0.21512264259528666,
+              "normalized_rmse": 0.2863572392807604
+            }
+          },
+          "small_target_change": {
+            "sample_count": 34,
+            "model": {
+              "mae": 0.25829106585589445,
+              "rmse": 0.3098361636432044,
+              "normalized_mae": 0.6750932305585773,
+              "normalized_rmse": 0.7639012429706029
+            },
+            "persistence": {
+              "mae": 0.03507769634863236,
+              "rmse": 0.05785770349582465,
+              "normalized_mae": 0.1011523021812644,
+              "normalized_rmse": 0.17956943607606668
+            }
+          }
+        },
+        "right_arm": {
+          "native_unit": "radians",
+          "all": {
+            "sample_count": 100,
+            "model": {
+              "mae": 0.23234167557688384,
+              "rmse": 0.2869482669996564,
+              "normalized_mae": 0.6614806312675973,
+              "normalized_rmse": 0.7690772069981736
+            },
+            "persistence": {
+              "mae": 0.06563603224879573,
+              "rmse": 0.09543745154123405,
+              "normalized_mae": 0.19188329303481116,
+              "normalized_rmse": 0.27001615190571593
+            }
+          },
+          "changing_target": {
+            "sample_count": 82,
+            "model": {
+              "mae": 0.23286637214853606,
+              "rmse": 0.2882167205918238,
+              "normalized_mae": 0.662876242127946,
+              "normalized_rmse": 0.7715021850571521
+            },
+            "persistence": {
+              "mae": 0.07187015633431207,
+              "rmse": 0.10116660914688747,
+              "normalized_mae": 0.208684820833014,
+              "normalized_rmse": 0.28256538405397624
+            }
+          },
+          "small_target_change": {
+            "sample_count": 18,
+            "model": {
+              "mae": 0.22995139119491256,
+              "rmse": 0.28109733338558546,
+              "normalized_mae": 0.6551228484593422,
+              "normalized_rmse": 0.7579319108043068
+            },
+            "persistence": {
+              "mae": 0.03723613363699914,
+              "rmse": 0.0630637796879979,
+              "normalized_mae": 0.11534299973188704,
+              "normalized_rmse": 0.20326913402080665
+            }
+          }
+        },
+        "left_hand": {
+          "native_unit": "normalized hand command",
+          "all": {
+            "sample_count": 100,
+            "model": {
+              "mae": 0.12577843364535107,
+              "rmse": 0.15720186964492522,
+              "normalized_mae": 0.871286574462693,
+              "normalized_rmse": 1.0548428664058813
+            },
+            "persistence": {
+              "mae": 0.014038961622864008,
+              "rmse": 0.03281538272720215,
+              "normalized_mae": 0.09343205526610945,
+              "normalized_rmse": 0.21748379584266583
+            }
+          },
+          "changing_target": {
+            "sample_count": 64,
+            "model": {
+              "mae": 0.12398075346653867,
+              "rmse": 0.1552088915605604,
+              "normalized_mae": 0.8565541957057367,
+              "normalized_rmse": 1.0374090599741166
+            },
+            "persistence": {
+              "mae": 0.01870640485625093,
+              "rmse": 0.04038803001982024,
+              "normalized_mae": 0.12643568560700416,
+              "normalized_rmse": 0.26891066900500604
+            }
+          },
+          "small_target_change": {
+            "sample_count": 36,
+            "model": {
+              "mae": 0.12897430951879532,
+              "rmse": 0.16068391857072023,
+              "normalized_mae": 0.8974774700306154,
+              "normalized_rmse": 1.0851449415079335
+            },
+            "persistence": {
+              "mae": 0.005741284763509476,
+              "rmse": 0.009557696643767249,
+              "normalized_mae": 0.034758934660074486,
+              "normalized_rmse": 0.053200741304192264
+            }
+          }
+        },
+        "right_hand": {
+          "native_unit": "normalized hand command",
+          "all": {
+            "sample_count": 100,
+            "model": {
+              "mae": 0.09712122386631866,
+              "rmse": 0.1247399923976448,
+              "normalized_mae": 0.8253315607423956,
+              "normalized_rmse": 1.1047488434092416
+            },
+            "persistence": {
+              "mae": 0.014886669395491482,
+              "rmse": 0.03292621220592827,
+              "normalized_mae": 0.12221658646421844,
+              "normalized_rmse": 0.25990008167210593
+            }
+          },
+          "changing_target": {
+            "sample_count": 71,
+            "model": {
+              "mae": 0.09634073591515632,
+              "rmse": 0.12388810273013491,
+              "normalized_mae": 0.823180854340998,
+              "normalized_rmse": 1.1299500471669888
+            },
+            "persistence": {
+              "mae": 0.018503803484351704,
+              "rmse": 0.03870093281947761,
+              "normalized_mae": 0.15046193477525904,
+              "normalized_rmse": 0.3045603638931325
+            }
+          },
+          "small_target_change": {
+            "sample_count": 29,
+            "model": {
+              "mae": 0.09903207367778509,
+              "rmse": 0.12680149684655817,
+              "normalized_mae": 0.8305970833113346,
+              "normalized_rmse": 1.0404759513671091
+            },
+            "persistence": {
+              "mae": 0.006030927315868181,
+              "rmse": 0.008453582682740378,
+              "normalized_mae": 0.05306418197856727,
+              "normalized_rmse": 0.07635153776013992
+            }
+          }
+        }
+      }
+    },
+    {
+      "optimizer_step": 0,
+      "split": "validation",
+      "role": "step_zero_reference",
+      "group_balanced_normalized_mae": 0.7657805846075387,
+      "report": {
+        "bytes": 257006,
+        "sha256": "237553885152c2ac13ba893ee6bcfa1be2190ca86863018a793e8fa824fd5e30",
+        "artifact_ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-step-zero-validation.json"
+      },
+      "predictions": {
+        "bytes": 487441,
+        "sha256": "96ccec1e4855939251b0e18bde1c498418494031d3b5d37e8bcdba36778056bb",
+        "artifact_ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-step-zero-validation.npz"
+      },
+      "global_group_metrics": {
+        "left_arm": {
+          "native_unit": "radians",
+          "all": {
+            "sample_count": 100,
+            "model": {
+              "mae": 0.2612221660852171,
+              "rmse": 0.3178224162375467,
+              "normalized_mae": 0.6808725881834126,
+              "normalized_rmse": 0.7792929384653003
+            },
+            "persistence": {
+              "mae": 0.06885813466337741,
+              "rmse": 0.10089514672482287,
+              "normalized_mae": 0.18739089350822805,
+              "normalized_rmse": 0.2698636405493227
+            }
+          },
+          "changing_target": {
+            "sample_count": 65,
+            "model": {
+              "mae": 0.2631931286156834,
+              "rmse": 0.32233836106398345,
+              "normalized_mae": 0.6847833867330331,
+              "normalized_rmse": 0.7874384524014318
+            },
+            "persistence": {
+              "mae": 0.08154918398846388,
+              "rmse": 0.11516101487470606,
+              "normalized_mae": 0.21722185158816534,
+              "normalized_rmse": 0.2956441686847578
+            }
+          },
+          "small_target_change": {
+            "sample_count": 35,
+            "model": {
+              "mae": 0.2575618071000653,
+              "rmse": 0.3092607586965715,
+              "normalized_mae": 0.6736096765912603,
+              "normalized_rmse": 0.7639351661601488
+            },
+            "persistence": {
+              "mae": 0.045289043059645394,
+              "rmse": 0.06675096697194859,
+              "normalized_mae": 0.1319905427883445,
+              "normalized_rmse": 0.21389467421599323
+            }
+          }
+        },
+        "right_arm": {
+          "native_unit": "radians",
+          "all": {
+            "sample_count": 100,
+            "model": {
+              "mae": 0.23190336178645204,
+              "rmse": 0.2865579453330386,
+              "normalized_mae": 0.6598745298508063,
+              "normalized_rmse": 0.7668032684352852
+            },
+            "persistence": {
+              "mae": 0.06667838038886803,
+              "rmse": 0.09765187844305279,
+              "normalized_mae": 0.19290494947553438,
+              "normalized_rmse": 0.2677788401298333
+            }
+          },
+          "changing_target": {
+            "sample_count": 80,
+            "model": {
+              "mae": 0.23243305226781638,
+              "rmse": 0.2880388408769552,
+              "normalized_mae": 0.6612454359097305,
+              "normalized_rmse": 0.7695392061864746
+            },
+            "persistence": {
+              "mae": 0.07261918666309372,
+              "rmse": 0.10393412417605075,
+              "normalized_mae": 0.20759233271667343,
+              "normalized_rmse": 0.2785381452116551
+            }
+          },
+          "small_target_change": {
+            "sample_count": 20,
+            "model": {
+              "mae": 0.22978459986099464,
+              "rmse": 0.2805562060488126,
+              "normalized_mae": 0.6543909056151099,
+              "normalized_rmse": 0.7557604799026889
+            },
+            "persistence": {
+              "mae": 0.04291515529196529,
+              "rmse": 0.06685983954746555,
+              "normalized_mae": 0.13415541651097843,
+              "normalized_rmse": 0.21953027753500837
+            }
+          }
+        },
+        "left_hand": {
+          "native_unit": "normalized hand command",
+          "all": {
+            "sample_count": 100,
+            "model": {
+              "mae": 0.12941113542144497,
+              "rmse": 0.16224471822482323,
+              "normalized_mae": 0.8964218208084895,
+              "normalized_rmse": 1.086877064759596
+            },
+            "persistence": {
+              "mae": 0.01653744044403235,
+              "rmse": 0.0469222253267061,
+              "normalized_mae": 0.10767378520736011,
+              "normalized_rmse": 0.31200015518965896
+            }
+          },
+          "changing_target": {
+            "sample_count": 60,
+            "model": {
+              "mae": 0.12791162978650794,
+              "rmse": 0.16034171950635712,
+              "normalized_mae": 0.8872856098692139,
+              "normalized_rmse": 1.0784288811420353
+            },
+            "persistence": {
+              "mae": 0.023065180062419838,
+              "rmse": 0.05998128340332812,
+              "normalized_mae": 0.151388192250835,
+              "normalized_rmse": 0.3997512323220498
+            }
+          },
+          "small_target_change": {
+            "sample_count": 40,
+            "model": {
+              "mae": 0.1316603938738505,
+              "rmse": 0.16505808358952848,
+              "normalized_mae": 0.9101261372174027,
+              "normalized_rmse": 1.0994276270992982
+            },
+            "persistence": {
+              "mae": 0.006745831016451121,
+              "rmse": 0.01037335702460401,
+              "normalized_mae": 0.042102174642147785,
+              "normalized_rmse": 0.060486944718939575
+            }
+          }
+        },
+        "right_hand": {
+          "native_unit": "normalized hand command",
+          "all": {
+            "sample_count": 100,
+            "model": {
+              "mae": 0.09867314794825183,
+              "rmse": 0.1262802626111894,
+              "normalized_mae": 0.8259533995874464,
+              "normalized_rmse": 1.0309250977077504
+            },
+            "persistence": {
+              "mae": 0.014260839515676102,
+              "rmse": 0.033593884080774884,
+              "normalized_mae": 0.11455544953123797,
+              "normalized_rmse": 0.252531657466547
+            }
+          },
+          "changing_target": {
+            "sample_count": 61,
+            "model": {
+              "mae": 0.09854877236314484,
+              "rmse": 0.1259132711832687,
+              "normalized_mae": 0.8247220229301041,
+              "normalized_rmse": 1.0279821662538224
+            },
+            "persistence": {
+              "mae": 0.0193289760194841,
+              "rmse": 0.04240358312807919,
+              "normalized_mae": 0.15048722329243894,
+              "normalized_rmse": 0.31397984916043453
+            }
+          },
+          "small_target_change": {
+            "sample_count": 39,
+            "model": {
+              "mae": 0.09886768411982942,
+              "rmse": 0.12685214581841725,
+              "normalized_mae": 0.8278793989745714,
+              "normalized_rmse": 1.0355113728167888
+            },
+            "persistence": {
+              "mae": 0.006333754214848208,
+              "rmse": 0.009019934014140871,
+              "normalized_mae": 0.05835447005859031,
+              "normalized_rmse": 0.09656135499665065
+            }
+          }
+        }
+      }
+    },
+    {
+      "optimizer_step": 2048,
+      "split": "train",
+      "role": "checkpoint",
+      "group_balanced_normalized_mae": 0.21359784663279566,
+      "report": {
+        "bytes": 1550804,
+        "sha256": "8d8be3b7329c39b3341ad9b3a05690eb71942c28fdc3bdf6f8ad27cd6f40b9b3",
+        "artifact_ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-retry2-checkpoint-2048-train.json"
+      },
+      "predictions": {
+        "bytes": 546067,
+        "sha256": "afcb68459918afe1a385e398f045d38f826b171d37d69db3a49d3e4bd4401a37",
+        "artifact_ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-retry2-checkpoint-2048-train.npz"
+      },
+      "global_group_metrics": {
+        "left_arm": {
+          "native_unit": "radians",
+          "all": {
+            "sample_count": 100,
+            "model": {
+              "mae": 0.0760755642000386,
+              "rmse": 0.10624843798803783,
+              "normalized_mae": 0.189235784777856,
+              "normalized_rmse": 0.23742929588946335
+            },
+            "persistence": {
+              "mae": 0.06495657514841079,
+              "rmse": 0.09569644796044618,
+              "normalized_mae": 0.17637272685451905,
+              "normalized_rmse": 0.25511501564807815
+            },
+            "model_change_from_step_zero": {
+              "mae": -0.1848418353924975,
+              "rmse": -0.21078462002486076,
+              "normalized_mae": -0.49006367974056464,
+              "normalized_rmse": -0.537869444609389
+            }
+          },
+          "changing_target": {
+            "sample_count": 66,
+            "model": {
+              "mae": 0.07946842860520364,
+              "rmse": 0.11081799792749866,
+              "normalized_mae": 0.19778353102507262,
+              "normalized_rmse": 0.24725878578060848
+            },
+            "persistence": {
+              "mae": 0.08034872483314513,
+              "rmse": 0.11023154309844682,
+              "normalized_mae": 0.21512264259528666,
+              "normalized_rmse": 0.2863572392807604
+            },
+            "model_change_from_step_zero": {
+              "mae": -0.1828019307910569,
+              "rmse": -0.20985952216844292,
+              "normalized_mae": -0.48368278129084286,
+              "normalized_rmse": -0.5338464916803091
+            }
+          },
+          "small_target_change": {
+            "sample_count": 34,
+            "model": {
+              "mae": 0.06948941564883584,
+              "rmse": 0.09676404984203639,
+              "normalized_mae": 0.1726431008862002,
+              "normalized_rmse": 0.21708165873700871
+            },
+            "persistence": {
+              "mae": 0.03507769634863236,
+              "rmse": 0.05785770349582465,
+              "normalized_mae": 0.1011523021812644,
+              "normalized_rmse": 0.17956943607606668
+            },
+            "model_change_from_step_zero": {
+              "mae": -0.1888016502070586,
+              "rmse": -0.21307211380116797,
+              "normalized_mae": -0.5024501296723771,
+              "normalized_rmse": -0.5468195842335942
+            }
+          }
+        },
+        "right_arm": {
+          "native_unit": "radians",
+          "all": {
+            "sample_count": 100,
+            "model": {
+              "mae": 0.055644134759137334,
+              "rmse": 0.07387709562536217,
+              "normalized_mae": 0.16149911696584657,
+              "normalized_rmse": 0.20618545913289474
+            },
+            "persistence": {
+              "mae": 0.06563603224879573,
+              "rmse": 0.09543745154123405,
+              "normalized_mae": 0.19188329303481116,
+              "normalized_rmse": 0.27001615190571593
+            },
+            "model_change_from_step_zero": {
+              "mae": -0.17669754081774652,
+              "rmse": -0.21307117137429427,
+              "normalized_mae": -0.4999815143017507,
+              "normalized_rmse": -0.5628917478652788
+            }
+          },
+          "changing_target": {
+            "sample_count": 82,
+            "model": {
+              "mae": 0.056174052998380804,
+              "rmse": 0.07487509155695471,
+              "normalized_mae": 0.16307589012250992,
+              "normalized_rmse": 0.20911417311669342
+            },
+            "persistence": {
+              "mae": 0.07187015633431207,
+              "rmse": 0.10116660914688747,
+              "normalized_mae": 0.208684820833014,
+              "normalized_rmse": 0.28256538405397624
+            },
+            "model_change_from_step_zero": {
+              "mae": -0.17669231915015526,
+              "rmse": -0.21334162903486908,
+              "normalized_mae": -0.49980035200543615,
+              "normalized_rmse": -0.5623880119404586
+            }
+          },
+          "small_target_change": {
+            "sample_count": 18,
+            "model": {
+              "mae": 0.05323006278036152,
+              "rmse": 0.06914864033353471,
+              "normalized_mae": 0.1543160392521581,
+              "normalized_rmse": 0.19227987257083692
+            },
+            "persistence": {
+              "mae": 0.03723613363699914,
+              "rmse": 0.0630637796879979,
+              "normalized_mae": 0.11534299973188704,
+              "normalized_rmse": 0.20326913402080665
+            },
+            "model_change_from_step_zero": {
+              "mae": -0.17672132841455104,
+              "rmse": -0.21194869305205075,
+              "normalized_mae": -0.5008068092071841,
+              "normalized_rmse": -0.5656520382334699
+            }
+          }
+        },
+        "left_hand": {
+          "native_unit": "normalized hand command",
+          "all": {
+            "sample_count": 100,
+            "model": {
+              "mae": 0.041150325367020235,
+              "rmse": 0.05924412888678959,
+              "normalized_mae": 0.2678852973853222,
+              "normalized_rmse": 0.3740055607728313
+            },
+            "persistence": {
+              "mae": 0.014038961622864008,
+              "rmse": 0.03281538272720215,
+              "normalized_mae": 0.09343205526610945,
+              "normalized_rmse": 0.21748379584266583
+            },
+            "model_change_from_step_zero": {
+              "mae": -0.08462810827833084,
+              "rmse": -0.09795774075813563,
+              "normalized_mae": -0.6034012770773708,
+              "normalized_rmse": -0.68083730563305
+            }
+          },
+          "changing_target": {
+            "sample_count": 64,
+            "model": {
+              "mae": 0.043227104004472494,
+              "rmse": 0.06278127313486688,
+              "normalized_mae": 0.28912480445445304,
+              "normalized_rmse": 0.4119408409454962
+            },
+            "persistence": {
+              "mae": 0.01870640485625093,
+              "rmse": 0.04038803001982024,
+              "normalized_mae": 0.12643568560700416,
+              "normalized_rmse": 0.26891066900500604
+            },
+            "model_change_from_step_zero": {
+              "mae": -0.08075364946206617,
+              "rmse": -0.09242761842569351,
+              "normalized_mae": -0.5674293912512836,
+              "normalized_rmse": -0.6254682190286204
+            }
+          },
+          "small_target_change": {
+            "sample_count": 36,
+            "model": {
+              "mae": 0.037458274455994,
+              "rmse": 0.052369263765333136,
+              "normalized_mae": 0.23012617370686725,
+              "normalized_rmse": 0.2947465736683105
+            },
+            "persistence": {
+              "mae": 0.005741284763509476,
+              "rmse": 0.009557696643767249,
+              "normalized_mae": 0.034758934660074486,
+              "normalized_rmse": 0.053200741304192264
+            },
+            "model_change_from_step_zero": {
+              "mae": -0.09151603506280132,
+              "rmse": -0.1083146548053871,
+              "normalized_mae": -0.6673512963237481,
+              "normalized_rmse": -0.790398367839623
+            }
+          }
+        },
+        "right_hand": {
+          "native_unit": "normalized hand command",
+          "all": {
+            "sample_count": 100,
+            "model": {
+              "mae": 0.02883117433740861,
+              "rmse": 0.051950879525977586,
+              "normalized_mae": 0.2357711874021579,
+              "normalized_rmse": 0.617102946556934
+            },
+            "persistence": {
+              "mae": 0.014886669395491482,
+              "rmse": 0.03292621220592827,
+              "normalized_mae": 0.12221658646421844,
+              "normalized_rmse": 0.25990008167210593
+            },
+            "model_change_from_step_zero": {
+              "mae": -0.06829004952891005,
+              "rmse": -0.07278911287166721,
+              "normalized_mae": -0.5895603733402377,
+              "normalized_rmse": -0.48764589685230764
+            }
+          },
+          "changing_target": {
+            "sample_count": 71,
+            "model": {
+              "mae": 0.03157069242132335,
+              "rmse": 0.057561033355315254,
+              "normalized_mae": 0.26320196568291376,
+              "normalized_rmse": 0.7074915411621688
+            },
+            "persistence": {
+              "mae": 0.018503803484351704,
+              "rmse": 0.03870093281947761,
+              "normalized_mae": 0.15046193477525904,
+              "normalized_rmse": 0.3045603638931325
+            },
+            "model_change_from_step_zero": {
+              "mae": -0.06477004349383297,
+              "rmse": -0.06632706937481966,
+              "normalized_mae": -0.5599788886580842,
+              "normalized_rmse": -0.42245850600481993
+            }
+          },
+          "small_target_change": {
+            "sample_count": 29,
+            "model": {
+              "mae": 0.022124078338858724,
+              "rmse": 0.0345647999770306,
+              "normalized_mae": 0.16861307505961762,
+              "normalized_rmse": 0.296122104765254
+            },
+            "persistence": {
+              "mae": 0.006030927315868181,
+              "rmse": 0.008453582682740378,
+              "normalized_mae": 0.05306418197856727,
+              "normalized_rmse": 0.07635153776013992
+            },
+            "model_change_from_step_zero": {
+              "mae": -0.07690799533892637,
+              "rmse": -0.09223669686952757,
+              "normalized_mae": -0.661984008251717,
+              "normalized_rmse": -0.7443538466018551
+            }
+          }
+        }
+      }
+    },
+    {
+      "optimizer_step": 2048,
+      "split": "validation",
+      "role": "checkpoint",
+      "group_balanced_normalized_mae": 0.196945982813923,
+      "report": {
+        "bytes": 443979,
+        "sha256": "0ea06de2d71d19e0a95970eea3ef9a3a6e6fa51593cab1fce7f5788ba0a2b054",
+        "artifact_ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-retry2-checkpoint-2048-validation.json"
+      },
+      "predictions": {
+        "bytes": 540350,
+        "sha256": "7f97f93beef71e209524ceef16b4cbc3c363ac0d396952f9d7c3b13d2c9c887d",
+        "artifact_ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-retry2-checkpoint-2048-validation.npz"
+      },
+      "global_group_metrics": {
+        "left_arm": {
+          "native_unit": "radians",
+          "all": {
+            "sample_count": 100,
+            "model": {
+              "mae": 0.07384689620091622,
+              "rmse": 0.10315914006685487,
+              "normalized_mae": 0.18498964292949976,
+              "normalized_rmse": 0.23308980601664278
+            },
+            "persistence": {
+              "mae": 0.06885813466337741,
+              "rmse": 0.10089514672482287,
+              "normalized_mae": 0.18739089350822805,
+              "normalized_rmse": 0.2698636405493227
+            },
+            "model_change_from_step_zero": {
+              "mae": -0.18737526988430087,
+              "rmse": -0.21466327617069184,
+              "normalized_mae": -0.4958829452539128,
+              "normalized_rmse": -0.5462031324486576
+            }
+          },
+          "changing_target": {
+            "sample_count": 65,
+            "model": {
+              "mae": 0.07618947197677851,
+              "rmse": 0.10647266272146097,
+              "normalized_mae": 0.19153529950070358,
+              "normalized_rmse": 0.242321486659569
+            },
+            "persistence": {
+              "mae": 0.08154918398846388,
+              "rmse": 0.11516101487470606,
+              "normalized_mae": 0.21722185158816534,
+              "normalized_rmse": 0.2956441686847578
+            },
+            "model_change_from_step_zero": {
+              "mae": -0.1870036566389049,
+              "rmse": -0.21586569834252248,
+              "normalized_mae": -0.4932480872323295,
+              "normalized_rmse": -0.5451169657418629
+            }
+          },
+          "small_target_change": {
+            "sample_count": 35,
+            "model": {
+              "mae": 0.06949639833145767,
+              "rmse": 0.09670470574728723,
+              "normalized_mae": 0.17283342358297837,
+              "normalized_rmse": 0.21489566096722232
+            },
+            "persistence": {
+              "mae": 0.045289043059645394,
+              "rmse": 0.06675096697194859,
+              "normalized_mae": 0.1319905427883445,
+              "normalized_rmse": 0.21389467421599323
+            },
+            "model_change_from_step_zero": {
+              "mae": -0.18806540876860767,
+              "rmse": -0.21255605294928426,
+              "normalized_mae": -0.5007762530082819,
+              "normalized_rmse": -0.5490395051929264
+            }
+          }
+        },
+        "right_arm": {
+          "native_unit": "radians",
+          "all": {
+            "sample_count": 100,
+            "model": {
+              "mae": 0.05571286910893242,
+              "rmse": 0.07322066886499062,
+              "normalized_mae": 0.1613674064962044,
+              "normalized_rmse": 0.2021247971963172
+            },
+            "persistence": {
+              "mae": 0.06667838038886803,
+              "rmse": 0.09765187844305279,
+              "normalized_mae": 0.19290494947553438,
+              "normalized_rmse": 0.2677788401298333
+            },
+            "model_change_from_step_zero": {
+              "mae": -0.17619049267751963,
+              "rmse": -0.21333727646804795,
+              "normalized_mae": -0.4985071233546019,
+              "normalized_rmse": -0.5646784712389681
+            }
+          },
+          "changing_target": {
+            "sample_count": 80,
+            "model": {
+              "mae": 0.05615493576509898,
+              "rmse": 0.07427366472346696,
+              "normalized_mae": 0.16208479197328157,
+              "normalized_rmse": 0.20443490748847526
+            },
+            "persistence": {
+              "mae": 0.07261918666309372,
+              "rmse": 0.10393412417605075,
+              "normalized_mae": 0.20759233271667343,
+              "normalized_rmse": 0.2785381452116551
+            },
+            "model_change_from_step_zero": {
+              "mae": -0.1762781165027174,
+              "rmse": -0.21376517615348822,
+              "normalized_mae": -0.49916064393644893,
+              "normalized_rmse": -0.5651042986979994
+            }
+          },
+          "small_target_change": {
+            "sample_count": 20,
+            "model": {
+              "mae": 0.053944602484266184,
+              "rmse": 0.0688478224736783,
+              "normalized_mae": 0.1584978645878959,
+              "normalized_rmse": 0.19260748326317964
+            },
+            "persistence": {
+              "mae": 0.04291515529196529,
+              "rmse": 0.06685983954746555,
+              "normalized_mae": 0.13415541651097843,
+              "normalized_rmse": 0.21953027753500837
+            },
+            "model_change_from_step_zero": {
+              "mae": -0.17583999737672845,
+              "rmse": -0.2117083835751343,
+              "normalized_mae": -0.49589304102721404,
+              "normalized_rmse": -0.5631529966395092
+            }
+          }
+        },
+        "left_hand": {
+          "native_unit": "normalized hand command",
+          "all": {
+            "sample_count": 100,
+            "model": {
+              "mae": 0.03988783987032043,
+              "rmse": 0.05989148195554205,
+              "normalized_mae": 0.24921865165126997,
+              "normalized_rmse": 0.3524059215208361
+            },
+            "persistence": {
+              "mae": 0.01653744044403235,
+              "rmse": 0.0469222253267061,
+              "normalized_mae": 0.10767378520736011,
+              "normalized_rmse": 0.31200015518965896
+            },
+            "model_change_from_step_zero": {
+              "mae": -0.08952329555112454,
+              "rmse": -0.10235323626928117,
+              "normalized_mae": -0.6472031691572195,
+              "normalized_rmse": -0.7344711432387598
+            }
+          },
+          "changing_target": {
+            "sample_count": 60,
+            "model": {
+              "mae": 0.04189310497776778,
+              "rmse": 0.06408723498314262,
+              "normalized_mae": 0.26669040627781787,
+              "normalized_rmse": 0.3887851121038047
+            },
+            "persistence": {
+              "mae": 0.023065180062419838,
+              "rmse": 0.05998128340332812,
+              "normalized_mae": 0.151388192250835,
+              "normalized_rmse": 0.3997512323220498
+            },
+            "model_change_from_step_zero": {
+              "mae": -0.08601852480874017,
+              "rmse": -0.0962544845232145,
+              "normalized_mae": -0.620595203591396,
+              "normalized_rmse": -0.6896437690382307
+            }
+          },
+          "small_target_change": {
+            "sample_count": 40,
+            "model": {
+              "mae": 0.0368799422091494,
+              "rmse": 0.05297842481048997,
+              "normalized_mae": 0.22301101971144802,
+              "normalized_rmse": 0.2893856228581896
+            },
+            "persistence": {
+              "mae": 0.006745831016451121,
+              "rmse": 0.01037335702460401,
+              "normalized_mae": 0.042102174642147785,
+              "normalized_rmse": 0.060486944718939575
+            },
+            "model_change_from_step_zero": {
+              "mae": -0.09478045166470112,
+              "rmse": -0.1120796587790385,
+              "normalized_mae": -0.6871151175059547,
+              "normalized_rmse": -0.8100420042411086
+            }
+          }
+        },
+        "right_hand": {
+          "native_unit": "normalized hand command",
+          "all": {
+            "sample_count": 100,
+            "model": {
+              "mae": 0.025425187208586268,
+              "rmse": 0.03969588637346721,
+              "normalized_mae": 0.19220823017871785,
+              "normalized_rmse": 0.31056893698180726
+            },
+            "persistence": {
+              "mae": 0.014260839515676102,
+              "rmse": 0.033593884080774884,
+              "normalized_mae": 0.11455544953123797,
+              "normalized_rmse": 0.252531657466547
+            },
+            "model_change_from_step_zero": {
+              "mae": -0.07324796073966555,
+              "rmse": -0.0865843762377222,
+              "normalized_mae": -0.6337451694087286,
+              "normalized_rmse": -0.7203561607259432
+            }
+          },
+          "changing_target": {
+            "sample_count": 61,
+            "model": {
+              "mae": 0.027034026616420903,
+              "rmse": 0.04266563274428019,
+              "normalized_mae": 0.20454865484290233,
+              "normalized_rmse": 0.3323028531390392
+            },
+            "persistence": {
+              "mae": 0.0193289760194841,
+              "rmse": 0.04240358312807919,
+              "normalized_mae": 0.15048722329243894,
+              "normalized_rmse": 0.31397984916043453
+            },
+            "model_change_from_step_zero": {
+              "mae": -0.07151474574672394,
+              "rmse": -0.08324763843898851,
+              "normalized_mae": -0.6201733680872018,
+              "normalized_rmse": -0.6956793131147833
+            }
+          },
+          "small_target_change": {
+            "sample_count": 39,
+            "model": {
+              "mae": 0.02290879736556287,
+              "rmse": 0.03454265673265988,
+              "normalized_mae": 0.17290654031935232,
+              "normalized_rmse": 0.2731286023448822
+            },
+            "persistence": {
+              "mae": 0.006333754214848208,
+              "rmse": 0.009019934014140871,
+              "normalized_mae": 0.05835447005859031,
+              "normalized_rmse": 0.09656135499665065
+            },
+            "model_change_from_step_zero": {
+              "mae": -0.07595888675426656,
+              "rmse": -0.09230948908575737,
+              "normalized_mae": -0.654972858655219,
+              "normalized_rmse": -0.7623827704719066
+            }
+          }
+        }
+      }
+    },
+    {
+      "optimizer_step": 4096,
+      "split": "train",
+      "role": "checkpoint",
+      "group_balanced_normalized_mae": 0.16493681864872917,
+      "report": {
+        "bytes": 1551289,
+        "sha256": "090bb68723f41a8b5e7c572be89ca7a20a61370021cc9474d1104d2535eaf54f",
+        "artifact_ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-retry2-checkpoint-4096-train.json"
+      },
+      "predictions": {
+        "bytes": 535499,
+        "sha256": "dee0263577a9036f998efbe72d54f2782edb88018225da359731254ef6501bd4",
+        "artifact_ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-retry2-checkpoint-4096-train.npz"
+      },
+      "global_group_metrics": {
+        "left_arm": {
+          "native_unit": "radians",
+          "all": {
+            "sample_count": 100,
+            "model": {
+              "mae": 0.05761987268064678,
+              "rmse": 0.08203105109598326,
+              "normalized_mae": 0.1400872374159476,
+              "normalized_rmse": 0.17893965867621764
+            },
+            "persistence": {
+              "mae": 0.06495657514841079,
+              "rmse": 0.09569644796044618,
+              "normalized_mae": 0.17637272685451905,
+              "normalized_rmse": 0.25511501564807815
+            },
+            "model_change_from_step_zero": {
+              "mae": -0.2032975269118893,
+              "rmse": -0.23500200691691536,
+              "normalized_mae": -0.539212227102473,
+              "normalized_rmse": -0.5963590818226348
+            }
+          },
+          "changing_target": {
+            "sample_count": 66,
+            "model": {
+              "mae": 0.06284842099567592,
+              "rmse": 0.08924068604748882,
+              "normalized_mae": 0.1526441784970625,
+              "normalized_rmse": 0.1942157150093803
+            },
+            "persistence": {
+              "mae": 0.08034872483314513,
+              "rmse": 0.11023154309844682,
+              "normalized_mae": 0.21512264259528666,
+              "normalized_rmse": 0.2863572392807604
+            },
+            "model_change_from_step_zero": {
+              "mae": -0.19942193840058461,
+              "rmse": -0.23143683404845278,
+              "normalized_mae": -0.528822133818853,
+              "normalized_rmse": -0.5868895624515372
+            }
+          },
+          "small_target_change": {
+            "sample_count": 34,
+            "model": {
+              "mae": 0.047470337716178444,
+              "rmse": 0.06581880907198157,
+              "normalized_mae": 0.11571199884672458,
+              "normalized_rmse": 0.1447550713914215
+            },
+            "persistence": {
+              "mae": 0.03507769634863236,
+              "rmse": 0.05785770349582465,
+              "normalized_mae": 0.1011523021812644,
+              "normalized_rmse": 0.17956943607606668
+            },
+            "model_change_from_step_zero": {
+              "mae": -0.210820728139716,
+              "rmse": -0.2440173545712228,
+              "normalized_mae": -0.5593812317118527,
+              "normalized_rmse": -0.6191461715791814
+            }
+          }
+        },
+        "right_arm": {
+          "native_unit": "radians",
+          "all": {
+            "sample_count": 100,
+            "model": {
+              "mae": 0.04417390991041819,
+              "rmse": 0.06066048117382512,
+              "normalized_mae": 0.12650943172971904,
+              "normalized_rmse": 0.16517772974622574
+            },
+            "persistence": {
+              "mae": 0.06563603224879573,
+              "rmse": 0.09543745154123405,
+              "normalized_mae": 0.19188329303481116,
+              "normalized_rmse": 0.27001615190571593
+            },
+            "model_change_from_step_zero": {
+              "mae": -0.18816776566646565,
+              "rmse": -0.2262877858258313,
+              "normalized_mae": -0.5349711995378782,
+              "normalized_rmse": -0.6038994772519479
+            }
+          },
+          "changing_target": {
+            "sample_count": 82,
+            "model": {
+              "mae": 0.0451799428137937,
+              "rmse": 0.062055858037989145,
+              "normalized_mae": 0.12922636542504706,
+              "normalized_rmse": 0.16870827838642705
+            },
+            "persistence": {
+              "mae": 0.07187015633431207,
+              "rmse": 0.10116660914688747,
+              "normalized_mae": 0.208684820833014,
+              "normalized_rmse": 0.28256538405397624
+            },
+            "model_change_from_step_zero": {
+              "mae": -0.18768642933474236,
+              "rmse": -0.22616086255383466,
+              "normalized_mae": -0.533649876702899,
+              "normalized_rmse": -0.6027939066707251
+            }
+          },
+          "small_target_change": {
+            "sample_count": 18,
+            "model": {
+              "mae": 0.039590871128374214,
+              "rmse": 0.0538481286396453,
+              "normalized_mae": 0.11413228933989134,
+              "normalized_rmse": 0.14803239478996194
+            },
+            "persistence": {
+              "mae": 0.03723613363699914,
+              "rmse": 0.0630637796879979,
+              "normalized_mae": 0.11534299973188704,
+              "normalized_rmse": 0.20326913402080665
+            },
+            "model_change_from_step_zero": {
+              "mae": -0.19036052006653836,
+              "rmse": -0.22724920474594015,
+              "normalized_mae": -0.5409905591194508,
+              "normalized_rmse": -0.6098995160143448
+            }
+          }
+        },
+        "left_hand": {
+          "native_unit": "normalized hand command",
+          "all": {
+            "sample_count": 100,
+            "model": {
+              "mae": 0.03405228811626633,
+              "rmse": 0.05699777763582107,
+              "normalized_mae": 0.22178108276735262,
+              "normalized_rmse": 0.32620956289796
+            },
+            "persistence": {
+              "mae": 0.014038961622864008,
+              "rmse": 0.03281538272720215,
+              "normalized_mae": 0.09343205526610945,
+              "normalized_rmse": 0.21748379584266583
+            },
+            "model_change_from_step_zero": {
+              "mae": -0.09172614552908474,
+              "rmse": -0.10020409200910416,
+              "normalized_mae": -0.6495054916953403,
+              "normalized_rmse": -0.7286333035079213
+            }
+          },
+          "changing_target": {
+            "sample_count": 64,
+            "model": {
+              "mae": 0.035992890528480835,
+              "rmse": 0.05924044247974574,
+              "normalized_mae": 0.23335612997754027,
+              "normalized_rmse": 0.3389957605471432
+            },
+            "persistence": {
+              "mae": 0.01870640485625093,
+              "rmse": 0.04038803001982024,
+              "normalized_mae": 0.12643568560700416,
+              "normalized_rmse": 0.26891066900500604
+            },
+            "model_change_from_step_zero": {
+              "mae": -0.08798786293805783,
+              "rmse": -0.09596844908081464,
+              "normalized_mae": -0.6231980657281964,
+              "normalized_rmse": -0.6984132994269734
+            }
+          },
+          "small_target_change": {
+            "sample_count": 36,
+            "model": {
+              "mae": 0.030602328272329435,
+              "rmse": 0.052776031999410895,
+              "normalized_mae": 0.2012032210603524,
+              "normalized_rmse": 0.3021454694622326
+            },
+            "persistence": {
+              "mae": 0.005741284763509476,
+              "rmse": 0.009557696643767249,
+              "normalized_mae": 0.034758934660074486,
+              "normalized_rmse": 0.053200741304192264
+            },
+            "model_change_from_step_zero": {
+              "mae": -0.09837198124646589,
+              "rmse": -0.10790788657130934,
+              "normalized_mae": -0.696274248970263,
+              "normalized_rmse": -0.782999472045701
+            }
+          }
+        },
+        "right_hand": {
+          "native_unit": "normalized hand command",
+          "all": {
+            "sample_count": 100,
+            "model": {
+              "mae": 0.021031918495686516,
+              "rmse": 0.040617384719038696,
+              "normalized_mae": 0.17136952268189734,
+              "normalized_rmse": 0.5180959394266615
+            },
+            "persistence": {
+              "mae": 0.014886669395491482,
+              "rmse": 0.03292621220592827,
+              "normalized_mae": 0.12221658646421844,
+              "normalized_rmse": 0.25990008167210593
+            },
+            "model_change_from_step_zero": {
+              "mae": -0.07608930537063215,
+              "rmse": -0.0841226076786061,
+              "normalized_mae": -0.6539620380604982,
+              "normalized_rmse": -0.5866529039825801
+            }
+          },
+          "changing_target": {
+            "sample_count": 71,
+            "model": {
+              "mae": 0.023448021124890993,
+              "rmse": 0.04570348006053616,
+              "normalized_mae": 0.19550870793729164,
+              "normalized_rmse": 0.6025634955634036
+            },
+            "persistence": {
+              "mae": 0.018503803484351704,
+              "rmse": 0.03870093281947761,
+              "normalized_mae": 0.15046193477525904,
+              "normalized_rmse": 0.3045603638931325
+            },
+            "model_change_from_step_zero": {
+              "mae": -0.07289271479026532,
+              "rmse": -0.07818462266959875,
+              "normalized_mae": -0.6276721464037063,
+              "normalized_rmse": -0.5273865516035852
+            }
+          },
+          "small_target_change": {
+            "sample_count": 29,
+            "model": {
+              "mae": 0.015116632748323838,
+              "rmse": 0.023976870878589556,
+              "normalized_mae": 0.11227013809110434,
+              "normalized_rmse": 0.19149717256063076
+            },
+            "persistence": {
+              "mae": 0.006030927315868181,
+              "rmse": 0.008453582682740378,
+              "normalized_mae": 0.05306418197856727,
+              "normalized_rmse": 0.07635153776013992
+            },
+            "model_change_from_step_zero": {
+              "mae": -0.08391544092946125,
+              "rmse": -0.10282462596796861,
+              "normalized_mae": -0.7183269452202303,
+              "normalized_rmse": -0.8489787788064784
+            }
+          }
+        }
+      }
+    },
+    {
+      "optimizer_step": 4096,
+      "split": "validation",
+      "role": "checkpoint",
+      "group_balanced_normalized_mae": 0.14913777049933316,
+      "report": {
+        "bytes": 444143,
+        "sha256": "566af2f490fcf2f95a38e73feeb1a6ebb0e4973417751cd1ece0638577d0542c",
+        "artifact_ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-retry2-checkpoint-4096-validation.json"
+      },
+      "predictions": {
+        "bytes": 528871,
+        "sha256": "7f292a10ed19cc4bd43c3dc1e404c5013ee4f2039d5d76f09a135808af07c9e0",
+        "artifact_ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-retry2-checkpoint-4096-validation.npz"
+      },
+      "global_group_metrics": {
+        "left_arm": {
+          "native_unit": "radians",
+          "all": {
+            "sample_count": 100,
+            "model": {
+              "mae": 0.05635863855867656,
+              "rmse": 0.07877856316015214,
+              "normalized_mae": 0.13906835256240352,
+              "normalized_rmse": 0.17612249064039467
+            },
+            "persistence": {
+              "mae": 0.06885813466337741,
+              "rmse": 0.10089514672482287,
+              "normalized_mae": 0.18739089350822805,
+              "normalized_rmse": 0.2698636405493227
+            },
+            "model_change_from_step_zero": {
+              "mae": -0.20486352752654052,
+              "rmse": -0.23904385307739456,
+              "normalized_mae": -0.5418042356210091,
+              "normalized_rmse": -0.6031704478249057
+            }
+          },
+          "changing_target": {
+            "sample_count": 65,
+            "model": {
+              "mae": 0.06075145283932362,
+              "rmse": 0.08497273656738662,
+              "normalized_mae": 0.14998222489848387,
+              "normalized_rmse": 0.1892689626688404
+            },
+            "persistence": {
+              "mae": 0.08154918398846388,
+              "rmse": 0.11516101487470606,
+              "normalized_mae": 0.21722185158816534,
+              "normalized_rmse": 0.2956441686847578
+            },
+            "model_change_from_step_zero": {
+              "mae": -0.20244167577635977,
+              "rmse": -0.23736562449659682,
+              "normalized_mae": -0.5348011618345492,
+              "normalized_rmse": -0.5981694897325914
+            }
+          },
+          "small_target_change": {
+            "sample_count": 35,
+            "model": {
+              "mae": 0.048200554894617734,
+              "rmse": 0.06574461715587211,
+              "normalized_mae": 0.11879973250968286,
+              "normalized_rmse": 0.14865444647662987
+            },
+            "persistence": {
+              "mae": 0.045289043059645394,
+              "rmse": 0.06675096697194859,
+              "normalized_mae": 0.1319905427883445,
+              "normalized_rmse": 0.21389467421599323
+            },
+            "model_change_from_step_zero": {
+              "mae": -0.2093612522054476,
+              "rmse": -0.2435161415406994,
+              "normalized_mae": -0.5548099440815774,
+              "normalized_rmse": -0.6152807196835189
+            }
+          }
+        },
+        "right_arm": {
+          "native_unit": "radians",
+          "all": {
+            "sample_count": 100,
+            "model": {
+              "mae": 0.0445197441098142,
+              "rmse": 0.06109285537563029,
+              "normalized_mae": 0.1269606608515113,
+              "normalized_rmse": 0.16402509100316937
+            },
+            "persistence": {
+              "mae": 0.06667838038886803,
+              "rmse": 0.09765187844305279,
+              "normalized_mae": 0.19290494947553438,
+              "normalized_rmse": 0.2677788401298333
+            },
+            "model_change_from_step_zero": {
+              "mae": -0.18738361767663786,
+              "rmse": -0.22546508995740827,
+              "normalized_mae": -0.5329138689992949,
+              "normalized_rmse": -0.6027781774321159
+            }
+          },
+          "changing_target": {
+            "sample_count": 80,
+            "model": {
+              "mae": 0.04600724272376373,
+              "rmse": 0.06337519947626735,
+              "normalized_mae": 0.13020383019866774,
+              "normalized_rmse": 0.16805625829619403
+            },
+            "persistence": {
+              "mae": 0.07261918666309372,
+              "rmse": 0.10393412417605075,
+              "normalized_mae": 0.20759233271667343,
+              "normalized_rmse": 0.2785381452116551
+            },
+            "model_change_from_step_zero": {
+              "mae": -0.18642580954405263,
+              "rmse": -0.22466364140068784,
+              "normalized_mae": -0.5310416057110627,
+              "normalized_rmse": -0.6014829478902806
+            }
+          },
+          "small_target_change": {
+            "sample_count": 20,
+            "model": {
+              "mae": 0.03856974965401605,
+              "rmse": 0.05095116539502979,
+              "normalized_mae": 0.11398798346288559,
+              "normalized_rmse": 0.14679757689731
+            },
+            "persistence": {
+              "mae": 0.04291515529196529,
+              "rmse": 0.06685983954746555,
+              "normalized_mae": 0.13415541651097843,
+              "normalized_rmse": 0.21953027753500837
+            },
+            "model_change_from_step_zero": {
+              "mae": -0.1912148502069786,
+              "rmse": -0.2296050406537828,
+              "normalized_mae": -0.5404029221522243,
+              "normalized_rmse": -0.6089629030053789
+            }
+          }
+        },
+        "left_hand": {
+          "native_unit": "normalized hand command",
+          "all": {
+            "sample_count": 100,
+            "model": {
+              "mae": 0.03040819556555814,
+              "rmse": 0.05719006275144299,
+              "normalized_mae": 0.20107420219692024,
+              "normalized_rmse": 0.3312025448818127
+            },
+            "persistence": {
+              "mae": 0.01653744044403235,
+              "rmse": 0.0469222253267061,
+              "normalized_mae": 0.10767378520736011,
+              "normalized_rmse": 0.31200015518965896
+            },
+            "model_change_from_step_zero": {
+              "mae": -0.09900293985588683,
+              "rmse": -0.10505465547338023,
+              "normalized_mae": -0.6953476186115692,
+              "normalized_rmse": -0.7556745198777832
+            }
+          },
+          "changing_target": {
+            "sample_count": 60,
+            "model": {
+              "mae": 0.032815480315023,
+              "rmse": 0.0591345157420625,
+              "normalized_mae": 0.21639486393468746,
+              "normalized_rmse": 0.3519293037754132
+            },
+            "persistence": {
+              "mae": 0.023065180062419838,
+              "rmse": 0.05998128340332812,
+              "normalized_mae": 0.151388192250835,
+              "normalized_rmse": 0.3997512323220498
+            },
+            "model_change_from_step_zero": {
+              "mae": -0.09509614947148494,
+              "rmse": -0.10120720376429462,
+              "normalized_mae": -0.6708907459345265,
+              "normalized_rmse": -0.7264995773666221
+            }
+          },
+          "small_target_change": {
+            "sample_count": 40,
+            "model": {
+              "mae": 0.026797268441360857,
+              "rmse": 0.054142605826766506,
+              "normalized_mae": 0.17809320959026928,
+              "normalized_rmse": 0.2974163110132032
+            },
+            "persistence": {
+              "mae": 0.006745831016451121,
+              "rmse": 0.01037335702460401,
+              "normalized_mae": 0.042102174642147785,
+              "normalized_rmse": 0.060486944718939575
+            },
+            "model_change_from_step_zero": {
+              "mae": -0.10486312543248966,
+              "rmse": -0.11091547776276198,
+              "normalized_mae": -0.7320329276271333,
+              "normalized_rmse": -0.802011316086095
+            }
+          }
+        },
+        "right_hand": {
+          "native_unit": "normalized hand command",
+          "all": {
+            "sample_count": 100,
+            "model": {
+              "mae": 0.017212660111900834,
+              "rmse": 0.027872423370007227,
+              "normalized_mae": 0.1294478663864976,
+              "normalized_rmse": 0.2113940549568814
+            },
+            "persistence": {
+              "mae": 0.014260839515676102,
+              "rmse": 0.033593884080774884,
+              "normalized_mae": 0.11455544953123797,
+              "normalized_rmse": 0.252531657466547
+            },
+            "model_change_from_step_zero": {
+              "mae": -0.08146048783635099,
+              "rmse": -0.09840783924118218,
+              "normalized_mae": -0.6965055332009488,
+              "normalized_rmse": -0.8195310427508691
+            }
+          },
+          "changing_target": {
+            "sample_count": 61,
+            "model": {
+              "mae": 0.01933157241789587,
+              "rmse": 0.031022410919198218,
+              "normalized_mae": 0.14550910430315303,
+              "normalized_rmse": 0.2343630934669224
+            },
+            "persistence": {
+              "mae": 0.0193289760194841,
+              "rmse": 0.04240358312807919,
+              "normalized_mae": 0.15048722329243894,
+              "normalized_rmse": 0.31397984916043453
+            },
+            "model_change_from_step_zero": {
+              "mae": -0.07921719994524898,
+              "rmse": -0.09489086026407048,
+              "normalized_mae": -0.6792129186269511,
+              "normalized_rmse": -0.7936190727869
+            }
+          },
+          "small_target_change": {
+            "sample_count": 39,
+            "model": {
+              "mae": 0.013898463940985522,
+              "rmse": 0.022061342055370085,
+              "normalized_mae": 0.10432644297839555,
+              "normalized_rmse": 0.16933164339723975
+            },
+            "persistence": {
+              "mae": 0.006333754214848208,
+              "rmse": 0.009019934014140871,
+              "normalized_mae": 0.05835447005859031,
+              "normalized_rmse": 0.09656135499665065
+            },
+            "model_change_from_step_zero": {
+              "mae": -0.0849692201788439,
+              "rmse": -0.10479080376304717,
+              "normalized_mae": -0.7235529559961759,
+              "normalized_rmse": -0.8661797294195491
+            }
+          }
+        }
+      }
+    }
+  ],
+  "certified_saved_checkpoints": [
+    {
+      "optimizer_step": 2048,
+      "checkpoint_ref": "archive:runs/larger-dataset-v1-retry2/checkpoint-2048",
+      "inventory": {
+        "bytes": 7131,
+        "sha256": "86bfe6b2a5923467571f51b45a151c15824824fe8799f05831eca0d12893bd0b",
+        "artifact_ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-retry2-checkpoint-2048-inventory.json"
+      },
+      "archive_report": {
+        "bytes": 1121,
+        "sha256": "f386e1e9328daea9d8e285e8edc91a0731c97e3f55b81fefc771a7f33d40f9ab",
+        "artifact_ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-retry2-checkpoint-2048-archive.json"
+      },
+      "archive_manifest": {
+        "bytes": 18022,
+        "sha256": "971cd30e66aa328b01de592ced82976d8424660a9869ecfd944c7cac20a0fa29",
+        "artifact_ref": "archive:checkpoints/larger-dataset-v1-retry2-checkpoint-2048/archive_manifest.json"
+      },
+      "checkpoint_files": 16,
+      "checkpoint_bytes": 12583346524,
+      "archive_evidence_files": 62,
+      "archive_mode": "durable_in_place",
+      "weights_copied": false,
+      "certified_finite_prefix": {
+        "passed": true,
+        "micro_losses_observed": 16384,
+        "gradient_updates_observed": 2048,
+        "optimizer_updates_observed": 2048,
+        "first_window_mean_loss": 1.2645221889019012,
+        "last_window_mean_loss": 0.10995378762017935,
+        "loss_window_microbatches": 160,
+        "last_step": 2048
+      },
+      "paired_strict_reload_passed": true,
+      "evaluation_launch_commit": "c33937162d0670079dcb26dfa9611a0460972ced",
+      "coverage": {
+        "step": 2048,
+        "consumed_examples": 16384,
+        "unique_window_starts": 16384,
+        "eligible_windows": 37281,
+        "example_equivalent_passes": 0.43947319009683217,
+        "unique_window_fraction": 0.43947319009683217,
+        "episodes_observed": 43,
+        "collated_but_not_consumed": 0,
+        "policy": "Only samples whose training loss was computed count. Prefetched shards and collator lookahead do not."
+      },
+      "coverage_artifact": {
+        "bytes": 16933,
+        "sha256": "545ecf09033f6c2703a2a3e202061e0b2bbe4ca75f97d1956878c0f0bf5d6927",
+        "artifact_ref": "archive:reports/larger-dataset-v1-retry2-completion/reports/larger-dataset-v1-retry2/larger-dataset-v1-retry2-coverage-2048.json"
+      }
+    },
+    {
+      "optimizer_step": 4096,
+      "checkpoint_ref": "archive:runs/larger-dataset-v1-retry2/checkpoint-4096",
+      "inventory": {
+        "bytes": 7140,
+        "sha256": "fe78550476202ab1476e9565b9f5fe3dbe39855ebb0b2724b9a093c7af92f6ca",
+        "artifact_ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-retry2-checkpoint-4096-inventory.json"
+      },
+      "archive_report": {
+        "bytes": 1121,
+        "sha256": "db2401d9da6cb364edafe27ac02ede54990dcfe6cb4117a125ea55dfdeec76be",
+        "artifact_ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-retry2-checkpoint-4096-archive.json"
+      },
+      "archive_manifest": {
+        "bytes": 18031,
+        "sha256": "44c0efc8eb45ce05b4574a227ff38c64eb43c19bd6c76ba51e43df32157ee5f9",
+        "artifact_ref": "archive:checkpoints/larger-dataset-v1-retry2-checkpoint-4096/archive_manifest.json"
+      },
+      "checkpoint_files": 16,
+      "checkpoint_bytes": 12583374975,
+      "archive_evidence_files": 62,
+      "archive_mode": "durable_in_place",
+      "weights_copied": false,
+      "certified_finite_prefix": {
+        "passed": true,
+        "micro_losses_observed": 32768,
+        "gradient_updates_observed": 4096,
+        "optimizer_updates_observed": 4096,
+        "first_window_mean_loss": 1.2645221889019012,
+        "last_window_mean_loss": 0.08189094420522451,
+        "loss_window_microbatches": 160,
+        "last_step": 4096
+      },
+      "paired_strict_reload_passed": true,
+      "evaluation_launch_commit": "87fc868bf866818519fb87f14b7879b496fc014b",
+      "coverage": {
+        "step": 4096,
+        "consumed_examples": 32768,
+        "unique_window_starts": 32768,
+        "eligible_windows": 37281,
+        "example_equivalent_passes": 0.8789463801936643,
+        "unique_window_fraction": 0.8789463801936643,
+        "episodes_observed": 87,
+        "collated_but_not_consumed": 0,
+        "policy": "Only samples whose training loss was computed count. Prefetched shards and collator lookahead do not."
+      },
+      "coverage_artifact": {
+        "bytes": 17105,
+        "sha256": "2d737c371320b30e37c0618d9940144dceba4c9c48ea0140f7587629f5b4efde",
+        "artifact_ref": "archive:reports/larger-dataset-v1-retry2-completion/reports/larger-dataset-v1-retry2/larger-dataset-v1-retry2-coverage-4096.json"
+      }
+    }
+  ],
+  "missing_requested_checkpoint_steps": [
+    6144,
+    8192
+  ],
+  "formal_selection": null,
+  "formal_selection_reason": "The declared four-checkpoint selection requires steps2048/4096/6144/8192; only the two saved prefixes are available.",
+  "hardware_task_competence_established": false,
+  "policy_scope": "Offline action errors on fixed train and selection-validation windows only; successful robot box selection, grasping, lifting and carrying remain untested.",
+  "analysis_artifacts": {
+    "summary.json": {
+      "bytes": 79448,
+      "sha256": "e52059bfb92cb47947aabcf217bec47f9cfe6ff2183a4fe68f35c38d9dad08fb",
+      "artifact_ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-retry2-analysis/summary.json"
+    },
+    "artifacts.json": {
+      "bytes": 1499,
+      "sha256": "8c48ac0afa56e9410685cd0d7c565bdc76c8475bbbd9093c07e10ff675bba37d",
+      "artifact_ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-retry2-analysis/artifacts.json"
+    },
+    "metrics.csv": {
+      "bytes": 1628231,
+      "sha256": "e7e6f86838514cef1e701657e31b718b241018a8e7e13684581309e17285871f",
+      "artifact_ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-retry2-analysis/metrics.csv"
+    },
+    "coverage.csv": {
+      "bytes": 2911,
+      "sha256": "851d618f5fb39ce28dbc3dc4db811751c6f84479aff86c3c8439dd663d2c7b8f",
+      "artifact_ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-retry2-analysis/coverage.csv"
+    },
+    "loss-windows.csv": {
+      "bytes": 2220,
+      "sha256": "fd34e7d65d44f63a772d7462b3971ed54df48ffb962070352d9cde91b7a1d895",
+      "artifact_ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-retry2-analysis/loss-windows.csv"
+    }
+  },
+  "analysis_helper": {
+    "tracked": {
+      "bytes": 13324,
+      "sha256": "05b3cb631c6acfd514540b90237ac5df4b44af0acdf972c5a2997e050a6d7d1c",
+      "project_path": "scripts/summarize_larger_dataset.py"
+    },
+    "external_copy": {
+      "bytes": 13324,
+      "sha256": "05b3cb631c6acfd514540b90237ac5df4b44af0acdf972c5a2997e050a6d7d1c",
+      "artifact_ref": "archive:reports/larger-dataset-v1-resume-20261021/summarize_larger_dataset_partial_v2.py"
+    }
+  },
+  "curated_small_artifacts": {
+    "learning-curves.png": {
+      "curated_copy": {
+        "bytes": 209060,
+        "sha256": "c60ade171b54b76addf24bd121d732fa29d246c5e26468764c03c4046ee645e3",
+        "project_path": "experiments/larger-dataset-v1/learning-curves.png"
+      },
+      "production_artifact": {
+        "bytes": 209060,
+        "sha256": "c60ade171b54b76addf24bd121d732fa29d246c5e26468764c03c4046ee645e3",
+        "artifact_ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-retry2-analysis/learning-curves.png"
+      }
+    },
+    "native-error-curves.png": {
+      "curated_copy": {
+        "bytes": 239761,
+        "sha256": "c0e8c2076e3484081f0ee857d3b44ff27b3762d8c6ee9847701dbb303cd650f0",
+        "project_path": "experiments/larger-dataset-v1/native-error-curves.png"
+      },
+      "production_artifact": {
+        "bytes": 239761,
+        "sha256": "c0e8c2076e3484081f0ee857d3b44ff27b3762d8c6ee9847701dbb303cd650f0",
+        "artifact_ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-retry2-analysis/native-error-curves.png"
+      }
+    },
+    "loss-windows.csv": {
+      "curated_copy": {
+        "bytes": 2220,
+        "sha256": "fd34e7d65d44f63a772d7462b3971ed54df48ffb962070352d9cde91b7a1d895",
+        "project_path": "experiments/larger-dataset-v1/loss-windows.csv"
+      },
+      "production_artifact": {
+        "bytes": 2220,
+        "sha256": "fd34e7d65d44f63a772d7462b3971ed54df48ffb962070352d9cde91b7a1d895",
+        "artifact_ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-retry2-analysis/loss-windows.csv"
+      }
+    }
+  },
+  "integrity_evidence": {
+    "production_completion": {
+      "bytes": 10512,
+      "sha256": "0a64d0dd36c3f6f712c8c2fb83c94cd73ecde078b1db3723145c7dd382dd5ace",
+      "artifact_ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-retry2-evaluation-completion.json"
+    },
+    "root_independent_cpu_recomputations": [
+      {
+        "bytes": 1721,
+        "sha256": "7ac20dd3513fde5531b25e98524b7d84b5ccacdf248dc468ed71fe14cb466af9",
+        "artifact_ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-retry2-independent-cpu-check-4096.json"
+      },
+      {
+        "bytes": 1013,
+        "sha256": "3232d34cbedc7a518cd9f44482a392f98d25a0bdf2795964b814efa1129a2666",
+        "artifact_ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-retry2-independent-cpu-check-2048.json"
+      }
+    ],
+    "frozen_sources_unchanged_in_completion_record": true,
+    "scope": "Original protocol/load_completed CPU proofs cover all six report/prediction pairs; curation checked report/NPZ/summary/archive bindings and byte-identical small copies. Checkpoint weights were not re-read during curation."
+  }
+}

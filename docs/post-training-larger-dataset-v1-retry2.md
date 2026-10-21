@@ -4,7 +4,11 @@ Retry2 stopped at **5,231 of 8,192 updates** after the unchanged local disk
 reserve guard fired, before its six-hour cap. The worker exited and released the
 GPU; the independent cap watchdog sent no signals. Only checkpoints **2,048 and
 4,096** have certified saves. Their host-side inventories already exist, and
-paired evaluations are underway, starting with 4,096. The [partial outcome](../experiments/larger-dataset-v1/retry2-outcome.json)
+both paired evaluations, in-place archives and CPU analysis have passed.
+Validation group-balanced normalized MAE is 0.196945982813923 at 2,048 and
+0.14913777049933316 at 4,096, versus 0.7657805846075387 pretrained. See
+[the partial results](larger-dataset-v1-results.md) and
+[curated evidence](../experiments/larger-dataset-v1/partial-results.json). The [partial outcome](../experiments/larger-dataset-v1/retry2-outcome.json)
 binds the final report, complete finite prefix and durable evidence.
 
 This note records the current two-checkpoint workflow. Commands with existing
@@ -37,7 +41,7 @@ VLA_PROTOCOL=experiments/larger-dataset-v1/evaluation-protocol.json
 VLA_ZERO_TRAIN="$VLA_REPORTS/larger-dataset-v1-step-zero-train.json"
 VLA_ZERO_VALIDATION="$VLA_REPORTS/larger-dataset-v1-step-zero-validation.json"
 
-# This RAM-backed directory was created mode 0700 before the current GPU lease.
+# This RAM-backed directory was created mode 0700 before checkpoint evaluation.
 # Verify the existing override in a fresh pinned Python process; do not fall back to /tmp.
 "$VLA_PY" -B - <<'PYTMP'
 import os, tempfile
@@ -92,9 +96,9 @@ root. No training extension or retry is being launched. This incomplete run cann
 called a completed four-checkpoint curve or enter the historical selection command below.
 
 Both durable host-side inventories have completed successfully, using remote
-SHA256 and fsync. The current execution evaluates 4,096, then 2,048, through the
-tested additive launcher and publishes each pair in place. The following records
-the commands used; it is not a command to restart the active evaluation. Output
+SHA256 and fsync. The completed execution evaluated 4,096, then 2,048, through the
+tested additive launcher and published each pair in place. The following records
+the commands used; it is not a command to repeat the completed evaluations. Output
 names refuse occupied destinations. Inspect existing or partial results before
 any execution, and preserve them. The fresh RAM temporary-directory preflight
 also checked host memory, `/dev/shm`, root reserve and free VRAM; all existing
@@ -130,7 +134,7 @@ finite arrays, one shared process and validation reuse of the same policy. The
 inventory is computed on the storage host to avoid redundant weight hashing over
 SSHFS. The checkpoint is already durable, so archive publication copies evidence
 and retains the referenced run weights in place. Preserve those weights with
-their archive records. The two archive summaries will appear under
+their archive records. The two passed archive summaries are under
 `storage/reports/larger-dataset-v1/larger-dataset-v1-retry2-checkpoint-STEP-archive.json`.
 
 Historical full-run selection command, preserved for the original protocol only.
@@ -158,7 +162,8 @@ persistence remains descriptive. Validation is a selection set, and these offlin
 scores do not establish box selection, grasp or carry success on the robot.
 
 The additive [summary helper](../scripts/summarize_larger_dataset.py) performs CPU
-analysis after both checkpoint pairs are complete. Pass both train and validation
+analysis completed after both checkpoint pairs passed, using the tracked source.
+For reproduction, pass both train and validation
 reports for each of 2,048 and 4,096 explicitly, and omit `--selection`. It does not
 select a checkpoint. Loss-window means use only the 41,848 microbatches belonging
 to 5,231 complete updates; four trailing micro-losses are retained separately.

@@ -3,7 +3,10 @@
 Current outcome: [retry2](larger-dataset-v1-retry2.md) stopped at 5,231 of
 8,192 updates when the unchanged 8 GiB local disk reserve guard fired. Its cap
 was not reached. Checkpoints 2,048 and 4,096 have certified save events; their
-paired train/validation evaluations are underway. The [partial outcome](../experiments/larger-dataset-v1/retry2-outcome.json)
+paired train/validation evaluations, archives and CPU analysis have passed.
+Validation group-balanced normalized MAE fell from 0.765781 pretrained to
+0.196946 and 0.149138 at the two saved checkpoints. See [results](larger-dataset-v1-results.md)
+and [curated evidence](../experiments/larger-dataset-v1/partial-results.json). The [partial outcome](../experiments/larger-dataset-v1/retry2-outcome.json)
 preserves the finite prefix and final evidence. There is no automatic training
 retry/resume or formal four-checkpoint selection. The [retry2 post-training record](post-training-larger-dataset-v1-retry2.md)
 is the current evaluation/archive reference.
@@ -64,7 +67,7 @@ launcher also passed with fresh, nonauthoritative `step-zero-launcher-check`
 reports: both prediction arrays are bitwise identical to their original baselines
 (maximum absolute difference zero), and validation reused the one model in the
 same process. The original authoritative baseline references remain unchanged.
-Fine-tuned checkpoint evaluations are now underway for the two saved checkpoints.
+Fine-tuned paired evaluations and archives are complete for both saved checkpoints.
 
 The actual restore ran the preserved implementation from
 `reports/restore_larger_dataset_v1.py`. Its byte-for-byte tracked copy is
@@ -153,7 +156,7 @@ without sending signals. Final evidence is durably preserved under
 `storage/reports/larger-dataset-v1-retry2-completion`.
 
 Follow the [retry2 post-training record](post-training-larger-dataset-v1-retry2.md)
-for the existing inventories and ongoing evaluations of checkpoints 2,048 and
+for the completed inventories, paired evaluations and archives of checkpoints 2,048 and
 4,096 only. The original step-zero baselines remain authoritative. Evaluation
 uses a checked RAM-backed temporary directory to keep incidental temporary
 allocation off the narrowly provisioned project filesystem. No GPU evaluation
