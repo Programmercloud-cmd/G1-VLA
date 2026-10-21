@@ -1,5 +1,12 @@
 # Larger-dataset v1 resume — 21 October 2026
 
+The first training startup subsequently stopped before any update because upstream
+set iteration changed the JSON ordering of two identical embodiment IDs. Preserve
+that attempt. The [verified deterministic retry](larger-dataset-v1-retry1.md)
+supersedes the original launch command below: use `PYTHONHASHSEED=1` and the fresh
+`larger-dataset-v1-retry1` identity. Its [post-training commands](post-training-larger-dataset-v1-retry1.md)
+retain the original baselines and frozen evaluation protocol.
+
 The user resumed the already approved 8,192-update experiment. The frozen split,
 protocol, processor, source bindings and historical reports remain unchanged.
 This note records the new session's execution locations and recovery work; the

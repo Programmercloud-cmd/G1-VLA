@@ -1,0 +1,120 @@
+{
+  "schema_version": 1,
+  "artifact_type": "startup_processor_serialization_incident",
+  "recorded_at_utc": "2026-10-21T16:34:49.105645+00:00",
+  "status": "failed_startup_preserved_deterministic_cpu_recovery_verified",
+  "failed_run": {
+    "identity": "larger-dataset-v1",
+    "manifest": {
+      "artifact_ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-run.json",
+      "bytes": 92179,
+      "sha256": "efeafc21f8aa4b2a8ed3401faa28db7bdecba1658bf0e695ea49de1b1e834e45"
+    },
+    "training_report": {
+      "artifact_ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-train.json",
+      "bytes": 1868,
+      "sha256": "44837db0f8620e4f5196cfa542834923d8a0beed163a944dc5ac8f0685c08de1"
+    },
+    "worker_log": {
+      "artifact_ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-train.log",
+      "bytes": 5084,
+      "sha256": "bb17e858434a933226cfb8d1aa6773560f3049285576e42c0038467b5a7c583c"
+    },
+    "launcher_log": {
+      "artifact_ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-launcher.log",
+      "bytes": 2106,
+      "sha256": "b4bebd81c60418db7653ebb2647eb74807425073b1033c9abd98daac91642188"
+    },
+    "output_ref": "archive:runs/larger-dataset-v1",
+    "exit_code": 1,
+    "elapsed_seconds": 37.18789314999958,
+    "micro_losses": 0,
+    "optimizer_updates": 0,
+    "completed_checkpoints": 0,
+    "failure": "Runtime processor/statistics differ from frozen train-only bootstrap"
+  },
+  "diagnosis": {
+    "processor_config_and_statistics_byte_identical": true,
+    "embodiment_id_semantically_identical": true,
+    "frozen_embodiment_sha256": "5e8611697dc90b7b7a92cf2a8da926275c16f5966c5eb109e0216c3c51af15a1",
+    "failed_embodiment_sha256": "c8af3d61fe9ca5508c4a5b9e8be6ad4d0d1eb2c68cec76620ea089b894a3ee22",
+    "only_difference": "Adjacent JSON key order of robocasa_gr1_tabletop and new_embodiment; both values remain 10.",
+    "pinned_source": "vendor/Isaac-GR00T/gr00t/model/gr00t_n1d7/processing_gr00t_n1d7.py",
+    "pinned_source_sha256": "77fd0e1f6972cdcf0334f18f2e84724629f6746612721b6b27135ccb23f00b3f",
+    "construction": "_PROJECTOR_INDEX_GROUPS index10 is a set; _build_tag_to_projector_index iterates it. from_pretrained loads ordered JSON mapping; __init__ appends missing default tags in set-derived order. set_statistics changes statistics without changing the mapping. save_pretrained json.dump preserves mapping insertion order.",
+    "mapping_unchanged": true
+  },
+  "recovery": {
+    "setting": "PYTHONHASHSEED=1",
+    "set_before_interpreter_start": true,
+    "new_run_identity": "larger-dataset-v1-retry1",
+    "frozen_sources_protocol_datasets_guards_unchanged": true,
+    "serialization_patch_used": false,
+    "training_seed_remains": 42,
+    "cpu_only_visibility_setting": "CUDA_VISIBLE_DEVICES was empty only in proof subprocesses; do not apply that setting to the GPU retry."
+  },
+  "real_cpu_proof": {
+    "summary": {
+      "artifact_ref": "archive:reports/larger-dataset-v1/processor-hashseed-proof/summary.json",
+      "bytes": 1446,
+      "sha256": "b1dd0b7105f57a1f4fc3d9103ddf28729aa8cde3b7a94d612d8d48f81f99abe1"
+    },
+    "script": {
+      "artifact_ref": "archive:reports/larger-dataset-v1/processor-hashseed-proof/real_cpu_processor_proof.py",
+      "bytes": 3372,
+      "sha256": "d9952c87c4164914b8cdf21760cd7233d489eb81eba60c50bad382e78d951922"
+    },
+    "fresh_processes": [
+      {
+        "artifact_ref": "archive:reports/larger-dataset-v1/processor-hashseed-proof/fresh-process-1/proof.json",
+        "bytes": 1408,
+        "sha256": "75d9f5bb5417941fc435c688326785d95079c25f85da78ffab1212171a2ee383"
+      },
+      {
+        "artifact_ref": "archive:reports/larger-dataset-v1/processor-hashseed-proof/fresh-process-2/proof.json",
+        "bytes": 1408,
+        "sha256": "78ffe88c1f6894404b7e4f42abf5a476e47029fe334e5d96faf3258e45ee6a20"
+      }
+    ],
+    "distinct_pids": [
+      64710,
+      64786
+    ],
+    "processor_files_sha256": {
+      "processor_config.json": "033aeac07e3227b523703d152dca8ac2d277a40168f1d2698b536e6d2417c228",
+      "statistics.json": "7abadea98ec3c97086ac3be138189086d07907a3c007bafd4a8f5d39950a4282",
+      "embodiment_id.json": "5e8611697dc90b7b7a92cf2a8da926275c16f5966c5eb109e0216c3c51af15a1"
+    },
+    "all_three_files_match_frozen_in_bootstrap_and_pinned_training_pipeline": true,
+    "real_dataset_factory": true,
+    "training_shards": 98,
+    "model_loaded": false,
+    "cuda_initialized": false,
+    "runtime_environment_preserves_setting": true,
+    "statistics_bytes_unchanged": true
+  },
+  "independent_audits": {
+    "frozen_bindings": {
+      "artifact_ref": "archive:reports/larger-dataset-v1-resume-20261021/frozen-binding-audit.json",
+      "bytes": 11961,
+      "sha256": "c4bcd653e30808dace0cfb26159e400d655268a1a671241702b3c6cb37208b98"
+    },
+    "nominal_sampling": {
+      "artifact_ref": "archive:reports/larger-dataset-v1-resume-20261021/hashseed-sampling-audit.json",
+      "bytes": 4195,
+      "sha256": "0b06e1a533ff31387bb3226b280c5894348b58cecd1fec143b5bc64e2fe4d937"
+    },
+    "nominal_sampling_script": {
+      "artifact_ref": "archive:reports/larger-dataset-v1-resume-20261021/hashseed-sampling-audit.py",
+      "bytes": 3450,
+      "sha256": "ee7ff5cad006a7229476d7ef3d85dc203b0df511020570581da1a547dc9e07cf"
+    },
+    "nominal_sampling_scope": "CPU identity/schedule simulation only:98shards and65536coordinates equal across hash seeds0/1/42/183. Actual consumed coverage remains a mandatory runtime audit; this does not establish whole-training numerical equivalence."
+  },
+  "evaluation_protocol": {
+    "artifact_ref": "experiments/larger-dataset-v1/evaluation-protocol.json",
+    "bytes": 42385,
+    "sha256": "9f8cf657889f49ea747928232e592610863562e222778563ee09ff7c9bd96ab1"
+  },
+  "policy": "Preserve failed run in place; launch only a fresh retry identity after publication and renewed host resource checks. Keep8192updates,21600s cap,all4checkpoints,mandatory final save,and all finite/source/resource guards."
+}

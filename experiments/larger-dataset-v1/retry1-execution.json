@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "artifact_type": "declared_deterministic_retry_execution",
+  "status": "declared_before_retry_launch",
+  "run": "larger-dataset-v1-retry1",
+  "parent_failed_run": "larger-dataset-v1",
+  "environment": {
+    "PYTHONHASHSEED": "1",
+    "CUDA_VISIBLE_DEVICES": "Do not set empty; retain normal available-GPU visibility."
+  },
+  "training_seed": 42,
+  "max_steps": 8192,
+  "timeout_seconds": 21600,
+  "microbatch": 1,
+  "accumulation": 8,
+  "state_dropout_prob": 0.0,
+  "fresh_optimizer_and_scheduler": true,
+  "checkpoint_steps": [
+    2048,
+    4096,
+    6144,
+    8192
+  ],
+  "mandatory_final_root_save_preserved": true,
+  "protocol": {
+    "artifact_ref": "experiments/larger-dataset-v1/evaluation-protocol.json",
+    "bytes": 42385,
+    "sha256": "9f8cf657889f49ea747928232e592610863562e222778563ee09ff7c9bd96ab1"
+  },
+  "baseline_reports": {
+    "train": {
+      "artifact_ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-step-zero-train.json",
+      "bytes": 887857,
+      "sha256": "8b06f2eb52003585c8011bb69ad166765fddcd508430aeef26f5ad76f9ee9ee3"
+    },
+    "validation": {
+      "artifact_ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-step-zero-validation.json",
+      "bytes": 257006,
+      "sha256": "237553885152c2ac13ba893ee6bcfa1be2190ca86863018a793e8fa824fd5e30"
+    }
+  },
+  "processor_files_sha256": {
+    "processor_config.json": "033aeac07e3227b523703d152dca8ac2d277a40168f1d2698b536e6d2417c228",
+    "statistics.json": "7abadea98ec3c97086ac3be138189086d07907a3c007bafd4a8f5d39950a4282",
+    "embodiment_id.json": "5e8611697dc90b7b7a92cf2a8da926275c16f5966c5eb109e0216c3c51af15a1"
+  },
+  "output_ref": "archive:runs/larger-dataset-v1-retry1",
+  "report_prefix_ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-retry1",
+  "startup_attestation_ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-retry1-execution-environment.json",
+  "startup_attestation_policy": "Record selected PYTHONHASHSEED and CUDA_VISIBLE_DEVICES from parent and worker /proc/PID/environ only; never print complete process environments. Worker must show seed1 and enabled GPU visibility. Bind actual manifest and repository commit after launch.",
+  "source_protocol_and_recipe_changes": false,
+  "cpu_dry_run": {
+    "artifact_ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-retry1-dry-run.json",
+    "bytes": 92214,
+    "sha256": "8c2c38827f232b7bdf9c7e6f1d68e2d2d3f138a09e8c7b498b51ea61ba985d3b",
+    "exit_code": 0,
+    "all_recipe_input_and_frozen_source_checks_passed": true,
+    "stderr_bytes": 0
+  }
+}
