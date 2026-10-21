@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "artifact_type": "fresh_training_retry_execution",
+  "status": "running",
+  "run": "larger-dataset-v1-retry2",
+  "executed_pipeline_commit": "2d681e4b093213a39a280e7ec9877d639e0edd07",
+  "run_manifest": {
+    "artifact_ref": "reports/larger-dataset-v1-retry2/larger-dataset-v1-retry2-run.json",
+    "bytes": 92212,
+    "sha256": "c58885dc695f03b99d63b7a3c90d6c51fa8cff3dc25d571d39f1555ee54f0dc5"
+  },
+  "training_config": {
+    "artifact_ref": "reports/larger-dataset-v1-retry2-machine.json",
+    "bytes": 317,
+    "sha256": "5f0cefaee77bfaa795a02b5d35c92f7f029e9df7bcf4029d417cf9692ac9977e"
+  },
+  "evaluation_config": "reports/larger-dataset-v1-machine.json",
+  "user_cap_authorization": {
+    "question": "The storage failure interrupted training before its first checkpoint, so the retry must start from pretrained weights. May the fresh retry have its own six-hour cap to allow all 8,192 updates and four saves, or should it stop at the original 22:37 UTC deadline? I\u2019m asking because the approved plan explicitly caps training time.",
+    "answer": "Fresh six-hour cap for the retry",
+    "observed_by_utc": "2026-10-21T17:28:28Z",
+    "exact_platform_approval_timestamp_available": false,
+    "meaning": "Retry2 receives a fresh21600s cap from its own launch; the previous22:37UTC deadline is superseded for retry2 only."
+  },
+  "max_steps": 8192,
+  "timeout_seconds": 21600,
+  "fresh_optimizer_and_scheduler": true,
+  "microbatch": 1,
+  "accumulation": 8,
+  "training_seed": 42,
+  "pythonhashseed": "1",
+  "state_dropout_prob": 0.0,
+  "checkpoint_steps": [
+    2048,
+    4096,
+    6144,
+    8192
+  ],
+  "mandatory_final_root_save_preserved": true,
+  "guards_unchanged": true,
+  "frozen_source_binding_count": 21,
+  "protocol": {
+    "artifact_ref": "experiments/larger-dataset-v1/evaluation-protocol.json",
+    "bytes": 42385,
+    "sha256": "9f8cf657889f49ea747928232e592610863562e222778563ee09ff7c9bd96ab1"
+  },
+  "baseline_reports": {
+    "train": {
+      "artifact_ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-step-zero-train.json",
+      "bytes": 887857,
+      "sha256": "8b06f2eb52003585c8011bb69ad166765fddcd508430aeef26f5ad76f9ee9ee3"
+    },
+    "validation": {
+      "artifact_ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-step-zero-validation.json",
+      "bytes": 257006,
+      "sha256": "237553885152c2ac13ba893ee6bcfa1be2190ca86863018a793e8fa824fd5e30"
+    }
+  },
+  "cpu_dry_run": {
+    "artifact_ref": "reports/larger-dataset-v1-retry2/larger-dataset-v1-retry2-dry-run.json",
+    "bytes": 92212,
+    "sha256": "41f147c4a82cc07817efaf87a59afc030fede3772ea1f5ff60e83c3d7fee0e84"
+  },
+  "cpu_readiness": {
+    "artifact_ref": "reports/larger-dataset-v1-retry2/larger-dataset-v1-retry2-post-recovery-readiness.json",
+    "bytes": 2960,
+    "sha256": "09859d5c9126a1de3213a3a773b82d1b7c66326c0d488a61efc3a103bab28f41"
+  },
+  "first32_actual_coordinates": {
+    "artifact_ref": "reports/larger-dataset-v1-retry2/larger-dataset-v1-retry2-first32-coordinates.json",
+    "bytes": 622,
+    "sha256": "e520d5d83af35bf6ee35f6af8a3d9b67b082366bd2621d4c9bc8b87d186a35e7"
+  },
+  "selected_environment_attestation": {
+    "artifact_ref": "reports/larger-dataset-v1-retry2/larger-dataset-v1-retry2-execution-environment.json",
+    "bytes": 1329,
+    "sha256": "c5826318745ad18fd04cb9fe6c9075855c267b972271aaacc268a6757a1fb43d"
+  },
+  "independent_cap_watchdog": {
+    "startup_snapshot": {
+      "artifact_ref": "reports/larger-dataset-v1-retry2/larger-dataset-v1-retry2-cap-watchdog-startup.json",
+      "bytes": 2891,
+      "sha256": "3ce9db268a07dfc9baeb685b46fdc72e1d8376f3c67d6c19b83360a60c1ba503"
+    },
+    "source": {
+      "artifact_ref": "reports/retry2_local_cap_watchdog.py",
+      "bytes": 7673,
+      "sha256": "1a70dc4961ee5e36207c69fe2badf0067c01e923e04d7a9454f02246272f15d0"
+    },
+    "pid": 71240,
+    "monotonic_deadline": 37922.708059028,
+    "conservative_deadline_utc": "2026-10-21T23:33:35.040246+00:00",
+    "no_external_access_in_watchdog_loop": true
+  },
+  "paths": {
+    "training_reports": "reports/larger-dataset-v1-retry2",
+    "evaluation_reports": "archive:reports/larger-dataset-v1",
+    "checkpoints": "archive:runs/larger-dataset-v1-retry2"
+  },
+  "retention": "Copy/hash/fsync completed local training evidence to durable storage after it stops changing; never move active finite audit. Checkpoint weights already remain on durable run storage.",
+  "note": "This supplemental declaration describes the actual already-launched published pipeline honestly; it does not claim execution from the later documentation commit."
+}

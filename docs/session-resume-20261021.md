@@ -1,5 +1,11 @@
 # Larger-dataset v1 resume — 21 October 2026
 
+Current execution is [retry2](larger-dataset-v1-retry2.md), with local audit logs
+and a fresh six-hour cap explicitly approved after retry1's storage interruption.
+Retry1 stopped at 1,364 completed updates without a checkpoint; its evidence is
+preserved. The [retry2 post-training commands](post-training-larger-dataset-v1-retry2.md)
+supersede the earlier commands below.
+
 The first training startup subsequently stopped before any update because upstream
 set iteration changed the JSON ordering of two identical embodiment IDs. Preserve
 that attempt. The [verified deterministic retry](larger-dataset-v1-retry1.md)

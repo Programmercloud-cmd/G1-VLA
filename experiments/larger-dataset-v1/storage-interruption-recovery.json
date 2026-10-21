@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "artifact_type": "storage_interruption_recovery",
+  "recorded_at_utc": "2026-10-21T17:36:13.666123+00:00",
+  "status": "retry1_preserved_same_source_remounted_fresh_retry2_running",
+  "interrupted_run": {
+    "identity": "larger-dataset-v1-retry1",
+    "complete_optimizer_updates": 1364,
+    "finite_micro_losses": 10915,
+    "finite_gradient_updates": 1364,
+    "raw_complete_json_lines": 13645,
+    "partial_next_update_microbatches": 3,
+    "completed_checkpoint_save_events": 0,
+    "outcome": "Storage interruption; training state was not checkpointed and is not resumed."
+  },
+  "preservation": {
+    "publication_manifest": {
+      "artifact_ref": "archive:reports/larger-dataset-v1-retry1-interruption/publication-manifest.json",
+      "bytes": 11976,
+      "sha256": "b2c521630b1bc1061e49a19b712c986de24c73c153404f9a6131d5b30b6aa837"
+    },
+    "publication_receipt": {
+      "artifact_ref": "archive:reports/larger-dataset-v1-retry1-interruption/publication-receipt.json",
+      "bytes": 797,
+      "sha256": "8c0ff052d1867d40181651429dc4eee89378985f6a3c220d9717bcd0aaaaf61e"
+    },
+    "files": 19,
+    "bytes": 6998672,
+    "sha_size_and_remote_fsync_verified": true,
+    "local_originals_retained": true,
+    "includes": "Selected pre-stop reports/audited processor plus all stable local stall/stop/watchdog/remount records; no active retry2 files."
+  },
+  "storage_failure": {
+    "configured_source": "local-pc:/media/faps/External HDD/dev/VLA",
+    "mount": "storage",
+    "sshfs_version": "3.7.1",
+    "direct_ssh_restored_but_old_mount_remained_blocked": true,
+    "old_open_handles_not_recoverable": "Pinned SSHFS reconnect semantics require reopening pre-reconnection files.",
+    "pinned_reference": "https://raw.githubusercontent.com/libfuse/sshfs/sshfs-3.7.1/sshfs.rst",
+    "daemon_no_transport_and_thread_stall_observed": true,
+    "exact_internal_deadlock_cause_not_proven": true
+  },
+  "authorized_stop": {
+    "original_worker_pid": 65290,
+    "original_launcher_pid": 65262,
+    "broken_daemon_pid": 45537,
+    "ordering": "Preserve evidence; signal identity-verified worker TERM then KILL; kernel FUSE wait prevented exit, so root explicitly authorized verified daemon TERM then KILL to release requests. Worker and launcher then exited; confirm empty GPU compute list; normally unmount and remount same source/path.",
+    "normal_unmount_and_same_source_remount_succeeded": true,
+    "old_cap_watchdog": "Ended before its cap without sending any signals.",
+    "no_source_model_environment_dataset_or_checkpoint_bytes_changed": true
+  },
+  "fresh_cap_authorization": {
+    "question": "The storage failure interrupted training before its first checkpoint, so the retry must start from pretrained weights. May the fresh retry have its own six-hour cap to allow all 8,192 updates and four saves, or should it stop at the original 22:37 UTC deadline? I\u2019m asking because the approved plan explicitly caps training time.",
+    "answer": "Fresh six-hour cap for the retry",
+    "observed_by_utc": "2026-10-21T17:28:28Z",
+    "exact_platform_approval_timestamp_available": false,
+    "meaning": "Retry2 receives a fresh21600s cap from its own launch; the previous22:37UTC deadline is superseded for retry2 only."
+  },
+  "retry2": {
+    "identity": "larger-dataset-v1-retry2",
+    "actual_pipeline_commit": "2d681e4b093213a39a280e7ec9877d639e0edd07",
+    "run_manifest": {
+      "artifact_ref": "reports/larger-dataset-v1-retry2/larger-dataset-v1-retry2-run.json",
+      "bytes": 92212,
+      "sha256": "c58885dc695f03b99d63b7a3c90d6c51fa8cff3dc25d571d39f1555ee54f0dc5"
+    },
+    "created_at_utc": "2026-10-21T17:33:39.334040+00:00",
+    "timeout_seconds": 21600,
+    "max_steps": 8192,
+    "fresh_optimizer_and_scheduler": true,
+    "training_reports_location": "reports/larger-dataset-v1-retry2",
+    "checkpoint_location": "archive:runs/larger-dataset-v1-retry2",
+    "published_pipeline_was_unchanged_at_launch": true,
+    "supplemental_record_publication_may_follow_launch": true,
+    "seed": 42,
+    "pythonhashseed": "1",
+    "prelaunch_validation": {
+      "artifact_ref": "reports/larger-dataset-v1-retry2/larger-dataset-v1-retry2-prelaunch-validation.json",
+      "bytes": 2082,
+      "sha256": "bd383025460583b85b76444eee5adeb7859a708a4687770ec799450dfaf02c82"
+    },
+    "first32_actual_coordinates": {
+      "artifact_ref": "reports/larger-dataset-v1-retry2/larger-dataset-v1-retry2-first32-coordinates.json",
+      "bytes": 622,
+      "sha256": "e520d5d83af35bf6ee35f6af8a3d9b67b082366bd2621d4c9bc8b87d186a35e7"
+    },
+    "environment_attestation": {
+      "artifact_ref": "reports/larger-dataset-v1-retry2/larger-dataset-v1-retry2-execution-environment.json",
+      "bytes": 1329,
+      "sha256": "c5826318745ad18fd04cb9fe6c9075855c267b972271aaacc268a6757a1fb43d"
+    },
+    "watchdog_startup_snapshot": {
+      "artifact_ref": "reports/larger-dataset-v1-retry2/larger-dataset-v1-retry2-cap-watchdog-startup.json",
+      "bytes": 2891,
+      "sha256": "3ce9db268a07dfc9baeb685b46fdc72e1d8376f3c67d6c19b83360a60c1ba503"
+    },
+    "watchdog_source": {
+      "artifact_ref": "reports/retry2_local_cap_watchdog.py",
+      "bytes": 7673,
+      "sha256": "1a70dc4961ee5e36207c69fe2badf0067c01e923e04d7a9454f02246272f15d0"
+    },
+    "conservative_deadline_utc": "2026-10-21T23:33:35.040246+00:00"
+  },
+  "limitations": [
+    "No interrupted-run checkpoint existed. Retry2 starts from pinned pretrained weights.",
+    "The storage PC rejected a noninteractive sleep-only inhibitor; no power settings or inhibitor were changed. Keep PC/drive/tunnel available.",
+    "The first32coordinate match proves only those consumed identities, not whole-model numerical equivalence.",
+    "Checkpoint learning results remain pending; no task-competence claim."
+  ]
+}
