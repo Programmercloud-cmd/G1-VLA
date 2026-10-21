@@ -1,12 +1,20 @@
 # Larger-dataset v1 continuation from checkpoint 4,096
 
-Status: authorized; the first startup stopped after 23.4 seconds with zero
+Status: the controlled retry `larger-dataset-v1-continuation-v1-retry1` is running
+and initializing under commit `84c1f7d`. The [execution receipt](../experiments/larger-dataset-v1-continuation-v1/execution.json)
+binds its actual manifest, v2 protocol, armed watchdog and stable process identities.
+Its conservative deadline is **22 October 2026 at 04:21:22 UTC**, earlier than the
+original 04:21:24 UTC deadline; the 21,227-second cap consumes only the remaining
+original budget. At the startup snapshot, zero new optimizer updates/checkpoints
+are certified. Strict learned-weight loading, processor/runtime and fresh-optimizer
+audits are pending; the startup record does not establish their success.
+
+The first startup stopped after 23.4 seconds with zero
 optimizer updates and no new checkpoint. The [failed-start receipt](../experiments/larger-dataset-v1-continuation-v1/startup-attempt-1.json)
 preserves its manifest, final report, armed/final watchdog records and logs. The
 watchdog rejected a worker command-line identity change after Python re-exec;
 the runner then aborted. Strict weight loading and runtime initialization were
-not proven. Root is reviewing a controlled retry within the original fixed
-deadline, **22 October 2026 at 04:21:24 UTC**; no retry has launched at this snapshot.
+not proven. Its run, final report and occupied outputs remain preserved.
 The first run was `larger-dataset-v1-continuation-v1`. Its source is the verified durable
 `larger-dataset-v1-retry2/checkpoint-4096`, whose paired validation normalized MAE
 was 0.149138. The earlier [partial run and results](larger-dataset-v1-results.md),

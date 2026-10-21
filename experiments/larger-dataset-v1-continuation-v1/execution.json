@@ -1,0 +1,157 @@
+{
+  "schema_version": 1,
+  "artifact_type": "continuation_retry1_execution_startup",
+  "generated_at_utc": "2026-10-21T22:29:37.497170+00:00",
+  "status": "running_initialization_at_startup_snapshot",
+  "run": "larger-dataset-v1-continuation-v1-retry1",
+  "execution_commit": "84c1f7db6637dcedecbb73627e62b26fc435ebb4",
+  "started_manifest_at_utc": "2026-10-21T22:27:49.013741+00:00",
+  "snapshot_scope": "Immutable launch and armed-cap evidence; this is not a live progress report or a completed-training result.",
+  "actual_run_manifest": {
+    "ref": "archive:reports/larger-dataset-v1-continuation-v1-retry1-startup/reports/larger-dataset-v1-continuation-v1/larger-dataset-v1-continuation-v1-retry1-run.json",
+    "bytes": 106054,
+    "sha256": "db79bb2c96f8e49a05f99b0c97800c88e1467104db45d2ed193390b3fa9a73c6"
+  },
+  "actual_launcher_process": {
+    "ref": "archive:reports/larger-dataset-v1-continuation-v1-retry1-startup/reports/larger-dataset-v1-continuation-v1/actual-launch-process-retry1.json",
+    "bytes": 2533,
+    "sha256": "55afccc2464d80d4ee7b7ab49403287a388b7df11bef3153a45166c166c6cfa6"
+  },
+  "post_arm_process_identities": {
+    "ref": "archive:reports/larger-dataset-v1-continuation-v1-retry1-startup/identity-proof/actual-process-identities-retry1.json",
+    "bytes": 3841,
+    "sha256": "29caa6342e583f03de0869b02f371dac692296dfd09d67fa6721dc10405273a9"
+  },
+  "official_cpu_dry_run": {
+    "ref": "archive:reports/larger-dataset-v1-continuation-v1-retry1-startup/reports/larger-dataset-v1-continuation-v1/larger-dataset-v1-continuation-v1-retry1-dry-run.json",
+    "bytes": 106054,
+    "sha256": "57d60dc1ae931e603654122d70c7e8b94f86ea838730a96fbdb7bfc7beb80b82"
+  },
+  "prelaunch_validation": {
+    "ref": "archive:reports/larger-dataset-v1-continuation-v1-retry1-startup/reports/larger-dataset-v1-continuation-v1/larger-dataset-v1-continuation-v1-retry1-prelaunch-validation.json",
+    "bytes": 578,
+    "sha256": "0aad439e87a3c182d8d52711415925a688db127fd4d5e7d2ee5ee62705f3b026"
+  },
+  "continuation_protocol": {
+    "ref": "archive:reports/larger-dataset-v1-continuation-v1-retry1-startup/experiments/larger-dataset-v1-continuation-v1/evaluation-protocol-startup-fix-v2.json",
+    "bytes": 7684,
+    "sha256": "59e5b5b7b43647b88d4b69fc41c6cb044ec56eec2bc54ea5b65bc1d94be4166f"
+  },
+  "original_evaluation_protocol": {
+    "ref": "experiments/larger-dataset-v1/evaluation-protocol.json",
+    "bytes": 42385,
+    "sha256": "9f8cf657889f49ea747928232e592610863562e222778563ee09ff7c9bd96ab1"
+  },
+  "storage_readiness": {
+    "ref": "experiments/larger-dataset-v1-continuation-v1/storage-readiness.json",
+    "bytes": 12035,
+    "sha256": "343fef90e8dd0d756c1c76cb942eec889f82e887e0ec34401a1b3dd28ac6ca31"
+  },
+  "cpu_warmstart_processor_proof": {
+    "ref": "archive:reports/larger-dataset-v1-continuation-v1-preflight/processor-warmstart-attempt-2/manifest.json",
+    "bytes": 1244,
+    "sha256": "4b32df2e1840e70104fcfb2b2b32ac5b6f60395ffd98eaa44f295faefbcfae2f"
+  },
+  "source_checkpoint": {
+    "ref": "archive:runs/larger-dataset-v1-retry2/checkpoint-4096",
+    "source_updates": 4096,
+    "inventory": {
+      "ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-retry2-checkpoint-4096-inventory.json",
+      "bytes": 7140,
+      "sha256": "fe78550476202ab1476e9565b9f5fe3dbe39855ebb0b2724b9a093c7af92f6ca"
+    },
+    "parent_original_untouched": true
+  },
+  "segment": {
+    "max_local_updates": 4096,
+    "cumulative_base_step": 4096,
+    "cumulative_target_step": 8192,
+    "local_to_cumulative": {
+      "2048": 6144,
+      "4096": 8192
+    },
+    "fresh_optimizer_and_scheduler": true,
+    "seed": 4138,
+    "state_dropout_prob": 0.0,
+    "learning_rate": 5e-05,
+    "warmup_steps": 103,
+    "save_only_model": false,
+    "checkpoint_state_files": [
+      "optimizer.pt",
+      "scheduler.pt",
+      "rng_state.pth"
+    ],
+    "exact_sample_cursor_restoration_supported": false
+  },
+  "startup_observations": {
+    "identities_stable_after_arm_seconds": 6,
+    "launcher_pid": 105485,
+    "worker_pid": 105503,
+    "watchdog_pid": 105504,
+    "canonical_worker_argv_has_no_B": true,
+    "worker_environment": {
+      "PYTHONHASHSEED": "1",
+      "CUDA_VISIBLE_DEVICES": null,
+      "TMPDIR": "/dev/shm/vla-continuation-tmp-20261022"
+    },
+    "watchdog_armed": true,
+    "watchdog_signals_at_startup": [],
+    "strict_learned_weight_load_audit": "pending",
+    "runtime_processor_statistics_audit": "pending",
+    "fresh_optimizer_runtime_audit": "pending",
+    "local_optimizer_updates_certified_at_startup": 0,
+    "new_checkpoints_certified_at_startup": [],
+    "no_training_success_claim": true
+  },
+  "original_budget_cap": {
+    "timeout_seconds_from_remaining_original_budget": 21227,
+    "estimated_deadline_utc": "2026-10-22T04:21:22.357728+00:00",
+    "monotonic_deadline": 55190.025453703995,
+    "original_deadline_utc": "2026-10-22T04:21:24.144926+00:00",
+    "original_monotonic_deadline": 55191.812665336,
+    "deadline_is_earlier_than_original": true,
+    "fresh_six_hour_extension": false,
+    "immutable_armed_snapshot": {
+      "ref": "archive:reports/larger-dataset-v1-continuation-v1-retry1-startup/reports/larger-dataset-v1-continuation-v1-retry1-safety/cap-watchdog-armed.json",
+      "bytes": 5363,
+      "sha256": "03353bf135571bc8f3087d3d707f0315c0b0dacba04f318e0c489f32830f3262"
+    }
+  },
+  "locations": {
+    "mutable_local_audit": "/home/test2/dev/VLA/reports/larger-dataset-v1-continuation-v1/larger-dataset-v1-continuation-v1-retry1-finite.jsonl",
+    "output": "archive:runs/larger-dataset-v1-continuation-v1-retry1",
+    "working_reports": "reports/larger-dataset-v1-continuation-v1",
+    "safety_reports": "reports/larger-dataset-v1-continuation-v1-retry1-safety",
+    "mutable_audit_hash_not_frozen_by_startup_receipt": true
+  },
+  "durable_startup_preservation": {
+    "manifest": {
+      "ref": "archive:reports/larger-dataset-v1-continuation-v1-retry1-startup/publication-manifest.json",
+      "bytes": 2549,
+      "sha256": "44448f65fa14ec3c746b8f2ae283571b89328653a5321831a0084ddf433dc556"
+    },
+    "identity_manifest": {
+      "ref": "archive:reports/larger-dataset-v1-continuation-v1-retry1-startup/identity-proof/publication-manifest.json",
+      "bytes": 319,
+      "sha256": "013d8ce614eb8385a3b15d4897f5ce2df333a4c3da4504b852ac2ab57efb4a24"
+    },
+    "source_originals_preserved": true,
+    "remote_sha_and_fsync_verified": true,
+    "exact_executed_runner_source": {
+      "ref": "archive:reports/larger-dataset-v1-continuation-v1-retry1-startup/executed-source/scripts/run_gr00t_continuation.py",
+      "bytes": 47153,
+      "sha256": "308ed70689b44bcb1edd20c9af35dda71938cd4e1d0a2496a67dfb64a68d87a0"
+    },
+    "exact_executed_watchdog_source": {
+      "ref": "archive:reports/larger-dataset-v1-continuation-v1-retry1-startup/executed-source/scripts/watch_training_cap.py",
+      "bytes": 12060,
+      "sha256": "4851a9dd6ef9dd4d08701f078e064aa58241a346487675eb1c6dcd17ee23f5ff"
+    }
+  },
+  "prior_failed_startup": {
+    "ref": "experiments/larger-dataset-v1-continuation-v1/startup-attempt-1.json",
+    "bytes": 6468,
+    "sha256": "b6771811e8147c8fc614fcb97f3aa750afcfacd7928425b12f09c56a8e6b997a"
+  },
+  "hardware_task_competence_established": false
+}
