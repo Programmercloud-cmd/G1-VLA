@@ -1,0 +1,129 @@
+{
+  "schema_version": 1,
+  "artifact_type": "continuation_first_startup_failed_before_updates",
+  "generated_at_utc": "2026-10-21T22:24:46.493446+00:00",
+  "status": "startup_failed_before_optimizer_updates",
+  "execution_passed": false,
+  "run": "larger-dataset-v1-continuation-v1",
+  "execution_commit": "f433c84816264345d591717751b79d922d782e93",
+  "continuation_protocol": {
+    "ref": "archive:reports/larger-dataset-v1-continuation-v1-startup-attempt-1/experiments/larger-dataset-v1-continuation-v1/evaluation-protocol.json",
+    "bytes": 7474,
+    "sha256": "651d3c1b371f06fe7f262f6e5da222ac90315771f46bc76431062d1d0440a383"
+  },
+  "original_evaluation_protocol": {
+    "ref": "experiments/larger-dataset-v1/evaluation-protocol.json",
+    "bytes": 42385,
+    "sha256": "9f8cf657889f49ea747928232e592610863562e222778563ee09ff7c9bd96ab1"
+  },
+  "actual_run_manifest": {
+    "ref": "archive:reports/larger-dataset-v1-continuation-v1-startup-attempt-1/reports/larger-dataset-v1-continuation-v1/larger-dataset-v1-continuation-v1-run.json",
+    "bytes": 105968,
+    "sha256": "e326653d259e939d06d9bcbdbdb2db5406d3db8d92b46df575775c3c59f68c4f"
+  },
+  "final_training_report": {
+    "ref": "archive:reports/larger-dataset-v1-continuation-v1-startup-attempt-1/reports/larger-dataset-v1-continuation-v1/larger-dataset-v1-continuation-v1-train.json",
+    "bytes": 3047,
+    "sha256": "b5881603b8f4732edc99894f8ea83a6874b9e421405cfbf419ede75ef729e308"
+  },
+  "official_cpu_dry_run": {
+    "ref": "archive:reports/larger-dataset-v1-continuation-v1-startup-attempt-1/reports/larger-dataset-v1-continuation-v1/larger-dataset-v1-continuation-v1-dry-run.json",
+    "bytes": 105968,
+    "sha256": "8ce20c0ad99aa2fd707a6272ff092d921c6f149f23a14868382d9a6ab01af8cd"
+  },
+  "prelaunch_validation": {
+    "ref": "archive:reports/larger-dataset-v1-continuation-v1-startup-attempt-1/reports/larger-dataset-v1-continuation-v1/larger-dataset-v1-continuation-v1-prelaunch-validation.json",
+    "bytes": 1986,
+    "sha256": "ef9d380910b76b5f6e080249c99394ad06750fe107e9402611b6b065d170b91d"
+  },
+  "storage_readiness": {
+    "ref": "experiments/larger-dataset-v1-continuation-v1/storage-readiness.json",
+    "bytes": 12035,
+    "sha256": "343fef90e8dd0d756c1c76cb942eec889f82e887e0ec34401a1b3dd28ac6ca31"
+  },
+  "cpu_warmstart_proof_manifest": {
+    "ref": "archive:reports/larger-dataset-v1-continuation-v1-preflight/processor-warmstart-attempt-2/manifest.json",
+    "bytes": 1244,
+    "sha256": "4b32df2e1840e70104fcfb2b2b32ac5b6f60395ffd98eaa44f295faefbcfae2f"
+  },
+  "source_checkpoint": {
+    "ref": "archive:runs/larger-dataset-v1-retry2/checkpoint-4096",
+    "updates": 4096,
+    "inventory": {
+      "ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-retry2-checkpoint-4096-inventory.json",
+      "bytes": 7140,
+      "sha256": "fe78550476202ab1476e9565b9f5fe3dbe39855ebb0b2724b9a093c7af92f6ca"
+    },
+    "source_original_untouched": true
+  },
+  "observed_outcome": {
+    "local_optimizer_updates": 0,
+    "cumulative_weight_lineage_base": 4096,
+    "micro_losses": 0,
+    "gradient_updates": 0,
+    "finite_audit_file_present": false,
+    "runtime_audits_all_empty": true,
+    "strict_weight_load_proven": false,
+    "fresh_optimizer_runtime_proven": false,
+    "new_checkpoints": [],
+    "elapsed_seconds": 23.402843121999467,
+    "exit_code": -15,
+    "aborted": "execution_error",
+    "runner_error": "RuntimeError('Independent local cap watchdog exited while training was active')",
+    "watchdog_status": "watchdog_error_no_further_signals",
+    "watchdog_error": "ValueError('PID identity changed; refusing signal')",
+    "watchdog_signals": [],
+    "all_original_training_and_watchdog_processes_gone_verified_by_root": true,
+    "gpu_idle_verified_by_root": true
+  },
+  "original_authorized_cap": {
+    "seconds": 21600,
+    "estimated_deadline_utc": "2026-10-22T04:21:24.144926+00:00",
+    "monotonic_deadline": 55191.812665336,
+    "no_deadline_extension_authorized": true,
+    "armed_startup_snapshot": {
+      "ref": "archive:reports/larger-dataset-v1-continuation-v1-startup-attempt-1/reports/larger-dataset-v1-continuation-v1-safety/cap-watchdog-armed.json",
+      "bytes": 5309,
+      "sha256": "c89700d95a668e5054754a2daeec8fc62943ec8c6fb3f55d1831b0b42605d788"
+    },
+    "final_watchdog_report": {
+      "ref": "archive:reports/larger-dataset-v1-continuation-v1-startup-attempt-1/reports/larger-dataset-v1-continuation-v1-safety/cap-watchdog.json",
+      "bytes": 5403,
+      "sha256": "86b6e1cc34637705092c1ddc45d11087f25133517b0b86188b17d79bd2a56a47"
+    }
+  },
+  "diagnosis": {
+    "reported_cause": "ensure_python re-exec dropped -B from the worker command line, changing its strict recorded argv identity; watchdog refused to signal and runner aborted when watchdog exited.",
+    "repair_owner": "Root/training agent; controlled retry must retain the original cap deadline.",
+    "actual_runtime_failure_separate_from_earlier_cpu_harness_omission": true,
+    "automatic_retry_started": false
+  },
+  "durable_preservation": {
+    "main_manifest": {
+      "ref": "archive:reports/larger-dataset-v1-continuation-v1-startup-attempt-1/publication-manifest.json",
+      "bytes": 3196,
+      "sha256": "0a229304648fc33e222dfcc489fc52c0051f5f07228d8f1bae3e6c5c49b9add0"
+    },
+    "supplement_manifest": {
+      "ref": "archive:reports/larger-dataset-v1-continuation-v1-startup-attempt-1-supplement/publication-manifest.json",
+      "bytes": 2542,
+      "sha256": "5e38f4dc9b5722bb758bc29549da1f417f8650df656adc1df0bd29cb96a485ce"
+    },
+    "exact_executed_runner_source": {
+      "ref": "archive:reports/larger-dataset-v1-continuation-v1-startup-attempt-1/executed-source/scripts/run_gr00t_continuation.py",
+      "bytes": 47002,
+      "sha256": "19c4a1249a1eb605b4d76e7ec658d218be5d3f3e1f8157bfb38d060912423d37"
+    },
+    "exact_executed_watchdog_source": {
+      "ref": "archive:reports/larger-dataset-v1-continuation-v1-startup-attempt-1/executed-source/scripts/watch_training_cap.py",
+      "bytes": 12060,
+      "sha256": "4851a9dd6ef9dd4d08701f078e064aa58241a346487675eb1c6dcd17ee23f5ff"
+    },
+    "source_originals_preserved": true,
+    "remote_sha_and_fsync_verified": true,
+    "all_original_failed_attempt_report_files_preserved_at_snapshot": true,
+    "original_report_directory_file_count_at_snapshot": 20,
+    "later_retry_preparation_files_outside_this_failed_attempt_snapshot": true
+  },
+  "hardware_task_competence_established": false
+}

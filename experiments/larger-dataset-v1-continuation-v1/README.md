@@ -1,9 +1,16 @@
 # Larger-dataset v1 continuation v1
 
-Status: authorized and preparing; no training has launched. The segment starts
+Status: authorized; the first startup failed before any optimizer update. The
+[startup receipt](startup-attempt-1.json) binds the immutable run manifest,
+watchdog snapshots, final zero-update report and durable logs. The runner stopped
+after 23.4 seconds following a watchdog command-line identity error; no strict
+weight-load/runtime audit or new checkpoint was produced. A controlled retry is
+being reviewed within the original deadline, **22 October 2026 at 04:21:24 UTC**;
+no retry has launched at this snapshot. The segment starts
 from the preserved, verified retry2 checkpoint 4,096 with fresh optimizer and
 scheduler state, runs at most 4,096 additional local updates under a fresh six-hour
-cap, and targets cumulative weight-lineage steps 6,144 and 8,192. Native checkpoints
+cap whose original deadline remains fixed, and targets cumulative weight-lineage
+steps 6,144 and 8,192. Native checkpoints
 remain `checkpoint-2048` and `checkpoint-4096`; `continuation.json` records the
 cumulative mapping without changing TrainerState.
 

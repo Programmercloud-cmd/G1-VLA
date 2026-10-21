@@ -2,8 +2,12 @@
 
 Current next scope: the user authorized a [separate continuation from the verified
 4,096 checkpoint](larger-dataset-v1-continuation.md), with fresh optimizer/scheduler
-state and at most 4,096 additional updates under its own six-hour cap. It is
-preparing, not launched. The material below records the completed earlier
+state and at most 4,096 additional updates under its own six-hour cap. Its first
+startup stopped after 23.4 seconds with zero updates following a watchdog worker
+command-line identity error; [the failed startup](../experiments/larger-dataset-v1-continuation-v1/startup-attempt-1.json)
+is preserved. Root is reviewing a controlled retry within the original fixed
+deadline, **22 October 2026 at 04:21:24 UTC**; no retry has launched at this snapshot.
+The material below records the completed earlier
 partial experiment and recovery history; its old commands are not a new launch
 instruction.
 

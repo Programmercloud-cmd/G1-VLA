@@ -1,7 +1,13 @@
 # Larger-dataset v1 continuation from checkpoint 4,096
 
-Status: authorized and preparing; no continuation training has launched. The new
-run is `larger-dataset-v1-continuation-v1`. Its source is the verified durable
+Status: authorized; the first startup stopped after 23.4 seconds with zero
+optimizer updates and no new checkpoint. The [failed-start receipt](../experiments/larger-dataset-v1-continuation-v1/startup-attempt-1.json)
+preserves its manifest, final report, armed/final watchdog records and logs. The
+watchdog rejected a worker command-line identity change after Python re-exec;
+the runner then aborted. Strict weight loading and runtime initialization were
+not proven. Root is reviewing a controlled retry within the original fixed
+deadline, **22 October 2026 at 04:21:24 UTC**; no retry has launched at this snapshot.
+The first run was `larger-dataset-v1-continuation-v1`. Its source is the verified durable
 `larger-dataset-v1-retry2/checkpoint-4096`, whose paired validation normalized MAE
 was 0.149138. The earlier [partial run and results](larger-dataset-v1-results.md),
 checkpoints, failed attempts, frozen protocol and original data remain preserved.
@@ -10,7 +16,7 @@ The user authorized **4,096 additional updates**, pretrained initialization is
 not used for this segment. The source save contains learned model weights but
 no optimizer/scheduler state, so this is a strict warm start with fresh AdamW
 moments and a fresh schedule, not an exact restoration of the interrupted run.
-The independent fresh six-hour cap includes model loading, updates, checkpoint
+The original six-hour cap includes model loading, updates, checkpoint
 writes, full-state validation, hashes and fsync. No automatic extension or retry.
 
 | Weight lineage | Native local Trainer step | Native output directory |
@@ -69,7 +75,10 @@ project mount, preserving partial output and requiring explicit later mount
 recovery. It never remounts or restarts training. Remote hash/fsync SSH commands
 also have timeouts bounded by the original remaining deadline.
 
-Run the official CPU dry run after the new source/protocol freeze, using the
+The commands below record the first attempt's official CPU dry run after its
+source/protocol freeze. Its run name and outputs are now occupied and must stay
+preserved; a controlled retry needs separately reviewed sources, protocol and
+execution locations within the unchanged deadline. Use the
 machine-local configuration and RAM-backed temporary directory prepared during
 readiness. This command does not load a model or launch GPU training:
 
@@ -93,8 +102,8 @@ export TMPDIR=/dev/shm/vla-continuation-tmp-20261022
   --run larger-dataset-v1-continuation-v1 --timeout-seconds 21600 --dry-run
 ```
 
-Before the actual launch,
-root reviews/publishes the new sources, freezes current resource evidence and
+Before any controlled launch,
+root reviews/publishes the applicable sources, freezes current resource evidence and
 grants the sole training GPU lease. Only then omit `--dry-run`, preserving fresh
 local logs with no overwrite. Retain normal CUDA visibility; the empty visibility
 used by CPU tests must not enter training. Runtime must prove one strict load of
