@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "artifact_type": "certified_extension_full_state_checkpoint",
+  "generated_at_utc": "2026-10-22T11:09:37.418740+00:00",
+  "run": "larger-dataset-v1-extension-v1",
+  "status": "checkpoint_certified_native_final_save_pending",
+  "local_checkpoint_step": 4096,
+  "cumulative_weight_lineage": 12288,
+  "source_cumulative_weight_lineage": 8192,
+  "actual_training_execution_commit": "f7ce2ffe86aa04278969da96a0a40081b5217ada",
+  "checkpoint_ref": "archive:runs/larger-dataset-v1-extension-v1/checkpoint-4096",
+  "checkpoint_files": 20,
+  "checkpoint_bytes": 25548047840,
+  "source_certificate": {
+    "ref": "archive:reports/larger-dataset-v1-extension-v1-checkpoint-local-4096-cumulative-12288/certificate.json",
+    "bytes": 4077,
+    "sha256": "fb6c3eefc9d56454e09ef4edb2ba8aee7651ddaa5c918a9ff0d22014ca224c9a"
+  },
+  "certified_finite_prefix": {
+    "ref": "archive:reports/larger-dataset-v1-extension-v1-checkpoint-local-4096-cumulative-12288/certified-finite-prefix.jsonl",
+    "bytes": 8380012,
+    "sha256": "964bd3017b4ec332436b6d6b3330bf5ef8e381bb169d5ff3debb7a57e8a1fa97"
+  },
+  "full_checkpoint_inventory": {
+    "ref": "archive:reports/larger-dataset-v1-extension-v1-checkpoint-local-4096-cumulative-12288/full-checkpoint-inventory.json",
+    "bytes": 8717,
+    "sha256": "e3569fff58a3027f2870c19f7587ca8b6ee4f05f762f21661f10713fd6040a01"
+  },
+  "coverage": {
+    "ref": "archive:reports/larger-dataset-v1-extension-v1-checkpoint-local-4096-cumulative-12288/coverage.json",
+    "bytes": 35664,
+    "sha256": "5a7d215379227069081cb6f3808487b333e016c097cd8d556adddcfe52f2a86b"
+  },
+  "continuation_metadata": {
+    "ref": "archive:reports/larger-dataset-v1-extension-v1-checkpoint-local-4096-cumulative-12288/continuation.json",
+    "bytes": 26131,
+    "sha256": "f6b27af60a5e2b5c1369c86c9274346924482201251f5fdce2cc9c63a0e17a96"
+  },
+  "independent_verification": {
+    "ref": "archive:reports/larger-dataset-v1-extension-v1-checkpoint-local-4096-cumulative-12288/independent-verification.json",
+    "bytes": 2920,
+    "sha256": "525a0ad6936af02bf09d6ef3e664f606ea30aa1ec2192ec00358b1d8564f13d6"
+  },
+  "publication_manifest": {
+    "ref": "archive:reports/larger-dataset-v1-extension-v1-checkpoint-local-4096-cumulative-12288/publication-manifest.json",
+    "bytes": 1972,
+    "sha256": "8101a08123de9c5107e316faabc530e23f0daa5d7a4445fe2bf95a51917fd596"
+  },
+  "producer_source": {
+    "ref": "archive:reports/larger-dataset-v1-extension-v1-checkpoint-local-4096-cumulative-12288/producer-source.py",
+    "bytes": 3510,
+    "sha256": "318cbb86b210f92cb8403ddce58a78fc32f4ced2b4d5d7732b8a67227d1cd167"
+  },
+  "publication_source": {
+    "ref": "archive:reports/larger-dataset-v1-extension-v1-checkpoint-local-4096-cumulative-12288/publication-source.py",
+    "bytes": 8488,
+    "sha256": "e0cac9a2b79be0df5d7abfbf72086e0aa91fd227e2a338498ffceabe28b06887"
+  },
+  "publication_scope": "Small evidence only, including a byte-identical copy of continuation.json metadata. No model/optimizer tensor or full checkpoint copy; canonical checkpoint remains unchanged in place.",
+  "certification_basis": "Passed synchronous producer callback: native full-state validation, frozen processor hashes, every canonical file remotely SHA256-verified/fsynced and checkpoint directories fsynced before the native auxiliary root save. Independently checked finite prefix, coverage and small evidence only; not certification from file sizes alone.",
+  "producer_full_native_state": {
+    "passed": true,
+    "optimizer_state_entries": 537,
+    "scheduler_epoch": 4096,
+    "rng_keys": [
+      "cpu",
+      "cuda",
+      "numpy",
+      "python"
+    ],
+    "native_full_state_files": [
+      "optimizer.pt",
+      "scheduler.pt",
+      "rng_state.pth"
+    ],
+    "exact_iterable_cursor_restore": false,
+    "sampling_limit": "Native optimizer/scheduler/RNG state is saved. The pinned iterable loader has no state_dict/load_state_dict cursor and reseeds on resume with ignore_data_skip=True; exact sample-position replay is not supported. This fresh segment starts a new native seed8234 traversal (42+8192), not an exact restoration of either previous iterable cursor. Frozen split/evaluation seeds are unchanged."
+  },
+  "producer_complete_remote_sha_and_file_directory_fsync": true,
+  "independent_tensor_bulk_rehash_or_copy": false,
+  "processor_files_sha256": {
+    "processor_config.json": "033aeac07e3227b523703d152dca8ac2d277a40168f1d2698b536e6d2417c228",
+    "statistics.json": "7abadea98ec3c97086ac3be138189086d07907a3c007bafd4a8f5d39950a4282",
+    "embodiment_id.json": "5e8611697dc90b7b7a92cf2a8da926275c16f5966c5eb109e0216c3c51af15a1"
+  },
+  "finite_prefix": {
+    "event_count": 40967,
+    "micro_losses": 32768,
+    "finite_gradients": 4096,
+    "completed_local_updates": 4096,
+    "nonfinite_events": 0,
+    "whole_active_audit_hashed": false,
+    "canonical_finite_summary": {
+      "passed": true,
+      "micro_losses_observed": 32768,
+      "gradient_updates_observed": 4096,
+      "optimizer_updates_observed": 4096,
+      "first_window_mean_loss": 0.07735835964558646,
+      "last_window_mean_loss": 0.06934579798253253,
+      "loss_window_microbatches": 160,
+      "last_step": 4096
+    }
+  },
+  "actual_segment_coverage": {
+    "consumed_examples": 32768,
+    "unique_window_starts": 32768,
+    "episodes_observed": 86
+  },
+  "actual_combined_lineage_coverage": {
+    "consumed_examples": 98304,
+    "unique_window_starts": 36920,
+    "episodes_observed": 97
+  },
+  "eligible_training_windows": 37281,
+  "training_episodes": 98,
+  "coverage_limits": "Observed certified source 65,536 plus segment 32,768 exposures only: 97/98 episodes and 36,920/37,281 unique windows. No claim that every training episode/window has been consumed.",
+  "save_cost": {
+    "step_end_elapsed_seconds": 10706.437876672004,
+    "certificate_elapsed_seconds": 13331.714643257,
+    "step_end_to_certified_save_seconds": 2625.276766584997,
+    "scope": "Includes native serialization, validation, remote hashing/fsync and callback overhead; not isolated I/O time."
+  },
+  "extension_protocol": {
+    "ref": "experiments/larger-dataset-v1-extension-v1/evaluation-protocol.json",
+    "bytes": 12836,
+    "sha256": "4fabc335cc465a25e93092ab19e51c1621ec0dff5f4f3c57c2f40dd69d8a5f74"
+  },
+  "execution_receipt": {
+    "ref": "experiments/larger-dataset-v1-extension-v1/execution.json",
+    "bytes": 8720,
+    "sha256": "22f9d8284285ee15ad6c40487cdb9140e24f80eb5045690db7a80d6370cdcad1"
+  },
+  "startup_receipt": {
+    "ref": "experiments/larger-dataset-v1-extension-v1/startup-complete.json",
+    "bytes": 6360,
+    "sha256": "7ef7db1cb7938e76ec30a1f0406543b4c6440d899687da41c7e8aff83f7a3bef"
+  },
+  "source_ancestry": {
+    "ref": "experiments/larger-dataset-v1-extension-v1/ancestry.json",
+    "bytes": 4608,
+    "sha256": "a7cbab4e1319d0bbf689b98bdbc4a71d4f6faa3fc2395519c9b5bdee149665cb"
+  },
+  "source_unsaved1135_updates_excluded": true,
+  "source_optimizer_restored": false,
+  "native_full_state_available": true,
+  "production_optimizer_reload_tested": false,
+  "exact_iterable_cursor_restoration_supported": false,
+  "paired_offline_evaluation_completed": false,
+  "new_policy_selection_completed": false,
+  "whole_training_run_complete": false,
+  "hardware_task_competence_established": false,
+  "scope": "Passed native local 4,096 / cumulative 12,288 checkpoint milestone only. Both planned full checkpoints are certified; native auxiliary root save, final exit, paired offline evaluations and candidate ranking remain separate evidence.",
+  "post_checkpoint_phase": {
+    "native_auxiliary_root_save": "pending",
+    "whole_run_and_writer_exit_proof": "pending",
+    "scope": "All 4,096 local updates and both canonical full-state saves are certified. The separate native auxiliary root model-only save and final process/report outcomes remain pending."
+  },
+  "native_sampling_sequence": {
+    "actual_coordinates": 32768,
+    "encoding": "little-endian signed int64 episode_index,row (<qq), in micro_loss order",
+    "actual_coordinate_sha256": "2c98155b685e34013a588309a51580e7f742ef91aac691998131e368b41fe858",
+    "matches_predeclared_seed8234_projection": true,
+    "projection_receipt": {
+      "ref": "experiments/larger-dataset-v1-extension-v1/sampling-projection.json",
+      "bytes": 8452,
+      "sha256": "932ed1d87e40d64a9702c9aab1af6e6610b68601d20a56e137de5afb9e6ca3e3"
+    },
+    "scope": "Exact observed coordinate sequence only; not model numerical equivalence or cursor replay support."
+  }
+}
