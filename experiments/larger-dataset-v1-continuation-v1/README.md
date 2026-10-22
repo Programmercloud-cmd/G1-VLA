@@ -1,7 +1,12 @@
 # Larger-dataset v1 continuation v1
 
-Status: the controlled retry `larger-dataset-v1-continuation-v1-retry1` is running
-with [startup verified](startup-complete.json). The captured snapshot records
+Status: [training completed successfully](training-outcome.json) for the controlled
+retry `larger-dataset-v1-continuation-v1-retry1`: 4,096 additional optimizer updates,
+8,192 cumulative weight-lineage updates, and both full-state checkpoints durably
+verified. The native final model save and all training processes have completed.
+Paired offline evaluation and formal checkpoint selection are in progress.
+
+The earlier [verified startup snapshot](startup-complete.json) records
 35 finite local updates (cumulative weight lineage 4,131), all five runtime audits,
 strict learned-parent loading, frozen processor/zero dropout, live cap and fresh
 optimizer state. The first 32 actual sample coordinates match seed 4,138 and differ
@@ -24,7 +29,8 @@ gradients. The [second checkpoint](checkpoint-8192.json), at native local step
 4,096 / cumulative weight lineage 8,192, is also certified: all 20 files totaling
 25,548,023,944 bytes passed full native-state validation and complete remote
 SHA256/file/directory fsync checks. The upstream final output-root model save,
-process exit and paired evaluations remain pending at this receipt's snapshot.
+process exit and paired evaluations were pending at this receipt's snapshot;
+the training outcome above records subsequent finalization.
 
 The first startup failed before any optimizer update. The
 [startup receipt](startup-attempt-1.json) binds the immutable run manifest,
