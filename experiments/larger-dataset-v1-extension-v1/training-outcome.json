@@ -1,0 +1,259 @@
+{
+  "schema_version": 1,
+  "artifact_type": "completed_extension_training_outcome",
+  "generated_at_utc": "2026-10-22T11:32:36.305862+00:00",
+  "run": "larger-dataset-v1-extension-v1",
+  "actual_training_execution_commit": "f7ce2ffe86aa04278969da96a0a40081b5217ada",
+  "implementation_commit": "cf1fc9a113f35bd18e14dc268e8035d23fb20693",
+  "training_passed": true,
+  "exit_code": 0,
+  "aborted": null,
+  "actual_local_optimizer_updates": 4096,
+  "planned_local_optimizer_updates": 4096,
+  "source_cumulative_weight_lineage": 8192,
+  "cumulative_weight_lineage": 12288,
+  "target_update_count_completed": true,
+  "both_native_full_state_checkpoints_certified": true,
+  "native_auxiliary_root_save_outcome": "completed_and_durably_verified",
+  "all_training_writers_exited": true,
+  "source_unsaved1135_updates_excluded": true,
+  "fresh_optimizer_boundary_at_cumulative8192": true,
+  "source_optimizer_scheduler_rng_restored": false,
+  "training_report": {
+    "ref": "archive:reports/larger-dataset-v1-extension-v1-training-completion/reports/larger-dataset-v1-extension-v1/larger-dataset-v1-extension-v1-train.json",
+    "bytes": 34387,
+    "sha256": "92bc6f8f53d357c5f2d285fae3208d734caf1304fd03f1ff8e4054b19e50d9e6"
+  },
+  "run_manifest": {
+    "ref": "archive:reports/larger-dataset-v1-extension-v1-training-completion/reports/larger-dataset-v1-extension-v1/larger-dataset-v1-extension-v1-run.json",
+    "bytes": 139223,
+    "sha256": "838edf9cb8f7b968d1dc21f633d8dcd1c38822b305fcfdddaea3b4ab7484bf12"
+  },
+  "final_finite_audit": {
+    "ref": "archive:reports/larger-dataset-v1-extension-v1-training-completion/reports/larger-dataset-v1-extension-v1/larger-dataset-v1-extension-v1-finite.jsonl",
+    "bytes": 8380012,
+    "sha256": "964bd3017b4ec332436b6d6b3330bf5ef8e381bb169d5ff3debb7a57e8a1fa97"
+  },
+  "all_writer_exit_proof": {
+    "ref": "archive:reports/larger-dataset-v1-extension-v1-training-completion/reports/larger-dataset-v1-extension-v1/all-training-writers-exited-v2.json",
+    "bytes": 3782,
+    "sha256": "d076db936c7def0995b0acf1f94408729c4832e8dc7c618b98f70be99f5e3141"
+  },
+  "full_training_evidence_publication": {
+    "ref": "archive:reports/larger-dataset-v1-extension-v1-training-completion/publication-manifest.json",
+    "bytes": 17118,
+    "sha256": "f3dbbdbda550a8fe0918689e88760f53a15151668e4f88a6c3beb4c4867935ec"
+  },
+  "finite_training": {
+    "canonical_summary": {
+      "passed": true,
+      "micro_losses_observed": 32768,
+      "gradient_updates_observed": 4096,
+      "optimizer_updates_observed": 4096,
+      "first_window_mean_loss": 0.07735835964558646,
+      "last_window_mean_loss": 0.06934579798253253,
+      "loss_window_microbatches": 160,
+      "last_step": 4096
+    },
+    "trailing_partial_micro_losses": 0,
+    "nonfinite_events": 0,
+    "scope": "All 32,768 recorded micro-losses belong to completed optimizer updates. Window means fluctuate and do not establish held-out task success."
+  },
+  "actual_segment_coverage": {
+    "consumed_examples": 32768,
+    "unique_window_starts": 32768,
+    "episodes_observed": 86
+  },
+  "actual_combined_lineage_coverage": {
+    "consumed_examples": 98304,
+    "unique_window_starts": 36920,
+    "episodes_observed": 97
+  },
+  "eligible_training_windows": 37281,
+  "training_episodes": 98,
+  "all_training_episodes_consumed": false,
+  "sampling_identity": {
+    "actual_coordinates": 32768,
+    "actual_sequence_sha256": "2c98155b685e34013a588309a51580e7f742ef91aac691998131e368b41fe858",
+    "first32_sha256": "f289fd3c69ffb9c0fb77602f9dacac43474865a567238f342490f0cdf70ce9e6",
+    "matches_predeclared_seed8234_projection": true,
+    "projection": {
+      "ref": "experiments/larger-dataset-v1-extension-v1/sampling-projection.json",
+      "bytes": 8452,
+      "sha256": "932ed1d87e40d64a9702c9aab1af6e6610b68601d20a56e137de5afb9e6ca3e3"
+    },
+    "encoding": "Packed little-endian signed int64 episode_index,row (<qq), in micro_loss order.",
+    "scope": "Exact coordinate traversal only; not model numerical equivalence, augmentation identity or exact cursor restoration."
+  },
+  "schedule": {
+    "peak_learning_rate": 2.5e-05,
+    "warmup_updates": 103,
+    "kind": "cosine",
+    "fresh_optimizer_scheduler": true,
+    "native_seed": 8234,
+    "split_seed": 42,
+    "evaluation_seeds": [
+      42,
+      43,
+      44
+    ],
+    "first_post_update_learning_rate": 2.4271844660194176e-07,
+    "last_post_update_learning_rate": 0.0,
+    "state_dropout_prob": 0.0,
+    "frozen_train_normalization_and_processor_unchanged": true
+  },
+  "certified_checkpoints": [
+    {
+      "local_step": 2048,
+      "cumulative_step": 10240,
+      "receipt": {
+        "ref": "experiments/larger-dataset-v1-extension-v1/checkpoint-10240.json",
+        "bytes": 7734,
+        "sha256": "20e22153b969b7aa34ef2a07424e8ea8adcaf7cc988cd49a8f9f496c1d090de0"
+      },
+      "canonical_full_state_ref": "archive:runs/larger-dataset-v1-extension-v1/checkpoint-2048",
+      "full_checkpoint_inventory": {
+        "ref": "archive:reports/larger-dataset-v1-extension-v1-checkpoint-local-2048-cumulative-10240/full-checkpoint-inventory.json",
+        "bytes": 8717,
+        "sha256": "34f3cc3ec4116893bcf50be855761d2c3a79a268040699eb07d4fec5d81475a7"
+      },
+      "small_evidence_publication": {
+        "ref": "archive:reports/larger-dataset-v1-extension-v1-checkpoint-local-2048-cumulative-10240/publication-manifest.json",
+        "bytes": 1972,
+        "sha256": "341cc15dc68a13b98616147fc248b6aeaaf70ef2ebf7a1ef60486646d4de964c"
+      },
+      "files": 20,
+      "bytes": 25548019273,
+      "save_cost": {
+        "step_end_elapsed_seconds": 4741.044282622999,
+        "certificate_elapsed_seconds": 7444.978013118001,
+        "step_end_to_certified_save_seconds": 2703.9337304950022,
+        "scope": "Includes native serialization, validation, remote hashing/fsync and callback overhead; not isolated I/O time."
+      }
+    },
+    {
+      "local_step": 4096,
+      "cumulative_step": 12288,
+      "receipt": {
+        "ref": "experiments/larger-dataset-v1-extension-v1/checkpoint-12288.json",
+        "bytes": 8529,
+        "sha256": "64267cfd7be29f1bd10adb627d944d4515d01b17027330024e501d93ea901fd7"
+      },
+      "canonical_full_state_ref": "archive:runs/larger-dataset-v1-extension-v1/checkpoint-4096",
+      "full_checkpoint_inventory": {
+        "ref": "archive:reports/larger-dataset-v1-extension-v1-checkpoint-local-4096-cumulative-12288/full-checkpoint-inventory.json",
+        "bytes": 8717,
+        "sha256": "e3569fff58a3027f2870c19f7587ca8b6ee4f05f762f21661f10713fd6040a01"
+      },
+      "small_evidence_publication": {
+        "ref": "archive:reports/larger-dataset-v1-extension-v1-checkpoint-local-4096-cumulative-12288/publication-manifest.json",
+        "bytes": 1972,
+        "sha256": "8101a08123de9c5107e316faabc530e23f0daa5d7a4445fe2bf95a51917fd596"
+      },
+      "files": 20,
+      "bytes": 25548047840,
+      "save_cost": {
+        "step_end_elapsed_seconds": 10706.437876672004,
+        "certificate_elapsed_seconds": 13331.714643257,
+        "step_end_to_certified_save_seconds": 2625.276766584997,
+        "scope": "Includes native serialization, validation, remote hashing/fsync and callback overhead; not isolated I/O time."
+      }
+    }
+  ],
+  "timing": {
+    "training_elapsed_seconds": 14616.540756984003,
+    "total_step_end_to_certified_save_seconds": 5329.210497079999,
+    "post_exit_auxiliary_root_hash_fsync_seconds": 39.34036798399757,
+    "save_cost_scope": "Includes native serialization, validation, remote SHA/fsync and callback overhead; not isolated I/O time."
+  },
+  "native_output_root": {
+    "durability_receipt": {
+      "ref": "archive:reports/larger-dataset-v1-extension-v1-training-completion/reports/larger-dataset-v1-extension-v1/final-root-durability.json",
+      "bytes": 3963,
+      "sha256": "e94fab0058c72f6d9a0c6bd27d1defef58f1358bc53fce397a65d64c0307fae1"
+    },
+    "regular_model_config_files": 7,
+    "regular_model_config_bytes": 12576313938,
+    "all_seven_hashes_match_canonical": true,
+    "file_and_directory_fsync_passed": true,
+    "resumable": false,
+    "root_processor_certified_by_this_receipt": false,
+    "canonical_full_state_resume_ref": "archive:runs/larger-dataset-v1-extension-v1/checkpoint-4096"
+  },
+  "cap_and_exit": {
+    "watchdog_final": {
+      "ref": "archive:reports/larger-dataset-v1-extension-v1-training-completion/reports/larger-dataset-v1-extension-v1-safety/cap-watchdog.json",
+      "bytes": 6565,
+      "sha256": "eecb3172a37e453297252561867407938b86e3736d1fea67d07dd17dbfb28dab"
+    },
+    "watchdog_armed": {
+      "ref": "archive:reports/larger-dataset-v1-extension-v1-training-completion/reports/larger-dataset-v1-extension-v1-safety/cap-watchdog-armed.json",
+      "bytes": 6470,
+      "sha256": "24d6ae673370450d245f4d9f60b28d0e8dc147f10252d64a342a8d8fb88fcb7a"
+    },
+    "status": "training_ended_before_cap_no_signal_needed",
+    "signals": [],
+    "cap_seconds": 21600,
+    "monotonic_deadline": 87732.285236148,
+    "estimated_deadline_utc": "2026-10-22T13:23:44.617504+00:00",
+    "all_training_launcher_worker_watchdog_processes_exited": true,
+    "storage_observer_exited": true
+  },
+  "parent8192_integrity": {
+    "proof": {
+      "ref": "archive:reports/larger-dataset-v1-extension-v1-training-completion/reports/larger-dataset-v1-extension-v1/final-parent8192-metadata-integrity.json",
+      "bytes": 3871,
+      "sha256": "7754e2fe85641ec8d86e77d37b764d8ed16c4c08ae143daef00516810e8c4811"
+    },
+    "passed": true,
+    "files": 20,
+    "verification": "Fresh remote path/size/mtime/device/inode comparison against the source certified inventory. Existing full SHA inventory and strict initial learned-weight load remain the content lineage proof.",
+    "tensor_content_bytes_read": 0,
+    "tensor_sha_recomputed": false
+  },
+  "resources": {
+    "minimum_sampled_root_free_bytes": 20815532032,
+    "runtime_root_guard_bytes_unchanged": 8589934592,
+    "minimum_sampled_host_available_gib": 108.9178695678711,
+    "minimum_sampled_output_free_gib": 886.8185501098633,
+    "sampled_peak_gpu_mib": 38762,
+    "scope": "Runtime sampled values, not continuous minima."
+  },
+  "readonly_observer": {
+    "exit_code": 0,
+    "final_event": "final_training_report_available",
+    "source": {
+      "ref": "archive:reports/larger-dataset-v1-extension-v1-training-completion/reports/extension_readonly_observer_20261022.py",
+      "bytes": 8745,
+      "sha256": "5a3bb4f66db61b49a9149cbea5c81574d178d283ef61738dc811b51b371d4f79"
+    },
+    "events": {
+      "ref": "archive:reports/larger-dataset-v1-extension-v1-training-completion/reports/larger-dataset-v1-extension-v1/larger-dataset-v1-extension-v1-observer-events.jsonl",
+      "bytes": 14734,
+      "sha256": "d96c62ff52dcd06477dae2a4c5e740e317b9733e8f37a6072307500cdf08dbca"
+    },
+    "scope": "Local-only complete-object parsing; status snapshots every ten minutes are historical observations."
+  },
+  "extension_protocol": {
+    "ref": "experiments/larger-dataset-v1-extension-v1/evaluation-protocol.json",
+    "bytes": 12836,
+    "sha256": "4fabc335cc465a25e93092ab19e51c1621ec0dff5f4f3c57c2f40dd69d8a5f74"
+  },
+  "execution_receipt": {
+    "ref": "experiments/larger-dataset-v1-extension-v1/execution.json",
+    "bytes": 8720,
+    "sha256": "22f9d8284285ee15ad6c40487cdb9140e24f80eb5045690db7a80d6370cdcad1"
+  },
+  "startup_receipt": {
+    "ref": "experiments/larger-dataset-v1-extension-v1/startup-complete.json",
+    "bytes": 6360,
+    "sha256": "7ef7db1cb7938e76ec30a1f0406543b4c6440d899687da41c7e8aff83f7a3bef"
+  },
+  "exact_sample_cursor_restore_supported": false,
+  "production_optimizer_reload_tested": false,
+  "storage_portability_limit": "Continuation/extension source certification, inference-view and archive helpers require configured SSH storage-host SHA/fsync; local-disk-only continuation/extension evaluation/archive is unsupported.",
+  "new_checkpoint_paired_evaluation_status": "pending_at_training_outcome_snapshot",
+  "new_checkpoint_selection": null,
+  "hardware_task_competence_established": false,
+  "scope": "Completed training, durable native saved state, finite sampling and process-exit evidence only. New paired offline evaluation and candidate selection remain separate evidence."
+}
