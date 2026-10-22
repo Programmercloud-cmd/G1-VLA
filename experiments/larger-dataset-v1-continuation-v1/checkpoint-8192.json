@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "artifact_type": "certified_continuation_checkpoint8192",
+  "generated_at_utc": "2026-10-22T02:12:37.882620+00:00",
+  "certificate_observed_at_utc": "2026-10-22T02:10:46.197516+00:00",
+  "checkpoint_certified": true,
+  "whole_training_passed_not_asserted": true,
+  "run": "larger-dataset-v1-continuation-v1-retry1",
+  "execution_commit": "84c1f7db6637dcedecbb73627e62b26fc435ebb4",
+  "native_local_step": 4096,
+  "cumulative_weight_lineage": 8192,
+  "source_checkpoint_updates": 4096,
+  "canonical_full_checkpoint": "archive:runs/larger-dataset-v1-continuation-v1-retry1/checkpoint-4096",
+  "execution_startup_history": {
+    "ref": "experiments/larger-dataset-v1-continuation-v1/execution.json",
+    "bytes": 7257,
+    "sha256": "e5b8b50b07b35ac660b8cbd1a7018a25e81dc838a70919afe0f46950e22c1399"
+  },
+  "continuation_protocol": {
+    "ref": "experiments/larger-dataset-v1-continuation-v1/evaluation-protocol-startup-fix-v2.json",
+    "bytes": 7684,
+    "sha256": "59e5b5b7b43647b88d4b69fc41c6cb044ec56eec2bc54ea5b65bc1d94be4166f"
+  },
+  "certificate": {
+    "ref": "archive:reports/larger-dataset-v1-continuation-v1-retry1-checkpoint-local-4096-cumulative-8192/certificate.json",
+    "bytes": 3310,
+    "sha256": "0b212d6654d8a5f970836b677f1cff81556543383ba20310fa3568720faf3c3f"
+  },
+  "independent_small_evidence_verification": {
+    "ref": "archive:reports/larger-dataset-v1-continuation-v1-retry1-checkpoint-local-4096-cumulative-8192/verification.json",
+    "bytes": 1847,
+    "sha256": "7b4ad6c76ad7b2979e5a38e5082ccecfd87df02d246d7246a2c3d348a4290ded"
+  },
+  "full_checkpoint_inventory": {
+    "ref": "archive:reports/larger-dataset-v1-continuation-v1-retry1-checkpoint-local-4096-cumulative-8192/full-checkpoint-inventory.json",
+    "bytes": 8725,
+    "sha256": "1ef3517648c1e38965b44e8583d5d79d9dce33269f77f85f04b7ae60815a138a"
+  },
+  "coverage": {
+    "ref": "archive:reports/larger-dataset-v1-continuation-v1-retry1-checkpoint-local-4096-cumulative-8192/coverage.json",
+    "bytes": 35625,
+    "sha256": "b05a9d08a3637ab960a955be03a5b4c96a41936e3aa762323a3f997dd1bc2b4a"
+  },
+  "immutable_certified_finite_prefix": {
+    "ref": "archive:reports/larger-dataset-v1-continuation-v1-retry1-checkpoint-local-4096-cumulative-8192/finite-prefix-through-certified-local-4096.jsonl",
+    "bytes": 8345634,
+    "sha256": "1ee96aae9705b7a23def98141b4316863ee09e2d15dc22c6a72b8df882048e42"
+  },
+  "continuation_metadata": {
+    "ref": "archive:reports/larger-dataset-v1-continuation-v1-retry1-checkpoint-local-4096-cumulative-8192/continuation.json",
+    "bytes": 2225,
+    "sha256": "d257a37af61fac20b854fd0195815e3203d3282016f8f41ca1f1697934b1abd4"
+  },
+  "durable_evidence_publication": {
+    "ref": "archive:reports/larger-dataset-v1-continuation-v1-retry1-checkpoint-local-4096-cumulative-8192/publication-manifest.json",
+    "bytes": 1347,
+    "sha256": "9dd1a78fa7a7d853598ef2cb04ef749f4477ca103891c690c0b123920e75c2ac"
+  },
+  "native_full_checkpoint": {
+    "file_count": 20,
+    "total_bytes": 25548023944,
+    "required_state_files": [
+      "optimizer.pt",
+      "scheduler.pt",
+      "rng_state.pth"
+    ],
+    "optimizer_state_entries": 537,
+    "scheduler_epoch": 4096,
+    "rng_keys": [
+      "cpu",
+      "cuda",
+      "numpy",
+      "python"
+    ],
+    "full_state_structure_validation_passed": true,
+    "complete_remote_sha256_inventory_passed": true,
+    "per_file_fsync_completed": true,
+    "directories_fsync_completed": true,
+    "synchronous_save_certificate_passed": true,
+    "processor_files_sha256": {
+      "processor_config.json": "033aeac07e3227b523703d152dca8ac2d277a40168f1d2698b536e6d2417c228",
+      "statistics.json": "7abadea98ec3c97086ac3be138189086d07907a3c007bafd4a8f5d39950a4282",
+      "embodiment_id.json": "5e8611697dc90b7b7a92cf2a8da926275c16f5966c5eb109e0216c3c51af15a1"
+    },
+    "model_optimizer_bulk_bytes_not_reread_for_curation": true,
+    "canonical_checkpoint_is_resume_reference": true,
+    "exact_iterable_cursor_restoration_supported": false
+  },
+  "certified_finite_prefix": {
+    "bytes": 8345634,
+    "events": 40967,
+    "complete_optimizer_updates": 4096,
+    "finite_micro_losses": 32768,
+    "finite_gradients": 4096,
+    "nonfinite_events": 0,
+    "all_step_learning_rates_finite": true,
+    "final_post_update_learning_rate": 0.0,
+    "active_audit_full_file_sha_not_frozen": true
+  },
+  "coverage_summary": {
+    "segment_samples": 32768,
+    "segment_unique_windows": 32768,
+    "segment_episodes": 87,
+    "lineage_samples": 65536,
+    "lineage_unique_windows": 36545,
+    "lineage_episodes": 96,
+    "source_certified_prefix_samples": 32768,
+    "source_unsaved_later_updates_excluded": 1135,
+    "lineage_policy": "Only source checkpoint4096 certified consumption plus this segment through local4096; collator prefetch excluded."
+  },
+  "actual_coordinate_schedule_check": {
+    "samples": 32768,
+    "actual_sequence_sha256": "f80c4f3eee6d626357ef54799ba7bb901f3d41b5988e348fc142bd5a82b2a513",
+    "nominal_seed4138_sequence_sha256": "f80c4f3eee6d626357ef54799ba7bb901f3d41b5988e348fc142bd5a82b2a513",
+    "matches": true,
+    "cpu_schedule_proof": {
+      "ref": "archive:reports/larger-dataset-v1-continuation-v1-retry1-checkpoint-local-4096-cumulative-8192/cpu-seed-schedule-proof.json",
+      "bytes": 3818,
+      "sha256": "b0ca5c478ddafee28039ebe8bc297afd3fba74f12aaf33f27873a3a811752494"
+    },
+    "scope": "Coordinates only; not augmentation/model numerical equivalence or exact sample-cursor restoration."
+  },
+  "save_cost": {
+    "step_end_elapsed_seconds": 10512.309633188997,
+    "checkpoint_event_elapsed_seconds": 13286.844106794,
+    "step_end_to_certified_save_seconds": 2774.534473605003,
+    "scope": "Includes native checkpoint/state serialization, validation, remote hash/file+directory fsync and callback overhead; not isolated I/O timing."
+  },
+  "native_output_root_save_and_final_process_exit_status": "pending_at_checkpoint_certificate_snapshot",
+  "evaluation_status": "not_run_for_this_checkpoint_at_certificate_snapshot",
+  "formal_candidate_selection": null,
+  "hardware_task_competence_established": false,
+  "limits": [
+    "Certifies this durable saved checkpoint and its exact finite prefix, not final process completion or a paired offline evaluation.",
+    "Full native optimizer/scheduler/RNG state does not provide exact iterable sample-cursor restoration.",
+    "Coordinate agreement does not establish augmentation/model numerical equivalence or robot competence."
+  ]
+}

@@ -16,8 +16,15 @@ unchanged history; the new startup proof supplies the completed runtime checks.
 The [first new checkpoint](checkpoint-6144.json) is now certified at local step
 2,048 / cumulative weight lineage 6,144: 20 files totaling 25,547,995,357 bytes,
 including optimizer, scheduler and RNG state, passed complete remote SHA256 and
-file/directory fsync checks. Training continues; this certificate establishes no
+file/directory fsync checks. This certificate establishes no
 paired offline evaluation or whole-run result.
+
+All 4,096 additional optimizer updates have now completed with finite losses and
+gradients. The [second checkpoint](checkpoint-8192.json), at native local step
+4,096 / cumulative weight lineage 8,192, is also certified: all 20 files totaling
+25,548,023,944 bytes passed full native-state validation and complete remote
+SHA256/file/directory fsync checks. The upstream final output-root model save,
+process exit and paired evaluations remain pending at this receipt's snapshot.
 
 The first startup failed before any optimizer update. The
 [startup receipt](startup-attempt-1.json) binds the immutable run manifest,
