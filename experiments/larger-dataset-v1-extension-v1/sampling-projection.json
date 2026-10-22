@@ -1,0 +1,287 @@
+{
+  "schema_version": 1,
+  "artifact_type": "predeclared_extension_native_sampling_projection",
+  "experiment": "larger-dataset-v1-extension-v1",
+  "passed": true,
+  "status": "nominal_before_actual_extension_consumption",
+  "scope": "CPU metadata-only fixed approved seed8234 nominal coordinates; both prior certified4096prefixes independently reconstructed exactly. No new actual training consumption, augmentation/model numerical-equivalence, processor pipeline or exact cursor replay claim. No videos, model weights or GPU operations.",
+  "projection_seed": 8234,
+  "seed_search_performed": false,
+  "coordinate_encoding": "Packed little-endian signed int64 episode_index,row pairs (<qq) in loss order.",
+  "native_schedule": {
+    "native_leaf_shards": 98,
+    "configured_shard_size": 256,
+    "num_shards_per_epoch": 98,
+    "uncapped_ceil_windows_over_shard_size": 146,
+    "eligible_windows": 37281,
+    "sampling_rate": 1.0,
+    "action_horizon": 16
+  },
+  "episode_order_exactly_matches_both_prior_manifests": true,
+  "two_prior_certified4096prefixes_exactly_reconstructed": true,
+  "prior65536_exposures": {
+    "examples": 65536,
+    "unique_windows": 36545,
+    "episodes": 96
+  },
+  "projected_new_segment": {
+    "examples": 32768,
+    "unique_windows": 32768,
+    "episodes": 86,
+    "sequence_sha256": "2c98155b685e34013a588309a51580e7f742ef91aac691998131e368b41fe858",
+    "first32_sha256": "f289fd3c69ffb9c0fb77602f9dacac43474865a567238f342490f0cdf70ce9e6",
+    "first32_coordinates": [
+      [
+        70,
+        190
+      ],
+      [
+        70,
+        20
+      ],
+      [
+        70,
+        71
+      ],
+      [
+        70,
+        291
+      ],
+      [
+        70,
+        248
+      ],
+      [
+        70,
+        124
+      ],
+      [
+        70,
+        10
+      ],
+      [
+        70,
+        178
+      ],
+      [
+        70,
+        319
+      ],
+      [
+        70,
+        91
+      ],
+      [
+        70,
+        131
+      ],
+      [
+        70,
+        240
+      ],
+      [
+        70,
+        168
+      ],
+      [
+        70,
+        159
+      ],
+      [
+        70,
+        155
+      ],
+      [
+        70,
+        213
+      ],
+      [
+        70,
+        19
+      ],
+      [
+        70,
+        58
+      ],
+      [
+        70,
+        27
+      ],
+      [
+        70,
+        117
+      ],
+      [
+        70,
+        292
+      ],
+      [
+        70,
+        197
+      ],
+      [
+        70,
+        297
+      ],
+      [
+        70,
+        217
+      ],
+      [
+        70,
+        196
+      ],
+      [
+        70,
+        214
+      ],
+      [
+        70,
+        311
+      ],
+      [
+        70,
+        295
+      ],
+      [
+        70,
+        205
+      ],
+      [
+        70,
+        76
+      ],
+      [
+        70,
+        72
+      ],
+      [
+        70,
+        251
+      ]
+    ],
+    "newly_exposed_windows": 375,
+    "newly_exposed_episodes": [
+      "episode_0068"
+    ],
+    "unseen_episodes": [
+      "episode_0054",
+      "episode_0071",
+      "episode_0075",
+      "episode_0081",
+      "episode_0097",
+      "episode_0106",
+      "episode_0112",
+      "episode_0119",
+      "episode_0146",
+      "episode_0155",
+      "episode_0161",
+      "episode_0168"
+    ]
+  },
+  "projected_combined_three_segment_lineage": {
+    "examples": 98304,
+    "unique_windows": 36920,
+    "eligible_windows": 37281,
+    "episodes": 97,
+    "training_episodes": 98,
+    "unique_window_fraction": 0.9903167833480861,
+    "example_equivalent_passes": 2.636839140580993,
+    "unseen_episodes": [
+      "episode_0071"
+    ]
+  },
+  "publication_manifest": {
+    "ref": "archive:reports/larger-dataset-v1-extension-v1-seed8234-projection/publication-manifest.json",
+    "bytes": 2789,
+    "sha256": "1dbbb8364b43ec9c032bbafa0db9ff8bb7bd28c3305cb3de18cf8a0386264398"
+  },
+  "projection_report": {
+    "ref": "archive:reports/larger-dataset-v1-extension-v1-seed8234-projection/reports/larger-dataset-v1-extension-v1/seed8234-schedule-projection-v3.json",
+    "bytes": 9245,
+    "sha256": "7735a43ad8a485220b955cec8ef05fd3b3fb2f0c2702563fc65a03be54c1e132"
+  },
+  "projection_source": {
+    "ref": "archive:reports/larger-dataset-v1-extension-v1-seed8234-projection/reports/extension_seed8234_schedule_projection_20261022_v3.py",
+    "bytes": 8129,
+    "sha256": "903a20bafa5dc89f573e4060d751f5a13eca9ef40e138f020c11cfd272ec0339"
+  },
+  "prior_source42_and4138_proof": {
+    "ref": "archive:reports/larger-dataset-v1-extension-v1-seed8234-projection/reports/continuation-seed-schedule-proof.json",
+    "bytes": 3818,
+    "sha256": "b0ca5c478ddafee28039ebe8bc297afd3fba74f12aaf33f27873a3a811752494"
+  },
+  "native_leaf_source": {
+    "ref": "vendor/Isaac-GR00T/gr00t/data/dataset/sharded_single_step_dataset.py",
+    "bytes": 12906,
+    "sha256": "8d4cfeb4beee92a0d4b4a042b953ebbd1fb5e1e862a38c77f366ce5e37effb80"
+  },
+  "native_mixture_source": {
+    "ref": "vendor/Isaac-GR00T/gr00t/data/dataset/sharded_mixture_dataset.py",
+    "bytes": 24709,
+    "sha256": "f452072c1191249adef45d98bf75239c792e019f4a088bc8dc09f10f7a7441a3"
+  },
+  "source_ancestry": {
+    "ref": "experiments/larger-dataset-v1-extension-v1/ancestry.json",
+    "bytes": 4608,
+    "sha256": "a7cbab4e1319d0bbf689b98bdbc4a71d4f6faa3fc2395519c9b5bdee149665cb"
+  },
+  "prior_certified_prefixes": [
+    {
+      "seed": 42,
+      "native_certified_updates": 4096,
+      "coordinates": 32768,
+      "sequence_sha256": "19d581be512e740216164c00a17ed1774ae0a9c3f046ff93ede917cac8d04dd5",
+      "first32_sha256": "98bbbea91bd0cba46ab529acf6232490ac9574f5a42910b996abd2b6f7eda5ce",
+      "certified_audit_prefix_sha256": "f2d44beb1b3122e863ef6938d1fc2011554268c32383ea4575fc9f3d6235df6d",
+      "durable_bindings": {
+        "run": {
+          "ref": "archive:reports/larger-dataset-v1-retry2-completion/reports/larger-dataset-v1-retry2/larger-dataset-v1-retry2-run.json",
+          "bytes": 92212,
+          "sha256": "c58885dc695f03b99d63b7a3c90d6c51fa8cff3dc25d571d39f1555ee54f0dc5"
+        },
+        "training": {
+          "ref": "archive:reports/larger-dataset-v1-retry2-completion/reports/larger-dataset-v1-retry2/larger-dataset-v1-retry2-train.json",
+          "bytes": 4397,
+          "sha256": "13e424d48fd5cea6cc919900923c8dfb2a28f08da506bd5493d1e1c0e7db69ca"
+        },
+        "audit": {
+          "ref": "archive:reports/larger-dataset-v1-retry2-completion/reports/larger-dataset-v1-retry2/larger-dataset-v1-retry2-finite.jsonl",
+          "bytes": 8819584,
+          "sha256": "0833b8d57fdff111dfa01b42bec3f13d834a214b9d08b2f09bc05a110ea57513"
+        }
+      }
+    },
+    {
+      "seed": 4138,
+      "native_certified_updates": 4096,
+      "coordinates": 32768,
+      "sequence_sha256": "f80c4f3eee6d626357ef54799ba7bb901f3d41b5988e348fc142bd5a82b2a513",
+      "first32_sha256": "372679a81deacaf7521d28f7c9c90da043e304709745a255cc5a46916d84c866",
+      "certified_audit_prefix_sha256": "1ee96aae9705b7a23def98141b4316863ee09e2d15dc22c6a72b8df882048e42",
+      "durable_bindings": {
+        "run": {
+          "ref": "archive:reports/larger-dataset-v1-continuation-v1-retry1-training-completion/reports/larger-dataset-v1-continuation-v1/larger-dataset-v1-continuation-v1-retry1-run.json",
+          "bytes": 106054,
+          "sha256": "db79bb2c96f8e49a05f99b0c97800c88e1467104db45d2ed193390b3fa9a73c6"
+        },
+        "training": {
+          "ref": "archive:reports/larger-dataset-v1-continuation-v1-retry1-training-completion/reports/larger-dataset-v1-continuation-v1/larger-dataset-v1-continuation-v1-retry1-train.json",
+          "bytes": 10473,
+          "sha256": "03fa92c5000fae4bc39347105926e1fba09869dafe7aef7eeacae229154ec000"
+        },
+        "audit": {
+          "ref": "archive:reports/larger-dataset-v1-continuation-v1-retry1-training-completion/reports/larger-dataset-v1-continuation-v1/larger-dataset-v1-continuation-v1-retry1-finite.jsonl",
+          "bytes": 8345634,
+          "sha256": "1ee96aae9705b7a23def98141b4316863ee09e2d15dc22c6a72b8df882048e42"
+        }
+      }
+    }
+  ],
+  "draft_history": "Draft1 projection matched these coordinates. V2 removed a redundant ineffective assertion but safely refused its occupied output; v3 corrected only the output path. All prior sources/logs/reports preserved in publication.",
+  "actual_extension_consumption_verified": false,
+  "gpu_compute_performed": false,
+  "model_video_data_decode_performed": false,
+  "exact_sample_cursor_resume_claim": false,
+  "hardware_competence_claim": false
+}

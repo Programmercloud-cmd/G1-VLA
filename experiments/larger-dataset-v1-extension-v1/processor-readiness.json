@@ -1,0 +1,131 @@
+{
+  "schema_version": 1,
+  "artifact_type": "extension_native_cpu_processor_and_implementation_readiness",
+  "generated_at_utc": "2026-10-22T07:13:47.965031+00:00",
+  "experiment": "larger-dataset-v1-extension-v1",
+  "passed": true,
+  "scope": "Actual native launcher processor/dataset factory only with modelNone, plus11CPUimplementationtests. Not actual training startup, learned weight load or production optimizer resume.",
+  "publication_manifest": {
+    "ref": "archive:reports/larger-dataset-v1-extension-v1-processor-implementation-preflight/publication-manifest.json",
+    "bytes": 3376,
+    "sha256": "adb119f4183f599ee1230a759cea18baebfc05020b8092fa78aebc375d57648a"
+  },
+  "cpu_processor_proof": {
+    "ref": "archive:reports/larger-dataset-v1-extension-v1-processor-implementation-preflight/processor-warmstart/proof.json",
+    "bytes": 4191,
+    "sha256": "231970c3072e732bdfd890e0ae9301774deca5deb6d39149eb358cd92f14c7ca"
+  },
+  "proof_source": {
+    "ref": "archive:reports/larger-dataset-v1-extension-v1-processor-implementation-preflight/reports/extension_warmstart_processor_proof_20261022.py",
+    "bytes": 6094,
+    "sha256": "8f0bfecb2fb816580ad701775b66d4ea74680861c75639ff20e30522832c868f"
+  },
+  "proof_log": {
+    "ref": "archive:reports/larger-dataset-v1-extension-v1-processor-implementation-preflight/reports/larger-dataset-v1-extension-v1/processor-warmstart-proof.log",
+    "bytes": 5183,
+    "sha256": "3ff6250dd18d3d7e746e74da5bbe42a6c97c0d3b288102ba16897f34944848a9"
+  },
+  "implementation_cpu_proof": {
+    "ref": "archive:reports/larger-dataset-v1-extension-v1-processor-implementation-preflight/reports/larger-dataset-v1-extension-v1/implementation-cpu-proof.json",
+    "bytes": 2364,
+    "sha256": "b386d96247f0359497528f18da697ebc7fcf7f3a6c87352599a7f6c340e08408"
+  },
+  "actual_source_binding_integration": {
+    "ref": "archive:reports/larger-dataset-v1-extension-v1-processor-implementation-preflight/reports/larger-dataset-v1-extension-v1/source-binding-integration.json",
+    "bytes": 25858,
+    "sha256": "0b06a75845e706583cc5dbf42aefadacc99898a0c75df125c09bbf9f09c4328b"
+  },
+  "runner_source": {
+    "ref": "archive:reports/larger-dataset-v1-extension-v1-processor-implementation-preflight/scripts/run_gr00t_extension.py",
+    "bytes": 46184,
+    "sha256": "0ac5fbe48b579da82069df3e5091ebac2cd127445943b8f9c362c1aa5d19e484"
+  },
+  "watchdog_source": {
+    "ref": "archive:reports/larger-dataset-v1-extension-v1-processor-implementation-preflight/scripts/watch_extension_cap.py",
+    "bytes": 740,
+    "sha256": "f726c4cccfe2e7371817475bfff22202d0fbc4057d5cda5bbfa14327d66d97ce"
+  },
+  "source_checkpoint_ref": "archive:runs/larger-dataset-v1-continuation-v1-retry1/checkpoint-4096",
+  "source_cumulative_step": 8192,
+  "source_native_step": 4096,
+  "launcher_sha256_at_start": "0ac5fbe48b579da82069df3e5091ebac2cd127445943b8f9c362c1aa5d19e484",
+  "launcher_sha256_at_finish": "0ac5fbe48b579da82069df3e5091ebac2cd127445943b8f9c362c1aa5d19e484",
+  "factory_function_source_hashes": {
+    "configure_segment": "1c582c75f9e7d8f81988ba1626bd9a3954d5bcd17f41965074399ce91310bc6c",
+    "extension_command": "dfab61d5bce0bcbe37c763ffa6ab453156cde3dbc4f3700b6a1cea41375e6e0b",
+    "dataset_command": "1876254f00f0eb0c3605e7a7d05ca81b224ad4c21114da15890c64e3f1da4587"
+  },
+  "machine_config_sha256": "b06d4411f2d5606ebd97a4a71a74f9367731e4d0de401618c4ec3426136bc1c2",
+  "command_sha256": "d4f49bfa2ba3a78faf3f9ebbd87fd766738b8e82263dc93c0fd82d9a60d0f05e",
+  "command_full_arguments_in_durable_proof": true,
+  "native_sequence": [
+    "configure_segment(seed8234)",
+    "set_seed",
+    "Config.validate",
+    "Gr00tN1d7Pipeline(model=None)._create_dataset"
+  ],
+  "configuration_override": {
+    "event": "configuration_override",
+    "passed": true,
+    "changed_fields": [
+      "data.seed"
+    ],
+    "base_seed": 42,
+    "segment_seed": 8234,
+    "derivation": "42+source_checkpoint8192",
+    "effective_config_sha256": "aa545514d54bbdc12b192e0f36b73cc338af9cf0fe3f681102eb904e505afc15",
+    "config_with_base_seed_sha256": "ecb1103c28afb5039aea5688f07221ad47a4fe0b7f984b5a992fe2a626452166",
+    "upstream_config_before_override_sha256": "ecb1103c28afb5039aea5688f07221ad47a4fe0b7f984b5a992fe2a626452166",
+    "split_seed": 42,
+    "evaluation_seeds": [
+      42,
+      43,
+      44
+    ]
+  },
+  "pythonhashseed": 1,
+  "cuda_visible_devices": "",
+  "cuda_initialized": false,
+  "model_is_none": true,
+  "model_weights_loaded": false,
+  "optimizer_state_loaded": false,
+  "gpu_kernels_run": false,
+  "training_invoked": false,
+  "tmpdir": "/dev/shm/vla-extension-tmp-20261022",
+  "train_shards": 98,
+  "train_episodes": 98,
+  "train_frames": 38751,
+  "action_horizon": 16,
+  "episode_lengths_sha256": "75dd35c73282db9f7cf938989653f274b474a4bacd5577071f8d6f36d065afe8",
+  "state_dropout_prob": 0.0,
+  "statistics_bytes_unchanged": true,
+  "processor_files_sha256": {
+    "processor_config.json": "033aeac07e3227b523703d152dca8ac2d277a40168f1d2698b536e6d2417c228",
+    "statistics.json": "7abadea98ec3c97086ac3be138189086d07907a3c007bafd4a8f5d39950a4282",
+    "embodiment_id.json": "5e8611697dc90b7b7a92cf2a8da926275c16f5966c5eb109e0216c3c51af15a1"
+  },
+  "processor_semantics_sha256": "e9fabe9dfd6b04b7c7a4cb6097073e0200b21987059a7c7987cf41c0f949997c",
+  "three_saved_processor_files_match_frozen_training_bootstrap": true,
+  "native_validation_preserved_horizon_and_registry": true,
+  "implementation_checks": {
+    "runner_tests": 8,
+    "cap_tests": 3,
+    "skipped_tests": 0,
+    "actual_selected_source_binder_and_two_prefix_validator_passed": true,
+    "production_model_or_optimizer_load": false
+  },
+  "storage_readiness": {
+    "ref": "experiments/larger-dataset-v1-extension-v1/storage-readiness.json",
+    "bytes": 6789,
+    "sha256": "c1528cb08f3eb2bbec23516d33fbf8e3f41e8619939e7d8ffb32bd7ff071ab18"
+  },
+  "sampling_projection": {
+    "ref": "experiments/larger-dataset-v1-extension-v1/sampling-projection.json",
+    "bytes": 8452,
+    "sha256": "932ed1d87e40d64a9702c9aab1af6e6610b68601d20a56e137de5afb9e6ca3e3"
+  },
+  "limitations": [
+    "CPU proof establishes processor/dataset configuration only; actual strict trained-policy load, optimizer freshness and runtime sample identities require startup audits after a separately authorized launch.",
+    "Production optimizer reload/exact sample cursor restoration remains untested/unsupported as documented."
+  ]
+}

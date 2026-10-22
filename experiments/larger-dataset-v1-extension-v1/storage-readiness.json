@@ -1,0 +1,168 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-10-22T06:56:50.727348+00:00",
+  "experiment": "larger-dataset-v1-extension-v1",
+  "artifact_type": "extension_storage_environment_readiness",
+  "passed": true,
+  "scope": "Current actual-host storage/CPU readiness snapshot only; no training launch, model load, GPU kernels or new policy claim. Final frozen implementation/protocol/launch guards remain separate.",
+  "publication_manifest": {
+    "ref": "archive:reports/larger-dataset-v1-extension-v1-preflight/publication-manifest.json",
+    "bytes": 2046,
+    "sha256": "545576955a426b9ae74f0cac0ec1261fd61e289e24a2eb71214a701998a134a6"
+  },
+  "machine_configuration": {
+    "local_path": "reports/larger-dataset-v1-extension-v1-machine.json",
+    "durable_copy": {
+      "ref": "archive:reports/larger-dataset-v1-extension-v1-preflight/reports/larger-dataset-v1-extension-v1-machine.json",
+      "bytes": 323,
+      "sha256": "b06d4411f2d5606ebd97a4a71a74f9367731e4d0de401618c4ec3426136bc1c2"
+    },
+    "changed_setting_from_previous": "paths.reports=reports/larger-dataset-v1-extension-v1",
+    "other_dataset_cache_storage_runtime_paths_preserved": true
+  },
+  "temporary_directory": {
+    "path": "/dev/shm/vla-extension-tmp-20261022",
+    "mode": "0o700",
+    "outside_frozen_dataset": true,
+    "pinned_python_tempfile_verified": true
+  },
+  "runtime_readiness": {
+    "report": {
+      "ref": "archive:reports/larger-dataset-v1-extension-v1-preflight/reports/larger-dataset-v1-extension-v1/readiness-20261022.json",
+      "bytes": 3725,
+      "sha256": "ca2fea4941313f7820f1769b256bd2a3147efaf6e7fd468a84c04fd5eac94bb8"
+    },
+    "checks_passed": 17,
+    "environments": {
+      "unitree": {
+        "python": "/home/test2/dev/VLA/.venvs/unitree/bin/python",
+        "python_version": "3.10.12",
+        "packages": 125
+      },
+      "conversion": {
+        "python": "/home/test2/dev/VLA/.venvs/conversion/bin/python",
+        "python_version": "3.10.12",
+        "packages": 92
+      },
+      "gr00t": {
+        "python": "/home/test2/dev/VLA/vendor/Isaac-GR00T/.venv/bin/python",
+        "python_version": "3.12.2",
+        "packages": 135
+      },
+      "tools": {
+        "python": "/home/test2/dev/VLA/.tools/python/bin/python",
+        "python_version": "3.12.2",
+        "packages": 20
+      }
+    },
+    "full_pinned_model_asset_sha256": true,
+    "model_assets_lock": {
+      "ref": "locks/model-assets.json",
+      "bytes": 3046,
+      "sha256": "be445c931fac431029f1af3edbd680e5e8be35cdd01f3b19707956baecc66115"
+    },
+    "model_sources_lock": {
+      "ref": "locks/model-sources.json",
+      "bytes": 3590,
+      "sha256": "48a2fc87bdb9bdb3ede682c9bc647743121ca7457bc6b1a3e111a56bf7c781fc"
+    },
+    "runtime_sources_lock": {
+      "ref": "locks/runtime-sources.json",
+      "bytes": 1249,
+      "sha256": "df5e2c183582c79d219482e6b2095f2428195ff321f847c6fa4d778d3d77bbc8"
+    },
+    "actual_train_loader": true,
+    "tiny_encoded_video_decode": true,
+    "gpu_compute_performed": false
+  },
+  "frozen_inputs": {
+    "report": {
+      "ref": "archive:reports/larger-dataset-v1-extension-v1-preflight/reports/larger-dataset-v1-extension-v1/frozen-storage-source-readiness-20261022.json",
+      "bytes": 16471,
+      "sha256": "c8ea4e6eb44cb1acfbd808532f6f3a514fcfbbc8f65613c3601dd233ce8d7983"
+    },
+    "source_hashes": 27,
+    "processor_hashes": 3,
+    "small_data_bindings": 6,
+    "frozen_sample_json_npz_files": 4,
+    "converted_datasets": [
+      {
+        "split": "train",
+        "dataset": "/dev/shm/vla-large-data-v1/lerobot/local/g1_inspire_larger_v1_train",
+        "episodes": 98,
+        "frames": 38751,
+        "verified_files": 203,
+        "verified_bytes": 423450100
+      },
+      {
+        "split": "validation",
+        "dataset": "/dev/shm/vla-large-data-v1/lerobot/local/g1_inspire_larger_v1_validation",
+        "episodes": 24,
+        "frames": 8811,
+        "verified_files": 54,
+        "verified_bytes": 95146023
+      }
+    ],
+    "raw_image_decode_repeated": false,
+    "original_split_protocol_annotations_unchanged": true
+  },
+  "source_checkpoint": {
+    "ref": "archive:runs/larger-dataset-v1-continuation-v1-retry1/checkpoint-4096",
+    "cumulative_weight_lineage": 8192,
+    "native_step": 4096,
+    "inventory": {
+      "ref": "archive:reports/larger-dataset-v1-continuation-v1-retry1-checkpoint-local-4096-cumulative-8192/full-checkpoint-inventory.json",
+      "bytes": 8725,
+      "sha256": "1ef3517648c1e38965b44e8583d5d79d9dce33269f77f85f04b7ae60815a138a"
+    },
+    "files": 20,
+    "bytes": 25548023944,
+    "all20_remote_and_mounted_signatures_fresh": true,
+    "small_metadata_and_processor_sha_fresh": true,
+    "bulk_sha_reused_from_certified_durable_inventory": true,
+    "bulk_checkpoint_bytes_read": 0,
+    "optimizer_scheduler_rng_preserved": true,
+    "source_untouched": true
+  },
+  "resources": {
+    "report": {
+      "ref": "archive:reports/larger-dataset-v1-extension-v1-preflight/reports/larger-dataset-v1-extension-v1/actual-host-resources-20261022.json",
+      "bytes": 770,
+      "sha256": "220721acbe5eb114b7530f3dce8948bff173b847cf5086b818a6d3e7c0d07caf"
+    },
+    "root_free_bytes": 20870205440,
+    "external_free_bytes": 1015916269568,
+    "shm_free_bytes": 61389463552,
+    "host_available_bytes": 125797695488,
+    "gpu": {
+      "name": "NVIDIA RTX A6000",
+      "total_mib": 49140,
+      "free_mib": 48660,
+      "used_mib": 11,
+      "utilization_percent": 0,
+      "compute_processes": []
+    },
+    "required_root_headroom_bytes": 20401094656,
+    "required_external_startup_bytes": 128849018880,
+    "required_host_available_bytes": 64424509440,
+    "required_gpu_available_bytes": 42949672960,
+    "runtime_filesystem_guard_bytes_unchanged": 8589934592
+  },
+  "cleanup": {
+    "additional_cleanup_performed": false,
+    "reason": "Root free exceeds19GiB target; remaining large UV archive backs preserved environments, while other UV cache buckets total only about30MB. Prior durable cleanup and Git pack symlink dependencies preserved.",
+    "prior_cleanup_evidence": {
+      "ref": "experiments/larger-dataset-v1-continuation-v1/storage-readiness.json",
+      "bytes": 12035,
+      "sha256": "343fef90e8dd0d756c1c76cb942eec889f82e887e0ec34401a1b3dd28ac6ca31"
+    },
+    "all_old_runs_and_protected_artifacts_preserved": true,
+    "external_git_pack_symlink_dependencies_preserved": true
+  },
+  "limitations": [
+    "Snapshot of current host, not fresh-host installation proof.",
+    "No production optimizer reload or exact iterator resume is established.",
+    "Continuation certification/view/archive helpers still require SSH-backed storage.",
+    "Training launch requires separately reviewed frozen implementation/protocol, fresh resource checks and root GPU lease."
+  ]
+}
