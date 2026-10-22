@@ -1,6 +1,16 @@
 # Evaluation of the extension from 8,192 to 12,288
 
-The new declaration is `experiments/larger-dataset-v1-extension-v1/evaluation-protocol.json`. It preserves the original 21 runtime sources plus the previous continuation's six sources, original 100 frozen windows per split, normalization, evaluation seeds 42/43/44, four denoising steps and zero state dropout. The original evaluator and its tested OpenCV-preloading launcher run unchanged. New records compare each new policy both to the original pretrained baseline and to the actual independently verified 8,192 predictions.
+Both extension checkpoint pairs, comparisons, full-state archives and formal
+source-inclusive selection completed successfully. The selected candidate is
+cumulative **12,288**, validation normalized MAE **0.104795** versus **0.110770**
+at the preserved 8,192 source. The 10,240 checkpoint regressed to **0.133912**.
+The independent CPU verifier confirmed all six source/new prediction arrays,
+group/subset/seed metrics, frozen arrays and ranking. See [final results](larger-dataset-v1-extension-results.md)
+and the [selected full-state/inference references](../experiments/larger-dataset-v1-extension-v1/selected-policy.json).
+All training/evaluation processes exited; the commands below document the workflow
+and require fresh output names for any separately authorized future work.
+
+The declaration is `experiments/larger-dataset-v1-extension-v1/evaluation-protocol.json`. It preserves the original 21 runtime sources plus the previous continuation's six sources, original 100 frozen windows per split, normalization, evaluation seeds 42/43/44, four denoising steps and zero state dropout. The original evaluator and its tested OpenCV-preloading launcher run unchanged. New records compare each new policy both to the original pretrained baseline and to the actual independently verified 8,192 predictions.
 
 Native checkpoint names and TrainerState remain local: `checkpoint-2048` maps to cumulative 10,240, and `checkpoint-4096` maps to cumulative 12,288. The learned 8,192 source retains its canonical native checkpoint 4,096 and complete optimizer/scheduler/RNG files. This extension deliberately loads its model weights with a fresh AdamW optimizer and a cosine schedule for 4,096 additional updates: peak 2.5e-5, 103 warmup updates, native seed 8,234. It does not restore the previous optimizer or an exact iterable cursor. Source lineage remains two separately certified native 4,096 segments, with 65,536 consumed examples; the old unsaved 1,135 updates remain excluded.
 
@@ -67,4 +77,4 @@ VLA_COMPARISONS=(
 "$VLA_PY" -B -m unittest discover -s tests -p test_extension_evaluation.py -v
 ```
 
-Selection uses the same held-out validation windows and is not an untouched final test. Persistence and improvement thresholds remain descriptive; no automatic hardware deployment follows from offline scores. Preserve all previous declarations, raw predictions, selected policies, full checkpoints and result histories. New-checkpoint full saves/views/inference are pending until this extension produces actual checkpoints; native full-state reload has only the previously recorded tiny CPU Trainer fixture as a reload test.
+Selection uses the same held-out validation windows and is not an untouched final test. Persistence and improvement thresholds remain descriptive; no automatic hardware deployment follows from offline scores. Preserve all previous declarations, raw predictions, selected policies, full checkpoints and result histories. Both new canonical 20-file full saves passed native optimizer/scheduler/RNG validation and complete remote SHA/file/directory fsync. Their nonresumable inference views, strict paired model reloads and 94-file evidence archives passed, with one reused model process per train/validation pair. The separate auxiliary root model-only save passed its seven-file durability proof. Production optimizer-state reload remains untested; native full-state reload has only the previously recorded tiny CPU Trainer fixture as a reload test. Exact iterable cursor restoration and local-disk-only extension certification/view/archive remain unsupported.

@@ -1,16 +1,24 @@
 # Larger-dataset v1 resume — 21 October 2026
 
-Current status (22 October): the [continuation](larger-dataset-v1-continuation.md)
+Current status (22 October): the [extension](larger-dataset-v1-extension.md)
 completed all 4,096 additional updates, both full-state saves, paired evaluations,
-durable archives and formal checkpoint selection. The [selected offline policy](../experiments/larger-dataset-v1-continuation-v1/selected-policy.json)
-is cumulative 8,192 / native local 4,096, validation normalized MAE **0.110770**
-versus **0.149138** for the parent. See [final results and curves](larger-dataset-v1-continuation-results.md)
-and [complete training evidence](../experiments/larger-dataset-v1-continuation-v1/training-outcome.json).
-All training/evaluation processes exited; no further training is running or scheduled.
-The model-only inference view is nonresumable; the separate canonical checkpoint
-retains native state, with no exact sample-cursor restoration. Hardware competence
-has not been tested. The first zero-update startup failure and original remaining-budget
-cap remain preserved; the retry did not reset the deadline.
+durable archives and source-inclusive selection. The [selected offline policy](../experiments/larger-dataset-v1-extension-v1/selected-policy.json)
+is cumulative **12,288** / native extension step 4,096, validation normalized MAE
+**0.104795**, 5.4% below the preserved 8,192 source (0.110770). The intermediate
+10,240 checkpoint regressed to 0.133912. See [final results and curves](larger-dataset-v1-extension-results.md),
+[training outcome](../experiments/larger-dataset-v1-extension-v1/training-outcome.json)
+and [sealed results publication](../experiments/larger-dataset-v1-extension-v1/results-publication.json).
+All training/evaluation processes exited; no further training is running or
+scheduled. The selected model-only inference view is nonresumable; the separate
+canonical checkpoint retains native optimizer/scheduler/RNG state. Exact sample
+cursor restoration is unsupported, production optimizer reload remains untested,
+and no robot trial has run. The six-hour cap and 8 GiB reserve stayed unchanged.
+
+The preceding [continuation](larger-dataset-v1-continuation-results.md), selected
+8,192 policy, original partial runs, zero-update startup failure and all frozen
+protocols/receipts remain preserved as history. The extension's fresh optimizer
+boundary is cumulative 8,192; it does not retroactively consume the original
+unsaved 1,135 updates or reset any earlier run's deadline.
 
 The material below records the earlier partial experiment and recovery history.
 Its old commands are not new launch instructions.

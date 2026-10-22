@@ -1,17 +1,20 @@
 # Bounded extension from cumulative 8,192 to 12,288
 
-Status: running with [startup verified](../experiments/larger-dataset-v1-extension-v1/startup-complete.json)
-under actual commit `f7ce2ffe`. The captured snapshot records 46 finite local
-updates (cumulative weight lineage 8,238), all five runtime audits, strict
-learned-8,192 loading, frozen processor/zero dropout, live cap and fresh optimizer
-state. The first 32 consumed coordinates match seed 8,234. No new checkpoint
-or final result is certified by this startup snapshot. The
-[execution receipt](../experiments/larger-dataset-v1-extension-v1/execution.json)
-binds the original actual-launch six-hour cap, ending **22 October 2026 at
-13:23:44 UTC**, including loading and saves. This is a new 4,096-update segment
-from the [selected cumulative-8,192 policy](../experiments/larger-dataset-v1-continuation-v1/selected-policy.json).
-Earlier runs, full checkpoints, selected results and all frozen source/protocol
-bytes remain preserved. The new run identity is `larger-dataset-v1-extension-v1`.
+Status: **completed and evaluated**. The [training outcome](../experiments/larger-dataset-v1-extension-v1/training-outcome.json)
+records all 4,096 additional updates, both canonical full-state saves and the
+native auxiliary root save passed, followed by all writers exiting. Both paired
+evaluations and archives passed; the [selected offline candidate](../experiments/larger-dataset-v1-extension-v1/selected-policy.json)
+is cumulative **12,288**, validation normalized MAE **0.104795**, 5.4% below the
+8,192 source. The intermediate 10,240 checkpoint regressed to 0.133912.
+See [final results and curves](larger-dataset-v1-extension-results.md).
+
+Actual execution used commit `f7ce2ffe`. The [execution receipt](../experiments/larger-dataset-v1-extension-v1/execution.json)
+and [startup snapshot](../experiments/larger-dataset-v1-extension-v1/startup-complete.json)
+remain historical evidence, including the original six-hour deadline of
+22 October 2026 at 13:23:44 UTC. Training finished within that deadline without a
+cap signal; no further training is running or scheduled. Earlier runs, full
+checkpoints, selected results and frozen source/protocol bytes remain preserved.
+The run identity is `larger-dataset-v1-extension-v1`.
 
 The source is the canonical **full** checkpoint
 `archive:runs/larger-dataset-v1-continuation-v1-retry1/checkpoint-4096`, whose native
@@ -62,9 +65,11 @@ window-count estimate does not replace native sharding. The
 projects 32,768 unique new-segment coordinates across 86 episodes, with first-32
 SHA256 `f289fd3c69ffb9c0fb77602f9dacac43474865a567238f342490f0cdf70ce9e6`.
 Combined projected lineage is 98,304 exposures, 36,920 unique windows and 97 of 98
-episodes. These are projections, not actual new consumption, augmentation/model
-numerical equivalence or a requirement to extend training for complete coverage.
-Runtime audits will capture actual loss-computed coordinates.
+episodes. The final runtime audit matched the complete 32,768-coordinate projection
+exactly, and observed combined lineage is 98,304 exposures, 36,920 unique windows
+and 97/98 episodes. The original projection remains preserved. Coordinate
+identity does not establish augmentation/model numerical equivalence, exact
+cursor replay or a requirement to extend training for complete coverage.
 
 The source full inventory is checked through its completed storage-host SHA/fsync
 certificate, fresh remote/mounted signatures and bounded small metadata. Its
@@ -97,8 +102,9 @@ training audits stay local. This extension's full-state/view/archive workflow
 requires configured SSH-backed storage, as did the preceding continuation; a
 local-disk-only path remains unsupported.
 
-The following is the planned official **CPU-only dry run**, after source and new
-protocol publication. It uses new no-overwrite outputs and does not load a model:
+The following records the validated official **CPU-only dry-run command**, after
+source and declaration publication. Its output now exists; this is historical
+execution documentation, not an instruction to overwrite or relaunch the run:
 
 ```bash
 export PYTHONHASHSEED=1

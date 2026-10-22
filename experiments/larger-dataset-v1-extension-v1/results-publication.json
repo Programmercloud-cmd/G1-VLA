@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "artifact_type": "extension_final_results_publication",
+  "passed": true,
+  "generated_at_utc": "2026-10-22T12:43:24.250201+00:00",
+  "source_originals_preserved": true,
+  "remote_full_sha_and_file_directory_parent_fsync": true,
+  "remote_verification": {
+    "passed": true,
+    "files": 23,
+    "directories_fsynced": 5
+  },
+  "files": [
+    {
+      "ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-extension-v1-analysis/artifacts.json",
+      "bytes": 2948,
+      "sha256": "9fde761cf33472224acd9b8498d7ba95169303b14be3776d3dd094d61be9f2f5"
+    },
+    {
+      "ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-extension-v1-analysis/checkpoint-save-costs.csv",
+      "bytes": 166,
+      "sha256": "e7d8aa6725d2948f2853ccf4ca15ad38509b9e8599d2dacba92f1a1bcde95ca9"
+    },
+    {
+      "ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-extension-v1-analysis/complete_update_lineage-coverage.csv",
+      "bytes": 2965,
+      "sha256": "d6589cc7ae4154506c033a80a2fe58f828e4daa51a163aaa1b6b47268d3f3174"
+    },
+    {
+      "ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-extension-v1-analysis/learning-rate.csv",
+      "bytes": 913660,
+      "sha256": "60a154ee310afe3f0ae18105a7e8687919976b46163a756f73686a5f114f6cca"
+    },
+    {
+      "ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-extension-v1-analysis/lineage-coverage.csv",
+      "bytes": 2965,
+      "sha256": "d6589cc7ae4154506c033a80a2fe58f828e4daa51a163aaa1b6b47268d3f3174"
+    },
+    {
+      "ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-extension-v1-analysis/loss-and-learning-rate.png",
+      "bytes": 115123,
+      "sha256": "b0373d34c790b369b2f6c969c24378c9cb3b4b2e36d1977272426485a530fdcf"
+    },
+    {
+      "ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-extension-v1-analysis/loss-windows.csv",
+      "bytes": 7238,
+      "sha256": "b1bf5c2ce079e9a975242419f2bcf7f0d4bf239baa61b71c7be40571d5b8e53d"
+    },
+    {
+      "ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-extension-v1-analysis/metrics.csv",
+      "bytes": 2954685,
+      "sha256": "ab4bd19957bd4081daa3a15c5410f017a1a5fa147c3169e5f8d59e23429b0601"
+    },
+    {
+      "ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-extension-v1-analysis/native-error-curves.png",
+      "bytes": 286001,
+      "sha256": "50a2ab77da3c5f912987a04ce72cb1fd3841091f66d268ba952be3dc62169fdc"
+    },
+    {
+      "ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-extension-v1-analysis/normalized-metric-curves.png",
+      "bytes": 301710,
+      "sha256": "96678701def811c15659c1bd5dde33dbcb70068ee1554ce69237fc804b977b6d"
+    },
+    {
+      "ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-extension-v1-analysis/segment-coverage.csv",
+      "bytes": 2870,
+      "sha256": "50e59223f87d91f34e5ac55d1f4fd3900988b1071804128e8703c2a724fbec89"
+    },
+    {
+      "ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-extension-v1-analysis/selected-policy.json",
+      "bytes": 13460,
+      "sha256": "a1bfbb8aea5202ef6af4527eb5069b2d6399dd5df2e06e3d26beeab53ff7d6b7"
+    },
+    {
+      "ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-extension-v1-analysis/summary.json",
+      "bytes": 181855,
+      "sha256": "25846be70bae93f5ffb12d93134205b5474b0e4ae2932988772b0642540dedac"
+    },
+    {
+      "ref": "archive:reports/larger-dataset-v1-extension-v1-final-results-publication/curation-retry1.log",
+      "bytes": 211,
+      "sha256": "9f619a8734c53873958ccc2ad4aab74794e3f063be4e91e3bdaf8a202968e25f"
+    },
+    {
+      "ref": "archive:reports/larger-dataset-v1-extension-v1-final-results-publication/legacy-refs-integration.json",
+      "bytes": 1105,
+      "sha256": "b9d15f1fcaa4a2e3bdeebd242fb4f106b193c8639fe4cf3e1399e42ccec24d43"
+    },
+    {
+      "ref": "archive:reports/larger-dataset-v1-extension-v1-final-results-publication/legacy-refs-integration-source.py",
+      "bytes": 1482,
+      "sha256": "d81f78c34ed84e4bb5c37deca5624ca2a6bd71ddf6f814d87d64b76cf6b51d11"
+    },
+    {
+      "ref": "archive:reports/larger-dataset-v1-extension-v1-final-results-publication/legacy-refs-integration.log",
+      "bytes": 1003,
+      "sha256": "f9e180de3a6cad7d469b9b0a3fdd2cbec296e557427f41eccaac485ab7b07cb7"
+    },
+    {
+      "ref": "archive:reports/larger-dataset-v1-extension-v1-final-results-publication/training-outcome-generator.py",
+      "bytes": 8747,
+      "sha256": "6239bb2349ab23679fbd4019158922e45eadd01c6d3e6e44b68fb71c80c926d9"
+    },
+    {
+      "ref": "archive:reports/larger-dataset-v1-extension-v1-final-results-publication/publication-source.py",
+      "bytes": 4041,
+      "sha256": "a9f38118eadbca2c1ab86e2e8471564e2ec3136618749989b72d3706d5d6afec"
+    },
+    {
+      "ref": "archive:reports/larger-dataset-v1-extension-v1-curation-legacy-ancestry/publication-manifest.json",
+      "bytes": 1915,
+      "sha256": "8387c91a56b68c41af807a547752345917683158f48ffc73f1f0edc8ed308b6b"
+    },
+    {
+      "ref": "archive:reports/larger-dataset-v1-extension-v1-curation-legacy-ancestry/verification.json",
+      "bytes": 1769,
+      "sha256": "52c492b9458b4b72acd7cf0bc09d2e631addba2c7e0f36716235761060998118"
+    },
+    {
+      "ref": "archive:reports/larger-dataset-v1-extension-v1-curation-legacy-ancestry/failed-curation-attempt1.log",
+      "bytes": 683,
+      "sha256": "3d4ba2a7af43a67a42d62285302fbda8518257a434180882ba2949902bcc2ff8"
+    },
+    {
+      "ref": "archive:reports/larger-dataset-v1-extension-v1-curation-legacy-ancestry/publication-source.py",
+      "bytes": 5043,
+      "sha256": "243138bd6e84adbbe462a97159af2f96d476f25668fd18dc5ebab25bfa7981a7"
+    }
+  ],
+  "selected_cumulative_step": 12288,
+  "actual_execution_commit": "f7ce2ffe86aa04278969da96a0a40081b5217ada",
+  "accepted_curator_sha256": "6efc649604acf191764e5fd391cd3c55cb7564e08f0a993f8350bfe5caacf6ba",
+  "failed_first_curation_attempt_and_legacy_schema_bridge_preserved": true,
+  "scope": "Completed offline analysis and immutable repair evidence only. Canonical full-state checkpoints and nonresumable inference views remain in place; no checkpoint tensor content copied or read and no hardware competence claim."
+}

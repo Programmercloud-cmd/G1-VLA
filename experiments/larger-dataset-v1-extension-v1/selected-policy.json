@@ -1,0 +1,266 @@
+{
+  "schema_version": 1,
+  "artifact_type": "validation_selected_offline_policy",
+  "run": "larger-dataset-v1-extension-v1",
+  "cumulative_weight_lineage": 12288,
+  "native_checkpoint_global_step": 4096,
+  "new_extension_updates_in_selected_weights": 4096,
+  "validation_group_balanced_normalized_mae": 0.10479526158894145,
+  "selection": {
+    "ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-extension-v1-selection.json",
+    "bytes": 2087,
+    "sha256": "c8d54fcd6540176660b2e04940321916f2930fd16856697704df08111cdd1011"
+  },
+  "selection_status": "complete_planned_comparisons",
+  "formal_planned_comparisons_complete": true,
+  "missing_cumulative_steps": [],
+  "canonical_full_state_resume_ref": "archive:runs/larger-dataset-v1-extension-v1/checkpoint-4096",
+  "canonical_full_state_inventory": {
+    "ref": "archive:reports/larger-dataset-v1-extension-v1-training-completion/reports/larger-dataset-v1-extension-v1/larger-dataset-v1-extension-v1-coverage-checkpoint-4096-inventory.json",
+    "bytes": 8717,
+    "sha256": "e3569fff58a3027f2870c19f7587ca8b6ee4f05f762f21661f10713fd6040a01"
+  },
+  "model_only_inference_ref": "archive:runs/larger-dataset-v1-extension-v1-inference/checkpoint-4096",
+  "model_only_inference_inventory": {
+    "ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-extension-v1-local-4096-cumulative-12288-view-inventory.json",
+    "bytes": 4828,
+    "sha256": "03e97703c1d878f4288194807b6d0eecd63a738add1ea71d59cb140ed7bb73b2"
+  },
+  "archive_evidence": {
+    "report": {
+      "ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-extension-v1-local-4096-cumulative-12288-archive.json",
+      "bytes": 1185,
+      "sha256": "7c493c107098c962b1396b6991c16aceee3e59f62d7c26521175f84c9ed50c24"
+    },
+    "manifest": {
+      "ref": "archive:checkpoints/larger-dataset-v1-extension-v1-local-4096-cumulative-12288/archive_manifest.json",
+      "bytes": 27266,
+      "sha256": "8a7e3bf0b4154ba8688d773c4b7ce164756c810090b53fb0b71c6317b8e638a4"
+    }
+  },
+  "comparison": {
+    "ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-extension-v1-local-4096-cumulative-12288-comparison.json",
+    "bytes": 2249982,
+    "sha256": "85703adde590e96992ac6d9ce277f47f8c9178a97a30413dac8083b267849e87"
+  },
+  "view_manifest": {
+    "ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-extension-v1-local-4096-cumulative-12288-view.json",
+    "bytes": 2215,
+    "sha256": "b2996ad8370fd04e2133da77a31b44e303f0270cabe58e35c87830873d1c700f"
+  },
+  "inference_reference_training_resumability": "NONRESUMABLE: model-only inference view, no optimizer/scheduler/RNG.",
+  "selected_native_full_state_available": true,
+  "baseline8192_retained": false,
+  "all_available_candidate_artifacts": {
+    "8192": {
+      "canonical_full_state_resume_ref": "archive:runs/larger-dataset-v1-continuation-v1-retry1/checkpoint-4096",
+      "canonical_full_state_inventory": {
+        "ref": "archive:reports/larger-dataset-v1-continuation-v1-retry1-checkpoint-local-4096-cumulative-8192/full-checkpoint-inventory.json",
+        "bytes": 8725,
+        "sha256": "1ef3517648c1e38965b44e8583d5d79d9dce33269f77f85f04b7ae60815a138a"
+      },
+      "model_only_inference_ref": "archive:runs/larger-dataset-v1-continuation-v1-retry1-inference/checkpoint-4096",
+      "model_only_inference_inventory": {
+        "ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-continuation-v1-retry1-local-4096-cumulative-8192-view-inventory.json",
+        "bytes": 4846,
+        "sha256": "8037d579d539c48ecec7237d2e63298e9985754fbbaaf03ce3ac7d1640846005"
+      },
+      "archive_evidence": {
+        "report": {
+          "ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-continuation-v1-retry1-local-4096-cumulative-8192-archive.json",
+          "bytes": 1208,
+          "sha256": "0182a9a04334240d530de54e891fe5946dd7a220a324ca21d7ca90cffc91d7bb"
+        },
+        "manifest": {
+          "ref": "archive:checkpoints/larger-dataset-v1-continuation-v1-retry1-local-4096-cumulative-8192/archive_manifest.json",
+          "bytes": 24979,
+          "sha256": "9e1e0d14b4ee30bfe23274d5c0364c0cb3aab3349b9a2c40fd861cca1fee0aec"
+        }
+      }
+    },
+    "10240": {
+      "canonical_full_state_resume_ref": "archive:runs/larger-dataset-v1-extension-v1/checkpoint-2048",
+      "canonical_full_state_inventory": {
+        "ref": "archive:reports/larger-dataset-v1-extension-v1-training-completion/reports/larger-dataset-v1-extension-v1/larger-dataset-v1-extension-v1-coverage-checkpoint-2048-inventory.json",
+        "bytes": 8717,
+        "sha256": "34f3cc3ec4116893bcf50be855761d2c3a79a268040699eb07d4fec5d81475a7"
+      },
+      "model_only_inference_ref": "archive:runs/larger-dataset-v1-extension-v1-inference/checkpoint-2048",
+      "model_only_inference_inventory": {
+        "ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-extension-v1-local-2048-cumulative-10240-view-inventory.json",
+        "bytes": 4828,
+        "sha256": "0e2b8e61d5cca29b195e2138a3572e81e717465b9ead6cebedffd9bf67ac011d"
+      },
+      "archive_evidence": {
+        "report": {
+          "ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-extension-v1-local-2048-cumulative-10240-archive.json",
+          "bytes": 1184,
+          "sha256": "e65f455a3b24dbb061011cb73b1e60f88585ec8ae6e3d5db147b64a3269312b2"
+        },
+        "manifest": {
+          "ref": "archive:checkpoints/larger-dataset-v1-extension-v1-local-2048-cumulative-10240/archive_manifest.json",
+          "bytes": 27265,
+          "sha256": "e2f1f2ad13e623530bd3fec1737cc439917a38f5ca1831cc015f816195dc183b"
+        }
+      },
+      "comparison": {
+        "ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-extension-v1-local-2048-cumulative-10240-comparison.json",
+        "bytes": 2246018,
+        "sha256": "b43387345536244bab43893e1bc8ef54229caa650c5908dc4f503837048c891e"
+      },
+      "view_manifest": {
+        "ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-extension-v1-local-2048-cumulative-10240-view.json",
+        "bytes": 2215,
+        "sha256": "503b1ac51903930deabdc0a6cd0172c3524cf1d4d3b148166953284cf4d97030"
+      }
+    },
+    "12288": {
+      "canonical_full_state_resume_ref": "archive:runs/larger-dataset-v1-extension-v1/checkpoint-4096",
+      "canonical_full_state_inventory": {
+        "ref": "archive:reports/larger-dataset-v1-extension-v1-training-completion/reports/larger-dataset-v1-extension-v1/larger-dataset-v1-extension-v1-coverage-checkpoint-4096-inventory.json",
+        "bytes": 8717,
+        "sha256": "e3569fff58a3027f2870c19f7587ca8b6ee4f05f762f21661f10713fd6040a01"
+      },
+      "model_only_inference_ref": "archive:runs/larger-dataset-v1-extension-v1-inference/checkpoint-4096",
+      "model_only_inference_inventory": {
+        "ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-extension-v1-local-4096-cumulative-12288-view-inventory.json",
+        "bytes": 4828,
+        "sha256": "03e97703c1d878f4288194807b6d0eecd63a738add1ea71d59cb140ed7bb73b2"
+      },
+      "archive_evidence": {
+        "report": {
+          "ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-extension-v1-local-4096-cumulative-12288-archive.json",
+          "bytes": 1185,
+          "sha256": "7c493c107098c962b1396b6991c16aceee3e59f62d7c26521175f84c9ed50c24"
+        },
+        "manifest": {
+          "ref": "archive:checkpoints/larger-dataset-v1-extension-v1-local-4096-cumulative-12288/archive_manifest.json",
+          "bytes": 27266,
+          "sha256": "8a7e3bf0b4154ba8688d773c4b7ce164756c810090b53fb0b71c6317b8e638a4"
+        }
+      },
+      "comparison": {
+        "ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-extension-v1-local-4096-cumulative-12288-comparison.json",
+        "bytes": 2249982,
+        "sha256": "85703adde590e96992ac6d9ce277f47f8c9178a97a30413dac8083b267849e87"
+      },
+      "view_manifest": {
+        "ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-extension-v1-local-4096-cumulative-12288-view.json",
+        "bytes": 2215,
+        "sha256": "b2996ad8370fd04e2133da77a31b44e303f0270cabe58e35c87830873d1c700f"
+      }
+    }
+  },
+  "certified_new_full_state_saves_including_unevaluated": {
+    "10240": {
+      "canonical_full_checkpoint_ref": "archive:runs/larger-dataset-v1-extension-v1/checkpoint-2048",
+      "inventory": {
+        "ref": "archive:reports/larger-dataset-v1-extension-v1-training-completion/reports/larger-dataset-v1-extension-v1/larger-dataset-v1-extension-v1-coverage-checkpoint-2048-inventory.json",
+        "bytes": 8717,
+        "sha256": "34f3cc3ec4116893bcf50be855761d2c3a79a268040699eb07d4fec5d81475a7"
+      },
+      "coverage": {
+        "ref": "archive:reports/larger-dataset-v1-extension-v1-training-completion/reports/larger-dataset-v1-extension-v1/larger-dataset-v1-extension-v1-coverage-2048.json",
+        "bytes": 35471,
+        "sha256": "d47f25214747ac010a582a42d5a9f23b899d57904b068be97d9538b1f51b3f95"
+      },
+      "save_cost": {
+        "local_step": 2048,
+        "cumulative_step": 10240,
+        "step_end_to_certified_save_seconds": 2703.9337304950022,
+        "files": 20,
+        "bytes": 25548019273
+      },
+      "full_state": {
+        "passed": true,
+        "optimizer_state_entries": 537,
+        "scheduler_epoch": 2048,
+        "rng_keys": [
+          "cpu",
+          "cuda",
+          "numpy",
+          "python"
+        ],
+        "native_full_state_files": [
+          "optimizer.pt",
+          "scheduler.pt",
+          "rng_state.pth"
+        ],
+        "exact_iterable_cursor_restore": false,
+        "sampling_limit": "Native optimizer/scheduler/RNG state is saved. The pinned iterable loader has no state_dict/load_state_dict cursor and reseeds on resume with ignore_data_skip=True; exact sample-position replay is not supported. This fresh segment starts a new native seed8234 traversal (42+8192), not an exact restoration of either previous iterable cursor. Frozen split/evaluation seeds are unchanged."
+      },
+      "full_sha_and_fsync_certified": true
+    },
+    "12288": {
+      "canonical_full_checkpoint_ref": "archive:runs/larger-dataset-v1-extension-v1/checkpoint-4096",
+      "inventory": {
+        "ref": "archive:reports/larger-dataset-v1-extension-v1-training-completion/reports/larger-dataset-v1-extension-v1/larger-dataset-v1-extension-v1-coverage-checkpoint-4096-inventory.json",
+        "bytes": 8717,
+        "sha256": "e3569fff58a3027f2870c19f7587ca8b6ee4f05f762f21661f10713fd6040a01"
+      },
+      "coverage": {
+        "ref": "archive:reports/larger-dataset-v1-extension-v1-training-completion/reports/larger-dataset-v1-extension-v1/larger-dataset-v1-extension-v1-coverage-4096.json",
+        "bytes": 35664,
+        "sha256": "5a7d215379227069081cb6f3808487b333e016c097cd8d556adddcfe52f2a86b"
+      },
+      "save_cost": {
+        "local_step": 4096,
+        "cumulative_step": 12288,
+        "step_end_to_certified_save_seconds": 2625.276766584997,
+        "files": 20,
+        "bytes": 25548047840
+      },
+      "full_state": {
+        "passed": true,
+        "optimizer_state_entries": 537,
+        "scheduler_epoch": 4096,
+        "rng_keys": [
+          "cpu",
+          "cuda",
+          "numpy",
+          "python"
+        ],
+        "native_full_state_files": [
+          "optimizer.pt",
+          "scheduler.pt",
+          "rng_state.pth"
+        ],
+        "exact_iterable_cursor_restore": false,
+        "sampling_limit": "Native optimizer/scheduler/RNG state is saved. The pinned iterable loader has no state_dict/load_state_dict cursor and reseeds on resume with ignore_data_skip=True; exact sample-position replay is not supported. This fresh segment starts a new native seed8234 traversal (42+8192), not an exact restoration of either previous iterable cursor. Frozen split/evaluation seeds are unchanged."
+      },
+      "full_sha_and_fsync_certified": true
+    }
+  },
+  "original_protocol": {
+    "ref": "experiments/larger-dataset-v1/evaluation-protocol.json",
+    "bytes": 42385,
+    "sha256": "9f8cf657889f49ea747928232e592610863562e222778563ee09ff7c9bd96ab1"
+  },
+  "extension_protocol": {
+    "ref": "experiments/larger-dataset-v1-extension-v1/evaluation-protocol.json",
+    "bytes": 12836,
+    "sha256": "4fabc335cc465a25e93092ab19e51c1621ec0dff5f4f3c57c2f40dd69d8a5f74"
+  },
+  "split": {
+    "ref": "experiments/larger-dataset-v1/split.json",
+    "bytes": 100076,
+    "sha256": "9a721d4bb14157a119650b4848c62e0cdd6134a843dc0e6d27b84d36e20e040b"
+  },
+  "processor_files_sha256": {
+    "processor_config.json": "033aeac07e3227b523703d152dca8ac2d277a40168f1d2698b536e6d2417c228",
+    "statistics.json": "7abadea98ec3c97086ac3be138189086d07907a3c007bafd4a8f5d39950a4282",
+    "embodiment_id.json": "5e8611697dc90b7b7a92cf2a8da926275c16f5966c5eb109e0216c3c51af15a1"
+  },
+  "normalization_owner": "train",
+  "state_dropout_prob": 0.0,
+  "source_unsaved1135_updates_excluded": true,
+  "fresh_optimizer_boundaries_in_selected_lineage": [
+    4096,
+    8192
+  ],
+  "production_optimizer_reload_tested": false,
+  "exact_iterable_cursor_restoration_supported": false,
+  "storage_limit": "Full-state certification/view/archive helpers require configured SSH-backed storage; local-disk-only path unsupported.",
+  "hardware_task_competence_established": false,
+  "scope": "Best available offline candidate including source8192. Canonical full-state resume reference is separate from nonresumable inference view; no deployment approval."
+}
