@@ -1,0 +1,235 @@
+{
+  "schema_version": 1,
+  "artifact_type": "g1_extension_evaluation_protocol",
+  "status": "declared_before_extension_training",
+  "generated_at_utc": "2026-10-22T07:19:31.485209+00:00",
+  "original_evaluation_protocol": {
+    "path": "experiments/larger-dataset-v1/evaluation-protocol.json",
+    "sha256": "9f8cf657889f49ea747928232e592610863562e222778563ee09ff7c9bd96ab1"
+  },
+  "previous_continuation_protocol": {
+    "path": "experiments/larger-dataset-v1-continuation-v1/evaluation-protocol-startup-fix-v2.json",
+    "sha256": "59e5b5b7b43647b88d4b69fc41c6cb044ec56eec2bc54ea5b65bc1d94be4166f"
+  },
+  "frozen_source_sha256": {
+    "scripts/evaluate_gr00t_dataset.py": "6e1e5d3e53beb83d4a257928b65b26871e54aca814b7ae25b848aac59b6161a2",
+    "scripts/evaluate_gr00t_pilot.py": "caef58473a88f17b3424e75ff3cffdad440b19c2be6081d143fa224226a8f0ab",
+    "scripts/compare_pilot_temporal_change.py": "8df5ab45285eaeaba5e7fc072028a3d3e42ee9acd46e6a92100754b3c8114abd",
+    "scripts/project_config.py": "407df6bb25c7a96a17b03ad2b97756f51189d7d1f4bdf6befb7ec94f3ec4f418",
+    "scripts/run_gr00t_smoke.py": "84342cc4a7a090060f019e54b2c1873c9af1d4c7a322a0f10aee107f8de65bab",
+    "configs/g1_inspire_config.py": "39f1311a6640420d2f1285d9c1c242ff66413d40c8fd64e518a854e36ca9c0b5",
+    "scripts/archive_gr00t_dataset.py": "51ffa1f3e0b7cfb88cc2ddd99a5270edc65e0677c7f61e8f62905e7e3edeee0b",
+    "scripts/run_gr00t_dataset.py": "eb7e14c56e3be3ff2a3ab8b1c0788d003e56a64620cdc19e69191a2266da9089",
+    "scripts/run_gr00t_pilot.py": "0061c1cea0944b6ea292fe51f17b1305ee64aeb9dc324c2c70b61ca08faa39b0",
+    "scripts/archive_smoke_checkpoint.py": "7f9e205b2022c3173b1b182dcf7c08f1a13ad00b53db421e19deb6898cf658a4",
+    "scripts/prepare_pilot.py": "944cb4e7b6594bd611d37b75f63a9cb1b8c1169b3a76fd1d8ad89f976b59f2bc",
+    "scripts/prepare_dataset_split.py": "b31af732ee3d2a3ad8d1f91edd9e576e3be64b344edcfafd2d03497f281182ee",
+    "scripts/convert_single_camera.py": "1427f3551d38477e6d63456bebd8241265a91a2ed19957b20184de4c2bc6e2a8",
+    "scripts/prepare_gr00t_dataset.py": "cb712d1df21ea26962ed6ae19d00c30bbe29a42466dc35160d52e1b8481ed5d2",
+    "experiments/larger-dataset-v1/evaluation-design.json": "9b6d8120c1946309af99504e8db5f22bee705627a684d57acfe99dd37084ac7c",
+    "vendor/Isaac-GR00T/gr00t/policy/gr00t_policy.py": "ad1183a3ce1ebed6cace4a9cb8c5a123e823a0760ebf46f3694639a5ad1521ec",
+    "vendor/Isaac-GR00T/gr00t/model/gr00t_n1d7/processing_gr00t_n1d7.py": "77fd0e1f6972cdcf0334f18f2e84724629f6746612721b6b27135ccb23f00b3f",
+    "vendor/Isaac-GR00T/gr00t/model/gr00t_n1d7/gr00t_n1d7.py": "6bd66ef768f1484ac5a7889c40358a599f1862b1d554d47d357e113f2f96501c",
+    "vendor/Isaac-GR00T/gr00t/model/gr00t_n1d7/setup.py": "5212755cf18c1147206408e7250576b27504a6bd3af6402d9cd7f011b2cfd31a",
+    "vendor/Isaac-GR00T/gr00t/data/dataset/lerobot_episode_loader.py": "10eb986f35d298fc3e099f8891532a907978b34e0a2f88a9c62620c554d9726d",
+    "vendor/Isaac-GR00T/gr00t/data/dataset/sharded_mixture_dataset.py": "f452072c1191249adef45d98bf75239c792e019f4a088bc8dc09f10f7a7441a3",
+    "scripts/continuation_artifacts.py": "386eed4bfb3f86bf2e52360f739d3d92fd5551015e990a4ab612e0ccabb0e1af",
+    "scripts/evaluate_gr00t_continuation.py": "63bfe2ac8e13b8f63e6ff5a458b06bd41d491af64d63f4eb533dc69e75242775",
+    "scripts/archive_gr00t_continuation.py": "c0336112c6da2542a883e4d65f77a95e5cec7ff63e8cd91e3a0b8ceccd65c8cb",
+    "scripts/launch_gr00t_evaluation.py": "ecd8070838828717d66100f2c206397cd9069022c602b7ea9ce16d70cf9241d4",
+    "scripts/run_gr00t_continuation.py": "308ed70689b44bcb1edd20c9af35dda71938cd4e1d0a2496a67dfb64a68d87a0",
+    "scripts/watch_training_cap.py": "4851a9dd6ef9dd4d08701f078e064aa58241a346487675eb1c6dcd17ee23f5ff"
+  },
+  "source_checkpoint": "/home/test2/dev/VLA/storage/runs/larger-dataset-v1-continuation-v1-retry1/checkpoint-4096",
+  "cumulative_base_step": 8192,
+  "local_to_cumulative": {
+    "2048": 10240,
+    "4096": 12288
+  },
+  "step_semantics": "HF trainer steps remain honest local additional-update counts. Cumulative values describe weight ancestry. Source8192 native optimizer state is preserved but deliberately reset for this fresh cosine segment.",
+  "inference_recipe": {
+    "samples_per_split": 100,
+    "selection_seed": 42,
+    "inference_seeds": [
+      42,
+      43,
+      44
+    ],
+    "horizon": 16,
+    "denoising_steps": 4,
+    "state_dropout_prob": 0.0,
+    "joint_groups": [
+      "left_arm",
+      "right_arm",
+      "left_hand",
+      "right_hand"
+    ],
+    "checkpoint_steps": [
+      2048,
+      4096,
+      6144,
+      8192
+    ],
+    "normalization_owner": "train",
+    "reference": "pretrained_step_zero_with_training_processor",
+    "selection_metric": "validation/all/group_balanced_normalized_mae",
+    "checkpoint_tie_rule": "lowest_optimizer_step",
+    "persistence": "descriptive_only",
+    "mandatory_improvement_threshold": null
+  },
+  "samples": {
+    "train": {
+      "path": "experiments/larger-dataset-v1/train-samples.json",
+      "sha256": "7096090d4e978c0cef58fac4f7c5708e63c8ce6cc9ceb5446b24ae4bae60604c",
+      "arrays": {
+        "path": "experiments/larger-dataset-v1/train-samples.npz",
+        "sha256": "74c1f7a99d84342a2399a9fe7fc9f4a47c7b0c1335970bdbcb93cce442e6ba8d"
+      }
+    },
+    "validation": {
+      "path": "experiments/larger-dataset-v1/validation-samples.json",
+      "sha256": "32fd398f6fc606c2df516e7655e4732cd034a93a0e3344647a53d88b557b33b5",
+      "arrays": {
+        "path": "experiments/larger-dataset-v1/validation-samples.npz",
+        "sha256": "5f8ba5d9c96bf99d48b1db7a3943d0d9dfd8c62bde89f5673dabf974b6345e75"
+      }
+    }
+  },
+  "processor": {
+    "path": "/dev/shm/vla-large-data-v1/processor",
+    "files_sha256": {
+      "processor_config.json": "033aeac07e3227b523703d152dca8ac2d277a40168f1d2698b536e6d2417c228",
+      "statistics.json": "7abadea98ec3c97086ac3be138189086d07907a3c007bafd4a8f5d39950a4282",
+      "embodiment_id.json": "5e8611697dc90b7b7a92cf2a8da926275c16f5966c5eb109e0216c3c51af15a1"
+    },
+    "semantics_file": {
+      "path": "/dev/shm/vla-large-data-v1/processor/evaluation-semantics.json",
+      "sha256": "b34e1d3a28083bad7ce5e17c7675c0f01cdd4000f366dfbfae8729fe2b40ac63"
+    },
+    "semantics_sha256": "e9fabe9dfd6b04b7c7a4cb6097073e0200b21987059a7c7987cf41c0f949997c",
+    "statistics_owner": "train"
+  },
+  "bindings": {
+    "source_inventory": {
+      "path": "storage/reports/larger-dataset-v1-continuation-v1-retry1-checkpoint-local-4096-cumulative-8192/full-checkpoint-inventory.json",
+      "sha256": "1ef3517648c1e38965b44e8583d5d79d9dce33269f77f85f04b7ae60815a138a"
+    },
+    "source_archive": {
+      "path": "storage/reports/larger-dataset-v1/larger-dataset-v1-continuation-v1-retry1-local-4096-cumulative-8192-archive.json",
+      "sha256": "0182a9a04334240d530de54e891fe5946dd7a220a324ca21d7ca90cffc91d7bb"
+    },
+    "source_archive_manifest": {
+      "path": "storage/checkpoints/larger-dataset-v1-continuation-v1-retry1-local-4096-cumulative-8192/archive_manifest.json",
+      "sha256": "9e1e0d14b4ee30bfe23274d5c0364c0cb3aab3349b9a2c40fd861cca1fee0aec"
+    },
+    "source_comparison": {
+      "path": "storage/reports/larger-dataset-v1/larger-dataset-v1-continuation-v1-retry1-local-4096-cumulative-8192-comparison.json",
+      "sha256": "efe2a542754b3ac77d5a8160f4c714672fc2c8d09a8b501771c43f4744fcfc0a"
+    },
+    "source_view_manifest": {
+      "path": "storage/reports/larger-dataset-v1/larger-dataset-v1-continuation-v1-retry1-local-4096-cumulative-8192-view.json",
+      "sha256": "717ad45664b8cd7855190513d5717c73215c88f5d2ab826d61835499b5cf5af3"
+    },
+    "source_view_inventory": {
+      "path": "storage/reports/larger-dataset-v1/larger-dataset-v1-continuation-v1-retry1-local-4096-cumulative-8192-view-inventory.json",
+      "sha256": "8037d579d539c48ecec7237d2e63298e9985754fbbaaf03ce3ac7d1640846005"
+    },
+    "selected_policy": {
+      "path": "experiments/larger-dataset-v1-continuation-v1/selected-policy.json",
+      "sha256": "c1488548a9e07ff2c537a395d68b54e4779972b44de5b10327039e0630df5b7c"
+    },
+    "source_run_manifest": {
+      "path": "reports/larger-dataset-v1-continuation-v1/larger-dataset-v1-continuation-v1-retry1-run.json",
+      "sha256": "db79bb2c96f8e49a05f99b0c97800c88e1467104db45d2ed193390b3fa9a73c6"
+    },
+    "source_train_report": {
+      "path": "reports/larger-dataset-v1-continuation-v1/larger-dataset-v1-continuation-v1-retry1-train.json",
+      "sha256": "03fa92c5000fae4bc39347105926e1fba09869dafe7aef7eeacae229154ec000"
+    },
+    "source_closeout": {
+      "path": "storage/reports/larger-dataset-v1/larger-dataset-v1-continuation-v1-retry1-evaluation-verified-closeout.json",
+      "sha256": "dc20ab3ffa94521cafc9d113a235303addacaa8d4e93cbf13e73cadb7a12b4e9"
+    },
+    "source_independent_proof": {
+      "path": "storage/reports/larger-dataset-v1/larger-dataset-v1-continuation-v1-retry1-independent-metrics.json",
+      "sha256": "24226f96e4a6e320d91b20df75192ce060f65343af70b55e2ae2c033683dee5a"
+    },
+    "source_train": {
+      "path": "storage/reports/larger-dataset-v1/larger-dataset-v1-continuation-v1-retry1-local-4096-cumulative-8192-train.json",
+      "sha256": "794c23e1f9e5ab81dcc9aa9b6f03d06502d4c6ef8548ecdc8be111bf875608c7"
+    },
+    "source_train_arrays": {
+      "path": "storage/reports/larger-dataset-v1/larger-dataset-v1-continuation-v1-retry1-local-4096-cumulative-8192-train.npz",
+      "sha256": "86447c0c3145b7f136854aece543c0490d6f237c8d69f31ba66db324e7dc595f"
+    },
+    "baseline_train": {
+      "path": "storage/reports/larger-dataset-v1/larger-dataset-v1-step-zero-train.json",
+      "sha256": "8b06f2eb52003585c8011bb69ad166765fddcd508430aeef26f5ad76f9ee9ee3"
+    },
+    "baseline_train_arrays": {
+      "path": "storage/reports/larger-dataset-v1/larger-dataset-v1-step-zero-train.npz",
+      "sha256": "6462b2fd14e599a70707e08a4b7d38d59197a8fd4fce608451e028d4bfe0f623"
+    },
+    "source_validation": {
+      "path": "storage/reports/larger-dataset-v1/larger-dataset-v1-continuation-v1-retry1-local-4096-cumulative-8192-validation.json",
+      "sha256": "1d5dd066cb73530b1b71f509a2b27e86a83089567660b1e798ed1ad590a7c493"
+    },
+    "source_validation_arrays": {
+      "path": "storage/reports/larger-dataset-v1/larger-dataset-v1-continuation-v1-retry1-local-4096-cumulative-8192-validation.npz",
+      "sha256": "ee559df42fb1dfd8a1a05f31c8be86c48e23bcb358ad4ce37d1308b26ab74cd6"
+    },
+    "baseline_validation": {
+      "path": "storage/reports/larger-dataset-v1/larger-dataset-v1-step-zero-validation.json",
+      "sha256": "237553885152c2ac13ba893ee6bcfa1be2190ca86863018a793e8fa824fd5e30"
+    },
+    "baseline_validation_arrays": {
+      "path": "storage/reports/larger-dataset-v1/larger-dataset-v1-step-zero-validation.npz",
+      "sha256": "96ccec1e4855939251b0e18bde1c498418494031d3b5d37e8bcdba36778056bb"
+    }
+  },
+  "selection_rule": {
+    "candidates_cumulative_steps": [
+      8192,
+      10240,
+      12288
+    ],
+    "metric": "validation/all/group_balanced_normalized_mae",
+    "tie": "earliest_cumulative_step",
+    "available_selection_always_allowed": true,
+    "incomplete_run": "select_best_available_certified_candidate_and_report_missing_steps",
+    "mandatory_improvement_threshold": null,
+    "persistence": "descriptive_only"
+  },
+  "training_segment": {
+    "additional_updates": 4096,
+    "source_weight_updates": 8192,
+    "optimizer_and_scheduler": "fresh",
+    "learning_rate": 2.5e-05,
+    "warmup_ratio": 0.025,
+    "warmup_steps": 103,
+    "scheduler": "cosine",
+    "sampling_seed": 8234,
+    "frozen_split_seed": 42,
+    "exact_dataset_cursor_resume_supported": false
+  },
+  "new_source_sha256": {
+    "scripts/extension_artifacts.py": "7b96515b2b98977eeecee6603dba955dd07cec3d64da3063812919b3bb863786",
+    "scripts/evaluate_gr00t_extension.py": "b6b9ada7d80ac077b8efc06ef2654e5f40ab0dcf3b7ab261657d7c88e33f2a4b",
+    "scripts/archive_gr00t_extension.py": "8acc347d237eb323bd94b50c3c134a95aa7ce4366d6d9348708e63ff79495d26",
+    "scripts/run_gr00t_extension.py": "0ac5fbe48b579da82069df3e5091ebac2cd127445943b8f9c362c1aa5d19e484",
+    "scripts/watch_extension_cap.py": "f726c4cccfe2e7371817475bfff22202d0fbc4057d5cda5bbfa14327d66d97ce"
+  },
+  "full_state_policy": {
+    "new_checkpoints_require": [
+      "optimizer.pt",
+      "rng_state.pth",
+      "scheduler.pt"
+    ],
+    "durable_storage_host_sha256_and_fsync_before_next_training_update": true,
+    "inference_views_resumable": false,
+    "canonical_full_checkpoint_is_resume_reference": true,
+    "exact_iterable_dataset_cursor_resume_supported": false
+  },
+  "scope": "Same frozen100-window samples, original stepzero and actual8192 predictions; choose best available certified candidate with missing planned pairs explicit; no robot competence claim.",
+  "implementation_commit": "cf1fc9a113f35bd18e14dc268e8035d23fb20693"
+}
