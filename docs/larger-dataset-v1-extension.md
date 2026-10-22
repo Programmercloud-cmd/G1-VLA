@@ -1,7 +1,15 @@
 # Bounded extension from cumulative 8,192 to 12,288
 
-Status: authorized and preparing; no extension training has launched. This is a
-new 4,096-update segment from the [selected cumulative-8,192 policy](../experiments/larger-dataset-v1-continuation-v1/selected-policy.json).
+Status: running with [startup verified](../experiments/larger-dataset-v1-extension-v1/startup-complete.json)
+under actual commit `f7ce2ffe`. The captured snapshot records 46 finite local
+updates (cumulative weight lineage 8,238), all five runtime audits, strict
+learned-8,192 loading, frozen processor/zero dropout, live cap and fresh optimizer
+state. The first 32 consumed coordinates match seed 8,234. No new checkpoint
+or final result is certified by this startup snapshot. The
+[execution receipt](../experiments/larger-dataset-v1-extension-v1/execution.json)
+binds the original actual-launch six-hour cap, ending **22 October 2026 at
+13:23:44 UTC**, including loading and saves. This is a new 4,096-update segment
+from the [selected cumulative-8,192 policy](../experiments/larger-dataset-v1-continuation-v1/selected-policy.json).
 Earlier runs, full checkpoints, selected results and all frozen source/protocol
 bytes remain preserved. The new run identity is `larger-dataset-v1-extension-v1`.
 

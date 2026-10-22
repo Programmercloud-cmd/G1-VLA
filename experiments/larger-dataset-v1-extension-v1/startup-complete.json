@@ -1,0 +1,156 @@
+{
+  "schema_version": 1,
+  "artifact_type": "verified_extension_startup_complete_snapshot",
+  "generated_at_utc": "2026-10-22T07:53:50.731178+00:00",
+  "run": "larger-dataset-v1-extension-v1",
+  "status": "running_startup_verified",
+  "snapshot_observed_at_utc": "2026-10-22T07:51:08.534656+00:00",
+  "captured_local_updates": 46,
+  "captured_cumulative_weight_lineage": 8238,
+  "scope": "Immutable historical startup snapshot only. All5runtime audits passed and46complete local updates were finite. Training continues; no new checkpoint or final metric is certified by this record.",
+  "actual_execution_commit": "f7ce2ffe86aa04278969da96a0a40081b5217ada",
+  "execution_receipt": {
+    "ref": "experiments/larger-dataset-v1-extension-v1/execution.json",
+    "bytes": 8720,
+    "sha256": "22f9d8284285ee15ad6c40487cdb9140e24f80eb5045690db7a80d6370cdcad1"
+  },
+  "extension_protocol": {
+    "ref": "experiments/larger-dataset-v1-extension-v1/evaluation-protocol.json",
+    "bytes": 12836,
+    "sha256": "4fabc335cc465a25e93092ab19e51c1621ec0dff5f4f3c57c2f40dd69d8a5f74"
+  },
+  "actual_run_manifest": {
+    "ref": "archive:reports/larger-dataset-v1-extension-v1-startup/reports/larger-dataset-v1-extension-v1/larger-dataset-v1-extension-v1-run.json",
+    "bytes": 139223,
+    "sha256": "838edf9cb8f7b968d1dc21f633d8dcd1c38822b305fcfdddaea3b4ab7484bf12"
+  },
+  "armed_watchdog": {
+    "ref": "archive:reports/larger-dataset-v1-extension-v1-startup/reports/larger-dataset-v1-extension-v1-safety/cap-watchdog-armed.json",
+    "bytes": 6470,
+    "sha256": "24d6ae673370450d245f4d9f60b28d0e8dc147f10252d64a342a8d8fb88fcb7a"
+  },
+  "startup_proof": {
+    "ref": "archive:reports/larger-dataset-v1-extension-v1-startup-complete/reports/larger-dataset-v1-extension-v1/startup-complete.json",
+    "bytes": 6748,
+    "sha256": "3509861894a3a23c1f73ae8cf7af8c2af08c59aa4c49f23d4a1a4546fdf6469a"
+  },
+  "bounded_finite_prefix": {
+    "ref": "archive:reports/larger-dataset-v1-extension-v1-startup-complete/reports/larger-dataset-v1-extension-v1/startup-through-local-46-finite-prefix.jsonl",
+    "bytes": 94794,
+    "sha256": "16731badf362b668d5759d53e279f4ac5a5282c1ba4ecd14e02cbfbff185ca10"
+  },
+  "independent_prefix_check": {
+    "ref": "archive:reports/larger-dataset-v1-extension-v1-startup-complete/reports/larger-dataset-v1-extension-v1/startup-through-local-46-prefix-check.json",
+    "bytes": 1380,
+    "sha256": "d435ecdda9a778adf0c8c87b6db4e640bda7be5df03a72f8581237d0d7cd5eb2"
+  },
+  "publication_manifest": {
+    "ref": "archive:reports/larger-dataset-v1-extension-v1-startup-complete/publication-manifest.json",
+    "bytes": 1817,
+    "sha256": "081d843c863d3e4b957c2787afc540378c5d217accaf9b51bf6a6823daca5133"
+  },
+  "runtime_audits": {
+    "configuration_override": {
+      "passed": true
+    },
+    "initial_checkpoint_load": {
+      "passed": true
+    },
+    "runtime": {
+      "passed": true
+    },
+    "cap_protection": {
+      "passed": true
+    },
+    "fresh_optimizer": {
+      "passed": true
+    }
+  },
+  "seed_only_configuration_change": {
+    "changed_fields": [
+      "data.seed"
+    ],
+    "segment_seed": 8234,
+    "frozen_split_seed": 42,
+    "evaluation_seeds": [
+      42,
+      43,
+      44
+    ]
+  },
+  "strict_learned_weight_initialization": {
+    "source_cumulative_updates": 8192,
+    "source_native_checkpoint_step": 4096,
+    "checkpoint_ref": "archive:runs/larger-dataset-v1-continuation-v1-retry1/checkpoint-4096",
+    "strict_tensor_loading": true,
+    "missing_keys": [],
+    "unexpected_keys": [],
+    "mismatched_keys": [],
+    "error_msgs": []
+  },
+  "frozen_runtime_processor": {
+    "files_sha256": {
+      "processor_config.json": "033aeac07e3227b523703d152dca8ac2d277a40168f1d2698b536e6d2417c228",
+      "statistics.json": "7abadea98ec3c97086ac3be138189086d07907a3c007bafd4a8f5d39950a4282",
+      "embodiment_id.json": "5e8611697dc90b7b7a92cf2a8da926275c16f5966c5eb109e0216c3c51af15a1"
+    },
+    "all_state_dropout_probabilities": {
+      "training_config": 0.0,
+      "model_config": 0.0,
+      "action_head": 0.0,
+      "processor": 0.0
+    }
+  },
+  "fresh_optimizer": {
+    "initial_local_step": 0,
+    "cumulative_base_step": 8192,
+    "optimizer_state_entries": 0,
+    "scheduler_epoch": 0,
+    "source_optimizer_scheduler_rng_restored": false
+  },
+  "first_finite_loss": 0.030987055972218513,
+  "first_finite_gradient_post_clip_norm": 0.5382534265518188,
+  "first_completed_update_learning_rate": 2.4271844660194176e-07,
+  "prefix_finite_summary": {
+    "passed": true,
+    "micro_losses_observed": 368,
+    "gradient_updates_observed": 46,
+    "optimizer_updates_observed": 46,
+    "first_window_mean_loss": 0.07735835964558646,
+    "last_window_mean_loss": 0.05990774259553291,
+    "loss_window_microbatches": 160,
+    "last_step": 46
+  },
+  "actual_first32_sample_coordinates_sha256": "f289fd3c69ffb9c0fb77602f9dacac43474865a567238f342490f0cdf70ce9e6",
+  "predeclared_seed8234_first32_sha256": "f289fd3c69ffb9c0fb77602f9dacac43474865a567238f342490f0cdf70ce9e6",
+  "first32_matches_projection": true,
+  "first_coordinate": [
+    70,
+    190
+  ],
+  "coordinate_encoding": "Packed little-endian signed int64 episode_index,row pairs (<qq) in loss order.",
+  "sampling_projection": {
+    "ref": "experiments/larger-dataset-v1-extension-v1/sampling-projection.json",
+    "bytes": 8452,
+    "sha256": "932ed1d87e40d64a9702c9aab1af6e6610b68601d20a56e137de5afb9e6ca3e3"
+  },
+  "independent_metric_verifier": {
+    "source": {
+      "ref": "archive:reports/larger-dataset-v1-extension-v1-startup-complete/reports/independent_extension_metrics_v1.py",
+      "bytes": 7961,
+      "sha256": "f569dd33713384111d6762eabb9b1060a16f0937d7d96e8967c4bffcd2fe5777"
+    },
+    "parent_only_smoke_proof": {
+      "ref": "archive:reports/larger-dataset-v1-extension-v1-startup-complete/reports/larger-dataset-v1-extension-v1/root-independent-parent-only.json",
+      "bytes": 1611,
+      "sha256": "a5996bb656fe166ba15d82eae978705ff8bf4ba97e9c758a278994355ab7c681"
+    },
+    "parent_only": true,
+    "scope": "Existing source8192 paired arrays only; no extension checkpoint metric or selection verification yet."
+  },
+  "active_audit_entire_file_hashed": false,
+  "active_audit_prefix_bytes_read": 94794,
+  "no_new_checkpoint_in_snapshot": true,
+  "whole_experiment_complete": false,
+  "hardware_task_competence_established": false
+}

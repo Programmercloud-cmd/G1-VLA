@@ -1,9 +1,14 @@
 # Larger-dataset v1 extension to cumulative 12,288
 
-Status: authorized and preparing; no new training has launched. The bounded new
-segment strictly loads the verified selected cumulative-8,192 weights and starts
-fresh native AdamW/cosine state for 4,096 additional updates. The prior full
-optimizer/scheduler/RNG files remain preserved and are not restored.
+Status: running with [startup verified](startup-complete.json). The captured
+snapshot records 46 finite local updates (cumulative weight lineage 8,238),
+strict learned-8,192 loading, all five runtime audits, frozen processor/zero
+dropout, live cap and fresh optimizer state. The first 32 consumed coordinates
+match seed 8,234. This is a historical startup snapshot, not a new checkpoint
+or final result. The [execution receipt](execution.json) binds actual commit
+`f7ce2ffe` and the six-hour deadline of **22 October 2026 at 13:23:44 UTC**.
+The bounded segment targets 4,096 additional updates; source optimizer/scheduler/RNG
+files remain preserved and were not restored.
 
 | Native local save | Cumulative weight lineage |
 | ---: | ---: |
