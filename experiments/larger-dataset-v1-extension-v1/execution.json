@@ -1,0 +1,189 @@
+{
+  "schema_version": 1,
+  "artifact_type": "extension_immutable_actual_execution_startup_receipt",
+  "generated_at_utc": "2026-10-22T07:28:00.524530+00:00",
+  "run": "larger-dataset-v1-extension-v1",
+  "status": "launched_initializing_runtime_audits_not_certified_by_this_receipt",
+  "snapshot_scope": "Immutable actual launch, armed cap and observer-start evidence only. Later strict learned-weight load, runtime processor/dropout, fresh optimizer and sample-consumption audits require separate evidence. No new checkpoint, evaluation metric or task competence is certified here.",
+  "implementation_commit": "cf1fc9a113f35bd18e14dc268e8035d23fb20693",
+  "declaration_publication_and_actual_execution_commit": "f7ce2ffe86aa04278969da96a0a40081b5217ada",
+  "extension_protocol": {
+    "ref": "experiments/larger-dataset-v1-extension-v1/evaluation-protocol.json",
+    "bytes": 12836,
+    "sha256": "4fabc335cc465a25e93092ab19e51c1621ec0dff5f4f3c57c2f40dd69d8a5f74"
+  },
+  "original_protocol": {
+    "ref": "experiments/larger-dataset-v1/evaluation-protocol.json",
+    "bytes": 42385,
+    "sha256": "9f8cf657889f49ea747928232e592610863562e222778563ee09ff7c9bd96ab1"
+  },
+  "ancestry": {
+    "ref": "experiments/larger-dataset-v1-extension-v1/ancestry.json",
+    "bytes": 4608,
+    "sha256": "a7cbab4e1319d0bbf689b98bdbc4a71d4f6faa3fc2395519c9b5bdee149665cb"
+  },
+  "source_checkpoint_ref": "archive:runs/larger-dataset-v1-continuation-v1-retry1/checkpoint-4096",
+  "source_cumulative_step": 8192,
+  "source_native_step": 4096,
+  "source_full_state_inventory": {
+    "ref": "archive:reports/larger-dataset-v1-continuation-v1-retry1-checkpoint-local-4096-cumulative-8192/full-checkpoint-inventory.json",
+    "bytes": 8725,
+    "sha256": "1ef3517648c1e38965b44e8583d5d79d9dce33269f77f85f04b7ae60815a138a"
+  },
+  "source_optimizer_scheduler_rng_restored": false,
+  "declared_fresh_optimizer_and_scheduler": true,
+  "actual_run_manifest": {
+    "ref": "archive:reports/larger-dataset-v1-extension-v1-startup/reports/larger-dataset-v1-extension-v1/larger-dataset-v1-extension-v1-run.json",
+    "bytes": 139223,
+    "sha256": "838edf9cb8f7b968d1dc21f633d8dcd1c38822b305fcfdddaea3b4ab7484bf12"
+  },
+  "startup_publication_manifest": {
+    "ref": "archive:reports/larger-dataset-v1-extension-v1-startup/publication-manifest.json",
+    "bytes": 4047,
+    "sha256": "f1ebcdd12244a212da360ec33bc0b51a24c672f7a376b9f9ba8f7a9b5eb7655b"
+  },
+  "official_cpu_dryrun": {
+    "ref": "archive:reports/larger-dataset-v1-extension-v1-startup/reports/larger-dataset-v1-extension-v1/larger-dataset-v1-extension-v1-dry-run.json",
+    "bytes": 139223,
+    "sha256": "1ee714c81b9ce710a505b4b8f4280b23e9699a94293c70de44b40690acda35b9"
+  },
+  "fresh_actual_host_resources": {
+    "ref": "archive:reports/larger-dataset-v1-extension-v1-startup/reports/larger-dataset-v1-extension-v1/prelaunch-resource-check-20261022T072156Z.json",
+    "bytes": 2783,
+    "sha256": "920c70cb0fd83ae5829eb3f444f42792d33d35183d092cda08fab3696c550098"
+  },
+  "resource_snapshot": {
+    "root_free_bytes": 20858454016,
+    "external_output_free_bytes": 1015911571456,
+    "remote_external_output_free_bytes": 1015911571456,
+    "shm_free_bytes": 61382422528,
+    "host_available_bytes": 125790121984,
+    "gpu": {
+      "name": "NVIDIA RTX A6000",
+      "total_mib": 49140,
+      "free_mib": 48660,
+      "used_mib": 11,
+      "utilization_percent": 0,
+      "compute_processes": []
+    }
+  },
+  "local_machine_configuration": {
+    "path": "reports/larger-dataset-v1-extension-v1-machine.json",
+    "durable_copy": {
+      "ref": "archive:reports/larger-dataset-v1-extension-v1-startup/reports/larger-dataset-v1-extension-v1-machine.json",
+      "bytes": 323,
+      "sha256": "b06d4411f2d5606ebd97a4a71a74f9367731e4d0de401618c4ec3426136bc1c2"
+    }
+  },
+  "actual_launch": {
+    "ref": "archive:reports/larger-dataset-v1-extension-v1-startup/reports/larger-dataset-v1-extension-v1/actual-launch-process.json",
+    "bytes": 3186,
+    "sha256": "1068cb5491860cba974056b1f54d19a8e4686d67ffabc9ffa5fd8117acbac5cc"
+  },
+  "actual_process_identities": {
+    "ref": "archive:reports/larger-dataset-v1-extension-v1-startup/reports/larger-dataset-v1-extension-v1/actual-process-identities.json",
+    "bytes": 5822,
+    "sha256": "7c11b3ab588477400a1cc5c2902cc0af35380265381204506f3c8abdd09a1392"
+  },
+  "pids_at_startup": {
+    "launcher": 159096,
+    "worker": 159180,
+    "watchdog": 159181
+  },
+  "actual_launch_observed_at_utc": "2026-10-22T07:23:44.613093+00:00",
+  "armed_watchdog": {
+    "ref": "archive:reports/larger-dataset-v1-extension-v1-startup/reports/larger-dataset-v1-extension-v1-safety/cap-watchdog-armed.json",
+    "bytes": 6470,
+    "sha256": "24d6ae673370450d245f4d9f60b28d0e8dc147f10252d64a342a8d8fb88fcb7a"
+  },
+  "cap": {
+    "seconds": 21600,
+    "scope": "Original actual extension launcher process start, including source preflight, loading, training and all saves; no extension/reset.",
+    "estimated_deadline_utc": "2026-10-22T13:23:44.617504+00:00",
+    "watchdog_monotonic_deadline": 87732.285236148,
+    "launcher_monotonic_deadline": 87732.356748014,
+    "watchdog_expires_seconds_before_launcher_timer": 0.07151186600094661,
+    "independent_root_review": "Root independently checked actual /proc UID, PID/start ticks, argv SHA, process groups and sessions against the immutable armed snapshot; all matched. Independent conservative timer values need not be exactly equal."
+  },
+  "declared_training_recipe": {
+    "maximum_new_local_updates": 4096,
+    "cumulative_target": 12288,
+    "local_checkpoint_steps": [
+      2048,
+      4096
+    ],
+    "cumulative_checkpoint_steps": [
+      10240,
+      12288
+    ],
+    "learning_rate": 2.5e-05,
+    "warmup_steps": 103,
+    "scheduler": "cosine",
+    "data_seed": 8234,
+    "split_seed": 42,
+    "evaluation_seeds": [
+      42,
+      43,
+      44
+    ],
+    "state_dropout_prob": 0.0,
+    "microbatch": 1,
+    "accumulation": 8,
+    "native_full_state_saving": true
+  },
+  "processor_cpu_readiness": {
+    "ref": "experiments/larger-dataset-v1-extension-v1/processor-readiness.json",
+    "bytes": 6418,
+    "sha256": "0e64cfaff866afbe9c4eef434978b70000e30f6cb6b3963186a4e582a01e83c2"
+  },
+  "storage_readiness": {
+    "ref": "experiments/larger-dataset-v1-extension-v1/storage-readiness.json",
+    "bytes": 6789,
+    "sha256": "c1528cb08f3eb2bbec23516d33fbf8e3f41e8619939e7d8ffb32bd7ff071ab18"
+  },
+  "nominal_sampling_projection": {
+    "ref": "experiments/larger-dataset-v1-extension-v1/sampling-projection.json",
+    "bytes": 8452,
+    "sha256": "932ed1d87e40d64a9702c9aab1af6e6610b68601d20a56e137de5afb9e6ca3e3"
+  },
+  "observer": {
+    "source": {
+      "ref": "archive:reports/larger-dataset-v1-extension-v1-startup/reports/extension_readonly_observer_20261022.py",
+      "bytes": 8745,
+      "sha256": "5a3bb4f66db61b49a9149cbea5c81574d178d283ef61738dc811b51b371d4f79"
+    },
+    "parser_fixture": {
+      "ref": "archive:reports/larger-dataset-v1-extension-v1-startup/reports/larger-dataset-v1-extension-v1/observer-parser-fixture.json",
+      "bytes": 409,
+      "sha256": "3b9578bbdfe36963ff3d39e0934389a0e4bbff713a57f311190ae155ed8e92d0"
+    },
+    "started_snapshot": {
+      "ref": "archive:reports/larger-dataset-v1-extension-v1-startup/reports/larger-dataset-v1-extension-v1/observer-started.json",
+      "bytes": 374,
+      "sha256": "943a4cb301af0b95e27c49c768785e810616ab0c738fc4b71ba6216e68cda097"
+    },
+    "pid": 159251,
+    "started_at_utc": "2026-10-22T07:25:22.010907+00:00",
+    "run_manifest_sha256": "838edf9cb8f7b968d1dc21f633d8dcd1c38822b305fcfdddaea3b4ab7484bf12",
+    "scope": "Local audit/launcher/final-report objects only; no SSH, GPU, checkpoint reads or process signals.",
+    "complete_json_objects_only": true,
+    "no_clobber_event_output": "reports/larger-dataset-v1-extension-v1/larger-dataset-v1-extension-v1-observer-events.jsonl",
+    "active_outputs_hashed": false
+  },
+  "inert_posttraining_plan": {
+    "artifact": {
+      "ref": "archive:reports/larger-dataset-v1-extension-v1-startup/reports/larger-dataset-v1-extension-v1/posttraining-execution-plan.json",
+      "bytes": 10430,
+      "sha256": "5b8e2520741fe94a4a5478ab39c5751b78269da2adc4737d0877a3e539e0487c"
+    },
+    "executed": false,
+    "requires_training_final_report_all_writers_exited_and_separate_gpu_lease": true
+  },
+  "filesystem_guard_bytes_unchanged": 8589934592,
+  "new_policy_metrics": null,
+  "new_certified_checkpoints": [],
+  "hardware_task_competence_established": false,
+  "active_audit_log_and_current_watchdog_hashes_frozen": false,
+  "historical_results_and_all_source_runs_preserved": true,
+  "startup_snapshot_observed_at_utc": "2026-10-22T07:25:22.010907+00:00"
+}
