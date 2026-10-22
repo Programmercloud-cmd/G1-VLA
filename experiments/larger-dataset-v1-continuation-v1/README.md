@@ -13,6 +13,12 @@ the original deadline; its 21,227-second cap uses the remaining original budget.
 That earlier receipt records the pre-audit initialization state and remains
 unchanged history; the new startup proof supplies the completed runtime checks.
 
+The [first new checkpoint](checkpoint-6144.json) is now certified at local step
+2,048 / cumulative weight lineage 6,144: 20 files totaling 25,547,995,357 bytes,
+including optimizer, scheduler and RNG state, passed complete remote SHA256 and
+file/directory fsync checks. Training continues; this certificate establishes no
+paired offline evaluation or whole-run result.
+
 The first startup failed before any optimizer update. The
 [startup receipt](startup-attempt-1.json) binds the immutable run manifest,
 watchdog snapshots, final zero-update report and durable logs. The runner stopped
