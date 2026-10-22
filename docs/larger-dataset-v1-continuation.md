@@ -1,18 +1,22 @@
 # Larger-dataset v1 continuation from checkpoint 4,096
 
-Status: the controlled retry `larger-dataset-v1-continuation-v1-retry1` is running
-with [startup verified](../experiments/larger-dataset-v1-continuation-v1/startup-complete.json)
-under commit `84c1f7d`. The captured snapshot records 35 finite local optimizer
-updates (cumulative weight lineage 4,131); all five startup audits passed, including
-strict learned-parent loading, frozen processor/zero dropout, live cap and fresh
-optimizer state. The first 32 actual sample coordinates match seed 4,138 and differ
-from the parent's seed-42 prefix. No new checkpoint or final result is certified
-by this snapshot. The earlier [execution receipt](../experiments/larger-dataset-v1-continuation-v1/execution.json)
-binds its actual manifest, v2 protocol, armed watchdog and stable process identities.
-Its conservative deadline is **22 October 2026 at 04:21:22 UTC**, earlier than the
-original 04:21:24 UTC deadline; the 21,227-second cap consumes only the remaining
-original budget. The original pre-audit execution receipt remains unchanged history;
-the new startup proof adds the verified runtime checks and historical progress.
+Status: the controlled retry `larger-dataset-v1-continuation-v1-retry1` completed
+all 4,096 additional updates successfully under execution commit `84c1f7d`,
+reaching cumulative weight lineage 8,192. Both canonical full-state saves, paired
+train/validation evaluations, archives and formal selection passed. The
+[selected policy](../experiments/larger-dataset-v1-continuation-v1/selected-policy.json)
+is cumulative 8,192 (native local 4,096), validation normalized MAE 0.110770.
+See [final results](larger-dataset-v1-continuation-results.md) and the immutable
+[training outcome](../experiments/larger-dataset-v1-continuation-v1/training-outcome.json).
+
+The [startup proof](../experiments/larger-dataset-v1-continuation-v1/startup-complete.json)
+and [execution receipt](../experiments/larger-dataset-v1-continuation-v1/execution.json)
+remain historical snapshots. All five runtime audits passed: strict learned-parent
+loading, unchanged frozen processor/zero dropout, seed-only configuration change,
+live cap and fresh optimizer state. The independent watchdog used the remaining
+original budget, with a conservative deadline of **22 October 2026 at 04:21:22 UTC**;
+training ended before it, without a cap signal. No training or evaluation process
+remains active.
 
 The first startup stopped after 23.4 seconds with zero
 optimizer updates and no new checkpoint. The [failed-start receipt](../experiments/larger-dataset-v1-continuation-v1/startup-attempt-1.json)
@@ -58,10 +62,14 @@ The adapter verifies that it changes only this field. Frozen split seed 42 and
 inference seeds 42/43/44 remain unchanged. Starting seed 42 again would repeat the
 same initial 32,768 sample identities and 87 episodes. CPU reconstruction exactly
 matches that actual parent prefix; the seed 4138 nominal schedule differs, exposing
-nine previously unseen episodes. Its combined nominal lineage covers 96/98
-training episodes and 36,545/37,281 unique windows. These are CPU sample-identity
-projections, not actual continuation consumption or numerical-equivalence claims;
-runtime audits will measure consumption.
+nine previously unseen episodes. After training, the complete actual 32,768-coordinate
+sequence exactly matched the CPU seed-4138 projection (packed little-endian episode/row
+SHA256 `f80c4f3eee6d626357ef54799ba7bb901f3d41b5988e348fc142bd5a82b2a513`).
+The fresh segment consumed 87 episodes; combined saved weight lineage consumed
+96/98 training episodes and 36,545/37,281 unique windows across 65,536 microbatches.
+These are observed sample identities, not augmentation/model numerical equivalence
+or exact iterator-resume claims. The [training outcome](../experiments/larger-dataset-v1-continuation-v1/training-outcome.json)
+binds the CPU proof, actual audit, coverage and preserved nominal projection.
 
 Native `save_only_model=False` saves `optimizer.pt`, `scheduler.pt`,
 `rng_state.pth`, TrainerState and model/processor files. A real pinned CPU Trainer
@@ -81,7 +89,8 @@ audits remain local; checkpoints stay on configured durable storage.
 
 An independent local watchdog verifies launcher/worker PID, owner, start ticks,
 command line, process group and session using `/proc`, with no SSHFS access in its
-loop. At its conservative process-start-plus-six-hours deadline it sends TERM,
+loop. At the original conservative deadline, using only the remaining original
+budget, it sends TERM,
 then bounded KILL. If the original worker remains blocked in FUSE D-state after
 KILL, it may terminate only the captured, identity-verified daemon for this exact
 project mount, preserving partial output and requiring explicit later mount

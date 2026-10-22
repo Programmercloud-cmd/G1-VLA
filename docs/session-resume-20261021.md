@@ -1,24 +1,21 @@
 # Larger-dataset v1 resume — 21 October 2026
 
-Current next scope: the user authorized a [separate continuation from the verified
-4,096 checkpoint](larger-dataset-v1-continuation.md), with fresh optimizer/scheduler
-state and at most 4,096 additional updates within its original six-hour budget.
-The [controlled retry](../experiments/larger-dataset-v1-continuation-v1/execution.json)
-is running with [startup verified](../experiments/larger-dataset-v1-continuation-v1/startup-complete.json)
-under commit `84c1f7d`, with its independent watchdog
-armed until **22 October 2026 at 04:21:22 UTC**, earlier than the original deadline.
-The captured snapshot records 35 finite local updates (cumulative weight lineage
-4,131), strict learned-parent loading, frozen processor/zero dropout, live cap and
-fresh optimizer state. Its first 32 consumed sample coordinates match seed 4,138;
-no new checkpoint or final result is certified by this snapshot. Its first
-startup stopped after 23.4 seconds with zero updates following a watchdog worker
-command-line identity error; [the failed startup](../experiments/larger-dataset-v1-continuation-v1/startup-attempt-1.json)
-is preserved; retry startup did not extend the original cap.
-The material below records the completed earlier
-partial experiment and recovery history; its old commands are not a new launch
-instruction.
+Current status (22 October): the [continuation](larger-dataset-v1-continuation.md)
+completed all 4,096 additional updates, both full-state saves, paired evaluations,
+durable archives and formal checkpoint selection. The [selected offline policy](../experiments/larger-dataset-v1-continuation-v1/selected-policy.json)
+is cumulative 8,192 / native local 4,096, validation normalized MAE **0.110770**
+versus **0.149138** for the parent. See [final results and curves](larger-dataset-v1-continuation-results.md)
+and [complete training evidence](../experiments/larger-dataset-v1-continuation-v1/training-outcome.json).
+All training/evaluation processes exited; no further training is running or scheduled.
+The model-only inference view is nonresumable; the separate canonical checkpoint
+retains native state, with no exact sample-cursor restoration. Hardware competence
+has not been tested. The first zero-update startup failure and original remaining-budget
+cap remain preserved; the retry did not reset the deadline.
 
-Current outcome: [retry2](larger-dataset-v1-retry2.md) stopped at 5,231 of
+The material below records the earlier partial experiment and recovery history.
+Its old commands are not new launch instructions.
+
+Earlier partial outcome: [retry2](larger-dataset-v1-retry2.md) stopped at 5,231 of
 8,192 updates when the unchanged 8 GiB local disk reserve guard fired. Its cap
 was not reached. Checkpoints 2,048 and 4,096 have certified save events; their
 paired train/validation evaluations, archives and CPU analysis have passed.

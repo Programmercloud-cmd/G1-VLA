@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "artifact_type": "continuation_final_results_publication",
+  "passed": true,
+  "generated_at_utc": "2026-10-22T03:50:27.764011+00:00",
+  "source_originals_preserved": true,
+  "remote_full_sha_and_file_directory_fsync": true,
+  "files": [
+    {
+      "ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-continuation-v1-retry1-analysis/artifacts.json",
+      "bytes": 1486,
+      "sha256": "075475bf7b9bbb564c842a666371b47a414a82c31678ea393e3645959da918b2"
+    },
+    {
+      "ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-continuation-v1-retry1-analysis/learning-curves.png",
+      "bytes": 245153,
+      "sha256": "c0e903aac109da2d68a199ac283edcf4fdae791e974759a01369b1de54969fef"
+    },
+    {
+      "ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-continuation-v1-retry1-analysis/loss-windows.csv",
+      "bytes": 4994,
+      "sha256": "66a4d324f1dd2dda03d869182760b2454acd62d9951d60e9615aa5340bb994c3"
+    },
+    {
+      "ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-continuation-v1-retry1-analysis/metrics.csv",
+      "bytes": 2076663,
+      "sha256": "3fd43b6cc2097b127d0725a87bdd75181b22e15532fb556629118732d6000921"
+    },
+    {
+      "ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-continuation-v1-retry1-analysis/native-error-curves.png",
+      "bytes": 277932,
+      "sha256": "17eb533aef6d88fcdc4ea14c1639abee8896881d491822dfd3aa060708842058"
+    },
+    {
+      "ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-continuation-v1-retry1-analysis/selected-policy.json",
+      "bytes": 7591,
+      "sha256": "c1488548a9e07ff2c537a395d68b54e4779972b44de5b10327039e0630df5b7c"
+    },
+    {
+      "ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-continuation-v1-retry1-analysis/summary.json",
+      "bytes": 143291,
+      "sha256": "2f6793fee864a87334f75af9ae02c68aeb4d9b0e544eedcae170b119864f868b"
+    },
+    {
+      "ref": "archive:reports/larger-dataset-v1-continuation-v1-retry1-final-results-publication/curation.log",
+      "bytes": 161,
+      "sha256": "421668bd48316b2cacbb80653e3c09bf373fd9115b1a653e49f28d4f201eac0f"
+    }
+  ],
+  "scope": "CPU analysis and completed evaluation references only; no model or checkpoint content reads."
+}

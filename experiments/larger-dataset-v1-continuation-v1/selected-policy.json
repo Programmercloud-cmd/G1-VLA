@@ -1,0 +1,156 @@
+{
+  "schema_version": 1,
+  "artifact_type": "validation_selected_offline_policy",
+  "run": "larger-dataset-v1-continuation-v1-retry1",
+  "cumulative_weight_lineage": 8192,
+  "native_checkpoint_global_step": 4096,
+  "new_local_segment_updates": 4096,
+  "selection": {
+    "ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-continuation-v1-retry1-selection.json",
+    "bytes": 1902,
+    "sha256": "2454c9f50c2b7507780f629bf81de1c8ca8e4cdff1da9747e6a762fb91c83082"
+  },
+  "selection_rule": {
+    "candidates_cumulative_steps": [
+      4096,
+      6144,
+      8192
+    ],
+    "metric": "validation/all/group_balanced_normalized_mae",
+    "tie": "earliest_cumulative_step",
+    "formal_selection_requires_both_new_pairs": true,
+    "incomplete_run": "descriptive_ranking_of_certified_available_candidates_only",
+    "mandatory_improvement_threshold": null,
+    "persistence": "descriptive_only"
+  },
+  "independently_verified_evaluation_closeout": {
+    "ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-continuation-v1-retry1-evaluation-verified-closeout.json",
+    "bytes": 1513,
+    "sha256": "dc20ab3ffa94521cafc9d113a235303addacaa8d4e93cbf13e73cadb7a12b4e9"
+  },
+  "validation_group_balanced_normalized_mae": 0.11077015555715948,
+  "model_only_inference_ref": "archive:runs/larger-dataset-v1-continuation-v1-retry1-inference/checkpoint-4096",
+  "inference_reference_training_resumability": "NONRESUMABLE: model-only reference; no optimizer/scheduler/RNG.",
+  "model_only_inference_inventory": {
+    "ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-continuation-v1-retry1-local-4096-cumulative-8192-view-inventory.json",
+    "bytes": 4846,
+    "sha256": "8037d579d539c48ecec7237d2e63298e9985754fbbaaf03ce3ac7d1640846005"
+  },
+  "canonical_full_state_resume_ref": "archive:runs/larger-dataset-v1-continuation-v1-retry1/checkpoint-4096",
+  "canonical_full_state_inventory": {
+    "ref": "archive:reports/larger-dataset-v1-continuation-v1-retry1-checkpoint-local-4096-cumulative-8192/full-checkpoint-inventory.json",
+    "bytes": 8725,
+    "sha256": "1ef3517648c1e38965b44e8583d5d79d9dce33269f77f85f04b7ae60815a138a"
+  },
+  "selected_native_optimizer_state_available": true,
+  "archive_evidence": {
+    "report": {
+      "ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-continuation-v1-retry1-local-4096-cumulative-8192-archive.json",
+      "bytes": 1208,
+      "sha256": "0182a9a04334240d530de54e891fe5946dd7a220a324ca21d7ca90cffc91d7bb"
+    },
+    "manifest": {
+      "ref": "archive:checkpoints/larger-dataset-v1-continuation-v1-retry1-local-4096-cumulative-8192/archive_manifest.json",
+      "bytes": 24979,
+      "sha256": "9e1e0d14b4ee30bfe23274d5c0364c0cb3aab3349b9a2c40fd861cca1fee0aec"
+    }
+  },
+  "all_new_full_state_resume_refs": {
+    "6144": "archive:runs/larger-dataset-v1-continuation-v1-retry1/checkpoint-2048",
+    "8192": "archive:runs/larger-dataset-v1-continuation-v1-retry1/checkpoint-4096"
+  },
+  "all_new_full_state_evidence": {
+    "6144": {
+      "resume_ref": "archive:runs/larger-dataset-v1-continuation-v1-retry1/checkpoint-2048",
+      "inventory": {
+        "ref": "archive:reports/larger-dataset-v1-continuation-v1-retry1-checkpoint-local-2048-cumulative-6144/full-checkpoint-inventory.json",
+        "bytes": 8725,
+        "sha256": "59c3df6dacaf94c1f491a23bfe2d29e99794c08161d2d5c2340a1ecf7d6a9454"
+      },
+      "archive": {
+        "report": {
+          "ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-continuation-v1-retry1-local-2048-cumulative-6144-archive.json",
+          "bytes": 1209,
+          "sha256": "8a2992dc850d22328f270ba711c9b23db8d68dfe26aa4b066e99bcdb1b3e8227"
+        },
+        "manifest": {
+          "ref": "archive:checkpoints/larger-dataset-v1-continuation-v1-retry1-local-2048-cumulative-6144/archive_manifest.json",
+          "bytes": 24980,
+          "sha256": "227febc8da44384558006df70ae584c29254d16770a4834c7290ce926fecdce1"
+        }
+      }
+    },
+    "8192": {
+      "resume_ref": "archive:runs/larger-dataset-v1-continuation-v1-retry1/checkpoint-4096",
+      "inventory": {
+        "ref": "archive:reports/larger-dataset-v1-continuation-v1-retry1-checkpoint-local-4096-cumulative-8192/full-checkpoint-inventory.json",
+        "bytes": 8725,
+        "sha256": "1ef3517648c1e38965b44e8583d5d79d9dce33269f77f85f04b7ae60815a138a"
+      },
+      "archive": {
+        "report": {
+          "ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-continuation-v1-retry1-local-4096-cumulative-8192-archive.json",
+          "bytes": 1208,
+          "sha256": "0182a9a04334240d530de54e891fe5946dd7a220a324ca21d7ca90cffc91d7bb"
+        },
+        "manifest": {
+          "ref": "archive:checkpoints/larger-dataset-v1-continuation-v1-retry1-local-4096-cumulative-8192/archive_manifest.json",
+          "bytes": 24979,
+          "sha256": "9e1e0d14b4ee30bfe23274d5c0364c0cb3aab3349b9a2c40fd861cca1fee0aec"
+        }
+      }
+    }
+  },
+  "parent4096_ref": "archive:runs/larger-dataset-v1-retry2/checkpoint-4096",
+  "parent4096_inventory": {
+    "ref": "archive:reports/larger-dataset-v1/larger-dataset-v1-retry2-checkpoint-4096-inventory.json",
+    "bytes": 7140,
+    "sha256": "fe78550476202ab1476e9565b9f5fe3dbe39855ebb0b2724b9a093c7af92f6ca"
+  },
+  "fresh_optimizer_boundary_in_selected_lineage": 4096,
+  "source_unsaved1135_updates_excluded": true,
+  "original_protocol": {
+    "ref": "experiments/larger-dataset-v1/evaluation-protocol.json",
+    "bytes": 42385,
+    "sha256": "9f8cf657889f49ea747928232e592610863562e222778563ee09ff7c9bd96ab1"
+  },
+  "continuation_protocol": {
+    "ref": "experiments/larger-dataset-v1-continuation-v1/evaluation-protocol-startup-fix-v2.json",
+    "bytes": 7684,
+    "sha256": "59e5b5b7b43647b88d4b69fc41c6cb044ec56eec2bc54ea5b65bc1d94be4166f"
+  },
+  "split": {
+    "ref": "experiments/larger-dataset-v1/split.json",
+    "bytes": 100076,
+    "sha256": "9a721d4bb14157a119650b4848c62e0cdd6134a843dc0e6d27b84d36e20e040b"
+  },
+  "processor_files_sha256": {
+    "processor_config.json": "033aeac07e3227b523703d152dca8ac2d277a40168f1d2698b536e6d2417c228",
+    "statistics.json": "7abadea98ec3c97086ac3be138189086d07907a3c007bafd4a8f5d39950a4282",
+    "embodiment_id.json": "5e8611697dc90b7b7a92cf2a8da926275c16f5966c5eb109e0216c3c51af15a1"
+  },
+  "processor_semantics_sha256": "e9fabe9dfd6b04b7c7a4cb6097073e0200b21987059a7c7987cf41c0f949997c",
+  "normalization_owner": "train",
+  "state_dropout_prob": 0.0,
+  "runtime_source_locks": {
+    "ref": "locks/runtime-sources.json",
+    "bytes": 1249,
+    "sha256": "df5e2c183582c79d219482e6b2095f2428195ff321f847c6fa4d778d3d77bbc8"
+  },
+  "model_assets_lock": {
+    "ref": "locks/model-assets.json",
+    "bytes": 3046,
+    "sha256": "be445c931fac431029f1af3edbd680e5e8be35cdd01f3b19707956baecc66115"
+  },
+  "modality_configuration": {
+    "ref": "configs/g1_inspire_config.py",
+    "bytes": 1305,
+    "sha256": "39f1311a6640420d2f1285d9c1c242ff66413d40c8fd64e518a854e36ca9c0b5"
+  },
+  "exact_iterable_cursor_restoration_supported": false,
+  "production_optimizer_reload_tested": false,
+  "optimizer_reload_evidence": "Tiny pinned CPU Trainer fixture only; production full-state structures and durable hashes verified.",
+  "continuation_storage_limit": "Continuation full-state verification/view/archive requires configured SSH-backed storage; local-disk-only path unsupported.",
+  "hardware_task_competence_established": false,
+  "scope": "Offline validation-selected candidate, not hardware deployment approval. Parent4096 remains model-only if selected; no full-state reference is invented for it."
+}

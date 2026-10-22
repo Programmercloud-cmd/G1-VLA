@@ -73,4 +73,17 @@ CPU checks:
 "$VLA_PY" -B -m unittest discover -s tests -p test_continuation_evaluation.py -v
 ```
 
-These validate tiny hardlink/copy views, complete-file identity, full-state exclusions, bounded optimizer verification, fixed protocol/source bindings and early rejection of uncertified training. Production full-state saving, views and new-checkpoint inference remain untested until the authorized continuation produces its actual checkpoints. The separate native Trainer CPU test covers optimizer/scheduler/RNG save/reload and demonstrates the iterable-loader reseeding limitation; the cap test uses disposable processes, not a live model or storage failure.
+These validate tiny hardlink/copy views, complete-file identity, full-state exclusions,
+bounded optimizer verification, fixed protocol/source bindings and early rejection
+of uncertified training. Production full-state saving and certification now passed
+at both native steps 2,048 and 4,096. Both separate inference views, strict paired
+train/validation inferences, comparisons and durable archives passed; formal selection
+chose cumulative 8,192, confirmed by independent CPU recomputation of all four new
+prediction arrays. See [final results](larger-dataset-v1-continuation-results.md).
+
+Production optimizer reload has not been exercised. The separate native Trainer
+CPU fixture covers optimizer/scheduler/RNG save/reload and demonstrates the pinned
+iterable-loader reseeding limitation; exact sample-cursor replay remains unsupported.
+The cap test uses disposable processes, not a live model or storage failure.
+The SSH-backed continuation storage requirement described above remains in force;
+a local-disk-only continuation view/evaluation/archive path is unsupported.

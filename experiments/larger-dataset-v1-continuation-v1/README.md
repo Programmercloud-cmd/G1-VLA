@@ -1,10 +1,25 @@
 # Larger-dataset v1 continuation v1
 
-Status: [training completed successfully](training-outcome.json) for the controlled
-retry `larger-dataset-v1-continuation-v1-retry1`: 4,096 additional optimizer updates,
-8,192 cumulative weight-lineage updates, and both full-state checkpoints durably
-verified. The native final model save and all training processes have completed.
-Paired offline evaluation and formal checkpoint selection are in progress.
+Status: training, both paired offline evaluations, both full-state archives and
+formal selection completed successfully. The [selected policy](selected-policy.json)
+is cumulative weight lineage **8,192**, native local step **4,096**. Its validation
+four-group mean normalized MAE is **0.110770**, versus **0.149138** for the parent
+4,096 checkpoint and **0.152467** at cumulative 6,144. The intermediate validation
+regression is preserved. Independent CPU recomputation of the prediction arrays
+confirmed the scores and ranking.
+
+See [final results and limitations](../../docs/larger-dataset-v1-continuation-results.md),
+[curated metrics and artifact bindings](results.json), [learning curves](learning-curves.png),
+[native-unit curves](native-error-curves.png), and [loss windows](loss-windows.csv).
+The [publication manifest](results-publication.json) binds the durable analysis
+copies, full metrics CSV and curation log with verified SHA256/fsync evidence.
+The [training outcome](training-outcome.json) records 4,096 additional finite updates,
+32,768 microbatches, successful exit and both durable full-state checkpoints.
+The selected inference view is explicitly nonresumable; its separate canonical
+checkpoint retains native optimizer/scheduler/RNG state. No hardware trial has run.
+
+The paragraphs below preserve the earlier milestone snapshots. They are not the
+current completion status.
 
 The earlier [verified startup snapshot](startup-complete.json) records
 35 finite local updates (cumulative weight lineage 4,131), all five runtime audits,
